@@ -470,7 +470,7 @@ li {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .banner_title {
@@ -486,7 +486,7 @@ li {
 
 .header_title h1 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .services_grid {
