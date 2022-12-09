@@ -104,7 +104,7 @@
             <div class="swiper-wrapper">
 
                 <!-- Home -->
-                <div class="swiper-slide home">
+                <div class="swiper-slide bark_bg">
                     <div id="page_home" class="bottom_spacing">
                         <div class="slide_header">
                             <div class="header_flex">
@@ -133,7 +133,7 @@
                 <!--/. Home -->
 
                 <!-- Your Journey -->
-                <div class="swiper-slide home">
+                <div class="swiper-slide bark_bg">
                     <div id="page_journey" class="bottom_spacing">
                         <div class="slide_header">
                             <div class="header_flex">
@@ -145,12 +145,46 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="journey_content">
+                            <div class="swiper journeySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide journey_box spacing">
+                                        <div class="journey_icon">
+                                            <img src="img/journey/journey_01.jpg">
+                                        </div>
+                                        <div class="journey_body">
+                                            <h3>Step 1 - Discovery</h3>
+                                            <p>We will collect the necessary information from you for providing the best options</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide journey_box spacing">
+                                        <div class="journey_icon">
+                                            <img src="img/journey/journey_02.jpg">
+                                        </div>
+                                        <div class="journey_body">
+                                            <h3>Step 2 - Consultation</h3>
+                                            <p>We will provide a free consultation to understand your requirements better</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide journey_box spacing">
+                                        <div class="journey_icon">
+                                            <img src="img/journey/journey_01.jpg">
+                                        </div>
+                                        <div class="journey_body">
+                                            <h3>Step 3 - Step Heading</h3>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination journey_pagination"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--/. Your Journey -->
 
                 <!-- Services -->
-                <div class="swiper-slide home">
+                <div class="swiper-slide bark_bg">
                     <div id="page_services" class="bottom_spacing">
                         <div class="slide_header">
                             <div class="header_flex">
@@ -252,7 +286,7 @@
                 <!--/. Services -->
 
                 <!-- Student Stories -->
-                <div class="swiper-slide home">
+                <div class="swiper-slide bark_bg">
                     <div id="page_stories" class="bottom_spacing">
                         <div class="slide_header">
                             <div class="header_flex">
@@ -310,7 +344,7 @@
 
             // App Menus
             pagination: {
-                el: '.swiper-pagination',
+                el: '.app_foot_nav',
                 clickable: true,
                 renderBullet: function(index, className) {
                     return '<span class="' + className + '"> <i class="' + (icon[index]) + '"></i>' + (menu[index]) + '</span>';
@@ -320,6 +354,14 @@
 
         $('.swiper_back').click(function() {
             $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
+        });
+
+
+        // Swiper Journey
+        var swiper = new Swiper(".journeySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+            },
         });
     </script>
 

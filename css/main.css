@@ -120,7 +120,7 @@ li {
     z-index: -99;
 }
 
-.swiper-slide.home {
+.swiper-slide.bark_bg {
     background: rgb(30, 31, 31);
     background: linear-gradient(0deg, rgb(32, 32, 32) 0%, rgb(21, 21, 21) 100%);
 }
@@ -529,6 +529,70 @@ li {
 
 .service_details h3 {
     font-size: 1.2rem;
+}
+
+.journey_content {
+    height: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.journeySwiper {
+    display: flex;
+    flex-direction: column;
+}
+
+.journey_pagination {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.journey_pagination .swiper-pagination-bullet {
+    width: 2rem;
+    height: 0.2rem;
+    border-radius: 2px;
+    margin: 0 0.1rem !important;
+    background-color: #323335;
+    opacity: 1;
+}
+
+.journey_pagination .swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+}
+
+.journey_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.journey_body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    padding: 2rem 0;
+}
+
+.journey_icon {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.journey_body h3 {
+    font-size: 1.2rem;
+}
+
+.journey_icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @media screen and (max-width: 767px) {
