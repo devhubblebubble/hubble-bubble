@@ -52,13 +52,13 @@
                         <ul class="menu__items-list js-menu-items-list">
                             <li class="js-menu-item">
                                 <!-- is-active -->
-                                <a href="#">
+                                <a id="openAbout">
                                     <i class="ri-building-2-fill"></i>
                                     <span>About Us</span>
                                 </a>
                             </li>
-                            <li class="js-menu-item">
-                                <a href="#">
+                            <li>
+                                <a id="openTeam">
                                     <i class="ri-group-fill"></i>
                                     <span>Our Team</span>
                                 </a>
@@ -126,7 +126,7 @@
                                 </h1>
                             </div>
                             <div class="home_btn_block">
-                                <button type="button" class="btn app_btn btn_primary" data-dialog="eligibilityDialog">Take the Eligibility Test</button>
+                                <button type="button" class="btn app_btn btn_primary" id="openEligibility">Take the Eligibility Test</button>
                                 <button type="button" class="btn app_btn btn_secondary">Apply for the next batch</button>
                             </div>
                         </div>
@@ -427,7 +427,7 @@
             <div class="dialog__content bark_bg">
                 <div class="slide_header">
                     <div class="header_flex">
-                        <div class="menu__trigger header_toggle_btn" data-dialog-close>
+                        <div class="menu__trigger header_toggle_btn" id="closeEligibility">
                             <i class="ri-close-line"></i>
                         </div>
                         <div class="header_title">
@@ -559,6 +559,88 @@
         </div>
         <!--/. Check Eligibility -->
 
+
+        <!-- About Us -->
+        <div id="aboutDialog" class="dialog">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content bark_bg">
+                <div class="slide_header">
+                    <div class="header_flex">
+                        <div class="menu__trigger header_toggle_btn" id="closeAbout">
+                            <i class="ri-close-line"></i>
+                        </div>
+                        <div class="header_title">
+                            <h1>About Us</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog_body scroll">
+                    <div class="spacing">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non dui quis massa facilisis egestas. Fusce luctus nulla quis nunc tincidunt, ac laoreet erat vulputate. Nam non fermentum lectus. Nam rhoncus tristique dolor, dictum condimentum nisi fermentum
+                            quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris egestas risus nec ultricies elementum. Phasellus arcu felis, dapibus ac rutrum id, tincidunt eu nulla. In hac habitasse platea dictumst. Cras fermentum
+                            interdum magna in ornare. Cras rhoncus leo sed eleifend sodales. Fusce dignissim congue ornare. Nunc ligula lectus, tristique in sem eu, iaculis tempus lectus. Sed tortor tellus, faucibus ac pharetra quis, aliquam quis eros.
+                            Suspendisse consequat magna at augue faucibus tempus. Integer vitae lobortis sapien.
+                        </p>
+                        <p>
+                            In eu lacinia lectus. In mattis est vel est venenatis bibendum. Sed vestibulum risus et mi mollis vehicula. Cras libero quam, consectetur sed velit id, tristique scelerisque libero. Nulla porttitor justo ut consequat viverra. Quisque convallis dolor tortor,
+                            ut pellentesque libero imperdiet eu. Vestibulum at velit et tortor dignissim congue. Integer quis maximus leo, eu dignissim neque. Nulla vel odio ullamcorper, commodo orci vel, pharetra nisi. Fusce sapien dui, consequat non
+                            ante sit amet, fermentum fringilla diam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/. About Us -->
+
+        <!-- Our Team -->
+        <div id="teamDialog" class="dialog">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content bark_bg">
+                <div class="slide_header">
+                    <div class="header_flex">
+                        <div class="menu__trigger header_toggle_btn" id="closeTeam">
+                            <i class="ri-close-line"></i>
+                        </div>
+                        <div class="header_title">
+                            <h1>Our Team</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog_body scroll">
+                    <div class="spacing">
+                        <div class="services_grid team">
+                            <div class="service_item">
+                                <div class="service_icon team_icon">
+                                    <img src="img/users/jevin.png">
+                                </div>
+                                <div class="service_details team_details">
+                                    <h3>Jevin Zac</h3>
+                                    <h6>Founder</h6>
+                                    <p>
+                                        Starting this initiative since I’ve felt my fellow Indians are being ripped off by agencies that look to profit off students by sending them to universities that pays the highest commission!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="service_item">
+                                <div class="service_icon team_icon">
+                                    <img src="img/users/user_placeholder.png">
+                                </div>
+                                <div class="service_details team_details">
+                                    <h3>Team User</h3>
+                                    <h6>User Designation</h6>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non dui quis massa facilisis egestas. Fusce luctus nulla quis nunc tincidunt, ac laoreet erat vulputate. Nam non fermentum lectus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/. Our Team -->
+
     </div>
 
     <!--//. Mobile Version -->
@@ -569,7 +651,6 @@
     <script src="js/mobile-nav/mobile-nav.js"></script>
     <script src="js/swiper/swiper-bundle.min.js"></script>
     <script src="js/video-js/video.min.js"></script>
-    <script src="js/modal/modernizr.custom.js"></script>
     <script src="js/modal/modal.js"></script>
     <script src="js/smartwizard/jquery.smartWizard.min.js"></script>
 
@@ -578,14 +659,6 @@
             // Copyright Year
             $(".spanYear").html(new Date().getFullYear());
         });
-
-        // Modal
-        (function() {
-            var dlgtrigger = document.querySelector('[data-dialog]'),
-                somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')),
-                dlg = new DialogFx(somedialog);
-            dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
-        })();
 
         // Swiper Home
         var icon = ['ri-home-5-fill', 'ri-flight-takeoff-line', 'ri-settings-3-fill', 'ri-chat-quote-fill']
