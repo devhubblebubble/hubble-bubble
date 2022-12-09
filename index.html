@@ -464,7 +464,12 @@
         })
 
         $('.swiper_back').click(function() {
+            player.pause();
             $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
+        });
+
+        $('.app_foot_nav .swiper-pagination-bullet').click(function() {
+            player.pause();
         });
 
 
