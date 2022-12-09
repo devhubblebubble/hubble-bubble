@@ -70,7 +70,7 @@
                                 </a>
                             </li>
                             <li class="js-menu-item">
-                                <a href="#">
+                                <a id="openContact">
                                     <i class="ri-mail-fill"></i>
                                     <span>Contact Us</span>
                                 </a>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="home_btn_block">
                                 <button type="button" class="btn app_btn btn_primary" id="openEligibility">Take the Eligibility Test</button>
-                                <button type="button" class="btn app_btn btn_secondary">Apply for the next batch</button>
+                                <button type="button" class="btn app_btn btn_secondary" id="openNextBatch">Apply for the next batch</button>
                             </div>
                         </div>
                     </div>
@@ -436,7 +436,7 @@
                     </div>
                 </div>
                 <div class="dialog_body">
-                    <div id="smartwizard">
+                    <div id="smartwizard" class="page_seperation">
                         <div class="tab-head">
                             <h5 class="stepper_title">
                                 Please answer a few questions to <br>check your eligibility
@@ -593,53 +593,73 @@
         </div>
         <!--/. About Us -->
 
-        <!-- Our Team -->
-        <div id="teamDialog" class="dialog">
+        <!-- Contact Us -->
+        <div id="contactDialog" class="dialog">
             <div class="dialog__overlay"></div>
             <div class="dialog__content bark_bg">
                 <div class="slide_header">
                     <div class="header_flex">
-                        <div class="menu__trigger header_toggle_btn" id="closeTeam">
+                        <div class="menu__trigger header_toggle_btn" id="closeContact">
                             <i class="ri-close-line"></i>
                         </div>
                         <div class="header_title">
-                            <h1>Our Team</h1>
+                            <h1>Contact Us</h1>
                         </div>
                     </div>
                 </div>
                 <div class="dialog_body scroll">
-                    <div class="spacing">
-                        <div class="services_grid team">
-                            <div class="service_item">
-                                <div class="service_icon team_icon">
-                                    <img src="img/users/jevin.png">
+                    <div class="page_seperation">
+                        <div class="spacing">
+                            <h5 class="stepper_title">
+                                Fill out the form below <br>so we can reach you ASAP.
+                            </h5>
+                            <div class="contact_form">
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>First Name</span>
+                                  </label>
                                 </div>
-                                <div class="service_details team_details">
-                                    <h3>Jevin Zac</h3>
-                                    <h6>Founder</h6>
-                                    <p>
-                                        Starting this initiative since I’ve felt my fellow Indians are being ripped off by agencies that look to profit off students by sending them to universities that pays the highest commission!
-                                    </p>
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>Last Name</span>
+                                  </label>
+                                </div>
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>Phone Number</span>
+                                  </label>
+                                </div>
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>Email Address</span>
+                                  </label>
+                                </div>
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>Preferred Country</span>
+                                  </label>
+                                </div>
+                                <div class="form_group">
+                                    <label class="pure-material-textfield-outlined">
+                                    <input placeholder="" />
+                                    <span>Course/University</span>
+                                  </label>
                                 </div>
                             </div>
-                            <div class="service_item">
-                                <div class="service_icon team_icon">
-                                    <img src="img/users/user_placeholder.png">
-                                </div>
-                                <div class="service_details team_details">
-                                    <h3>Team User</h3>
-                                    <h6>User Designation</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non dui quis massa facilisis egestas. Fusce luctus nulla quis nunc tincidunt, ac laoreet erat vulputate. Nam non fermentum lectus.
-                                    </p>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="sw-toolbar-elm toolbar toolbar-bottom">
+                            <button class="btn app_btn btn_primary">Submit</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/. Our Team -->
+        <!--/. Contact Us -->
 
     </div>
 

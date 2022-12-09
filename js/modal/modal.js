@@ -24,6 +24,24 @@ $('#closeTeam').click(function() {
     }, 200);
 });
 
+$('#openContact').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#contactDialog').addClass('dialog--open');
+});
+
+$('#closeContact').click(function() {
+    $('#contactDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#contactDialog').removeClass('dialog--open');
+        $('#contactDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openNextBatch').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#contactDialog').addClass('dialog--open');
+});
+
 $('#openEligibility').click(function() {
     $('.menu__trigger--close').trigger('click');
     $('#eligibilityDialog').addClass('dialog--open');
