@@ -19,7 +19,7 @@
 <body>
     <!-- Web Version -->
     <div id="web_layout">
-        <h3>Web Version Not Available</h3>
+        <h3>Web Version Not Available!</h3>
     </div>
     <!--/. Web Version -->
 
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="menu__footer">
-                        <p>© <span id="spanYear"></span> Hubble Bubble. All Right Reserved.</p>
+                        <p>© <span class="spanYear"></span> Hubble Bubble. All Right Reserved.</p>
                     </div>
                 </div>
 
@@ -288,7 +288,7 @@
     <script>
         $(document).ready(function() {
             // Copyright Year
-            $("#spanYear").html(new Date().getFullYear());
+            $(".spanYear").html(new Date().getFullYear());
         });
 
         // Swiper Home
