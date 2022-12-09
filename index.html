@@ -11,7 +11,8 @@
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+    <link href="css/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!-- Main -->
 </head>
@@ -298,6 +299,114 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="stories_content">
+
+                            <div class="swiper storiesSwiper">
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide stories_item" data-slide-type="img">
+                                        <div class="text_story color1">
+                                            <div class="text_story_content">
+                                                <h3>
+                                                    I’m still feeling ecstatic when I think about getting the job opportunity to be where I’m now. I’m so thankful to Jevin fro that and he helped me all the way to make this whole process smooth. I’m thrilled to be here in the UK.
+                                                </h3>
+                                            </div>
+                                            <div class="story_avatar">
+                                                <div class="user_icon">
+                                                    <img src="img/users/mayukhi.jpg">
+                                                </div>
+                                                <div class="user_body">
+                                                    <h4>Mayukhi</h4>
+                                                    <p>Senior Carer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide stories_item" data-slide-type="vdo">
+                                        <div class="video_story">
+                                            <video id="my-player" class="video-js" controls preload="auto" data-setup='{"fluid": true}'>
+                                              <source src="videos/stories/stories_sample.mp4" type="video/mp4"></source>
+                                              <p class="vjs-no-js">
+                                                video not support your mobile
+                                              </p>
+                                            </video>
+                                            <div class="story_avatar">
+                                                <div class="user_icon">
+                                                    <img src="img/users/user_placeholder.png">
+                                                </div>
+                                                <div class="user_body">
+                                                    <h4>Sample User</h4>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide stories_item" data-slide-type="img">
+                                        <div class="text_story color2">
+                                            <div class="text_story_content">
+                                                <h3>
+                                                    Your one call had motivated us to travel this far, this is not something I’m just saying, it is something from my heart. This means a lot. You are doing something amazing, maybe you are not knowing it, but you are helping a lot of people through this.
+                                                    I feel so so thankful!
+                                                </h3>
+                                            </div>
+                                            <div class="story_avatar">
+                                                <div class="user_icon">
+                                                    <img src="img/users/user_placeholder.png">
+                                                </div>
+                                                <div class="user_body">
+                                                    <h4>Sona J</h4>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide stories_item" data-slide-type="img">
+                                        <div class="text_story color3">
+                                            <div class="text_story_content">
+                                                <h3>
+                                                    Thanks for being there for me my brother and for helping me choose the right course based on my profile and skills. Without your motivation, I might not have the courage to apply to the UK.
+                                                </h3>
+                                            </div>
+                                            <div class="story_avatar">
+                                                <div class="user_icon">
+                                                    <img src="img/users/user_placeholder.png">
+                                                </div>
+                                                <div class="user_body">
+                                                    <h4>Fredy Thomas </h4>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="swiper-slide stories_item" data-slide-type="img">
+                                        <div class="text_story color4">
+                                            <div class="text_story_content">
+                                                <h3>
+                                                    Thank you Jevin for helping me achieve my dream. The entire process till the visa approval was seamless and was offered excellent consultation. Every time I had a doubt, I was able to connect with the team immediately. I would like to thank Freddy, who
+                                                    did an excellent job throughout the process and a special thanks to you Jevin for all the help you had done even though we had a different time zone. Whenever I had a doubt about anything, he would call
+                                                    me and explain to me in detail and motivated me to choose the right path. Moreover this team will make us feel like a family!
+                                                </h3>
+                                            </div>
+                                            <div class="story_avatar">
+                                                <div class="user_icon">
+                                                    <img src="img/users/krishnaprasad.jpg">
+                                                </div>
+                                                <div class="user_body">
+                                                    <h4>Krishna Prasad A</h4>
+                                                    <p>Student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <!--/. Student Stories -->
@@ -317,7 +426,8 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="js/TweenMax/TweenMax.min.js"></script>
     <script src="js/mobile-nav/mobile-nav.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -360,9 +470,82 @@
         // Swiper Journey
         var swiper = new Swiper(".journeySwiper", {
             pagination: {
-                el: ".swiper-pagination",
+                el: ".journey_pagination",
             },
         });
+
+        // Swiper Stories
+
+
+        // variable 
+        var VIDEO_PLAYING_STATE = {
+            "PLAYING": "PLAYING",
+            "PAUSE": "PAUSE"
+        }
+        var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
+        var timeout = null
+        var waiting = 300000
+        var swiper = new Swiper(
+            '.storiesSwiper', {
+                loop: true,
+                direction: "vertical",
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+        // HTML5 vdo object
+        var options = {};
+        var player = videojs('my-player', options);
+        player.on('ended', function() {
+            next()
+        })
+
+        // swiper object
+        swiper.on('slideChangeTransitionEnd', function() {
+            var index = swiper.activeIndex
+            var currentSlide = $(swiper.slides[index])
+            var currentSlideType = currentSlide.data('slide-type')
+
+            // incase user click next before video ended
+            if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
+                player.pause()
+            }
+
+            clearTimeout(timeout)
+
+            switch (currentSlideType) {
+                case 'img':
+                    runNext()
+                    break;
+                case 'vdo':
+                    player.currentTime(0)
+                    player.play()
+                    videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
+                    break;
+                default:
+                    throw new Error('invalid slide type');
+            }
+        })
+
+        // global function
+        function prev() {
+            swiper.slidePrev();
+        }
+
+        function next() {
+            swiper.slideNext();
+        }
+
+        function runNext() {
+            timeout = setTimeout(function() {
+                next()
+            }, waiting)
+        }
+        // this.player.controls(false)
+
+        runNext()
     </script>
 
 </body>

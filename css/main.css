@@ -595,6 +595,141 @@ li {
     object-fit: cover;
 }
 
+.page_stories .slide_header {
+    position: absolute;
+    z-index: 9;
+}
+
+.stories_item {
+    height: 100% !important;
+}
+
+.stories_content {
+    height: 100%;
+}
+
+.storiesSwiper {
+    height: 100%;
+}
+
+#page_stories .slide_header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    background: rgb(30, 31, 31);
+    background: linear-gradient(0deg, rgba(30, 31, 31, 0) 0%, rgba(21, 21, 21, 1) 100%);
+}
+
+#page_stories .vjs-control-bar {
+    display: none;
+}
+
+#page_stories {
+    height: calc(100% - 4rem);
+}
+
+.video-js {
+    width: 100%;
+}
+
+.my-player-dimensions.vjs-fluid:not(.vjs-audio-only-mode) {
+    padding-top: calc(100vh - 4rem);
+}
+
+.vjs-big-play-button {
+    border: none !important;
+    width: 7rem !important;
+    height: 7rem !important;
+    border-radius: 50% !important;
+    font-size: 4rem !important;
+    line-height: 7rem !important;
+    top: calc(50% - 3.5rem) !important;
+    left: calc(50% - 3.5rem) !important;
+    color: var(--primary-color) !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.stories_item {
+    user-select: none;
+}
+
+.story_avatar {
+    background: rgb(30, 31, 31);
+    background: linear-gradient(180deg, rgba(30, 31, 31, 0) 0%, rgba(21, 21, 21, 1) 100%);
+}
+
+.story_avatar {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1rem 2rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.user_icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid #fff;
+}
+
+.user_body h4 {
+    font-size: 0.95rem;
+    margin: 0 0rem;
+}
+
+.user_body p {
+    color: #fff;
+    opacity: 0.7;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.user_icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text_story {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.text_story.color1 {
+    background: linear-gradient(247.17deg, #3973E6 -4.78%, #32BCB4 68.41%);
+}
+
+.text_story.color2 {
+    background: linear-gradient(247.17deg, #623CBD -4.78%, #AD5ED3 68.41%);
+}
+
+.text_story.color3 {
+    background: linear-gradient(247.17deg, #ED7264 -4.78%, #F6AB6F 68.41%);
+}
+
+.text_story.color4 {
+    background: linear-gradient(247.17deg, #2EB9F0 -4.78%, #6656EE 68.41%);
+}
+
+.text_story_content {
+    padding: 0 1rem;
+    overflow: auto;
+    flex: 1;
+    max-height: 58vh;
+}
+
+.text_story_content h3 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
 @media screen and (max-width: 767px) {
     #web_layout {
         display: none;
