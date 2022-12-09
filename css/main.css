@@ -408,13 +408,13 @@ li {
 
 .app_btn {
     padding: 0.2rem 1.4rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--main-color);
     font-weight: 600;
     border-radius: 6px;
     background-color: #eee;
     cursor: pointer;
-    min-height: 52px;
+    min-height: 50px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
