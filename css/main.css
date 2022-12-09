@@ -265,7 +265,7 @@ li {
 .menu__footer {
     background-color: #222325;
     border-top: 1px solid #27282b;
-    height: 5rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
     margin: 0 -1.2rem;
@@ -323,7 +323,7 @@ li {
 
 .app_foot_nav {
     background-color: var(--dark-bg-color);
-    height: 5rem;
+    height: 4.5rem;
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -334,7 +334,7 @@ li {
 .slide_header {
     display: flex;
     padding: 0 1rem;
-    min-height: 5rem;
+    min-height: 4.5rem;
 }
 
 .header_flex {
@@ -376,7 +376,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     white-space: nowrap;
     overflow: hidden;
     background-color: transparent;
@@ -392,7 +392,7 @@ li {
 }
 
 .app_foot_nav .swiper-pagination-bullet i {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #6A6A6A;
     line-height: 1.2;
 }
@@ -447,7 +447,7 @@ li {
 }
 
 .bottom_spacing {
-    height: calc(100% - 5rem);
+    height: calc(100% - 4.5rem);
     display: flex;
     flex-direction: column;
 }
@@ -486,7 +486,7 @@ li {
 
 .header_title h1 {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .services_grid {
@@ -565,7 +565,7 @@ li {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: 3rem;
+    padding-top: 1rem;
 }
 
 .journey_body {
@@ -575,12 +575,12 @@ li {
     align-items: center;
     justify-content: center;
     max-width: 250px;
-    padding: 2rem 0;
+    padding: 2rem 0 0;
 }
 
 .journey_icon {
-    width: 16rem;
-    height: 16rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -625,7 +625,7 @@ li {
 }
 
 #page_stories {
-    height: calc(100% - 4rem);
+    height: calc(100% - 3.5rem);
 }
 
 .video-js {
@@ -633,7 +633,7 @@ li {
 }
 
 .my-player-dimensions.vjs-fluid:not(.vjs-audio-only-mode) {
-    padding-top: calc(100vh - 4rem);
+    padding-top: calc(100vh - 3.5rem);
 }
 
 .vjs-big-play-button {
