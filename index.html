@@ -126,7 +126,7 @@
                                 </h1>
                             </div>
                             <div class="home_btn_block">
-                                <button type="button" class="btn app_btn btn_primary">Take the Eligibility Test</button>
+                                <button type="button" class="btn app_btn btn_primary" data-dialog="eligibilityDialog">Take the Eligibility Test</button>
                                 <button type="button" class="btn app_btn btn_secondary">Apply for the next batch</button>
                             </div>
                         </div>
@@ -420,8 +420,99 @@
         </div>
         <!--/. Content -->
 
+
+        <!-- Check Eligibility -->
+        <div id="eligibilityDialog" class="dialog">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content bark_bg">
+                <div class="slide_header">
+                    <div class="header_flex">
+                        <div class="menu__trigger header_toggle_btn" data-dialog-close>
+                            <i class="ri-close-line"></i>
+                        </div>
+                        <div class="header_title">
+                            <h1>Check Eligibility</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog_body">
+                    <div id="smartwizard">
+                        <div class="tab-head">
+                            <h5 class="stepper_title">
+                                Please answer a few questions to <br>check your eligibility
+                            </h5>
+                            <!-- Step Label -->
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-1">
+                                        <span class="num">1</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-2">
+                                        <span class="num">2</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-3">
+                                        <span class="num">3</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-4">
+                                        <span class="num">4</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-5">
+                                        <span class="num">5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--/. Step Label -->
+                        </div>
+
+                        <div class="tab-content">
+                            <!-- Step 1 -->
+                            <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+                                step 1
+                            </div>
+                            <!--/. Step 1 -->
+
+                            <!-- Step 2 -->
+                            <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                                step 2
+                            </div>
+                            <!--/. Step 2 -->
+
+                            <!-- Step 3 -->
+                            <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+                                step 3
+                            </div>
+                            <!--/. Step 3 -->
+
+                            <!-- Step 4 -->
+                            <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+                                step 3
+                            </div>
+                            <!--/. Step 4 -->
+
+                            <!-- Step 5 -->
+                            <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-5">
+                                step 5
+                            </div>
+                            <!--/. Step 5 -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/. Check Eligibility -->
+
     </div>
-    <!--/. Mobile Version -->
+
+    <!--//. Mobile Version -->
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -429,12 +520,23 @@
     <script src="js/mobile-nav/mobile-nav.js"></script>
     <script src="js/swiper/swiper-bundle.min.js"></script>
     <script src="js/video-js/video.min.js"></script>
+    <script src="js/modal/modernizr.custom.js"></script>
+    <script src="js/modal/modal.js"></script>
+    <script src="js/smartwizard/jquery.smartWizard.min.js"></script>
 
     <script>
         $(document).ready(function() {
             // Copyright Year
             $(".spanYear").html(new Date().getFullYear());
         });
+
+        // Modal
+        (function() {
+            var dlgtrigger = document.querySelector('[data-dialog]'),
+                somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')),
+                dlg = new DialogFx(somedialog);
+            dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
+        })();
 
         // Swiper Home
         var icon = ['ri-home-5-fill', 'ri-flight-takeoff-line', 'ri-settings-3-fill', 'ri-chat-quote-fill']
@@ -552,6 +654,31 @@
         // this.player.controls(false)
 
         runNext()
+
+
+        $('#smartwizard').smartWizard({
+            // selected: 4,
+            enableUrlHash: false,
+            style: {
+                btnNextCss: 'sw-btn-next',
+                btnPrevCss: 'sw-btn-prev',
+            },
+            lang: {
+                next: 'Next',
+                previous: 'Prev'
+            },
+            toolbar: {
+                extraHtml: `<button id="form_submit" class="btn app_btn btn_primary">Submit</button>`
+            },
+        });
+        $('#form_submit').hide();
+        $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+            if (anchorObject.prevObject.length - 1 == nextStepIndex) {
+                $('#form_submit').show();
+            } else {
+                $('#form_submit').hide();
+            }
+        });
     </script>
 
 </body>
