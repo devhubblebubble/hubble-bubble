@@ -770,16 +770,6 @@
             },
         })
 
-        $('.swiper_back').click(function() {
-            player.pause();
-            $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
-        });
-
-        $('.app_foot_nav .swiper-pagination-bullet').click(function() {
-            player.pause();
-        });
-
-
         // Swiper Journey
         var swiper = new Swiper(".journeySwiper", {
             pagination: {
@@ -797,9 +787,10 @@
         }
         var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
         var timeout = null
-        var waiting = 100000
+        var waiting = 10000
         var swiper = new Swiper(
             '.storiesSwiper', {
+                // enabled: false,
                 loop: true,
                 direction: "vertical",
                 navigation: {
@@ -861,6 +852,15 @@
 
         runNext()
 
+
+        $('.swiper_back').click(function() {
+            player.pause();
+            $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
+        });
+
+        $('.app_foot_nav .swiper-pagination-bullet').click(function() {
+            player.pause();
+        });
 
         $('#smartwizard').smartWizard({
             // selected: 4,
