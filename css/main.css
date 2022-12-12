@@ -471,6 +471,7 @@ li {
     flex-direction: column;
     gap: 0.8rem;
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .banner_title {
@@ -1292,6 +1293,16 @@ li {
 
 .contact_form {
     margin-bottom: 1rem;
+}
+
+#canv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#page_home .slide_header {
+    position: relative;
 }
 
 @media screen and (max-width: 767px) {
