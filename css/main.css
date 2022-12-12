@@ -1306,6 +1306,86 @@ li {
     position: relative;
 }
 
+.swipe_down {
+    position: fixed;
+    bottom: 20px;
+    z-index: 9;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.swipe_icon * {
+    transform-origin: 50% 50%;
+    perspective: 100px;
+}
+
+.arrow-up-2,
+.hold-1,
+.tap-1 {
+    opacity: .5;
+}
+
+.arrow-up-1,
+.hold-2,
+.tap-2 {
+    opacity: .25;
+}
+
+.swipe_icon svg {
+    width: 70px;
+    fill: #fff;
+    margin-right: 8px;
+}
+
+.swiper-slide.stories_item .swipe_down {
+    display: none;
+}
+
+.swiper-slide.stories_item.swiper-slide-active .swipe_down {
+    display: flex;
+}
+
+@keyframes swipe-x {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(50px) rotateZ(10deg);
+    }
+    50% {
+        transform: translateX(0px);
+    }
+    75% {
+        transform: translateX(-50px) rotateZ(-10deg);
+    }
+}
+
+@keyframes swipe-y {
+    0% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(50px) rotateZ(-10deg);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    75% {
+        transform: translateY(-50px) rotateZ(10deg);
+    }
+}
+
+.hand {
+    transform-origin: 25% 50%;
+}
+
+.hand-y {
+    animation: swipe-y 1.25s ease-in-out backwards;
+    animation-iteration-count: infinite;
+}
+
 @media screen and (max-width: 767px) {
     #web_layout {
         display: none;
