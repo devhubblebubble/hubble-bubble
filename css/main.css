@@ -1443,6 +1443,10 @@ li {
     font-style: italic;
 }
 
+#page_home {
+    background-color: #000;
+}
+
 @media screen and (max-width: 767px) {
     #web_layout {
         display: none;

@@ -939,7 +939,7 @@
         //  Banner Animation
 
         var canvas = document.getElementById("canv");
-        var num = 200;
+        var num = 300;
         var w = window.innerWidth;
         var h = window.innerHeight;
         var max = 100;
@@ -979,10 +979,10 @@
                 ctheta: 0,
                 stheta: 0
             },
-            zoom: 1,
+            zoom: 2,
             disp: {
-                x: w / 2,
-                y: h / 2,
+                x: w / 8,
+                y: h / 8,
                 z: 0
             },
             upd: function() {
@@ -1208,9 +1208,9 @@
                     if (this.varr[i].transOut.p < 0) continue;
                     var g = this.$.createRadialGradient(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p, this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2);
                     this.$.globalCompositeOperation = 'lighter';
-                    g.addColorStop(0, '#6D6D6D');
-                    g.addColorStop(.5, '#3E4145');
-                    g.addColorStop(1, '#353535');
+                    g.addColorStop(0, '#fff');
+                    g.addColorStop(.5, 'rgba(255,255,255,0.5)');
+                    g.addColorStop(1, 'rgba(255,255,255,0.2)');
                     this.$.fillStyle = g;
                     this.$.beginPath();
                     this.$.arc(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2, 0, Math.PI * 2, false);
