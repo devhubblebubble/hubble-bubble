@@ -600,20 +600,24 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-width: 250px;
-    padding: 2rem 0 0;
+    max-width: 340px;
+    padding: 1rem 0 0;
 }
 
 .journey_icon {
-    width: 12rem;
-    height: 12rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     overflow: hidden;
 }
 
 .journey_body h3 {
     font-size: 1.2rem;
+}
+
+.journey_label {
+    color: var(--primary-color);
+    margin-bottom: 2.5px;
 }
 
 .journey_icon img {
