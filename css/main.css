@@ -358,6 +358,10 @@ li {
     max-width: 180px;
 }
 
+.brand_icon svg {
+    width: 98px;
+}
+
 .brand_icon img {
     width: 100%;
 }
