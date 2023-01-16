@@ -1056,7 +1056,7 @@ li {
 }
 
 .sw-toolbar-elm .btn.sw-btn-prev {
-    background-color: var(--secondary-color);
+    background-color: var(--text-color);
     color: #fff;
     border: none;
 }
@@ -1090,7 +1090,7 @@ li {
     margin: 0;
     border: solid 1px;
     /* Safari */
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.13);
     border-top-color: transparent;
     border-radius: 4px;
     padding: 14px 12px 14px;
@@ -1116,7 +1116,7 @@ li {
     top: 0;
     left: 0;
     display: flex;
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.13);
     width: 100%;
     max-height: 100%;
     color: rgba(255, 255, 255, 0.6);
@@ -1138,7 +1138,7 @@ li {
     box-sizing: border-box;
     margin-top: 6px;
     border-top: solid 1px;
-    border-top-color: rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.13);
     min-width: 10px;
     height: 8px;
     pointer-events: none;
@@ -1187,7 +1187,7 @@ li {
 
 .pure-material-textfield-outlined>input:not(:focus):placeholder-shown,
 .pure-material-textfield-outlined>textarea:not(:focus):placeholder-shown {
-    border-top-color: rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.13);
 }
 
 .pure-material-textfield-outlined>input:not(:focus):placeholder-shown+span,
@@ -1446,6 +1446,107 @@ li {
 #canv {
     background-color: #000;
 }
+
+
+/************************* CUSTOM RADIO */
+
+
+/****************************************/
+
+.radio {
+    position: relative;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.radio .label {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c8ccd4;
+    border-radius: 100%;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio .label:after {
+    content: "";
+    /* position: absolute;
+    top: 3px;
+    left: 3px; */
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: var(--primary-color);
+    transform: scale(0);
+    transition: all 0.2s ease;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.radio:hover .label:after {
+    transform: scale(3.6);
+}
+
+.radio input[type="radio"]:checked+.label {
+    border-color: var(--primary-color);
+}
+
+.radio input[type="radio"]:checked+.label:after {
+    transform: scale(1);
+    transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
+    opacity: 1;
+}
+
+.cntr {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.box_radio {
+    margin-bottom: 20px;
+}
+
+.box_radio .radio {
+    border: 1.5px solid rgba(255, 255, 255, 0.13);
+    background-color: transparent;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--main-color);
+    font-weight: 500;
+    min-height: 58px;
+    gap: 1rem;
+}
+
+.box_radio {
+    display: grid;
+    gap: 1rem;
+}
+
+.label_name {
+    flex: 1;
+}
+
+
+/********************* END CUSTOM RADIO */
+
+
+/****************************************/
 
 @media screen and (max-width: 767px) {
     #web_layout {
