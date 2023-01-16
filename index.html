@@ -14,6 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="css/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+    <link href="css/select2/select2.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet">
     <!-- Main -->
 </head>
@@ -603,11 +604,25 @@
 
                             <!-- Step 3 -->
                             <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+                                <div class="form_heading">
+                                    <h3>Select your desired country and university</h3>
+                                </div>
                                 <div class="form_group">
                                     <label class="pure-material-textfield-outlined">
                                     <input placeholder=" ">
                                     <span>Form Field</span>
                                   </label>
+                                </div>
+                                <div class="form_group">
+                                    <select class="form_select multi_select" multiple="multiple">
+                                        <option>UK</option>
+                                        <option>Canada</option>
+                                        <option>Germany</option>
+                                        <option>New Zealand</option>
+                                        <option>Australia</option>
+                                        <option>US</option>
+                                        <option>Other</option>
+                                    </select>
                                 </div>
                             </div>
                             <!--/. Step 3 -->
@@ -806,6 +821,7 @@
     <script src="js/swiper/swiper-bundle.min.js"></script>
     <script src="js/video-js/video.min.js"></script>
     <script src="js/modal/modal.js"></script>
+    <script src="js/select2/select2.min.js"></script>
     <script src="js/smartwizard/jquery.smartWizard.min.js"></script>
 
     <script>
@@ -1288,6 +1304,13 @@
             canvas.width = w = window.innerWidth;
             canvas.height = h = window.innerHeight;
         }, false);
+    </script>
+
+    <script>
+        $(".multi_select").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        })
     </script>
 
 </body>
