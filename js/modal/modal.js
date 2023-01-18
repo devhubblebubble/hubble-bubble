@@ -24,6 +24,14 @@ $('#closeTeam').click(function() {
     }, 200);
 });
 
+$('#closeTeam').click(function() {
+    $('#teamDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#teamDialog').removeClass('dialog--open');
+        $('#teamDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#openContact').click(function() {
     $('.menu__trigger--close').trigger('click');
     $('#contactDialog').addClass('dialog--open');

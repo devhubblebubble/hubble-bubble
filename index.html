@@ -15,6 +15,7 @@
     <link href="css/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
     <link href="css/select2/select2.min.css" rel="stylesheet" />
+    <link href="css/dropzone/dropzone.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet">
     <!-- Main -->
 </head>
@@ -68,6 +69,18 @@
                                 <a href="#">
                                     <i class="ri-hand-heart-fill"></i>
                                     <span>Student Volunteer</span>
+                                </a>
+                            </li>
+                            <li class="js-menu-item">
+                                <a href="#">
+                                    <i class="ri-trophy-fill"></i>
+                                    <span>Our Big Bang Theory</span>
+                                </a>
+                            </li>
+                            <li class="js-menu-item">
+                                <a href="#">
+                                    <i class="ri-map-pin-fill"></i>
+                                    <span>Find Us</span>
                                 </a>
                             </li>
                             <li class="js-menu-item">
@@ -605,7 +618,7 @@
                             <!-- Step 3 -->
                             <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
                                 <div class="form_heading">
-                                    <h3>Select your desired country and university</h3>
+                                    <h3>Select your preferred country and university</h3>
                                 </div>
 
                                 <div class="form_group mb-3">
@@ -639,31 +652,54 @@
 
                             <!-- Step 4 -->
                             <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
-                                <div class="form_group">
-                                    <label class="pure-material-textfield-outlined">
-                                    <input placeholder=" ">
-                                    <span>Form Field</span>
-                                  </label>
-                                </div>
-                                <div class="form_group">
-                                    <label class="pure-material-textfield-outlined">
-                                    <input placeholder=" ">
-                                    <span>Form Field</span>
-                                  </label>
+                                <div class="box_radio">
+                                    <label for="opt5" class="radio">
+                                        <input type="radio" name="rdo" id="opt5" checked="" class="hidden">
+                                        <span class="label"></span>
+                                        <span class="label_name">I will upload my documents now</span>
+                                    </label>
+                                    <label for="opt6" class="radio">
+                                        <input type="radio" name="rdo" id="opt6" class="hidden">
+                                        <span class="label"></span>
+                                        <span class="label_name">I will upload my documents to docs@hubblebubble.london</span>
+                                    </label>
+                                    <div class="or">
+                                        <span>Still have questions?</span>
+                                    </div>
+                                    <label for="opt7" class="radio">
+                                        <input type="radio" name="rdo" id="opt7" class="hidden">
+                                        <span class="label"></span>
+                                        <span class="label_name">book a call with a Hubble Bubble Mentor</span>
+                                    </label>
                                 </div>
                             </div>
                             <!--/. Step 4 -->
 
                             <!-- Step 5 -->
                             <div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-5">
-                                <div class="form_group">
-                                    <label class="pure-material-textfield-outlined">
-                                    <textarea placeholder=" "></textarea>
-                                    <span>Form Textarea</span>
-                                  </label>
+                                <div class="form_heading mb-3">
+                                    <h3>Upload Documents</h3>
+                                </div>
+
+                                <div class="form_group mb-3">
+                                    <label class="custom_label">Upload 12th Certificate</label>
+                                    <div class="dropzone" id="uploader1"></div>
+                                </div>
+                                <div class="form_group mb-3">
+                                    <label class="custom_label">Upload Degree Certificate</label>
+                                    <div class="dropzone" id="uploader2"></div>
+                                </div>
+                                <div class="form_group mb-3">
+                                    <label class="custom_label">Upload Sample 1 Certificate</label>
+                                    <div class="dropzone" id="uploader3"></div>
+                                </div>
+                                <div class="form_group mb-3">
+                                    <label class="custom_label">Upload Sample 2 Certificate</label>
+                                    <div class="dropzone" id="uploader4"></div>
                                 </div>
                             </div>
                             <!--/. Step 5 -->
+
                         </div>
 
                     </div>
@@ -820,6 +856,25 @@
         </div>
         <!--/. Contact Us -->
 
+
+        <!-- Confirmation -->
+        <div id="confirmationDialog" class="dialog">
+            <div class="dialog__overlay"></div>
+            <div class="dialog__content bark_bg">
+
+                <div class="confirmation_box">
+                    <div class="confirmation_icon">
+                        <img src="img/confirmation_1.png">
+                    </div>
+                    <h1>Don't worry, Hubble Bubble has got your back!</h1>
+                    <h4>Book a call with a Hubble Bubble Mentor and begin your dream journey​</h4>
+                    <button class="btn app_btn btn_primary" id="confirmationDialogClose">Book Now</button>
+                </div>
+
+            </div>
+        </div>
+        <!--/. Confirmation -->
+
     </div>
 
     <!--//. Mobile Version -->
@@ -833,6 +888,7 @@
     <script src="js/modal/modal.js"></script>
     <script src="js/select2/select2.min.js"></script>
     <script src="js/smartwizard/jquery.smartWizard.min.js"></script>
+    <script src="js/dropzone/dropzone-min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -982,10 +1038,9 @@
                 $('#form_submit').hide();
             }
         });
+    </script>
 
-
-
-
+    <script>
         //  Banner Animation
 
         var canvas = document.getElementById("canv");
@@ -1342,6 +1397,32 @@
         $("body").on("click", "#DeleteRow", function() {
             $(this).parents("#append_row").remove();
         })
+    </script>
+
+
+    <script>
+        const myDropzoneTheFirst = new Dropzone("#uploader1", {
+            url: "/file/post"
+        });
+        const myDropzoneTheSecond = new Dropzone("#uploader2", {
+            url: "/file/post"
+        });
+        const myDropzoneTheThird = new Dropzone("#uploader3", {
+            url: "/file/post"
+        });
+        const myDropzoneTheFourth = new Dropzone("#uploader4", {
+            url: "/file/post"
+        });
+    </script>
+
+    <script>
+        $('#form_submit').click(function() {
+            $('#eligibilityDialog').removeClass('dialog--open');
+            $('#confirmationDialog').addClass('dialog--open');
+        });
+        $('#confirmationDialogClose').click(function() {
+            $('#confirmationDialog').removeClass('dialog--open');
+        });
     </script>
 
 </body>
