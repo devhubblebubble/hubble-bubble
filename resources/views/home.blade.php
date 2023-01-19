@@ -56,7 +56,7 @@
                                 <h4>Let me help you make it a reality</h4>
                             </div>
                             <div class="home_btn_block">
-                                <button type="button" class="btn app_btn btn_primary" id="openEligibility">Take the eligibility test​</button>
+                                <button type="button" class="btn app_btn btn_primary" id="openEligibility">Take the eligibility test​ 1</button>
                                 <button type="button" class="btn app_btn btn_secondary" id="openNextBatch">Book a quick call​</button>
                             </div>
                         </div>
