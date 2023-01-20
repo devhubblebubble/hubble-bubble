@@ -138,6 +138,8 @@
             toolbar: {
                 extraHtml: `<button id="form_submit" class="btn app_btn btn_primary">Submit</button>`
             },
+            // SmartWizard initialize with step content callback
+            getContent: provideContent
         });
         $('#form_submit').hide();
         $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
@@ -146,7 +148,67 @@
             } else {
                 $('#form_submit').hide();
             }
+            // e.preventDefault();
         });
+        $("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
+            if(stepIndex == 2 && stepDirection == 'forward'){
+                $('#nav-step-3').removeClass('active');
+                $(".tab-pane").hide();
+                $('#smartwizard').smartWizard("goToStep", 4, true);
+                $("#step-5").show();
+                $('#nav-step-5').addClass('active');
+            } else{
+                $("#step-5").hide();
+                $('#nav-step-5').removeClass('active');
+            }
+        });
+
+        // Function to fetch the ajax content
+        function provideContent(idx, stepDirection, stepPosition, selStep, callback) {
+            console.log(idx, stepDirection, stepPosition, selStep, callback);
+            // Navigate next
+            // $('#smartwizard').smartWizard("next");
+            // $('#smartwizard').smartWizard("goToStep", 1, true);
+            
+            // You can use stepDirection to get ajax content on the forward movement and stepPosition to identify the step position
+            if (stepDirection == 'forward' && stepPosition == 'middle') {
+            let ajaxURL = "YOUR AJAX URL";
+
+            // Ajax call to fetch your content
+            $.ajax({
+                method  : "GET",
+                url     : ajaxURL,
+                beforeSend: function( xhr ) {
+                    // Show the loader
+                    $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+                }
+            }).done(function( res ) {
+                // Build the content HTML
+                let html = `<div class="card w-100" >
+                                <div class="card-body">
+                                    <p class="card-text">${res}</p>
+                                </div>
+                            </div>`;
+
+                // Resolve the Promise with the tab content
+                callback(html);
+
+                // Hide the loader
+                $(".sw-btn-next").html('Next')
+
+            }).fail(function(err) {
+                // Handle ajax error
+
+                // Hide the loader
+                $(".sw-btn-next").html('Next')
+            });
+            }
+
+            // The callback must called in any case to procced the steps
+            // The empty callback will not apply any dynamic contents to the steps
+            callback();
+        }
+
     </script>
 
     <script>
@@ -527,6 +589,8 @@
         $('#form_submit').click(function() {
             $('#eligibilityDialog').removeClass('dialog--open');
             $('#confirmationDialog').addClass('dialog--open');
+            $('#smartwizard').smartWizard("reset");
+            $('#form_submit').hide();
         });
         $('#confirmationDialogClose').click(function() {
             $('#confirmationDialog').removeClass('dialog--open');
