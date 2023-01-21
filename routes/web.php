@@ -14,3 +14,4 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',  [HomeController::class, 'homePage']);
+Route::post('/save-step-one',  [HomeController::class, 'saveStepOne']);

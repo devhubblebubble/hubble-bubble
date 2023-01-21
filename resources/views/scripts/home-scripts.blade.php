@@ -139,17 +139,13 @@
                 extraHtml: `<button id="form_submit" class="btn app_btn btn_primary">Submit</button>`
             },
             // SmartWizard initialize with step content callback
-            getContent: provideContent
+            // getContent: provideContent
         });
         $('#form_submit').hide();
         $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
-            if (anchorObject.prevObject.length - 1 == nextStepIndex) {
-                $('#form_submit').show();
-            } else {
-                $('#form_submit').hide();
-            }
-            // e.preventDefault();
+            e.preventDefault();
         });
+
         $("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
             if(stepIndex == 2 && stepDirection == 'forward'){
                 $('#nav-step-3').removeClass('active');
@@ -157,58 +153,161 @@
                 $('#smartwizard').smartWizard("goToStep", 4, true);
                 $("#step-5").show();
                 $('#nav-step-5').addClass('active');
-            } else{
+                $(".sw-btn-next").addClass("disabled");
+            } else {
                 $("#step-5").hide();
                 $('#nav-step-5').removeClass('active');
             }
         });
 
-        // Function to fetch the ajax content
-        function provideContent(idx, stepDirection, stepPosition, selStep, callback) {
-            console.log(idx, stepDirection, stepPosition, selStep, callback);
-            // Navigate next
-            // $('#smartwizard').smartWizard("next");
-            // $('#smartwizard').smartWizard("goToStep", 1, true);
-            
-            // You can use stepDirection to get ajax content on the forward movement and stepPosition to identify the step position
-            if (stepDirection == 'forward' && stepPosition == 'middle') {
-            let ajaxURL = "YOUR AJAX URL";
+        let currentStepIndex = 1;
+        let nextStepIndex = 2;
 
-            // Ajax call to fetch your content
-            $.ajax({
-                method  : "GET",
-                url     : ajaxURL,
-                beforeSend: function( xhr ) {
-                    // Show the loader
-                    $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
-                }
-            }).done(function( res ) {
-                // Build the content HTML
-                let html = `<div class="card w-100" >
-                                <div class="card-body">
-                                    <p class="card-text">${res}</p>
-                                </div>
-                            </div>`;
-
-                // Resolve the Promise with the tab content
-                callback(html);
-
-                // Hide the loader
-                $(".sw-btn-next").html('Next')
-
-            }).fail(function(err) {
-                // Handle ajax error
-
-                // Hide the loader
-                $(".sw-btn-next").html('Next')
-            });
+        $(".sw-btn-next").click(function(e){
+            if(currentStepIndex == 1) {
+                saveStepOne();
             }
+            else if(currentStepIndex == 2) {
+                let step2Value = $('input[name="step_two_rdo"]:checked').val();
+                if(!step2Value){
+                    $('#step-2-error').show();
+                    return false;
+                } else {
+                    $('#step-2-error').hide();
+                }
+                if(step2Value == "1"){
+                    currentStepIndex = 3;
+                    nextStepIndex = 4;
+                    loadNextStep(2, 3);
+                } else {
+                    showConfirm(); 
+                }
+            }
+            else if(currentStepIndex == 3) {
+                currentStepIndex = 4;
+                nextStepIndex = 5;
+                loadNextStep(3, 4);
+            }
+            else if(currentStepIndex == 4) {
+                currentStepIndex = 5;
+                nextStepIndex = 0;
+                loadNextStep(4, 5);
+            }
+        });
 
-            // The callback must called in any case to procced the steps
-            // The empty callback will not apply any dynamic contents to the steps
-            callback();
+        $(".sw-btn-next").click(function(e){
+            if(currentStepIndex == 1) {
+                $('.sw-btn-prev').hide();
+            }
+        
+        });
+
+        function validateStepOneForm(){
+            $("#stepOneForm").validate({
+                ignore:'',
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    age: {
+                        number: true,
+                        required: true
+                    },
+                    qualification: {
+                        required: true
+                    },
+                    contact_number: {
+                        required: true
+                    },
+                    email: {
+                        email: true
+                    },
+                },
+                messages: {
+                    name: {
+                        required: "Please enter your name."
+                    },
+                    age: {
+                        number: "Please enter a valid number as age.",
+                        required: "Please enter your age."
+                    },
+                    qualification: {
+                        required: "Please enter your qualification."
+                    },
+                    contact_number: {
+                        required: "Please enter your contact number."
+                    },
+                    email: {
+                        required: "Please enter a valid email ID."
+                    },
+                },
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element.next());
+                },
+                success: function(label,element) {
+                },
+            });
         }
 
+        function saveStepOne() {
+            validateStepOneForm();
+            var valid = $("#stepOneForm").valid();
+            if(!valid){
+                return false;
+            }
+            var formData = {};
+            let serializedForm = $("#stepOneForm").serializeArray();
+            serializedForm.forEach(element => {
+                formData[element.name] = element.value;
+            });
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-step-one') }}";
+            $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        currentStepIndex = 2;
+                        nextStepIndex = 3;
+                        loadNextStep(1, 2);
+                        $("#student_id").val(response.data.studentId);
+                        // Show the loader
+                        $(".sw-btn-next").html('Next')
+                    }
+                }, error: function(res)
+                {
+                    // Hide the loader
+                    $(".sw-btn-next").html('Next')
+                },
+            });
+        }
+
+        function loadNextStep(hideStep, showStep){
+            /* Change last step's status from active to done */
+            $('#nav-step-'+hideStep).removeClass('active');
+            $('#nav-step-'+hideStep).addClass('done');
+            /* Hide all steps */
+            $(".tab-pane").hide();
+            /* Change next step's status to active */
+            $("#step-"+showStep).show();
+            $('#nav-step-'+showStep).addClass('active');
+            $('#form_submit').hide();
+            if(currentStepIndex == 5) {
+                $('#form_submit').show();
+                $('.sw-btn-next').hide();
+            }
+            if(currentStepIndex > 1){
+                $('.sw-btn-prev').show();
+            }
+        }
+
+        function loadPrevStep(){
+
+        }
     </script>
 
     <script>
@@ -587,14 +686,25 @@
 
     <script>
         $('#form_submit').click(function() {
+            showConfirm(); 
+        });
+
+        $('#confirmationDialogClose').click(function() {
+            $('#confirmationDialog').removeClass('dialog--open');
+        });
+
+        function showConfirm() {
             $('#eligibilityDialog').removeClass('dialog--open');
             $('#confirmationDialog').addClass('dialog--open');
             $('#smartwizard').smartWizard("reset");
             $('#form_submit').hide();
-        });
-        $('#confirmationDialogClose').click(function() {
-            $('#confirmationDialog').removeClass('dialog--open');
-        });
+        }
+
+        function formsReset(){
+            $(".nav-link").removeClass("active");
+            $(".nav-link").removeClass("done");
+            $("#stepOneForm")[0].reset()
+        }
     </script>
 
     <script>
