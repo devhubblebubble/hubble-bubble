@@ -12,6 +12,9 @@
         <form class="dropzone" id="uploader1">
         @csrf
         </form>
+        <label for="uploader1" class="error" id="plusTwoDocURL-error" style="display:none;" >
+            Please upload your +2 document to continue
+        </label>
     </div>
     <div class="form_group mb-3">
         <label class="custom_label">Upload Degree Certificate</label>

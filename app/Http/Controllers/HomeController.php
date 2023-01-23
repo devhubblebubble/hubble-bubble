@@ -16,7 +16,12 @@ class HomeController extends Controller
     /* Save step one of eligibility test */
     public function saveStepOne(Request $req){
 
-        $studentInfo = new StudentPersonalInfo();
+        $id = $req->input('id');
+        if($id){
+            $studentInfo = StudentPersonalInfo::find($id);
+        } else {
+            $studentInfo = new StudentPersonalInfo();
+        }
         $studentInfo->name = $req->input('name');
         $studentInfo->age = $req->input('age');
         $studentInfo->qualification = $req->input('qualification');
@@ -112,14 +117,13 @@ class HomeController extends Controller
         $id = $req->input('id');
 
         $studentInfo = StudentPersonalInfo::find($id);
-        $studentInfo->step4Choice = $req->input('step4');
         $studentInfo->plusTwoDocURL = $req->input('plusTwoDocURL');
         $studentInfo->degreeDocURL = $req->input('degreeDocURL');
         $studentInfo->thirdDocURL = $req->input('thirdDocURL');
         $studentInfo->fourthDocURL = $req->input('fourthDocURL');
         $studentInfo->save();
 
-        $response = ["status" => "success", "data" => ["image_url" => $image_url], 
+        $response = ["status" => "success", "data" => null, 
         "message" => "Successfully saved step four"];
 
         return json_encode($response);

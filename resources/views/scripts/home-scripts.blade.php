@@ -177,7 +177,7 @@
         $(".sw-btn-next").click(function(e){
             let studentId = $("#student_id").val();
             if(currentStepIndex == 1) {
-                saveStepOne();
+                saveStepOne(studentId);
             }
             else if(currentStepIndex == 2) {                
                 saveStepTwo(studentId);
@@ -189,6 +189,45 @@
                 saveStepFour(studentId);
             }
         });
+
+        $(".sw-btn-prev").click(function(e){
+            if(currentStepIndex == 2) {  
+                currentStepIndex = 1;
+                nextStepIndex = 2;              
+                loadPrevStep(2, 1);
+            }
+            else if(currentStepIndex == 3) {
+                currentStepIndex = 2;
+                nextStepIndex = 3;              
+                loadPrevStep(3, 2);
+            }
+            else if(currentStepIndex == 4) {
+                currentStepIndex = 3;
+                nextStepIndex = 4;              
+                loadPrevStep(4, 3);
+            }
+            else if(currentStepIndex == 5) {
+                currentStepIndex = 4;
+                nextStepIndex = 5;              
+                loadPrevStep(5, 4);
+            }
+        });
+
+        function loadPrevStep(hideStep, showStep){
+            displayButtonsLogic(currentStepIndex);
+            setTimeout(() => {
+                /* Change last step's status from active to done */
+                $('#nav-step-'+hideStep).removeClass('active');
+                /* Hide all steps */
+                $(".tab-pane").hide();
+                /* Change next step's status to active */
+                $("#step-"+showStep).show();
+                $('#nav-step-'+showStep).addClass('active');
+                $('#nav-step-'+showStep).removeClass('done');
+                $('#form_submit').hide();
+                displayButtonsLogic(currentStepIndex);
+            }, 100);
+        }
 
         $('input[name="step_two_rdo"]').click(function(e){
             $('#step-2-error').hide();
@@ -260,7 +299,7 @@
             $('#'+element.id+'-error').hide();
         }
 
-        function saveStepOne() {
+        function saveStepOne(studentId) {
             validateStepOneForm();
             var valid = $("#stepOneForm").valid();
             if(!valid){
@@ -272,6 +311,7 @@
                 formData[element.name] = element.value;
             });
             formData._token =  '{{csrf_token()}}';
+            formData.id =  studentId;
             let ajaxURL = "{{ url('/save-step-one') }}";
             $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
             $.ajax({
@@ -403,7 +443,7 @@
         }
 
         function saveStepFour(studentId){
-            let step4Value = $('input[name="step_three_rdo"]:checked').val();
+            let step4Value = $('input[name="step_4_rdo"]:checked').val();
             if(!step4Value){
                 $('#step-4-error').show();
                 document.getElementById("step-2-error").scrollIntoView({ behavior: 'smooth'});
@@ -444,19 +484,26 @@
         }
 
         function saveStepFive(studentId){
-            let step4Value = $('input[name="step_three_rdo"]:checked').val();
-            if(!step4Value){
-                $('#step-4-error').show();
-                document.getElementById("step-2-error").scrollIntoView({ behavior: 'smooth'});
-                return false;
+            let plusTwoDocURL = $("#plusTwoDocURL").val();
+            let valid = true;
+            if(!plusTwoDocURL){
+                $('#plusTwoDocURL-error').show();
+                document.getElementById("plusTwoDocURL-error").scrollIntoView({ behavior: 'smooth'});
+                valid = false;
             } else {
-                $('#step-4-error').hide();
+                $('#plusTwoDocURL-error').hide();
+            }
+            if(!valid){
+                return false;
             }
             var formData = {};
             formData.id = studentId;
-            formData.step4 = step4Options[step4Value];
+            formData.plusTwoDocURL = $("#plusTwoDocURL").val();
+            formData.degreeDocURL = $("#degreeDocURL").val();
+            formData.thirdDocURL = $("#thirdDocURL").val();
+            formData.fourthDocURL = $("#fourthDocURL").val();
             formData._token =  '{{csrf_token()}}';
-            let ajaxURL = "{{ url('/save-step-four') }}";
+            let ajaxURL = "{{ url('/save-step-five') }}";
             $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
             $.ajax({
                 type: "post",
@@ -466,13 +513,7 @@
                 {
                     let response = JSON.parse(res)
                     if(response.status){
-                        if(step4Value == "1"){
-                            currentStepIndex = 5;
-                            nextStepIndex = 0;
-                            loadNextStep(4, 5);
-                        } else {
-                            showConfirm(); 
-                        }        
+                        showConfirm();
                         // Show the loader
                         $(".sw-btn-next").html('Next')
                     }
@@ -485,7 +526,7 @@
         }
 
         function loadNextStep(hideStep, showStep){
-            displayButtonsLogic();
+            displayButtonsLogic(currentStepIndex);
             setTimeout(() => {
                 /* Change last step's status from active to done */
                 $('#nav-step-'+hideStep).removeClass('active');
@@ -495,23 +536,26 @@
                 /* Change next step's status to active */
                 $("#step-"+showStep).show();
                 $('#nav-step-'+showStep).addClass('active');
-                $('#form_submit').hide();
-                displayButtonsLogic();
+                displayButtonsLogic(currentStepIndex);
             }, 100);
         }
 
         function displayButtonsLogic(currentStepIndex){
+            if(currentStepIndex == 1){
+                $('.sw-btn-next').show();
+                $('.sw-btn-prev').hide();
+            }
             if(currentStepIndex > 1){
                 $('.sw-btn-prev').show();
+                $('.sw-btn-prev').removeClass('disabled');
             }
             if(currentStepIndex == 5) {
                 $('#form_submit').show();
                 $('.sw-btn-next').hide();
+            } else {
+                $('.sw-btn-next').show();
+                $('#form_submit').hide();
             }
-        }
-
-        function loadPrevStep(){
-
         }
     </script>
 
@@ -900,6 +944,7 @@
                 this.on('success', function( file, xhRes ){
                     let res = JSON.parse(xhRes);
                     $("#plusTwoDocURL").val(res.data.image_url);
+                    $('#plusTwoDocURL-error').hide();
                 });
             }
         });
@@ -979,7 +1024,8 @@
 
     <script>
         $('#form_submit').click(function() {
-            showConfirm(); 
+            let studentId = $("#student_id").val();
+            saveStepFive(studentId)
         });
 
         $('#confirmationDialogClose').click(function() {
@@ -991,15 +1037,43 @@
             $('#confirmationDialog').addClass('dialog--open');
             $('#smartwizard').smartWizard("reset");
             $('#form_submit').hide();
+            // location.reload();
+            currentStepIndex = 1;
+            nextStepIndex = 2;
             formsReset();
-            location.reload();
         }
-
+        
         function formsReset(){
             $(".nav-link").removeClass("active");
             $(".nav-link").removeClass("done");
             $("#stepOneForm")[0].reset();
             $(".error").remove();
+            /* Change last step's status from active to done */
+            $('#nav-step-5').removeClass('active');
+            /* Hide all steps */
+            $(".tab-pane").hide();
+            /* Change next step's status to active */
+            $("#step-1").show();
+            $('#nav-step-1').addClass('active');
+            $('.sw-btn-prev').hide();
+            $("#newinput").html("")
+            displayButtonsLogic(1);
+            $("#student_id").val("");
+            /* Clear step 2  */
+            let step2Choice = $('input[name="step_two_rdo"]:checked').val();
+            if(step2Choice){
+                document.querySelector('input[name = "step_two_rdo"]:checked').checked = false;
+            }
+            /* Clear step 3 */
+            $('#prefferedCountry').val('').trigger('change');
+            $('input[name="university[]"]').map(function(){
+                this.value = "";
+            })
+            /* Clear step 4 */
+            let step4Value = $('input[name="step_4_rdo"]:checked').val();
+            if(step4Value){
+                document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
+            }
         }
     </script>
 
