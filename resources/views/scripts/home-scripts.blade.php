@@ -124,27 +124,36 @@
             player.pause();
         });
 
-        $('#smartwizard').smartWizard({
-            // selected: 4,
-            enableUrlHash: false,
-            style: {
-                btnNextCss: 'sw-btn-next',
-                btnPrevCss: 'sw-btn-prev',
-            },
-            lang: {
-                next: 'Next',
-                previous: 'Prev'
-            },
-            toolbar: {
-                extraHtml: `<button id="form_submit" class="btn app_btn btn_primary">Submit</button>`
-            },
-            // SmartWizard initialize with step content callback
-            // getContent: provideContent
-        });
+        // $('#smartwizard').smartWizard({
+        //     // selected: 4,
+        //     enableUrlHash: false,
+        //     style: {
+        //         btnNextCss: 'sw-btn-next',
+        //         btnPrevCss: 'sw-btn-prev',
+        //     },
+        //     lang: {
+        //         next: 'Next',
+        //         previous: 'Prev'
+        //     },
+        //     toolbar: {
+        //         extraHtml: `<button id="form_submit" class="btn app_btn btn_primary">Submit</button>`
+        //     },
+        //     anchor: {
+        //         enableNavigation: false, //
+        //         enableNavigationAlways: false, // Activates all anchors clickable always
+        //         enableDoneState: true, // Add done state on visited steps
+        //         markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+        //         unDoneOnBackNavigation: false, // While navigate back, done state will be cleared
+        //         enableDoneStateNavigation: true //
+        //     }
+        //     // SmartWizard initialize with step content callback
+        //     // getContent: provideContent
+        // });
         $('#form_submit').hide();
-        $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
-            e.preventDefault();
-        });
+        // $("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+        //     // e.preventDefault();
+        //     $('#smartwizard').smartWizard("loader", "show");
+        // });
 
         $("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
             if(stepIndex == 2 && stepDirection == 'forward'){
@@ -160,48 +169,43 @@
             }
         });
 
+        /* The hubble flow */
+
         let currentStepIndex = 1;
         let nextStepIndex = 2;
 
         $(".sw-btn-next").click(function(e){
+            let studentId = $("#student_id").val();
             if(currentStepIndex == 1) {
                 saveStepOne();
             }
-            else if(currentStepIndex == 2) {
-                let step2Value = $('input[name="step_two_rdo"]:checked').val();
-                if(!step2Value){
-                    $('#step-2-error').show();
-                    return false;
-                } else {
-                    $('#step-2-error').hide();
-                }
-                if(step2Value == "1"){
-                    currentStepIndex = 3;
-                    nextStepIndex = 4;
-                    loadNextStep(2, 3);
-                } else {
-                    showConfirm(); 
-                }
+            else if(currentStepIndex == 2) {                
+                saveStepTwo(studentId);
             }
             else if(currentStepIndex == 3) {
-                currentStepIndex = 4;
-                nextStepIndex = 5;
-                loadNextStep(3, 4);
+                saveStepThree(studentId);
             }
             else if(currentStepIndex == 4) {
-                currentStepIndex = 5;
-                nextStepIndex = 0;
-                loadNextStep(4, 5);
+                saveStepFour(studentId);
             }
         });
 
-        $(".sw-btn-next").click(function(e){
-            if(currentStepIndex == 1) {
-                $('.sw-btn-prev').hide();
-            }
-        
+        $('input[name="step_two_rdo"]').click(function(e){
+            $('#step-2-error').hide();
         });
 
+        function clearUniversityError() {
+            var university = $('input[name="university[]"]').map(function(){
+                if(this.value) {
+                    return this.value
+                } 
+            }).get();
+            if(university.length > 0){
+                $('#university-error').hide();
+            }
+        }
+
+        /* Step 1 form validation */
         function validateStepOneForm(){
             $("#stepOneForm").validate({
                 ignore:'',
@@ -242,11 +246,18 @@
                     },
                 },
                 errorPlacement: function(error, element) {
-                    error.insertAfter(element.next());
+                    console.log(error, element,element[0].id,  element.val());
+                    if(!$("#"+element[0].id).val()){
+                        error.insertAfter(element.next());
+                    }
                 },
                 success: function(label,element) {
                 },
             });
+        }
+
+        function errorRemove(element){
+            $('#'+element.id+'-error').hide();
         }
 
         function saveStepOne() {
@@ -286,22 +297,216 @@
             });
         }
 
+        let step2Options = {
+            1: "I know which university and course I want to apply for",
+            2: "I'm not sure which university or course to apply for?",
+            3: "I know my dream career, but I do not know how to get there",
+            4: "The course or university doesn't matter",
+        }
+
+        function saveStepTwo(studentId) {
+            let step2Choice = $('input[name="step_two_rdo"]:checked').val();
+            /* Step 2 Validation */
+            if(!step2Choice){
+                $('#step-2-error').show();
+                document.getElementById("step-2-error").scrollIntoView();
+                return false;
+            } else {
+                $('#step-2-error').hide();
+            }
+            var formData = {};
+            formData.step2 =  step2Options[step2Choice];
+            formData.id =  studentId;
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-step-two') }}";
+            $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        if(step2Choice == "1"){
+                            currentStepIndex = 3;
+                            nextStepIndex = 4;
+                            loadNextStep(2, 3);
+                        } else {
+                            showConfirm(); 
+                        }
+                        // Show the loader
+                        $(".sw-btn-next").html('Next')
+                    }
+                }, error: function(res)
+                {
+                    // Hide the loader
+                    $(".sw-btn-next").html('Next')
+                },
+            });
+        }
+
+        function saveStepThree(studentId){
+            let prefferedCountry = $('#prefferedCountry').select2('val');
+            var university = $('input[name="university[]"]').map(function(){
+                if(this.value) {
+                    return this.value
+                } 
+            }).get();
+            let valid = true;
+            if(!prefferedCountry){
+                $("#country-error").show();
+                valid = false;
+            } 
+            if(university.length == 0){
+                $("#university-error").show();
+                valid = false;
+            } else {
+                $("#university-error").hide();
+            }
+            if(!valid){
+                return false;
+            }
+            var formData = {};
+            formData.id = studentId;
+            formData.country = JSON.stringify(prefferedCountry);
+            formData.university = JSON.stringify(university);
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-step-three') }}";
+            $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        currentStepIndex = 4;
+                        nextStepIndex = 5;
+                        loadNextStep(3, 4);
+                        // Show the loader
+                        $(".sw-btn-next").html('Next')
+                    }
+                }, error: function(res)
+                {
+                    // Hide the loader
+                    $(".sw-btn-next").html('Next')
+                },
+            });
+        }
+
+        let step4Options = {
+            1: "I will upload my documents now",
+            2: "I will upload my documents to docs@hubblebubble.london",
+            3: "book a call with a Hubble Bubble Mentor"
+        }
+
+        function saveStepFour(studentId){
+            let step4Value = $('input[name="step_three_rdo"]:checked').val();
+            if(!step4Value){
+                $('#step-4-error').show();
+                document.getElementById("step-2-error").scrollIntoView({ behavior: 'smooth'});
+                return false;
+            } else {
+                $('#step-4-error').hide();
+            }
+            var formData = {};
+            formData.id = studentId;
+            formData.step4 = step4Options[step4Value];
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-step-four') }}";
+            $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        if(step4Value == "1"){
+                            currentStepIndex = 5;
+                            nextStepIndex = 0;
+                            loadNextStep(4, 5);
+                        } else {
+                            showConfirm(); 
+                        }        
+                        // Show the loader
+                        $(".sw-btn-next").html('Next')
+                    }
+                }, error: function(res)
+                {
+                    // Hide the loader
+                    $(".sw-btn-next").html('Next')
+                },
+            });
+        }
+
+        function saveStepFive(studentId){
+            let step4Value = $('input[name="step_three_rdo"]:checked').val();
+            if(!step4Value){
+                $('#step-4-error').show();
+                document.getElementById("step-2-error").scrollIntoView({ behavior: 'smooth'});
+                return false;
+            } else {
+                $('#step-4-error').hide();
+            }
+            var formData = {};
+            formData.id = studentId;
+            formData.step4 = step4Options[step4Value];
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-step-four') }}";
+            $(".sw-btn-next").html('<i id="loader" class="ri-loader-2-line"></i>&nbspNext')
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        if(step4Value == "1"){
+                            currentStepIndex = 5;
+                            nextStepIndex = 0;
+                            loadNextStep(4, 5);
+                        } else {
+                            showConfirm(); 
+                        }        
+                        // Show the loader
+                        $(".sw-btn-next").html('Next')
+                    }
+                }, error: function(res)
+                {
+                    // Hide the loader
+                    $(".sw-btn-next").html('Next')
+                },
+            });
+        }
+
         function loadNextStep(hideStep, showStep){
-            /* Change last step's status from active to done */
-            $('#nav-step-'+hideStep).removeClass('active');
-            $('#nav-step-'+hideStep).addClass('done');
-            /* Hide all steps */
-            $(".tab-pane").hide();
-            /* Change next step's status to active */
-            $("#step-"+showStep).show();
-            $('#nav-step-'+showStep).addClass('active');
-            $('#form_submit').hide();
+            displayButtonsLogic();
+            setTimeout(() => {
+                /* Change last step's status from active to done */
+                $('#nav-step-'+hideStep).removeClass('active');
+                $('#nav-step-'+hideStep).addClass('done');
+                /* Hide all steps */
+                $(".tab-pane").hide();
+                /* Change next step's status to active */
+                $("#step-"+showStep).show();
+                $('#nav-step-'+showStep).addClass('active');
+                $('#form_submit').hide();
+                displayButtonsLogic();
+            }, 100);
+        }
+
+        function displayButtonsLogic(currentStepIndex){
+            if(currentStepIndex > 1){
+                $('.sw-btn-prev').show();
+            }
             if(currentStepIndex == 5) {
                 $('#form_submit').show();
                 $('.sw-btn-next').hide();
-            }
-            if(currentStepIndex > 1){
-                $('.sw-btn-prev').show();
             }
         }
 
@@ -646,7 +851,9 @@
             tags: true,
             tokenSeparators: [',', ' '],
             placeholder: "Select Country",
-        })
+        }).on("select2:select", function (e) {   
+            $("#country-error").hide();
+         });
     </script>
 
     <script>
@@ -654,7 +861,7 @@
             newRowAdd = '<div class="add_group" id="append_row">' +
                 '<div class="form_group">' +
                 '<label class="pure-material-textfield-outlined">' +
-                '<input placeholder=" ">' +
+                '<input placeholder=" " name="university[]" onkeyup="clearUniversityError()" >' +
                 '<span>Enter University</span>' +
                 '</label>' +
                 '</div>' +
@@ -671,16 +878,102 @@
 
     <script>
         const myDropzoneTheFirst = new Dropzone("#uploader1", {
-            url: "/file/post"
+            url: "/save-documents/plus-two-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                    /* Dont delete may need in future for linking files directly to students before saving step 5 */
+                    // let studentId = $("#student_id").val();
+                    // formData.append('id',studentId);
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#plusTwoDocURL").val(res.data.image_url);
+                });
+            }
         });
+
         const myDropzoneTheSecond = new Dropzone("#uploader2", {
-            url: "/file/post"
+            url: "/save-documents/degree-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                    let studentId = $("#student_id").val();
+                    formData.append('id',studentId);
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#degreeDocURL").val(res.data.image_url);
+                });
+            }
         });
         const myDropzoneTheThird = new Dropzone("#uploader3", {
-            url: "/file/post"
+            url: "/save-documents/third-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#thirdDocURL").val(res.data.image_url);
+                });
+            }
         });
         const myDropzoneTheFourth = new Dropzone("#uploader4", {
-            url: "/file/post"
+            url: "/save-documents/fourth-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#fourthDocURL").val(res.data.image_url);
+                });
+            }
         });
     </script>
 
@@ -698,12 +991,15 @@
             $('#confirmationDialog').addClass('dialog--open');
             $('#smartwizard').smartWizard("reset");
             $('#form_submit').hide();
+            formsReset();
+            location.reload();
         }
 
         function formsReset(){
             $(".nav-link").removeClass("active");
             $(".nav-link").removeClass("done");
-            $("#stepOneForm")[0].reset()
+            $("#stepOneForm")[0].reset();
+            $(".error").remove();
         }
     </script>
 

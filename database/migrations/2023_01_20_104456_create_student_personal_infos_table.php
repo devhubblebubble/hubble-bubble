@@ -20,6 +20,14 @@ return new class extends Migration
             $table->text('qualification');
             $table->text('contact_number');
             $table->text('email')->nullable();
+            $table->longText('step2Choice')->nullable();
+            $table->longText('prefferedCountry')->nullable();
+            $table->longText('university')->nullable();
+            $table->longText('step4Choice')->nullable();
+            $table->longText('plusTwoDocURL')->nullable();
+            $table->longText('degreeDocURL')->nullable();
+            $table->longText('thirdDocURL')->nullable();
+            $table->longText('fourthDocURL')->nullable();
             $table->timestamps();
         });
     }

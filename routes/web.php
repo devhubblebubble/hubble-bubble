@@ -15,3 +15,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',  [HomeController::class, 'homePage']);
 Route::post('/save-step-one',  [HomeController::class, 'saveStepOne']);
+Route::post('/save-step-two',  [HomeController::class, 'saveStepTwo']);
+Route::post('/save-step-three',  [HomeController::class, 'saveStepThree']);
+Route::post('/save-step-four',  [HomeController::class, 'saveStepFour']);
+Route::post('/save-documents/{documentType}',  [HomeController::class, 'saveDocuments']);

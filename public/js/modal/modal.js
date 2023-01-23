@@ -53,6 +53,8 @@ $('#openNextBatch').click(function() {
 $('#openEligibility').click(function() {
     $('.menu__trigger--close').trigger('click');
     $('#eligibilityDialog').addClass('dialog--open');
+    $("#step-1").show();
+    $('#nav-step-1').addClass('active');
 });
 
 $('#closeEligibility').click(function() {

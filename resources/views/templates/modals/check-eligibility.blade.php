@@ -44,7 +44,11 @@
                     <!--/. Step 5 -->
 
                 </div>
-
+                <div class="sw-toolbar-elm toolbar toolbar-bottom" role="toolbar">
+                    <button class="btn sw-btn-prev sw-btn disabled" type="button">Prev</button>
+                    <button class="btn sw-btn-next sw-btn" type="button">Next</button>
+                    <button id="form_submit" class="btn app_btn btn_primary" style="display: none;">Submit</button>
+                </div>
             </div>
         </div>
     </div>
