@@ -10,7 +10,9 @@ class HomeController extends Controller
 {
     
     public function homePage(){
-        return view('home');
+        $calendly_link = Config::get('calendly.link');
+       
+        return view('home', compact('calendly_link'));
     }
 
     /* Save step one of eligibility test */

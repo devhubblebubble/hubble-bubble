@@ -469,7 +469,13 @@
                             currentStepIndex = 5;
                             nextStepIndex = 0;
                             loadNextStep(4, 5);
-                        } else {
+                        } 
+                        else if(step4Value == "2"){
+                            $('#eligibilityDialog').removeClass('dialog--open');
+                            formsReset();
+                            window.open('mailto:docs@hubblebubble.london');
+                        }
+                        else {
                             showConfirm(); 
                         }        
                         // Show the loader
@@ -1035,15 +1041,15 @@
         function showConfirm() {
             $('#eligibilityDialog').removeClass('dialog--open');
             $('#confirmationDialog').addClass('dialog--open');
-            $('#smartwizard').smartWizard("reset");
-            $('#form_submit').hide();
+            // $('#smartwizard').smartWizard("reset");
             // location.reload();
-            currentStepIndex = 1;
-            nextStepIndex = 2;
             formsReset();
         }
         
         function formsReset(){
+            currentStepIndex = 1;
+            nextStepIndex = 2;
+            $('#form_submit').hide();
             $(".nav-link").removeClass("active");
             $(".nav-link").removeClass("done");
             $("#stepOneForm")[0].reset();
@@ -1059,6 +1065,10 @@
             $("#newinput").html("")
             displayButtonsLogic(1);
             $("#student_id").val("");
+            $("#plusTwoDocURL").val("");
+            $("#degreeDocURL").val("");
+            $("#thirdDocURL").val("");
+            $("#fourthDocURL").val("");
             /* Clear step 2  */
             let step2Choice = $('input[name="step_two_rdo"]:checked').val();
             if(step2Choice){
@@ -1083,4 +1093,15 @@
                 $('#animated_card').addClass('hvr-bob');
             }, 4000);
         });
+
+        function goToCalendly(){
+            var win = window.open("{{ @$calendly_link }}", '_blank');
+            if (win) {
+                //Browser has allowed it to be opened
+                win.focus();
+            } else {
+                //Browser has blocked it
+                alert('Please allow popups for this website');
+            }
+        }
     </script>
