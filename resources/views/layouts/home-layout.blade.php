@@ -24,7 +24,6 @@
     @yield('content')
     <!-- Core JS Files -->
     <!-- jQuery -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script src="{{ asset('/js/TweenMax/TweenMax.min.js') }}"></script>
     <script src="{{ asset('/js/mobile-nav/mobile-nav.js') }}"></script>

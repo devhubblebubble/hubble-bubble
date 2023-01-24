@@ -782,11 +782,85 @@
             }
         }
 
-        function contactSupportFormValidation(){
-
+        function submitContactForm(){
+            contactSupportFormValidation();
+            var valid = $("#contactSupportForm").valid();
+            if(!valid){
+                return false;
+            }
+            var formData = {};
+            let serializedForm = $("#contactSupportForm").serializeArray();
+            serializedForm.forEach(element => {
+                formData[element.name] = element.value;
+            });
+            formData._token =  '{{csrf_token()}}';
+            let ajaxURL = "{{ url('/save-contact-support') }}";
+            $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: formData,
+                success: function(res)
+                {
+                    let response = JSON.parse(res)
+                    if(response.status){
+                        $("#contactSupportForm")[0].reset();
+                        $('#successDialog').addClass('dialog--open');
+                    }
+                }, error: function(res)
+                {
+                },
+            });
         }
 
-        function submitContactForm(){
+        function contactSupportFormValidation(){
+            $("#contactSupportForm").validate({
+                ignore:'',
+                rules: {
+                    first_name: {
+                        required: true
+                    },
+                    last_name: {
+                        required: true
+                    },
+                    phone_number: {
+                        required: true
+                    },
+                    email_address: {
+                        required: true
+                    },
+                    contact_preffered_country: {
+                        required: true
+                    },
+                    contact_university: {
+                        required: true
+                    },
+                },
+                messages: {
+                    first_name: {
+                        required: "Please enter your first name."
+                    },
+                    last_name: {
+                        required: "Please enter your last name."
+                    },
+                    phone_number: {
+                        required: "Please enter your phone number."
+                    },
+                    email_address: {
+                        required: "Please enter your email ID."
+                    },
+                    contact_preffered_country: {
+                        required: "Please enter your preffered country."
+                    },
+                    contact_university: {
+                        required: "Please enter a university."
+                    },
+                },
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element.next());
+                },
+                success: function(label,element) {
+                },
+            });
         }
 
         function openEligibility() {
