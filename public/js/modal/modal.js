@@ -50,13 +50,6 @@ $('#openNextBatch').click(function() {
     $('#contactDialog').addClass('dialog--open');
 });
 
-    function openEligibility() {
-        $('.menu__trigger--close').trigger('click');
-        $('#eligibilityDialog').addClass('dialog--open');
-        $("#step-1").show();
-        $('#nav-step-1').addClass('active');
-    }
-
 $('#closeEligibility').click(function() {
     $('#eligibilityDialog').addClass('dialog--close');
     setTimeout(function() {
