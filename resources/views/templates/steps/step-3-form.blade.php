@@ -4,7 +4,7 @@
     </div>
 
     <div class="form_group mb-3">
-        <select class="form_select multi_select" multiple="multiple">
+        <select id="prefferedCountry" class="form_select multi_select" multiple="multiple">
             <option>UK</option>
             <option>Canada</option>
             <option>Germany</option>
@@ -13,13 +13,15 @@
             <option>US</option>
             <option>Other</option>
         </select>
+        <label id="country-error" class="error" style="display: none;" for="name">Please select a country.</label>
     </div>
 
+    <label id="university-error" class="error" style="display: none;" for="name">Please enter atleast one university.</label>
     <div class="add_group">
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" ">
-            <span>Enter University</span>
+                <input placeholder=" " name="university[]" onkeyup="clearUniversityError()" />
+                <span>Enter University</span>
             </label>
         </div>
         <button type="button" id="rowAdder" class="add_btn">

@@ -24,7 +24,8 @@
     @yield('content')
     <!-- Core JS Files -->
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script src="{{ asset('/js/TweenMax/TweenMax.min.js') }}"></script>
     <script src="{{ asset('/js/mobile-nav/mobile-nav.js') }}"></script>
     <script src="{{ asset('/js/swiper/swiper-bundle.min.js') }}"></script>
@@ -33,6 +34,7 @@
     <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
     <script src="{{ asset('/js/smartwizard/jquery.smartWizard.min.js') }}"></script>
     <script src="{{ asset('/js/dropzone/dropzone-min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     @include('scripts.home-scripts')
     @stack('script')
 </body>

@@ -8,7 +8,7 @@
             </div>
             <h1>Don't worry, Hubble Bubble has got your back!</h1>
             <h4>Book a call with a Hubble Bubble Mentor and begin your dream journey​</h4>
-            <button class="btn app_btn btn_primary" id="confirmationDialogClose">Book Now</button>
+            <button class="btn app_btn btn_primary" id="confirmationDialogClose" onclick="goToCalendly()" >Book Now</button>
         </div>
 
     </div>
