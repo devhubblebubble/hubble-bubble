@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StudentPersonalInfo;
+use App\Models\ContactSupport;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
+
 class HomeController extends Controller
 {
     
@@ -127,6 +129,24 @@ class HomeController extends Controller
 
         $response = ["status" => "success", "data" => null, 
         "message" => "Successfully saved step four"];
+
+        return json_encode($response);
+    }
+
+    /* Save step five of eligibility test */
+    public function saveContactSupport(Request $req){
+        
+        $contactSupport = new ContactSupport();
+        $contactSupport->first_name = $req->input('first_name');
+        $contactSupport->last_name = $req->input('last_name');
+        $contactSupport->phone_number = $req->input('phone_number');
+        $contactSupport->email_address = $req->input('email_address');
+        $contactSupport->preffered_country = $req->input('contact_preffered_country');
+        $contactSupport->university = $req->input('contact_university');
+        $contactSupport->save();
+
+        $response = ["status" => "success", "data" => null, 
+        "message" => "Successfully saved contact support"];
 
         return json_encode($response);
     }
