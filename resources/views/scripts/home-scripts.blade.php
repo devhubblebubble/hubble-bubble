@@ -566,6 +566,231 @@
     </script>
 
     <script>
+        $(".multi_select").select2({
+            tags: true,
+            tokenSeparators: [',', ' '],
+            placeholder: "Select Country",
+        }).on("select2:select", function (e) {   
+            $("#country-error").hide();
+         });
+    </script>
+
+    <script>
+        $("#rowAdder").click(function() {
+            newRowAdd = '<div class="add_group" id="append_row">' +
+                '<div class="form_group">' +
+                '<label class="pure-material-textfield-outlined">' +
+                '<input placeholder=" " name="university[]" onkeyup="clearUniversityError()" >' +
+                '<span>Enter University</span>' +
+                '</label>' +
+                '</div>' +
+                '<button type="button" id="DeleteRow" class="delete_btn">' +
+                '<i class="ri-delete-bin-7-line"></i>' +
+                '</button>' +
+                '</div>';
+            $('#newinput').append(newRowAdd);
+        });
+        $("body").on("click", "#DeleteRow", function() {
+            $(this).parents("#append_row").remove();
+        })
+    </script>
+
+    <script>
+        const myDropzoneTheFirst = new Dropzone("#uploader1", {
+            url: "/save-documents/plus-two-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                    /* Dont delete may need in future for linking files directly to students before saving step 5 */
+                    // let studentId = $("#student_id").val();
+                    // formData.append('id',studentId);
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#plusTwoDocURL").val(res.data.image_url);
+                    $('#plusTwoDoc-error').hide();
+                });
+            }
+        });
+
+        const myDropzoneTheSecond = new Dropzone("#uploader2", {
+            url: "/save-documents/degree-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                    let studentId = $("#student_id").val();
+                    formData.append('id',studentId);
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#degreeDocURL").val(res.data.image_url);
+                });
+            }
+        });
+        const myDropzoneTheThird = new Dropzone("#uploader3", {
+            url: "/save-documents/third-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#thirdDocURL").val(res.data.image_url);
+                });
+            }
+        });
+        const myDropzoneTheFourth = new Dropzone("#uploader4", {
+            url: "/save-documents/fourth-certificate",
+            addRemoveLinks: true,
+            // maxFilesize: 1, // MB
+            maxFiles:1,
+            acceptedFiles: "image/*",
+            init: function () {
+                var myDropzone = this;
+                this.on("addedfile", function() {          
+                    if (this.files[1]!=null){
+                        this.removeFile(this.files[0]);               
+                    }
+                });
+                this.on('removedfile', function(file) {                
+                });
+                this.on('sending', function(file, xhr, formData) {
+                });
+                this.on('success', function( file, xhRes ){
+                    let res = JSON.parse(xhRes);
+                    $("#fourthDocURL").val(res.data.image_url);
+                });
+            }
+        });
+    </script>
+
+    <script>
+        $('#form_submit').click(function() {
+            let studentId = $("#student_id").val();
+            saveStepFive(studentId)
+        });
+
+        $('#confirmationDialogClose').click(function() {
+            $('#confirmationDialog').removeClass('dialog--open');
+        });
+
+        $('#successDialogClose').click(function() {
+            $('#successDialog').removeClass('dialog--open');
+        });
+
+        function showConfirm() {
+            $('#eligibilityDialog').removeClass('dialog--open');
+            $('#confirmationDialog').addClass('dialog--open');
+            formsReset();
+        }
+        
+        function showSuccess() {
+            $('#eligibilityDialog').removeClass('dialog--open');
+            $('#successDialog').addClass('dialog--open');
+            formsReset();
+        }
+
+        function formsReset(){
+            currentStepIndex = 1;
+            nextStepIndex = 2;
+            $('#form_submit').hide();
+            $(".nav-link").removeClass("active");
+            $(".nav-link").removeClass("done");
+            $("#stepOneForm")[0].reset();
+            $(".error").remove();
+            /* Change last step's status from active to done */
+            $('#nav-step-5').removeClass('active');
+            /* Hide all steps */
+            $(".tab-pane").hide();
+            /* Change next step's status to active */
+            $("#step-1").show();
+            $('#nav-step-1').addClass('active');
+            $('.sw-btn-prev').hide();
+            $("#newinput").html("")
+            displayButtonsLogic(1);
+            $("#student_id").val("");
+            $("#plusTwoDocURL").val("");
+            $("#degreeDocURL").val("");
+            $("#thirdDocURL").val("");
+            $("#fourthDocURL").val("");
+            /* Clear step 2  */
+            let step2Choice = $('input[name="step_two_rdo"]:checked').val();
+            if(step2Choice){
+                document.querySelector('input[name = "step_two_rdo"]:checked').checked = false;
+            }
+            /* Clear step 3 */
+            $('#prefferedCountry').val('').trigger('change');
+            $('input[name="university[]"]').map(function(){
+                this.value = "";
+            })
+            /* Clear step 4 */
+            let step4Value = $('input[name="step_4_rdo"]:checked').val();
+            if(step4Value){
+                document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
+            }
+        }
+    </script>
+
+    <script>
+        $(".app_foot_nav > .swiper-pagination-bullet:last-child").click(function() {
+            setTimeout(function() {
+                $('#animated_card').addClass('hvr-bob');
+            }, 4000);
+        });
+
+        function goToCalendly(){
+            var win = window.open("{{ @$calendly_link }}", '_blank');
+            if (win) {
+                //Browser has allowed it to be opened
+                win.focus();
+            } else {
+                //Browser has blocked it
+                alert('Please allow popups for this website');
+            }
+        }
+
+        function contactSupportFormValidation(){
+
+        }
+
+        function submitContactForm(){
+        }
+    </script>
+
+    <script>
         //  Banner Animation
 
         var canvas = document.getElementById("canv");
@@ -894,222 +1119,4 @@
             canvas.width = w = window.innerWidth;
             canvas.height = h = window.innerHeight;
         }, false);
-    </script>
-
-    <script>
-        $(".multi_select").select2({
-            tags: true,
-            tokenSeparators: [',', ' '],
-            placeholder: "Select Country",
-        }).on("select2:select", function (e) {   
-            $("#country-error").hide();
-         });
-    </script>
-
-    <script>
-        $("#rowAdder").click(function() {
-            newRowAdd = '<div class="add_group" id="append_row">' +
-                '<div class="form_group">' +
-                '<label class="pure-material-textfield-outlined">' +
-                '<input placeholder=" " name="university[]" onkeyup="clearUniversityError()" >' +
-                '<span>Enter University</span>' +
-                '</label>' +
-                '</div>' +
-                '<button type="button" id="DeleteRow" class="delete_btn">' +
-                '<i class="ri-delete-bin-7-line"></i>' +
-                '</button>' +
-                '</div>';
-            $('#newinput').append(newRowAdd);
-        });
-        $("body").on("click", "#DeleteRow", function() {
-            $(this).parents("#append_row").remove();
-        })
-    </script>
-
-    <script>
-        const myDropzoneTheFirst = new Dropzone("#uploader1", {
-            url: "/save-documents/plus-two-certificate",
-            addRemoveLinks: true,
-            // maxFilesize: 1, // MB
-            maxFiles:1,
-            acceptedFiles: "image/*",
-            init: function () {
-                var myDropzone = this;
-                this.on("addedfile", function() {          
-                    if (this.files[1]!=null){
-                        this.removeFile(this.files[0]);               
-                    }
-                });
-                this.on('removedfile', function(file) {                
-                });
-                this.on('sending', function(file, xhr, formData) {
-                    /* Dont delete may need in future for linking files directly to students before saving step 5 */
-                    // let studentId = $("#student_id").val();
-                    // formData.append('id',studentId);
-                });
-                this.on('success', function( file, xhRes ){
-                    let res = JSON.parse(xhRes);
-                    $("#plusTwoDocURL").val(res.data.image_url);
-                    $('#plusTwoDoc-error').hide();
-                });
-            }
-        });
-
-        const myDropzoneTheSecond = new Dropzone("#uploader2", {
-            url: "/save-documents/degree-certificate",
-            addRemoveLinks: true,
-            // maxFilesize: 1, // MB
-            maxFiles:1,
-            acceptedFiles: "image/*",
-            init: function () {
-                var myDropzone = this;
-                this.on("addedfile", function() {          
-                    if (this.files[1]!=null){
-                        this.removeFile(this.files[0]);               
-                    }
-                });
-                this.on('removedfile', function(file) {                
-                });
-                this.on('sending', function(file, xhr, formData) {
-                    let studentId = $("#student_id").val();
-                    formData.append('id',studentId);
-                });
-                this.on('success', function( file, xhRes ){
-                    let res = JSON.parse(xhRes);
-                    $("#degreeDocURL").val(res.data.image_url);
-                });
-            }
-        });
-        const myDropzoneTheThird = new Dropzone("#uploader3", {
-            url: "/save-documents/third-certificate",
-            addRemoveLinks: true,
-            // maxFilesize: 1, // MB
-            maxFiles:1,
-            acceptedFiles: "image/*",
-            init: function () {
-                var myDropzone = this;
-                this.on("addedfile", function() {          
-                    if (this.files[1]!=null){
-                        this.removeFile(this.files[0]);               
-                    }
-                });
-                this.on('removedfile', function(file) {                
-                });
-                this.on('sending', function(file, xhr, formData) {
-                });
-                this.on('success', function( file, xhRes ){
-                    let res = JSON.parse(xhRes);
-                    $("#thirdDocURL").val(res.data.image_url);
-                });
-            }
-        });
-        const myDropzoneTheFourth = new Dropzone("#uploader4", {
-            url: "/save-documents/fourth-certificate",
-            addRemoveLinks: true,
-            // maxFilesize: 1, // MB
-            maxFiles:1,
-            acceptedFiles: "image/*",
-            init: function () {
-                var myDropzone = this;
-                this.on("addedfile", function() {          
-                    if (this.files[1]!=null){
-                        this.removeFile(this.files[0]);               
-                    }
-                });
-                this.on('removedfile', function(file) {                
-                });
-                this.on('sending', function(file, xhr, formData) {
-                });
-                this.on('success', function( file, xhRes ){
-                    let res = JSON.parse(xhRes);
-                    $("#fourthDocURL").val(res.data.image_url);
-                });
-            }
-        });
-    </script>
-
-    <script>
-        $('#form_submit').click(function() {
-            let studentId = $("#student_id").val();
-            saveStepFive(studentId)
-        });
-
-        $('#confirmationDialogClose').click(function() {
-            $('#confirmationDialog').removeClass('dialog--open');
-        });
-
-        $('#successDialogClose').click(function() {
-            $('#successDialog').removeClass('dialog--open');
-        });
-
-        function showConfirm() {
-            $('#eligibilityDialog').removeClass('dialog--open');
-            $('#confirmationDialog').addClass('dialog--open');
-            formsReset();
-        }
-        
-        function showSuccess() {
-            $('#eligibilityDialog').removeClass('dialog--open');
-            $('#successDialog').addClass('dialog--open');
-            formsReset();
-        }
-
-        function formsReset(){
-            currentStepIndex = 1;
-            nextStepIndex = 2;
-            $('#form_submit').hide();
-            $(".nav-link").removeClass("active");
-            $(".nav-link").removeClass("done");
-            $("#stepOneForm")[0].reset();
-            $(".error").remove();
-            /* Change last step's status from active to done */
-            $('#nav-step-5').removeClass('active');
-            /* Hide all steps */
-            $(".tab-pane").hide();
-            /* Change next step's status to active */
-            $("#step-1").show();
-            $('#nav-step-1').addClass('active');
-            $('.sw-btn-prev').hide();
-            $("#newinput").html("")
-            displayButtonsLogic(1);
-            $("#student_id").val("");
-            $("#plusTwoDocURL").val("");
-            $("#degreeDocURL").val("");
-            $("#thirdDocURL").val("");
-            $("#fourthDocURL").val("");
-            /* Clear step 2  */
-            let step2Choice = $('input[name="step_two_rdo"]:checked').val();
-            if(step2Choice){
-                document.querySelector('input[name = "step_two_rdo"]:checked').checked = false;
-            }
-            /* Clear step 3 */
-            $('#prefferedCountry').val('').trigger('change');
-            $('input[name="university[]"]').map(function(){
-                this.value = "";
-            })
-            /* Clear step 4 */
-            let step4Value = $('input[name="step_4_rdo"]:checked').val();
-            if(step4Value){
-                document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
-            }
-        }
-    </script>
-
-    <script>
-        $(".app_foot_nav > .swiper-pagination-bullet:last-child").click(function() {
-            setTimeout(function() {
-                $('#animated_card').addClass('hvr-bob');
-            }, 4000);
-        });
-
-        function goToCalendly(){
-            var win = window.open("{{ @$calendly_link }}", '_blank');
-            if (win) {
-                //Browser has allowed it to be opened
-                win.focus();
-            } else {
-                //Browser has blocked it
-                alert('Please allow popups for this website');
-            }
-        }
     </script>

@@ -17,47 +17,49 @@
                     <h5 class="stepper_title">
                         Fill out the form below <br>so we can reach you ASAP.
                     </h5>
-                    <div class="contact_form">
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>First Name</span>
-                            </label>
+                    <form id="contactSupportForm" name="contactSupportForm" >
+                        <div class="contact_form">
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" " id="first_name" name="first_name" />
+                                <span>First Name</span>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" "  id="last_name" name="last_name" />
+                                <span>Last Name</span>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" " id="phone_number" name="phone_number"  />
+                                <span>Phone Number</span>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" "  id="email_address" name="email_address" />
+                                <span>Email Address</span>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" " id="contact_preffered_country" name="contact_preffered_country"  />
+                                <span>Preferred Country</span>
+                                </label>
+                            </div>
+                            <div class="form_group">
+                                <label class="pure-material-textfield-outlined">
+                                <input placeholder=" " id="contact_university" name="contact_university"  />
+                                <span>Course/University</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>Last Name</span>
-                            </label>
-                        </div>
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>Phone Number</span>
-                            </label>
-                        </div>
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>Email Address</span>
-                            </label>
-                        </div>
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>Preferred Country</span>
-                            </label>
-                        </div>
-                        <div class="form_group">
-                            <label class="pure-material-textfield-outlined">
-                            <input placeholder=" " />
-                            <span>Course/University</span>
-                            </label>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="sw-toolbar-elm toolbar toolbar-bottom">
-                    <button class="btn app_btn btn_primary">Submit</button>
+                    <button class="btn app_btn btn_primary" onclick="submitContactForm()" >Submit</button>
                 </div>
             </div>
         </div>
