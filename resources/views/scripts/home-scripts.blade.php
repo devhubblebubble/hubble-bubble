@@ -788,6 +788,15 @@
 
         function submitContactForm(){
         }
+
+        function openEligibility() {
+            $('.menu__trigger--close').trigger('click');
+            $('#eligibilityDialog').addClass('dialog--open');
+            setTimeout(() => {
+                $("#step-1").show();
+                $('#nav-step-1').addClass('active');
+            }, 100);
+        }
     </script>
 
     <script>
