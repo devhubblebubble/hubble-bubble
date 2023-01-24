@@ -493,11 +493,11 @@
             let plusTwoDocURL = $("#plusTwoDocURL").val();
             let valid = true;
             if(!plusTwoDocURL){
-                $('#plusTwoDocURL-error').show();
-                document.getElementById("plusTwoDocURL-error").scrollIntoView({ behavior: 'smooth'});
+                $('#plusTwoDoc-error').show();
+                document.getElementById("plusTwoDoc-error").scrollIntoView({ behavior: 'smooth'});
                 valid = false;
             } else {
-                $('#plusTwoDocURL-error').hide();
+                $('#plusTwoDoc-error').hide();
             }
             if(!valid){
                 return false;
@@ -950,7 +950,7 @@
                 this.on('success', function( file, xhRes ){
                     let res = JSON.parse(xhRes);
                     $("#plusTwoDocURL").val(res.data.image_url);
-                    $('#plusTwoDocURL-error').hide();
+                    $('#plusTwoDoc-error').hide();
                 });
             }
         });
@@ -1036,6 +1036,10 @@
 
         $('#confirmationDialogClose').click(function() {
             $('#confirmationDialog').removeClass('dialog--open');
+        });
+
+        $('#successDialogClose').click(function() {
+            $('#successDialog').removeClass('dialog--open');
         });
 
         function showConfirm() {

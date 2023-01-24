@@ -105,6 +105,10 @@
         @include('templates.modals.confirmation')
         <!--/. Confirmation -->
 
+        <!-- Success -->
+        @include('templates.modals.success')
+        <!--/. Success -->
+
     </div>
 
     <!--//. Mobile Version -->

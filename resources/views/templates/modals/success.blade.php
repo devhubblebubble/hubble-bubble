@@ -8,7 +8,7 @@
             </div>
             <h1>Success, You are a step closer to your dream!</h1>
             <h4>Hubble bubble team will contact you shortly</h4>
-            <button class="btn app_btn btn_primary" id="confirmationDialogClose" >Okay</button>
+            <button class="btn app_btn btn_primary" id="successDialogClose" >Okay</button>
         </div>
 
     </div>
