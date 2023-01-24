@@ -52,13 +52,13 @@
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">+2 Certificate</strong> &nbsp;<a href="{{ $student->plusTwoDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if($student->degreeDocURL)
-                    <li class="list-group-item border-0 ps-0 text-sm"><a href="{{ $student->degreeDocURL }}" target="_blank" >View</a></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree Certificate</strong> &nbsp;<a href="{{ $student->degreeDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if($student->thirdDocURL)
-                    <li class="list-group-item border-0 ps-0 text-sm"><a href="{{ $student->thirdDocURL }}" target="_blank" >View</a></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Third Certificate</strong> &nbsp;<a href="{{ $student->thirdDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if($student->fourthDocURL)
-                    <li class="list-group-item border-0 ps-0 text-sm"><a href="{{ $student->fourthDocURL }}" target="_blank" >View</a></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fourth Certificate</strong> &nbsp;<a href="{{ $student->fourthDocURL }}" target="_blank" >View</a></li>
                     @endif
                   </ul>
                 </div>
