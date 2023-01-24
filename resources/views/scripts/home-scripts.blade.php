@@ -285,10 +285,10 @@
                     },
                 },
                 errorPlacement: function(error, element) {
-                    console.log(error, element,element[0].id,  element.val());
-                    if(!$("#"+element[0].id).val()){
+                    // console.log(error, element,element[0].id,  element.val());
+                    // if(!$("#"+element[0].id).val()){
                         error.insertAfter(element.next());
-                    }
+                    // }
                 },
                 success: function(label,element) {
                 },
@@ -519,7 +519,7 @@
                 {
                     let response = JSON.parse(res)
                     if(response.status){
-                        showConfirm();
+                        showSuccess();
                         // Show the loader
                         $(".sw-btn-next").html('Next')
                     }
@@ -1041,11 +1041,15 @@
         function showConfirm() {
             $('#eligibilityDialog').removeClass('dialog--open');
             $('#confirmationDialog').addClass('dialog--open');
-            // $('#smartwizard').smartWizard("reset");
-            // location.reload();
             formsReset();
         }
         
+        function showSuccess() {
+            $('#eligibilityDialog').removeClass('dialog--open');
+            $('#successDialog').addClass('dialog--open');
+            formsReset();
+        }
+
         function formsReset(){
             currentStepIndex = 1;
             nextStepIndex = 2;
