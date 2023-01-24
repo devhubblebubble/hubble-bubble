@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mail</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Age</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Qualification</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Contact</th>
@@ -46,7 +46,7 @@
                                     <span class="text-secondary text-xs font-weight-bold">{{@$student->contact_number}}</span>
                                 </td>
                                 <td class="align-middle">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a href="{{url('/admin/students/detail/'.@$student->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View user">
                                     View
                                     </a>
                                 </td>
