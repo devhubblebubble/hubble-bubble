@@ -47,10 +47,14 @@
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Status of Student:</strong> &nbsp;</li>
                     <li class="list-group-item border-0 ps-0 text-sm">{{ $student->step2Choice }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm">{{ $student->step4Choice }}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Documents uploaded:</strong> &nbsp;
-                    @if(!@$student->plusTwoDocURL && !@$student->degreeDocURL && !@$student->thirdDocURL && !@$student->fourthDocURL)
-                      No documents uploaded
-                    @endif
+                    <li class="list-group-item border-0 ps-0 text-sm">
+                      <strong class="text-dark">
+                        @if(!@$student->plusTwoDocURL && !@$student->degreeDocURL && !@$student->thirdDocURL && !@$student->fourthDocURL)
+                          No documents uploaded
+                        @else
+                          Documents uploaded:  
+                        @endif
+                        </strong> &nbsp;
                     </li>
                     @if(@$student->plusTwoDocURL)
                       <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">+2 Certificate</strong> &nbsp;<a href="{{ $student->plusTwoDocURL }}" target="_blank" >View</a></li>
