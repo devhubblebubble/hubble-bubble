@@ -33,7 +33,7 @@
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" " id="phone_number" name="phone_number"  />
+                                <input placeholder=" " type="number" id="phone_number" name="phone_number"  />
                                 <span>Phone Number</span>
                                 </label>
                             </div>

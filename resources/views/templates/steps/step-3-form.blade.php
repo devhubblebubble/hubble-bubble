@@ -20,7 +20,7 @@
     <div class="add_group">
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-                <input placeholder=" " name="university[]" onkeyup="clearUniversityError()" />
+                <input placeholder=" " name="university[]" onkeyup="clearUniversityError();noSpaces(this)" />
                 <span>Enter University</span>
             </label>
         </div>

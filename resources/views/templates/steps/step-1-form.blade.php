@@ -3,31 +3,31 @@
     <form id="stepOneForm" name="stepOneForm" >
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" " id="name" name="name" />
+            <input placeholder=" " id="name" name="name" onkeyup="noSpaces(this)" />
             <span>Enter Your Name</span>
             </label>
         </div>
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" " id="age" name="age" />
+            <input placeholder=" " type="number" id="age" name="age" />
             <span>Enter Your Age</span>
             </label>
         </div>
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" " id="qualification" name="qualification" />
+            <input placeholder=" " id="qualification" name="qualification" onkeyup="noSpaces(this)"  />
             <span>Enter Current Qualification</span>
             </label>
         </div>
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" " id="contact_number" name="contact_number" />
+            <input placeholder=" " type="number" id="contact_number" name="contact_number" />
             <span>Enter Contact Number</span>
             </label>
         </div>
         <div class="form_group">
             <label class="pure-material-textfield-outlined">
-            <input placeholder=" " id="email" name="email" />
+            <input placeholder=" " id="email" name="email" onkeyup="noSpaces(this)" />
             <span>Enter Email Address &nbsp;<small>(Optional)</small></span>
             </label>
         </div>
