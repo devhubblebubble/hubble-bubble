@@ -580,7 +580,7 @@
             newRowAdd = '<div class="add_group" id="append_row">' +
                 '<div class="form_group">' +
                 '<label class="pure-material-textfield-outlined">' +
-                '<input placeholder=" " name="university[]" onkeyup="clearUniversityError()" >' +
+                '<input placeholder=" " name="university[]" onkeyup="clearUniversityError();noSpaces(this)" >' +
                 '<span>Enter University</span>' +
                 '</label>' +
                 '</div>' +
@@ -870,6 +870,12 @@
                 $("#step-1").show();
                 $('#nav-step-1').addClass('active');
             }, 100);
+        }
+
+        function noSpaces(ele){
+            if ($(ele).val() && $(ele).val()[0] === ' ') {
+                $(ele).val($.trim($(ele).val()));
+            }
         }
     </script>
 
