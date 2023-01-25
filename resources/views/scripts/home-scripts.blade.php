@@ -609,7 +609,8 @@
                         this.removeFile(this.files[0]);               
                     }
                 });
-                this.on('removedfile', function(file) {                
+                this.on('removedfile', function(file) {     
+                    $("#plusTwoDocURL").val("");
                 });
                 this.on('sending', function(file, xhr, formData) {
                     /* Dont delete may need in future for linking files directly to students before saving step 5 */
@@ -637,7 +638,8 @@
                         this.removeFile(this.files[0]);               
                     }
                 });
-                this.on('removedfile', function(file) {                
+                this.on('removedfile', function(file) {  
+                    $("#degreeDocURL").val("");              
                 });
                 this.on('sending', function(file, xhr, formData) {
                     let studentId = $("#student_id").val();
@@ -662,7 +664,8 @@
                         this.removeFile(this.files[0]);               
                     }
                 });
-                this.on('removedfile', function(file) {                
+                this.on('removedfile', function(file) {     
+                    $("#thirdDocURL").val("");           
                 });
                 this.on('sending', function(file, xhr, formData) {
                 });
@@ -685,7 +688,8 @@
                         this.removeFile(this.files[0]);               
                     }
                 });
-                this.on('removedfile', function(file) {                
+                this.on('removedfile', function(file) {   
+                    $("#fourthDocURL").val("");          
                 });
                 this.on('sending', function(file, xhr, formData) {
                 });
