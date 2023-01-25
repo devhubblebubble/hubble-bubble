@@ -32,7 +32,7 @@
                                     <p class="text-xs font-weight-bold mb-0">{{ ucwords($student->first_name." ".$student->last_name) }}</p>
                                 </td>
                                 <td>
-                                    <p class="text-xs font-weight-bold mb-0">{{@$student->email_address}}</p>
+                                    <p class="text-xs font-weight-bold mb-0">{{@$student->email_address?:"--"}}</p>
                                 </td>
                                 <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">{{@$student->phone_number}}</span>
