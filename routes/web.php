@@ -33,4 +33,6 @@ Route::post('/admin/logout', [LoginController::class, 'logOut']);
 Route::prefix('admin')->middleware('loginVerification')->group(function() {
     Route::get('/students/listing',  [AdminController::class, 'studentListing']);
     Route::get('/students/detail/{id}',  [AdminController::class, 'studentDetail']);
+    Route::get('/contact-support/listing',  [AdminController::class, 'contactSupportListing']);
+    Route::get('/contact-support/detail/{id}',  [AdminController::class, 'contactSupportDetail']);
 });
