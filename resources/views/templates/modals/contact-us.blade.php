@@ -21,37 +21,37 @@
                         <div class="contact_form">
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" " id="first_name" name="first_name" />
+                                <input placeholder=" " id="first_name" name="first_name" onkeyup="noSpaces(this)" />
                                 <span>First Name</span>
                                 </label>
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" "  id="last_name" name="last_name" />
+                                <input placeholder=" "  id="last_name" name="last_name" onkeyup="noSpaces(this)" />
                                 <span>Last Name</span>
                                 </label>
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" " type="number" id="phone_number" name="phone_number"  />
+                                <input placeholder=" " type="number" id="phone_number" name="phone_number" onkeyup="noSpaces(this)"  />
                                 <span>Phone Number</span>
                                 </label>
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" "  id="email_address" name="email_address" />
+                                <input placeholder=" "  id="email_address" name="email_address" onkeyup="noSpaces(this)" />
                                 <span>Email Address</span>
                                 </label>
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" " id="contact_preffered_country" name="contact_preffered_country"  />
+                                <input placeholder=" " id="contact_preffered_country" name="contact_preffered_country" onkeyup="noSpaces(this)"  />
                                 <span>Preferred Country</span>
                                 </label>
                             </div>
                             <div class="form_group">
                                 <label class="pure-material-textfield-outlined">
-                                <input placeholder=" " id="contact_university" name="contact_university"  />
+                                <input placeholder=" " id="contact_university" name="contact_university" onkeyup="noSpaces(this)"  />
                                 <span>Course/University</span>
                                 </label>
                             </div>
