@@ -837,6 +837,7 @@
                         required: true
                     },
                     email_address: {
+                        email:true,
                         required: true
                     },
                     contact_preffered_country: {
@@ -857,6 +858,7 @@
                         required: "Please enter your phone number."
                     },
                     email_address: {
+                        email: "Please enter a valid email ID.",
                         required: "Please enter your email ID."
                     },
                     contact_preffered_country: {
