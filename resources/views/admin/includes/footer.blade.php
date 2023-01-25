@@ -6,7 +6,6 @@
             © <script>
                 document.write(new Date().getFullYear())
             </script>,
-            made with <i class="fa fa-heart"></i> by
             <a href="#" class="font-weight-bold" target="_blank">Hubble Bubble</a>
             for a better future.
             </div>
