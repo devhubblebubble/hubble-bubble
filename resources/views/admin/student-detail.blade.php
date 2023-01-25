@@ -42,8 +42,8 @@
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; {{ $student->contact_number }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ @$student->email ? : "--"}}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Age:</strong> &nbsp; {{ @$student->age?:"--" }}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered Country:</strong> &nbsp; {{ @$student->prefferedCountry ? implode(" ",json_decode(@$student->prefferedCountry)) : "--" }}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered University:</strong> &nbsp; {{ @$student->university ? implode(" ",json_decode(@$student->university)) : "--"  }}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered Country:</strong> &nbsp; {{ @$student->prefferedCountry ? implode(", ",json_decode(@$student->prefferedCountry)) : "--" }}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered University:</strong> &nbsp; {{ @$student->university ? implode(", ",json_decode(@$student->university)) : "--"  }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Status of Student:</strong> &nbsp;</li>
                     <li class="list-group-item border-0 ps-0 text-sm">{{ $student->step2Choice }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm">{{ $student->step4Choice }}</li>

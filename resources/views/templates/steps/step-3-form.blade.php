@@ -13,10 +13,10 @@
             <option>US</option>
             <option>Other</option>
         </select>
-        <label id="country-error" class="error" style="display: none;" for="name">Please select a country.</label>
     </div>
+    <label id="country-error" style="display: none;" for="name">Please select a country.</label>
 
-    <label id="university-error" class="error" style="display: none;" for="name">Please enter atleast one university.</label>
+    <label id="university-error" style="display: none;" for="name">Please enter atleast one university.</label>
     <div class="add_group">
         <div class="form_group">
             <label class="pure-material-textfield-outlined">

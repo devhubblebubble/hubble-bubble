@@ -761,6 +761,17 @@
             if(step4Value){
                 document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
             }
+            dropzoneReset('uploader1');
+            dropzoneReset('uploader2');
+            dropzoneReset('uploader3');
+            dropzoneReset('uploader4');
+        }
+
+        function dropzoneReset(id) {
+            let uploader = document.querySelector(`#${id} > div.dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete > a`);
+            if(uploader){
+                uploader.click();
+            }
         }
     </script>
 
