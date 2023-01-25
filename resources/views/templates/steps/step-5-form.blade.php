@@ -13,7 +13,7 @@
         @csrf
         </form>
     </div>
-    <label class="error" id="plusTwoDoc-error" style="display:none;" >
+    <label id="plusTwoDoc-error" style="display:none;" >
         Please upload your +2 document to continue
     </label>
     <div class="form_group mb-3">
