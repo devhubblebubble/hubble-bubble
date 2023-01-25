@@ -41,8 +41,8 @@
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; {{ ucwords($student->first_name." ".$student->last_name) }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; {{ $student->phone_number }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ @$student->email_address ? : "--"}}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered Country:</strong> &nbsp; {{ @$student->preffered_country ?: "--" }}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preffered University:</strong> &nbsp; {{ @$student->university ?: "--"  }}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preferred Country:</strong> &nbsp; {{ @$student->preffered_country ?: "--" }}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Preferred University:</strong> &nbsp; {{ @$student->university ?: "--"  }}</li>
                   </ul>
                 </div>
               </div>

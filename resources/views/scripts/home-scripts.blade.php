@@ -860,7 +860,7 @@
                         required: "Please enter your email ID."
                     },
                     contact_preffered_country: {
-                        required: "Please enter your preffered country."
+                        required: "Please enter your Preferred country."
                     },
                     contact_university: {
                         required: "Please enter a university."
