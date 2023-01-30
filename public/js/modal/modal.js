@@ -24,6 +24,58 @@ $('#closeTeam').click(function() {
     }, 200);
 });
 
+$('#openBigBang').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#ourBigBangDialog').addClass('dialog--open');
+});
+
+$('#closeBigBang').click(function() {
+    $('#ourBigBangDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#ourBigBangDialog').removeClass('dialog--open');
+        $('#ourBigBangDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openFindUs').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#findUsDialog').addClass('dialog--open');
+});
+
+$('#closeFindUs').click(function() {
+    $('#findUsDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#findUsDialog').removeClass('dialog--open');
+        $('#findUsDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openStudentVolunteers').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#studentVolunteersDialog').addClass('dialog--open');
+});
+
+$('#closeStudentVolunteer').click(function() {
+    $('#studentVolunteersDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#studentVolunteersDialog').removeClass('dialog--open');
+        $('#studentVolunteersDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openStoryJevinZac').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#storyJevinZacDialog').addClass('dialog--open');
+});
+
+$('#closeStoryJevinZac').click(function() {
+    $('#storyJevinZacDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#storyJevinZacDialog').removeClass('dialog--open');
+        $('#storyJevinZacDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#closeTeam').click(function() {
     $('#teamDialog').addClass('dialog--close');
     setTimeout(function() {

@@ -34,19 +34,19 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openStudentVolunteers">
                             <i class="ri-hand-heart-fill"></i>
                             <span>Student Volunteer</span>
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openBigBang">
                             <i class="ri-trophy-fill"></i>
                             <span>Our Big Bang Theory</span>
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openFindUs">
                             <i class="ri-map-pin-fill"></i>
                             <span>Find Us</span>
                         </a>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
 
-                <ul class="menu__items-list js-menu-items-list">
+                <!-- <ul class="menu__items-list js-menu-items-list">
                     <li class="js-menu-item">
                         <a href="#">
                             <span>Privacy policy</span>
@@ -70,7 +70,7 @@
                             <span>Terms & Conditions</span>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
 
             <div class="menu__footer">
