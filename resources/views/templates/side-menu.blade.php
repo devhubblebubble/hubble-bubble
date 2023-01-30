@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openFindUs">
                             <i class="ri-map-pin-fill"></i>
                             <span>Find Us</span>
                         </a>

@@ -101,6 +101,10 @@
         @include('templates.modals.our-big-bang')
         <!--/. Our Big Bang -->
 
+        <!-- Find Us -->
+        @include('templates.modals.find-us')
+        <!--/. Find Us -->
+
         <!-- Contact Us -->
         @include('templates.modals.contact-us')
         <!--/. Contact Us -->

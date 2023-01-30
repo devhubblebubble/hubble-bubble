@@ -30,10 +30,23 @@ $('#openBigBang').click(function() {
 });
 
 $('#closeBigBang').click(function() {
-    $('#teamDialog').addClass('dialog--close');
+    $('#ourBigBangDialog').addClass('dialog--close');
     setTimeout(function() {
         $('#ourBigBangDialog').removeClass('dialog--open');
         $('#ourBigBangDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openFindUs').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#findUsDialog').addClass('dialog--open');
+});
+
+$('#closeFindUs').click(function() {
+    $('#findUsDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#findUsDialog').removeClass('dialog--open');
+        $('#findUsDialog').removeClass('dialog--close');
     }, 200);
 });
 
