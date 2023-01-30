@@ -8,7 +8,7 @@
     </div>
 
     <div class="form_group mb-3">
-        <label class="custom_label">Upload 12th Certificate</label>
+        <label class="custom_label">Upload 12th Certificate(Less than 1 mb)</label>
         <form class="dropzone" id="uploader1">
         @csrf
         </form>
@@ -17,19 +17,19 @@
         Please upload your +2 document to continue
     </label>
     <div class="form_group mb-3">
-        <label class="custom_label">Upload Degree Certificate</label>
+        <label class="custom_label">Upload Degree Certificate(Less than 1 mb)</label>
         <form class="dropzone" id="uploader2">
         @csrf
         </form>
     </div>
     <div class="form_group mb-3">
-        <label class="custom_label">Upload Sample 1 Certificate</label>
+        <label class="custom_label">Upload Sample 1 (Less than 1 mb)</label>
         <form class="dropzone" id="uploader3">
         @csrf
         </form>
     </div>
     <div class="form_group mb-3">
-        <label class="custom_label">Upload Sample 2 Certificate</label>
+        <label class="custom_label">Upload Sample 2 Certificate(Less than 1 mb)</label>
         <form class="dropzone" id="uploader4">
         @csrf
         </form>
