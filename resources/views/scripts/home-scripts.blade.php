@@ -599,7 +599,7 @@
         const myDropzoneTheFirst = new Dropzone("#uploader1", {
             url: "/save-documents/plus-two-certificate",
             addRemoveLinks: true,
-            // maxFilesize: 1, // MB
+            maxFilesize: 1, // MB
             maxFiles:1,
             acceptedFiles: "image/*",
             init: function () {
@@ -628,7 +628,7 @@
         const myDropzoneTheSecond = new Dropzone("#uploader2", {
             url: "/save-documents/degree-certificate",
             addRemoveLinks: true,
-            // maxFilesize: 1, // MB
+            maxFilesize: 1, // MB
             maxFiles:1,
             acceptedFiles: "image/*",
             init: function () {
@@ -654,7 +654,7 @@
         const myDropzoneTheThird = new Dropzone("#uploader3", {
             url: "/save-documents/third-certificate",
             addRemoveLinks: true,
-            // maxFilesize: 1, // MB
+            maxFilesize: 1, // MB
             maxFiles:1,
             acceptedFiles: "image/*",
             init: function () {
@@ -678,7 +678,7 @@
         const myDropzoneTheFourth = new Dropzone("#uploader4", {
             url: "/save-documents/fourth-certificate",
             addRemoveLinks: true,
-            // maxFilesize: 1, // MB
+            maxFilesize: 1, // MB
             maxFiles:1,
             acceptedFiles: "image/*",
             init: function () {
