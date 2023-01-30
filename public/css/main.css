@@ -1810,6 +1810,23 @@ li {
     transition: all 0.2s ease-in-out;
 }
 
+label.error,
+#university-error,
+#country-error,
+#step-4-error,
+#plusTwoDoc-error,
+#step-2-error {
+    font-size: 0.9rem;
+    color: #ff5050;
+    margin-top: 0.2rem;
+}
+
+#step-4-error,
+#step-2-error {
+    margin-bottom: 0.3rem;
+    margin-top: 0;
+}
+
 
 /****************************************/
 

@@ -24,6 +24,19 @@ $('#closeTeam').click(function() {
     }, 200);
 });
 
+$('#openBigBang').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#ourBigBangDialog').addClass('dialog--open');
+});
+
+$('#closeBigBang').click(function() {
+    $('#teamDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#ourBigBangDialog').removeClass('dialog--open');
+        $('#ourBigBangDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#closeTeam').click(function() {
     $('#teamDialog').addClass('dialog--close');
     setTimeout(function() {

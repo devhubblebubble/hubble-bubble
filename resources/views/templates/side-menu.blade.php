@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openBigBang">
                             <i class="ri-trophy-fill"></i>
                             <span>Our Big Bang Theory</span>
                         </a>

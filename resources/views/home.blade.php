@@ -96,6 +96,10 @@
         <!-- Our Team -->
         @include('templates.modals.our-team')
         <!--/. Our Team -->
+        
+        <!-- Our Big Bang -->
+        @include('templates.modals.our-big-bang')
+        <!--/. Our Big Bang -->
 
         <!-- Contact Us -->
         @include('templates.modals.contact-us')
