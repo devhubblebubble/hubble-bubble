@@ -108,6 +108,10 @@
         <!-- Student Volunteers -->
         @include('templates.modals.student-volunteers')
         <!--/. Student Volunteers -->
+        
+        <!-- Story of Jevin Zac -->
+        @include('templates.modals.story-jevin-zac')
+        <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
         @include('templates.modals.contact-us')

@@ -63,6 +63,19 @@ $('#closeStudentVolunteer').click(function() {
     }, 200);
 });
 
+$('#openStoryJevinZac').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#storyJevinZacDialog').addClass('dialog--open');
+});
+
+$('#closeStoryJevinZac').click(function() {
+    $('#storyJevinZacDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#storyJevinZacDialog').removeClass('dialog--open');
+        $('#storyJevinZacDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#closeTeam').click(function() {
     $('#teamDialog').addClass('dialog--close');
     setTimeout(function() {
