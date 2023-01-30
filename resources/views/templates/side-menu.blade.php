@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a href="#">
+                        <a id="openStudentVolunteers">
                             <i class="ri-hand-heart-fill"></i>
                             <span>Student Volunteer</span>
                         </a>

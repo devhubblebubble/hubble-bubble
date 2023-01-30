@@ -104,6 +104,10 @@
         <!-- Find Us -->
         @include('templates.modals.find-us')
         <!--/. Find Us -->
+        
+        <!-- Student Volunteers -->
+        @include('templates.modals.student-volunteers')
+        <!--/. Student Volunteers -->
 
         <!-- Contact Us -->
         @include('templates.modals.contact-us')

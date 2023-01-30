@@ -50,6 +50,19 @@ $('#closeFindUs').click(function() {
     }, 200);
 });
 
+$('#openStudentVolunteers').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#studentVolunteersDialog').addClass('dialog--open');
+});
+
+$('#closeStudentVolunteer').click(function() {
+    $('#studentVolunteersDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#studentVolunteersDialog').removeClass('dialog--open');
+        $('#studentVolunteersDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#closeTeam').click(function() {
     $('#teamDialog').addClass('dialog--close');
     setTimeout(function() {
