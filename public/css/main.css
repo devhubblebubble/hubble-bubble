@@ -1885,6 +1885,11 @@ label.error,
     height: 320px;
 }
 
+.read_more {
+    color: #fff;
+    text-decoration: underline;
+}
+
 
 /****************************************/
 

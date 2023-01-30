@@ -46,12 +46,6 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
-                        <a id="openStoryJevinZac">
-                            <i class="ri-shield-user-fill"></i>
-                            <span>Story of Jevin Zac </span>
-                        </a>
-                    </li>
-                    <li class="js-menu-item">
                         <a id="openFindUs">
                             <i class="ri-map-pin-fill"></i>
                             <span>Find Us</span>
