@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\StudentPersonalInfo;
 use App\Models\ContactSupport;
+use App\Models\StudentVolunteers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
 
@@ -12,9 +13,10 @@ class HomeController extends Controller
 {
     
     public function homePage(){
+        $studentVolunteers = StudentVolunteers::where('delete_status', false)->get();
         $calendly_link = Config::get('calendly.link');
        
-        return view('home', compact('calendly_link'));
+        return view('home', compact('calendly_link', 'studentVolunteers'));
     }
 
     /* Save step one of eligibility test */

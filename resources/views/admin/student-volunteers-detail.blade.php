@@ -70,22 +70,22 @@
     @include('admin.includes.footer')  
   </div>
   <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
-      </div>
-      <div class="modal-body">
-        Are You sure want to delete this volunteer?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()" >Close</button>
-        <button type="button" onclick="deleteVolunteer()" class="btn btn-primary">Delete</button>
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+        </div>
+        <div class="modal-body">
+          Are you sure want to delete this volunteer?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()" >Close</button>
+          <button type="button" onclick="deleteVolunteer()" class="btn btn-primary">Delete</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
   @push('script')
     <script>
         function closeModal(){

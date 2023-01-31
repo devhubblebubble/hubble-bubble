@@ -163,7 +163,8 @@
                     if (response.status == "success") {
                         $("#volunteerForm")[0].reset();
                         dropzoneReset('uploader');
-                        location.href = "{{ url('/admin/student-volunteers/listing') }}";
+                        let id = response.data.id;
+                        location.href = "{{ url('/admin/student-volunteers/detail') }}"+"/"+id;
                     }
                 }, error: function(res)
                 {
@@ -194,7 +195,7 @@
                 this.on('success', function( file, xhRes ){
                     let res = JSON.parse(xhRes);
                     $("#volunteerImageURL").val(res.data.image_url);
-                    $("#submit-volunteer-form").html("{{ Request::is('admin/student-volunteers/detail/*') ? 'Save' : 'Update' }}");
+                    $("#submit-volunteer-form").html("{{ Request::is('admin/student-volunteers/add') ? 'Save' : 'Update' }}");
                     $("#submit-volunteer-form").prop("disabled", false);
                 });
             }

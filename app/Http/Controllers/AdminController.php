@@ -65,7 +65,7 @@ class AdminController extends Controller
         $studentInfo->description = $req->input('description');
         $studentInfo->save();
 
-        $response = ["status" => "success", "data" => ["studentId" => $studentInfo->id], 
+        $response = ["status" => "success", "data" => ["id" => $studentInfo->id], 
             "message" => "Successfully saved step one"];
 
         return json_encode($response);

@@ -2,10 +2,15 @@
 @section('content')
     <style>
         .add_volunteer {
-            float:right;
-            margin-right: 10px;
+            float: right;
+            margin-right: 39px;
+            margin-top: -8px;
             cursor: pointer;
             color: #fff;
+            border: 1px solid #fff;
+            padding: 10px;
+            border-radius: 11px;
+            box-shadow: 3px 3px #fff;
         }
         .add_volunteer:hover {
             color: #fff;
