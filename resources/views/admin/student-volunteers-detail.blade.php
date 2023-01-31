@@ -55,7 +55,7 @@
                   <ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; {{ ucwords($student->name) }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Designation:</strong> &nbsp; {{ $student->designation }}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Description:</strong> &nbsp; {{ @$student->description ? : "--"}}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">One Liner:</strong> &nbsp; {{ @$student->description ? : "--"}}</li>
                     @if(@$student->image_url)
                       <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Image </strong> &nbsp;<a href="{{ $student->image_url }}" target="_blank" >View</a></li>
                     @endif

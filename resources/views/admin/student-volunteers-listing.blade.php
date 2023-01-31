@@ -42,7 +42,7 @@
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Designation</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">One Liner</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
