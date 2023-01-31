@@ -40,4 +40,6 @@ Route::prefix('admin')->middleware('loginVerification')->group(function() {
     Route::post('/student-volunteers/add',  [AdminController::class, 'addStudentVolunteer']);
     Route::post('/student-volunteers/image',  [AdminController::class, 'uploadStudentVolunteerImage']);
     Route::get('/student-volunteers/detail/{id}',  [AdminController::class, 'studentVolunteerDetail']);
+    Route::get('/student-volunteers/edit/{id}',  [AdminController::class, 'editStudentVolunteerDetail']);
+    Route::post('/student-volunteers/delete',  [AdminController::class, 'deleteStudentVolunteer']);
 });

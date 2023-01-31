@@ -20,6 +20,16 @@
         margin: 2.3em 0;
     }
 
+    .add_volunteer {
+        float:right;
+        margin-right: 10px;
+        cursor: pointer;
+        color: var(--bs-link-color);
+    }
+
+    .add_volunteer:hover {
+        color: var(--bs-link-color);
+    }
 </style>
 @include('admin.includes.side-menu')  
 <div class="main-content position-relative max-height-vh-100 h-100">
@@ -37,7 +47,11 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Add Student Volunteer
+                @if(Request::is('admin/student-volunteers/add'))
+                    Add
+                @else
+                    Edit
+                @endif Student Volunteer
               </h5>
             </div>
           </div>
@@ -54,6 +68,7 @@
                   </div>
                 </div>
                 <div class="card-body p-3">
+                    @if(@$student->image_url) <a class="add_volunteer" href="{{ $student->image_url }}" target="_blank" >View Previously Uploaded Image</a> @endif
                     <div class="form_group mb-3">
                         <label class="custom_label">Image(Less than 1 mb)</label>
                         <form class="dropzone" id="uploader">
@@ -61,26 +76,28 @@
                         </form>
                     </div>
                     <form role="form" class="text-start" id="volunteerForm" name="volunteerForm" enctype="multipart/form-data" >
-                        <input type="hidden" id="volunteerImageURL" name="volunteerImageURL" />
-                        <div class="input-group input-group-outline my-3">
+                        <input type="hidden" id="volunteerImageURL" name="volunteerImageURL" value="{{@$student->image_url}}" />
+                        <input type="hidden" id="id" name="id" value="{{@$student->id}}" />
+                        <div class="input-group input-group-outline my-3 {{@$student->name?'is-filled':''}} ">
                             <label class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" />
+                            <input type="text" class="form-control" id="name" name="name" value="{{@$student->name}}" />
                         </div>
-                        <div class="input-group input-group-outline mb-3">
+                        <div class="input-group input-group-outline mb-3 {{@$student->designation?'is-filled':''}} ">
                             <label class="form-label">Designation</label>
-                            <input type="text" class="form-control" id="designation" name="designation" />
+                            <input type="text" class="form-control" id="designation" name="designation" value="{{@$student->designation}}" />
                         </div>
-                        <!-- <div>
-                            <label for="formFileLg" class="form-label">Image</label>
-                            <input style="border: 1px solid lightgrey;" class="form-control form-control-lg" id="formFileLg" type="file">
-                        </div>
-                        <br> -->
-                        <div class="input-group input-group-outline mb-3">
+                        <div class="input-group input-group-outline mb-3 {{@$student->description?'is-filled':''}}">
                             <label class="form-label">One Liner</label>
-                            <input type="text" class="form-control" id="description" name="description" />
+                            <input type="text" class="form-control" id="description" name="description" value="{{@$student->description}}" />
                         </div>
                         <div class="text-center">
-                            <button type="button" id="submit-volunteer-form" onclick="submitVolunteerForm()" class="btn bg-gradient-primary w-100 my-4 mb-2">Save</button>
+                            <button type="button" id="submit-volunteer-form" onclick="submitVolunteerForm()" class="btn bg-gradient-primary w-100 my-4 mb-2">
+                                @if(Request::is('admin/student-volunteers/add'))
+                                    Save
+                                @else
+                                    Update
+                                @endif
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -146,7 +163,8 @@
                     if (response.status == "success") {
                         $("#volunteerForm")[0].reset();
                         dropzoneReset('uploader');
-                        location.href = "{{ url('/admin/student-volunteers/listing') }}";
+                        let id = response.data.id;
+                        location.href = "{{ url('/admin/student-volunteers/detail') }}"+"/"+id;
                     }
                 }, error: function(res)
                 {
@@ -157,11 +175,11 @@
         const myDropzoneForVolunteerImg = new Dropzone("#uploader", {
             url: "/admin/student-volunteers/image",
             addRemoveLinks: true,
-            maxFilesize: 1, // MB
+            // maxFilesize: 1, // MB
             maxFiles:1,
             acceptedFiles: "image/*",
             init: function () {
-                var myDropzone = this;
+                var myDropzone = this;""
                 this.on("addedfile", function() {          
                     if (this.files[1]!=null){
                         this.removeFile(this.files[0]);               
@@ -177,7 +195,7 @@
                 this.on('success', function( file, xhRes ){
                     let res = JSON.parse(xhRes);
                     $("#volunteerImageURL").val(res.data.image_url);
-                    $("#submit-volunteer-form").html("Save");
+                    $("#submit-volunteer-form").html("{{ Request::is('admin/student-volunteers/add') ? 'Save' : 'Update' }}");
                     $("#submit-volunteer-form").prop("disabled", false);
                 });
             }

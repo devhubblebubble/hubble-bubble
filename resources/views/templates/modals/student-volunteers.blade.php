@@ -14,30 +14,20 @@
         <div class="dialog_body scroll">
             <div class="spacing">
                 <div class="services_grid team">
+                    @foreach(@$studentVolunteers as $volunteer)
                     <div class="service_item">
                         <div class="service_icon team_icon">
-                            <img src="img/users/user_placeholder.png">
+                            <img src="{{ @$volunteer->image_url?:'img/users/user_placeholder.png' }}">
                         </div>
                         <div class="service_details team_details">
-                            <h3>Student Name</h3>
-                            <h6>Designation</h6>
+                            <h3>{{ @$volunteer->name }}</h3>
+                            <h6>{{ @$volunteer->designation }}</h6>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur.
+                                {{ @$volunteer->description }}
                             </p>
                         </div>
                     </div>
-                    <div class="service_item">
-                        <div class="service_icon team_icon">
-                            <img src="img/users/user_placeholder.png">
-                        </div>
-                        <div class="service_details team_details">
-                            <h3>Student Name</h3>
-                            <h6>Designation</h6>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur.
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

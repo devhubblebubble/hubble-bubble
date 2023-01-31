@@ -33,13 +33,18 @@ class AdminController extends Controller
     }
 
     public function studentVolunteersListing(){
-        $studentsVolunteers = ContactSupport::all();
-        return view('admin.student-volunteers-listing', compact('studentsVolunteers'));
+        $students = StudentVolunteers::where('delete_status', false)->get();
+        return view('admin.student-volunteers-listing', compact('students'));
     }
 
     public function studentVolunteerDetail($id){
-        $student = ContactSupport::find($id);
+        $student = StudentVolunteers::find($id);
         return view('admin.student-volunteers-detail', compact('student'));
+    }
+
+    public function  editStudentVolunteerDetail($id){
+        $student = StudentVolunteers::find($id);
+        return view('admin.add-student-volunteers', compact('student'));
     }
 
     public function showAddStudentVolunteerPage() {
@@ -60,11 +65,29 @@ class AdminController extends Controller
         $studentInfo->description = $req->input('description');
         $studentInfo->save();
 
-        $response = ["status" => "success", "data" => ["studentId" => $studentInfo->id], 
+        $response = ["status" => "success", "data" => ["id" => $studentInfo->id], 
             "message" => "Successfully saved step one"];
 
         return json_encode($response);
     }
+
+    public function deleteStudentVolunteer(Request $req) {
+        
+        $id = $req->input('id');
+        
+        $studentInfo = StudentVolunteers::find($id);
+        $studentInfo->delete_status = true;
+        $studentInfo->save();
+
+        $response = [
+            "status" => "success",
+            "data" => ["studentId" => $studentInfo->id], 
+            "message" => "Successfully deleted student volunteer"
+        ];
+
+        return json_encode($response);
+    }
+
 
     /* Upload files send from dropzone to S3 */
     public function uploadStudentVolunteerImage(Request $req){
@@ -90,7 +113,6 @@ class AdminController extends Controller
         $fileName = $name . '-' . time() . '-' . uniqid() . '.' . $extension;
         $filePath = $directory."/" . $fileName;
         $disk = Storage::disk('s3');
-        // dd($filePath);
         $disk->put($filePath, fopen($file, 'r+'), 'public'); //uploading as streams, useful for large uploads.
         $file_url = 'https://s3-' .
             Config::get('filesystems.disks.s3.region') . '.amazonaws.com/' .
