@@ -125,6 +125,9 @@
         @include('templates.modals.success')
         <!--/. Success -->
 
+         <!-- Dont proceed -->
+         @include('templates.modals.dont-proceed')
+        <!--/. Dont proceed -->
     </div>
 
     <!--//. Mobile Version -->

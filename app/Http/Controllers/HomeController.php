@@ -123,10 +123,17 @@ class HomeController extends Controller
         $id = $req->input('id');
 
         $studentInfo = StudentPersonalInfo::find($id);
+        $studentInfo->tempDoc1URL = $req->input('tempDoc1URL');
+        $studentInfo->tempDoc2URL = $req->input('tempDoc2URL');
+        $studentInfo->tempDoc3URL = $req->input('tempDoc3URL');
+        $studentInfo->tempDoc4URL = $req->input('tempDoc4URL');
+        $studentInfo->tempDoc5URL = $req->input('tempDoc5URL');
+        $studentInfo->passportFrontDocURL = $req->input('passportFrontDocURL');
+        $studentInfo->passportBackDocURL = $req->input('passportBackDocURL');
         $studentInfo->plusTwoDocURL = $req->input('plusTwoDocURL');
-        $studentInfo->degreeDocURL = $req->input('degreeDocURL');
-        $studentInfo->thirdDocURL = $req->input('thirdDocURL');
-        $studentInfo->fourthDocURL = $req->input('fourthDocURL');
+        $studentInfo->degreeConsolDocURL = $req->input('degreeConsolDocURL');
+        $studentInfo->degreeTranscDocURL = $req->input('degreeTranscDocURL');
+        $studentInfo->degreeCertDocURL = $req->input('degreeCertDocURL');
         $studentInfo->save();
 
         $response = ["status" => "success", "data" => null, 
