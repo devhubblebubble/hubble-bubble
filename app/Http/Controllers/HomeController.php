@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\StudentPersonalInfo;
 use App\Models\ContactSupport;
+use App\Models\StudentVolunteers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
 
@@ -12,9 +13,10 @@ class HomeController extends Controller
 {
     
     public function homePage(){
+        $studentVolunteers = StudentVolunteers::where('delete_status', false)->get();
         $calendly_link = Config::get('calendly.link');
        
-        return view('home', compact('calendly_link'));
+        return view('home', compact('calendly_link', 'studentVolunteers'));
     }
 
     /* Save step one of eligibility test */
@@ -121,10 +123,17 @@ class HomeController extends Controller
         $id = $req->input('id');
 
         $studentInfo = StudentPersonalInfo::find($id);
+        $studentInfo->tempDoc1URL = $req->input('tempDoc1URL');
+        $studentInfo->tempDoc2URL = $req->input('tempDoc2URL');
+        $studentInfo->tempDoc3URL = $req->input('tempDoc3URL');
+        $studentInfo->tempDoc4URL = $req->input('tempDoc4URL');
+        $studentInfo->tempDoc5URL = $req->input('tempDoc5URL');
+        $studentInfo->passportFrontDocURL = $req->input('passportFrontDocURL');
+        $studentInfo->passportBackDocURL = $req->input('passportBackDocURL');
         $studentInfo->plusTwoDocURL = $req->input('plusTwoDocURL');
-        $studentInfo->degreeDocURL = $req->input('degreeDocURL');
-        $studentInfo->thirdDocURL = $req->input('thirdDocURL');
-        $studentInfo->fourthDocURL = $req->input('fourthDocURL');
+        $studentInfo->degreeConsolDocURL = $req->input('degreeConsolDocURL');
+        $studentInfo->degreeTranscDocURL = $req->input('degreeTranscDocURL');
+        $studentInfo->degreeCertDocURL = $req->input('degreeCertDocURL');
         $studentInfo->save();
 
         $response = ["status" => "success", "data" => null, 

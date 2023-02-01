@@ -24,10 +24,17 @@ return new class extends Migration
             $table->longText('prefferedCountry')->nullable();
             $table->longText('university')->nullable();
             $table->longText('step4Choice')->nullable();
+            $table->longText('passportFrontDocURL')->nullable();
+            $table->longText('tempDoc1URL')->nullable();
+            $table->longText('tempDoc2URL')->nullable();
+            $table->longText('tempDoc3URL')->nullable();
+            $table->longText('tempDoc4URL')->nullable();
+            $table->longText('tempDoc5URL')->nullable();
+            $table->longText('passportBackDocURL')->nullable();
             $table->longText('plusTwoDocURL')->nullable();
-            $table->longText('degreeDocURL')->nullable();
-            $table->longText('thirdDocURL')->nullable();
-            $table->longText('fourthDocURL')->nullable();
+            $table->longText('degreeConsolDocURL')->nullable();
+            $table->longText('degreeTranscDocURL')->nullable();
+            $table->longText('degreeCertDocURL')->nullable();
             $table->timestamps();
         });
     }

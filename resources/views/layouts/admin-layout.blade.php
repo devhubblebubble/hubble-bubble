@@ -37,6 +37,23 @@
 
     <body class="g-sidenav-show  bg-gray-200">
         @yield('content')
+          <!-- Modal -->
+        <div class="modal fade" id="logOutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" >Confirm</h5>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to logout?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeLogOutModal()" >Close</button>
+                <button type="button" onclick="logOut()" class="btn btn-primary">Log Out</button>
+                </div>
+            </div>
+            </div>
+        </div>
         <!--   Core JS Files   -->
         <script src="{{ asset('admin/assets/js/core/popper.min.js') }}"></script>
         <script src="{{ asset('admin/assets/js/core/bootstrap.min.js') }}"></script>

@@ -33,7 +33,7 @@
                                     <p class="text-xs font-weight-bold mb-0">{{@$student->name}}</p>
                                 </td>
                                 <td>
-                                    <p class="text-xs font-weight-bold mb-0">{{@$student->email}}</p>
+                                    <p class="text-xs font-weight-bold mb-0">{{@$student->email?:"--"}}</p>
                                 </td>
                                 <td>
                                     <p class="text-xs text-secondary mb-0">{{@$student->qualification}}</p>

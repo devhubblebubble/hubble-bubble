@@ -49,24 +49,47 @@
                     <li class="list-group-item border-0 ps-0 text-sm">{{ $student->step4Choice }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm">
                       <strong class="text-dark">
-                        @if(!@$student->plusTwoDocURL && !@$student->degreeDocURL && !@$student->thirdDocURL && !@$student->fourthDocURL)
+                        @if(!@$student->tempDoc1URL && !@$student->tempDoc2URL && !@$student->tempDoc3URL && !@$student->tempDoc4URL && !@$student->tempDoc5URL && !@$student->passportBackDocURL && 
+                          !@$student->plusTwoDocURL && !@$student->degreeConsolDocURL && !@$student->degreeTranscDocURL && !@$student->degreeCertDocURL
+                        && !@$student->passportFrontDocURL)
                           No documents uploaded
                         @else
                           Documents uploaded:  
                         @endif
                         </strong> &nbsp;
                     </li>
+                    @if(@$student->passportFrontDocURL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Passport Front</strong> &nbsp;<a href="{{ $student->passportFrontDocURL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->passportBackDocURL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Passport Back</strong> &nbsp;<a href="{{ $student->passportBackDocURL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->tempDoc1URL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">CV/Resume</strong> &nbsp;<a href="{{ $student->tempDoc1URL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->tempDoc2URL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">10th mark sheet</strong> &nbsp;<a href="{{ $student->tempDoc2URL }}" target="_blank" >View</a></li>
+                    @endif
                     @if(@$student->plusTwoDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">+2 Certificate</strong> &nbsp;<a href="{{ $student->plusTwoDocURL }}" target="_blank" >View</a></li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">12th mark sheet</strong> &nbsp;<a href="{{ $student->plusTwoDocURL }}" target="_blank" >View</a></li>
                     @endif
-                    @if(@$student->degreeDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree Certificate</strong> &nbsp;<a href="{{ $student->degreeDocURL }}" target="_blank" >View</a></li>
+                    @if(@$student->degreeConsolDocURL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree Certificate</strong> &nbsp;<a href="{{ $student->degreeConsolDocURL }}" target="_blank" >View</a></li>
                     @endif
-                    @if(@$student->thirdDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Third Certificate</strong> &nbsp;<a href="{{ $student->thirdDocURL }}" target="_blank" >View</a></li>
+                    @if(@$student->degreeTranscDocURL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Third Certificate</strong> &nbsp;<a href="{{ $student->degreeTranscDocURL }}" target="_blank" >View</a></li>
                     @endif
-                    @if(@$student->fourthDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fourth Certificate</strong> &nbsp;<a href="{{ $student->fourthDocURL }}" target="_blank" >View</a></li>
+                    @if(@$student->degreeCertDocURL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fourth Certificate</strong> &nbsp;<a href="{{ $student->degreeCertDocURL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->tempDoc3URL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Letter of Recommendation</strong> &nbsp;<a href="{{ $student->tempDoc3URL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->tempDoc4URL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Medium of Instruction</strong> &nbsp;<a href="{{ $student->tempDoc4URL }}" target="_blank" >View</a></li>
+                    @endif
+                    @if(@$student->tempDoc5URL)
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">English proficiency test (IELTS/PTE/Duolingo)</strong> &nbsp;<a href="{{ $student->tempDoc5URL }}" target="_blank" >View</a></li>
                     @endif
                   </ul>
                 </div>

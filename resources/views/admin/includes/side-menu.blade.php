@@ -35,6 +35,16 @@
             <span class="nav-link-text ms-1">Contact Support</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white @if(Request::is('admin/student-volunteers/listing') || Request::is('admin/student-volunteers/detail/*')
+          || Request::is('admin/student-volunteers/add') || Request::is('admin/student-volunteers/edit/*') ) active active bg-gradient-primary @endif "
+            href="{{ url('admin/student-volunteers/listing') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">people</i>
+            </div>
+            <span class="nav-link-text ms-1">Student Volunteers</span>
+          </a>
+        </li>
         <!-- <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
@@ -50,12 +60,20 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" onclick="logOut()" type="button">Log Out</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" onclick="showLogOutModal()" type="button">Log Out</a>
       </div>
     </div>
   </aside>
 @push('script')
   <script>
+   
+    function closeLogOutModal(){
+      $('#logOutModal').modal('hide')
+    }
+
+    function showLogOutModal(){
+      $('#logOutModal').modal('show')
+    }
 
     function logOut(){
       let ajaxURL = "{{ url('admin/logout') }}";
