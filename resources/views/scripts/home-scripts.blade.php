@@ -1036,6 +1036,13 @@
             $("#degreeConsolDocURL").val("");
             $("#degreeTranscDocURL").val("");
             $("#degreeCertDocURL").val("");
+            $("#passportFrontDocURL").val("");
+            $("#passportBackDocURL").val("");
+            $("#tempDoc1URL").val("");
+            $("#tempDoc2URL").val("");
+            $("#tempDoc3URL").val("");
+            $("#tempDoc4URL").val("");
+            $("#tempDoc5URL").val("");
             /* Clear step 2  */
             let step2Choice = $('input[name="step_two_rdo"]:checked').val();
             if(step2Choice){
@@ -1052,10 +1059,16 @@
                 document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
             }
             dropzoneReset('passportFrontUploader');
+            dropzoneReset('passportBackUploader');
             dropzoneReset('plusTwoUploader');
             dropzoneReset('degreeConsolUploader');
             dropzoneReset('degreeTranscUploader');
             dropzoneReset('degreeCertUploader');
+            dropzoneReset('temp1Uploader');
+            dropzoneReset('temp2Uploader');
+            dropzoneReset('temp3Uploader');
+            dropzoneReset('temp4Uploader');
+            dropzoneReset('temp5Uploader');
         }
 
         function dropzoneReset(id) {
