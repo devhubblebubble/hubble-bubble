@@ -105,6 +105,11 @@ li {
     justify-content: center;
     text-align: center;
     z-index: 99;
+    flex-direction: column;
+}
+
+#web_layout h3 {
+    margin-bottom: 1.5rem;
 }
 
 #mobile_layout {

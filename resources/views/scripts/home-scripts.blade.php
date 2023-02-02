@@ -1,6 +1,6 @@
     <script>
         $(document).ready(function() {
-            player.pause();
+            // player.pause();
             // Copyright Year
             $(".spanYear").html(new Date().getFullYear());
         });
@@ -43,11 +43,11 @@
 
 
         // variable 
-        var VIDEO_PLAYING_STATE = {
-            "PLAYING": "PLAYING",
-            "PAUSE": "PAUSE"
-        }
-        var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
+        // var VIDEO_PLAYING_STATE = {
+        //     "PLAYING": "PLAYING",
+        //     "PAUSE": "PAUSE"
+        // }
+        // var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
         var timeout = null
         var waiting = 10000
         var swiper = new Swiper(
@@ -62,12 +62,12 @@
             });
 
         // HTML5 vdo object
-        var options = {};
-        var player = videojs('my-player', options);
-        player.pause();
-        player.on('ended', function() {
-            next()
-        })
+        // var options = {};
+        // var player = videojs('my-player', options);
+        // player.pause();
+        // player.on('ended', function() {
+        //     next()
+        // })
 
         // swiper object
         swiper.on('slideChangeTransitionEnd', function() {
@@ -76,9 +76,9 @@
             var currentSlideType = currentSlide.data('slide-type')
 
             // incase user click next before video ended
-            if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
-                player.pause()
-            }
+            // if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
+            //     player.pause()
+            // }
 
             clearTimeout(timeout)
 
@@ -87,9 +87,9 @@
                     runNext()
                     break;
                 case 'vdo':
-                    player.currentTime(0)
-                    player.play()
-                    videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
+                    // player.currentTime(0)
+                    // player.play()
+                    // videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
                     break;
                 default:
                     throw new Error('invalid slide type');
@@ -116,12 +116,12 @@
 
 
         $('.swiper_back').click(function() {
-            player.pause();
+            // player.pause();
             $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
         });
 
         $('.app_foot_nav .swiper-pagination-bullet').click(function() {
-            player.pause();
+            // player.pause();
         });
 
         // $('#smartwizard').smartWizard({
