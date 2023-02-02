@@ -99,11 +99,10 @@
         <!--//. Whatsapp -->
 
         <!-- Check Eligibility -->
-        <!-- @include('templates.modals.check-eligibility') -->
         <!--/. Check Eligibility -->
 
         <!-- About Us -->
-        @include('templates.modals.about-us')
+        <!-- @include('templates.modals.about-us') -->
         <!--/. About Us -->
 
         <!-- Our Team -->
