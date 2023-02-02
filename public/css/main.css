@@ -1913,6 +1913,36 @@ label.error,
     text-decoration: underline;
 }
 
+.img_slide_block img {
+    border-radius: 1rem;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.img_slide_block {
+    max-height: 75vh;
+    display: flex;
+    justify-content: center;
+}
+
+.whatsapp_chat {
+    position: absolute;
+    bottom: 5.3rem;
+    right: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    z-index: 99;
+}
+
+.whatsapp_chat a {
+    display: flex;
+}
+
+.whatsapp_chat img {
+    width: 100%;
+}
+
 
 /****************************************/
 
