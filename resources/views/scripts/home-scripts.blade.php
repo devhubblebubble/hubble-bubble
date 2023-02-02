@@ -474,8 +474,8 @@
                             loadNextStep(4, 5);
                         } 
                         else if(step4Value == "2"){
-                            $('#eligibilityDialog').removeClass('dialog--open');
-                            formsReset();
+                            // $('#eligibilityDialog').removeClass('dialog--open');
+                            // formsReset();
                             window.open('mailto:docs@hubblebubble.london');
                         }
                         else {

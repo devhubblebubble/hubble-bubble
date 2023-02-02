@@ -6,7 +6,7 @@
         </button>
         <div class="confirmation_box">
             <div class="confirmation_icon">
-                <img src="img/confirmation_1.png">
+                <img src="img/main/doesnt_matter.png">
             </div>
             <h1>The course or University doesn’t matter</h1>
             <h4>Hubble Bubble would love to mentor you towards your dream career.​<br>
