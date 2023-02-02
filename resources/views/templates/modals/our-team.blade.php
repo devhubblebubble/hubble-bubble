@@ -36,15 +36,15 @@
                         </div>
                         <div class="service_details team_details">
                             <h3>Fayzul Choudhury</h3>
-                            <h6>Captain and Navigator</h6>
+                            <h6>Navigator</h6>
                             <p>
-                                Fayzul brings the organisational and management skills he has developed from the 17-year career he had with the Royal Bank of Scotland.
+                                Fayzul brings the organisational and management skills he has developed from the 17-year career he had with the Royal Bank of Scotland. 
                             </p>
                             <p>
                                 He ensures the company has the latest systems in place and the workflow is streamlined to be efficient and compliant, but most importantly providing the students with a smoother experience.
                             </p>
                             <p>
-                                He ensures the company has the latest systems in place and the workflow is streamlined to be efficient and compliant, but most importantly providing the students with a smoother experience.
+                                He is known for his extreme patience, logical reasoning and ability to deal with any problem.
                             </p>
                         </div>
                     </div>

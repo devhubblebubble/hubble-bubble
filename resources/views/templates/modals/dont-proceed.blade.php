@@ -1,7 +1,9 @@
 <div id="dontProceedDialog" class="dialog">
     <div class="dialog__overlay"></div>
     <div class="dialog__content bark_bg">
-
+        <button type="button" class="default_modal_close" id="default_modal_close2">
+            <i class="ri-close-line"></i>
+        </button>
         <div class="confirmation_box">
             <div class="confirmation_icon">
                 <img src="img/confirmation_1.png">

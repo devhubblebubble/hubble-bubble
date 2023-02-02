@@ -63,7 +63,7 @@
                             </div>
                             <div class="home_btn_block">
                                 <button type="button" class="btn app_btn btn_primary" id="openEligibility" onclick="openEligibility()">Take the eligibility test​</button>
-                                <button type="button" class="btn app_btn btn_secondary" id="openNextBatch">Book a quick call​</button>
+                                <a href="https://calendly.com/" target="_blank" class="btn app_btn btn_secondary">Book a quick call​</a>
                             </div>
                         </div>
                     </div>

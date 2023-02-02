@@ -982,10 +982,15 @@
             let studentId = $("#student_id").val();
             saveStepFive(studentId)
         });
-
-        $('#confirmationDialogClose').click(function() {
+        $('#default_modal_close1').click(function() {
             $('#confirmationDialog').removeClass('dialog--open');
         });
+        $('#default_modal_close2').click(function() {
+            $('#dontProceedDialog').removeClass('dialog--open');
+        });
+        // $('#confirmationDialogClose').click(function() {
+        //     $('#confirmationDialog').removeClass('dialog--open');
+        // });
 
         $('#successDialogClose').click(function() {
             $('#successDialog').removeClass('dialog--open');
