@@ -115,15 +115,15 @@
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        @include('templates.modals.find-us')
+        <!-- @include('templates.modals.find-us') -->
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
-        @include('templates.modals.student-volunteers')
+        <!-- @include('templates.modals.student-volunteers') -->
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
-        @include('templates.modals.story-jevin-zac')
+        <!-- @include('templates.modals.story-jevin-zac') -->
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
