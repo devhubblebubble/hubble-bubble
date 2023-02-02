@@ -119,27 +119,27 @@
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
-        @include('templates.modals.student-volunteers')
+        <!-- @include('templates.modals.student-volunteers') -->
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
-        @include('templates.modals.story-jevin-zac')
+        <!-- @include('templates.modals.story-jevin-zac') -->
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        @include('templates.modals.contact-us')
+        <!-- @include('templates.modals.contact-us') -->
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
-        @include('templates.modals.confirmation')
+        <!-- @include('templates.modals.confirmation') -->
         <!--/. Confirmation -->
 
         <!-- Success -->
-        @include('templates.modals.success')
+        <!-- @include('templates.modals.success') -->
         <!--/. Success -->
 
          <!-- Dont proceed -->
-         @include('templates.modals.dont-proceed')
+         <!-- @include('templates.modals.dont-proceed') -->
         <!--/. Dont proceed -->
     </div>
 
