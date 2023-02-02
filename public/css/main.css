@@ -1947,7 +1947,8 @@ label.error,
 
 /****************************************/
 
-@media screen and (max-width: 767px) {
+
+/* @media screen and (max-width: 767px) {
     #web_layout {
         display: none;
         visibility: hidden;
@@ -1960,4 +1961,4 @@ label.error,
         opacity: 1;
         z-index: 99;
     }
-}
+} */
