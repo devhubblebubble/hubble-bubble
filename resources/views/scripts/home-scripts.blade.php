@@ -1,6 +1,6 @@
     <script>
         $(document).ready(function() {
-            player.pause();
+            // player.pause();
             // Copyright Year
             $(".spanYear").html(new Date().getFullYear());
         });
@@ -43,11 +43,11 @@
 
 
         // variable 
-        var VIDEO_PLAYING_STATE = {
-            "PLAYING": "PLAYING",
-            "PAUSE": "PAUSE"
-        }
-        var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
+        // var VIDEO_PLAYING_STATE = {
+        //     "PLAYING": "PLAYING",
+        //     "PAUSE": "PAUSE"
+        // }
+        // var videoPlayStatus = VIDEO_PLAYING_STATE.PAUSE
         var timeout = null
         var waiting = 10000
         var swiper = new Swiper(
@@ -62,12 +62,12 @@
             });
 
         // HTML5 vdo object
-        var options = {};
-        var player = videojs('my-player', options);
-        player.pause();
-        player.on('ended', function() {
-            next()
-        })
+        // var options = {};
+        // var player = videojs('my-player', options);
+        // player.pause();
+        // player.on('ended', function() {
+        //     next()
+        // })
 
         // swiper object
         swiper.on('slideChangeTransitionEnd', function() {
@@ -76,9 +76,9 @@
             var currentSlideType = currentSlide.data('slide-type')
 
             // incase user click next before video ended
-            if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
-                player.pause()
-            }
+            // if (videoPlayStatus === VIDEO_PLAYING_STATE.PLAYING) {
+            //     player.pause()
+            // }
 
             clearTimeout(timeout)
 
@@ -87,9 +87,9 @@
                     runNext()
                     break;
                 case 'vdo':
-                    player.currentTime(0)
-                    player.play()
-                    videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
+                    // player.currentTime(0)
+                    // player.play()
+                    // videoPlayStatus = VIDEO_PLAYING_STATE.PLAYING
                     break;
                 default:
                     throw new Error('invalid slide type');
@@ -116,12 +116,12 @@
 
 
         $('.swiper_back').click(function() {
-            player.pause();
+            // player.pause();
             $(".app_foot_nav > .swiper-pagination-bullet:first-child").trigger("click");
         });
 
         $('.app_foot_nav .swiper-pagination-bullet').click(function() {
-            player.pause();
+            // player.pause();
         });
 
         // $('#smartwizard').smartWizard({
@@ -474,8 +474,8 @@
                             loadNextStep(4, 5);
                         } 
                         else if(step4Value == "2"){
-                            $('#eligibilityDialog').removeClass('dialog--open');
-                            formsReset();
+                            // $('#eligibilityDialog').removeClass('dialog--open');
+                            // formsReset();
                             window.open('mailto:docs@hubblebubble.london');
                         }
                         else {
@@ -982,10 +982,15 @@
             let studentId = $("#student_id").val();
             saveStepFive(studentId)
         });
-
-        $('#confirmationDialogClose').click(function() {
+        $('#default_modal_close1').click(function() {
             $('#confirmationDialog').removeClass('dialog--open');
         });
+        $('#default_modal_close2').click(function() {
+            $('#dontProceedDialog').removeClass('dialog--open');
+        });
+        // $('#confirmationDialogClose').click(function() {
+        //     $('#confirmationDialog').removeClass('dialog--open');
+        // });
 
         $('#successDialogClose').click(function() {
             $('#successDialog').removeClass('dialog--open');
@@ -1036,6 +1041,13 @@
             $("#degreeConsolDocURL").val("");
             $("#degreeTranscDocURL").val("");
             $("#degreeCertDocURL").val("");
+            $("#passportFrontDocURL").val("");
+            $("#passportBackDocURL").val("");
+            $("#tempDoc1URL").val("");
+            $("#tempDoc2URL").val("");
+            $("#tempDoc3URL").val("");
+            $("#tempDoc4URL").val("");
+            $("#tempDoc5URL").val("");
             /* Clear step 2  */
             let step2Choice = $('input[name="step_two_rdo"]:checked').val();
             if(step2Choice){
@@ -1052,10 +1064,16 @@
                 document.querySelector('input[name = "step_4_rdo"]:checked').checked = false;
             }
             dropzoneReset('passportFrontUploader');
+            dropzoneReset('passportBackUploader');
             dropzoneReset('plusTwoUploader');
             dropzoneReset('degreeConsolUploader');
             dropzoneReset('degreeTranscUploader');
             dropzoneReset('degreeCertUploader');
+            dropzoneReset('temp1Uploader');
+            dropzoneReset('temp2Uploader');
+            dropzoneReset('temp3Uploader');
+            dropzoneReset('temp4Uploader');
+            dropzoneReset('temp5Uploader');
         }
 
         function dropzoneReset(id) {

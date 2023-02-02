@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div class="swiper-slide stories_item" data-slide-type="vdo">
+                    <!-- <div class="swiper-slide stories_item" data-slide-type="vdo">
                         <div class="video_story">
                             <video id="my-player" class="video-js" controls preload="auto" data-setup='{"fluid": true}'>
                                 <source src="videos/stories/stories_sample.mp4" type="video/mp4"></source>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="swiper-slide stories_item" data-slide-type="img">
                         <div class="text_story color2">

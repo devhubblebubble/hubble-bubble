@@ -2,7 +2,13 @@
 @section('content')
     <!-- Web Version -->
     <div id="web_layout">
-        <h3>Web Version Not Available!</h3>
+        <h3>
+            Our web version is coming soon. <br>
+            Please use the mobile version to know more details.
+        </h3>
+        <h3>
+            To use the existing web version please visit <a href="https://youhavejz.com/" target="_blank">www.youhavejz.com</a>
+        </h3>
     </div>
     <!--/. Web Version -->
 
@@ -57,7 +63,7 @@
                             </div>
                             <div class="home_btn_block">
                                 <button type="button" class="btn app_btn btn_primary" id="openEligibility" onclick="openEligibility()">Take the eligibility test​</button>
-                                <button type="button" class="btn app_btn btn_secondary" id="openNextBatch">Book a quick call​</button>
+                                <a href="{{ @$calendly_link }}" target="_blank" class="btn app_btn btn_secondary">Book a quick call​</a>
                             </div>
                         </div>
                     </div>

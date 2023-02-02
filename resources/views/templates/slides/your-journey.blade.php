@@ -36,7 +36,7 @@
                     </div>
                     <div class="swiper-slide journey_box spacing">
                         <div class="journey_icon">
-                            <img src="img/journey/journey_01.jpg">
+                            <img src="img/journey/journey_03.jpg">
                         </div>
                         <div class="journey_body">
                             <label class="journey_label">Step 3</label>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="swiper-slide journey_box spacing">
                         <div class="journey_icon">
-                            <img src="img/journey/journey_01.jpg">
+                            <img src="img/journey/journey_04.png">
                         </div>
                         <div class="journey_body">
                             <label class="journey_label">Step 4</label>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="swiper-slide journey_box spacing">
                         <div class="journey_icon">
-                            <img src="img/journey/journey_01.jpg">
+                            <img src="img/journey/journey_05.png">
                         </div>
                         <div class="journey_body">
                             <label class="journey_label">Step 5</label>

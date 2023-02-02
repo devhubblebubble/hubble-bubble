@@ -74,13 +74,13 @@
                       <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">12th mark sheet</strong> &nbsp;<a href="{{ $student->plusTwoDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if(@$student->degreeConsolDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree Certificate</strong> &nbsp;<a href="{{ $student->degreeConsolDocURL }}" target="_blank" >View</a></li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree/Masters Consolidated</strong> &nbsp;<a href="{{ $student->degreeConsolDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if(@$student->degreeTranscDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Third Certificate</strong> &nbsp;<a href="{{ $student->degreeTranscDocURL }}" target="_blank" >View</a></li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree/Masters Transcript</strong> &nbsp;<a href="{{ $student->degreeTranscDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if(@$student->degreeCertDocURL)
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fourth Certificate</strong> &nbsp;<a href="{{ $student->degreeCertDocURL }}" target="_blank" >View</a></li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Degree/Masters Certificate</strong> &nbsp;<a href="{{ $student->degreeCertDocURL }}" target="_blank" >View</a></li>
                     @endif
                     @if(@$student->tempDoc3URL)
                       <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Letter of Recommendation</strong> &nbsp;<a href="{{ $student->tempDoc3URL }}" target="_blank" >View</a></li>
