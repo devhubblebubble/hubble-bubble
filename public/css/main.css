@@ -119,7 +119,7 @@ li {
     height: 100%;
     background: rgb(30, 31, 31);
     background: linear-gradient(0deg, rgb(32, 32, 32) 0%, rgb(21, 21, 21) 100%);
-    /* display: none; */
+    display: none;
     /* visibility: hidden;
     opacity: 0;
     z-index: -99; */
@@ -1947,8 +1947,7 @@ label.error,
 
 /****************************************/
 
-
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     #web_layout {
         display: none;
         visibility: hidden;
@@ -1961,4 +1960,4 @@ label.error,
         opacity: 1;
         z-index: 99;
     }
-} */
+}

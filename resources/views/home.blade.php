@@ -1,7 +1,7 @@
 @extends('layouts.home-layout')
 @section('content')
     <!-- Web Version -->
-    <!-- <div id="web_layout">
+    <div id="web_layout">
         <h3>
             Our web version is coming soon. <br>
             Please use the mobile version to know more details.
@@ -9,7 +9,7 @@
         <h3>
             To use the existing web version please visit <a href="https://youhavejz.com/" target="_blank">www.youhavejz.com</a>
         </h3>
-    </div> -->
+    </div>
     <!--/. Web Version -->
 
     <!-- Mobile Version -->
@@ -99,47 +99,47 @@
         <!--//. Whatsapp -->
 
         <!-- Check Eligibility -->
-        @include('templates.modals.check-eligibility')
+        <!-- @include('templates.modals.check-eligibility') -->
         <!--/. Check Eligibility -->
 
         <!-- About Us -->
-        @include('templates.modals.about-us')
+        <!-- @include('templates.modals.about-us') -->
         <!--/. About Us -->
 
         <!-- Our Team -->
-        @include('templates.modals.our-team')
+        <!-- @include('templates.modals.our-team') -->
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
-        @include('templates.modals.our-big-bang')
+        <!-- @include('templates.modals.our-big-bang') -->
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        @include('templates.modals.find-us')
+        <!-- @include('templates.modals.find-us') -->
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
-        @include('templates.modals.student-volunteers')
+        <!-- @include('templates.modals.student-volunteers') -->
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
-        @include('templates.modals.story-jevin-zac')
+        <!-- @include('templates.modals.story-jevin-zac') -->
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        @include('templates.modals.contact-us')
+        <!-- @include('templates.modals.contact-us') -->
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
-        @include('templates.modals.confirmation')
+        <!-- @include('templates.modals.confirmation') -->
         <!--/. Confirmation -->
 
         <!-- Success -->
-        @include('templates.modals.success')
+        <!-- @include('templates.modals.success') -->
         <!--/. Success -->
 
          <!-- Dont proceed -->
-         @include('templates.modals.dont-proceed')
+         <!-- @include('templates.modals.dont-proceed') -->
         <!--/. Dont proceed -->
     </div>
 
