@@ -1304,13 +1304,14 @@ li {
 
 /* Faster transition in Safari for less noticable fractional font-size issue */
 
-@media not all and (min-resolution:.001dpcm) {
+
+/* @media not all and (min-resolution:.001dpcm) {
     @supports (-webkit-appearance: none) {
         .pure-material-textfield-outlined > input, .pure-material-textfield-outlined > input + span, .pure-material-textfield-outlined > textarea, .pure-material-textfield-outlined > textarea + span, .pure-material-textfield-outlined > input + span::before, .pure-material-textfield-outlined > input + span::after, .pure-material-textfield-outlined > textarea + span::before, .pure-material-textfield-outlined > textarea + span::after {
             transition-duration: 0.1s;
         }
     }
-}
+} */
 
 .menu__items-list li a:not([href]):not([class]),
 .menu__items-list li a:not([href]):not([class]):hover {
