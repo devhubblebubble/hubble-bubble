@@ -99,19 +99,19 @@
         <!--//. Whatsapp -->
 
         <!-- Check Eligibility -->
-        @include('templates.modals.check-eligibility')
+        <!-- @include('templates.modals.check-eligibility') -->
         <!--/. Check Eligibility -->
 
         <!-- About Us -->
-        @include('templates.modals.about-us')
+        <!-- @include('templates.modals.about-us') -->
         <!--/. About Us -->
 
         <!-- Our Team -->
-        @include('templates.modals.our-team')
+        <!-- @include('templates.modals.our-team') -->
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
-        @include('templates.modals.our-big-bang')
+        <!-- @include('templates.modals.our-big-bang') -->
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
