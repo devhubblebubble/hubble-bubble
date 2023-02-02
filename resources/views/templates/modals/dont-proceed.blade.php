@@ -13,6 +13,5 @@
             Once you have a clear goal in mind, get back to us then and we will certainly help you get there!​</h4>
             <button class="btn app_btn btn_primary" id="dontProceedDialogClose" >Take me back Home</button>
         </div>
-
     </div>
 </div>
