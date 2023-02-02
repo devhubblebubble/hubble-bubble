@@ -119,7 +119,7 @@
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
-        <!-- @include('templates.modals.student-volunteers') -->
+        @include('templates.modals.student-volunteers')
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
@@ -127,7 +127,7 @@
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        @include('templates.modals.contact-us')
+        <!-- @include('templates.modals.contact-us') -->
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
