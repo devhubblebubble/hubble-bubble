@@ -131,15 +131,15 @@
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
-        <!-- @include('templates.modals.confirmation') -->
+        @include('templates.modals.confirmation')
         <!--/. Confirmation -->
 
         <!-- Success -->
-        <!-- @include('templates.modals.success') -->
+        @include('templates.modals.success')
         <!--/. Success -->
 
          <!-- Dont proceed -->
-         <!-- @include('templates.modals.dont-proceed') -->
+         @include('templates.modals.dont-proceed')
         <!--/. Dont proceed -->
     </div>
 
