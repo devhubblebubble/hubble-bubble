@@ -783,7 +783,8 @@ li {
     animation-delay: 0.1s;
 }
 
-@-webkit-keyframes anim-open {
+
+/* @-webkit-keyframes anim-open {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, 50px, 0);
@@ -829,12 +830,13 @@ li {
         -webkit-transform: translate3d(0, 50px, 0);
         transform: translate3d(0, 50px, 0);
     }
-}
+} */
 
 
 /* Inner elements animations */
 
-@-webkit-keyframes anim-elem {
+
+/* @-webkit-keyframes anim-elem {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, 25px, 0);
@@ -856,7 +858,7 @@ li {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
-}
+} */
 
 .vjs-big-play-button {
     border: none !important;
@@ -1950,9 +1952,10 @@ button.header_toggle_btn {
     background-color: transparent;
 }
 
-.dialog {
+
+/* .dialog {
     display: none;
-}
+} */
 
 
 /****************************************/
