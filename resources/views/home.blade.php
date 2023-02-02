@@ -90,6 +90,13 @@
         </div>
         <!--/. Content -->
 
+        <!-- Whatsapp -->
+        <div class="whatsapp_chat">
+            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
+                <img src="img/main/whatsapp_icon.png">
+            </a>
+        </div>
+        <!--//. Whatsapp -->
 
         <!-- Check Eligibility -->
         @include('templates.modals.check-eligibility')

@@ -1926,6 +1926,23 @@ label.error,
     justify-content: center;
 }
 
+.whatsapp_chat {
+    position: absolute;
+    bottom: 5.3rem;
+    right: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    z-index: 99;
+}
+
+.whatsapp_chat a {
+    display: flex;
+}
+
+.whatsapp_chat img {
+    width: 100%;
+}
+
 
 /****************************************/
 
