@@ -99,7 +99,7 @@
         <!--//. Whatsapp -->
 
         <!-- Check Eligibility -->
-        <!-- @include('templates.modals.check-eligibility') -->
+        @include('templates.modals.check-eligibility')
         <!--/. Check Eligibility -->
 
         <!-- About Us -->
@@ -115,7 +115,7 @@
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        @include('templates.modals.find-us')
+        <!-- @include('templates.modals.find-us') -->
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
