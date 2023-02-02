@@ -12,12 +12,12 @@
 
     <link href="{{ asset('/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="{{ asset('/css/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-    <link href="{{ asset('/css/select2/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/dropzone/dropzone.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
+    <!-- <link href="{{ asset('/css/swiper/swiper-bundle.min.css') }}" rel="stylesheet"> -->
+    <!-- <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet"> -->
+    <!-- <link href="{{ asset('/css/select2/select2.min.css') }}" rel="stylesheet" /> -->
+    <!-- <link href="{{ asset('/css/dropzone/dropzone.css') }}" rel="stylesheet" /> -->
+    <!-- <link href="{{ asset('/css/main.css') }}" rel="stylesheet"> -->
     <!-- Main -->
 </head>
 
