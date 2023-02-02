@@ -32,7 +32,15 @@
                             <i class="ri-mail-line"></i>
                         </div>
                         <div class="find_us_body">
-                            <a href="mailto:jevin.zac@youhavejz.com">jevin.zac@youhavejz.com</a>
+                            <a href="mailto:contact@hubblebubble.london">contact@hubblebubble.london</a>
+                        </div>
+                    </div>
+                    <div class="find_us_media">
+                        <div class="find_us_icon">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <div class="find_us_body">
+                            <a href="tel:+919995950969">+91 999 595 0969</a>
                         </div>
                     </div>
                     <div class="find_us_media">
@@ -40,7 +48,7 @@
                             <i class="ri-whatsapp-line"></i>
                         </div>
                         <div class="find_us_body">
-                            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0">+44 (0) 7904800485</a>
+                            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&amp;text&amp;app_absent=0" target="_blank">+44 (0) 7904800485</a>
                         </div>
                     </div>
                     <div class="frame_location">
