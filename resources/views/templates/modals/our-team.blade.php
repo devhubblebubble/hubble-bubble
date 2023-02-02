@@ -16,7 +16,7 @@
                 <div class="services_grid team">
                     <div class="service_item">
                         <div class="service_icon team_icon">
-                            <img src="img/users/jevin.png">
+                            <img src="img/users/jevin_zac.png">
                         </div>
                         <div class="service_details team_details">
                             <h3>Jevin Zac</h3>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="service_item">
                         <div class="service_icon team_icon">
-                            <img src="img/users/user_placeholder.png">
+                            <img src="img/users/fayzul_choudhury.png">
                         </div>
                         <div class="service_details team_details">
                             <h3>Fayzul Choudhury</h3>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="service_item">
                         <div class="service_icon team_icon">
-                            <img src="img/users/user_placeholder.png">
+                            <img src="img/users/fathima_sulthana.png">
                         </div>
                         <div class="service_details team_details">
                             <h3>Fathima Sulthana</h3>

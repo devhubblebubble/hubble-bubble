@@ -7,7 +7,7 @@
     <meta name=“ theme-color” content=“#151515>
     <title>Hubble Bubble</title>
 
-    <link rel="icon" type="image/png" href="" />
+    <link rel="icon" type="image/png" href="img/main/favicon.png" />
 
     <link href="{{ asset('/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Bootstrap -->
