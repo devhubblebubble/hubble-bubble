@@ -111,7 +111,7 @@
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
-        <!-- @include('templates.modals.our-big-bang') -->
+        @include('templates.modals.our-big-bang')
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
