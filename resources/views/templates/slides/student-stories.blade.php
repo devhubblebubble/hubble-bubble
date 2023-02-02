@@ -126,6 +126,70 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color1">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_01.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color2">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_02.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color3">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_03.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color4">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_04.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color1">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_05.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color2">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_06.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color3">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_07.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide stories_item" data-slide-type="img">
+                        <div class="text_story color4">
+                            <div class="text_story_content img_slide_block">
+                                <img src="img/testimonials/testimonials_08.jpg">
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>

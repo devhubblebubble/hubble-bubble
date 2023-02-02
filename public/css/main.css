@@ -1913,6 +1913,19 @@ label.error,
     text-decoration: underline;
 }
 
+.img_slide_block img {
+    border-radius: 1rem;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.img_slide_block {
+    max-height: 75vh;
+    display: flex;
+    justify-content: center;
+}
+
 
 /****************************************/
 
