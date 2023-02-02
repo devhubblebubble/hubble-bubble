@@ -111,11 +111,11 @@
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
-        @include('templates.modals.our-big-bang')
+        <!-- @include('templates.modals.our-big-bang') -->
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        <!-- @include('templates.modals.find-us') -->
+        @include('templates.modals.find-us')
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
