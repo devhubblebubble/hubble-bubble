@@ -1,7 +1,7 @@
 @extends('layouts.home-layout')
 @section('content')
     <!-- Web Version -->
-    <div id="web_layout">
+    <!-- <div id="web_layout">
         <h3>
             Our web version is coming soon. <br>
             Please use the mobile version to know more details.
@@ -9,7 +9,7 @@
         <h3>
             To use the existing web version please visit <a href="https://youhavejz.com/" target="_blank">www.youhavejz.com</a>
         </h3>
-    </div>
+    </div> -->
     <!--/. Web Version -->
 
     <!-- Mobile Version -->
