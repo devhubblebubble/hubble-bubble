@@ -1944,6 +1944,13 @@ label.error,
     width: 100%;
 }
 
+#mobile_layout {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    z-index: 99;
+}
+
 
 /****************************************/
 
