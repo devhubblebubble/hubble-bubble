@@ -115,7 +115,7 @@
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        <!-- @include('templates.modals.find-us') -->
+        @include('templates.modals.find-us')
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
@@ -127,7 +127,7 @@
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        <!-- @include('templates.modals.contact-us') -->
+        @include('templates.modals.contact-us')
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
