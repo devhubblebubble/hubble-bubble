@@ -115,7 +115,7 @@
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        <!-- @include('templates.modals.find-us') -->
+        @include('templates.modals.find-us')
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
