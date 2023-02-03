@@ -27,7 +27,6 @@ body {
     color: var(--text-color);
     height: 100%;
     background-color: var(--dark-bg-color);
-    user-select: none;
 }
 
 input::-webkit-outer-spin-button,
