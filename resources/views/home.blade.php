@@ -115,11 +115,11 @@
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        @include('templates.modals.find-us')
+        <!-- @include('templates.modals.find-us') -->
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
-        <!-- @include('templates.modals.student-volunteers') -->
+        @include('templates.modals.student-volunteers')
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
