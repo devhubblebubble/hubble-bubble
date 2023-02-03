@@ -705,7 +705,7 @@ li {
     -webkit-justify-content: center;
     justify-content: center; */
     /* pointer-events: none; */
-    z-index: 99;
+    /* z-index: 99; */
 }
 
 .dialog__overlay {
