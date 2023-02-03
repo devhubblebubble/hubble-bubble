@@ -123,11 +123,11 @@
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
-        @include('templates.modals.story-jevin-zac')
+        <!-- @include('templates.modals.story-jevin-zac') -->
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        <!-- @include('templates.modals.contact-us') -->
+        @include('templates.modals.contact-us')
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
