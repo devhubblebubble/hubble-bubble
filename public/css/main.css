@@ -740,7 +740,7 @@ li {
 
 .dialog--open .dialog__content {
     pointer-events: auto;
-} */
+} 
 
 .dialog__overlay {
     -webkit-transition-duration: 0.3s;
@@ -753,7 +753,7 @@ li {
     animation-duration: 0.3s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-}
+} */
 
 .dialog.dialog--open .dialog__content {
     -webkit-animation-name: anim-open;
