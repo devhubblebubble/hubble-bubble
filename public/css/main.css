@@ -697,15 +697,15 @@ li {
 }
 
 .dialog {
-    /* position: fixed;
-    display: -webkit-flex;
+    position: fixed;
+    /* display: -webkit-flex; */
     display: flex;
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    pointer-events: none;
-    z-index: 99; */
+    /* pointer-events: none; */
+    z-index: 99;
 }
 
 .dialog__overlay {
