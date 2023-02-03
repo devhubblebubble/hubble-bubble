@@ -698,12 +698,9 @@ li {
 
 .dialog {
     position: absolute;
-    /* display: -webkit-flex; */
-    /* display: flex;
-    -webkit-align-items: center;
+    display: flex;
     align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center; */
+    justify-content: center;
     pointer-events: none;
     z-index: 99;
 }
