@@ -696,8 +696,7 @@ li {
     left: 0;
 }
 
-
-/* .dialog {
+.dialog {
     position: fixed;
     display: -webkit-flex;
     display: flex;
@@ -705,9 +704,9 @@ li {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    pointer-events: none;
+    /* pointer-events: none; */
     z-index: 99;
-} */
+}
 
 .dialog__overlay {
     position: absolute;
