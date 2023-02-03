@@ -697,14 +697,14 @@ li {
 }
 
 .dialog {
-    position: fixed;
+    /* position: fixed; */
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
-    /* pointer-events: none; */
+    pointer-events: none;
     z-index: 99;
 }
 
