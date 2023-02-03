@@ -107,7 +107,7 @@
         <!--/. About Us -->
 
         <!-- Our Team -->
-        <!-- @include('templates.modals.our-team') -->
+        @include('templates.modals.our-team')
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
