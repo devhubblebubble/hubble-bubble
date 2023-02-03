@@ -127,11 +127,11 @@
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
-        @include('templates.modals.contact-us')
+        <!-- @include('templates.modals.contact-us') -->
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
-        <!-- @include('templates.modals.confirmation') -->
+        @include('templates.modals.confirmation')
         <!--/. Confirmation -->
 
         <!-- Success -->
