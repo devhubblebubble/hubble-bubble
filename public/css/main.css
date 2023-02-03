@@ -1950,20 +1950,26 @@ button.header_toggle_btn {
     background-color: transparent;
 }
 
+#mobile_layout {
+    display: block;
+}
+
 
 /****************************************/
 
+
+/* 
 @media screen and (max-width: 767px) {
     #web_layout {
         display: none;
         visibility: hidden;
         opacity: 0;
-        /* z-index: -99; */
+        z-index: -99;
     }
     #mobile_layout {
         display: block;
         visibility: visible;
         opacity: 1;
-        /* z-index: 99; */
+        z-index: 99;
     }
-}
+} */
