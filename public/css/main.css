@@ -769,7 +769,7 @@ li {
 .dialog.dialog--open button {
     -webkit-animation: anim-elem 0.3s both;
     animation: anim-elem 0.3s both;
-} */
+} 
 
 .dialog.dialog--open h2 {
     -webkit-animation-delay: 0.05s;
@@ -779,7 +779,7 @@ li {
 .dialog.dialog--open button {
     -webkit-animation-delay: 0.1s;
     animation-delay: 0.1s;
-}
+} */
 
 @-webkit-keyframes anim-open {
     0% {
