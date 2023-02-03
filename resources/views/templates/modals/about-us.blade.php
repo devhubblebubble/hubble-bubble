@@ -3,9 +3,9 @@
     <div class="dialog__content bark_bg">
         <div class="slide_header">
             <div class="header_flex">
-                <div class="menu__trigger header_toggle_btn" id="closeAbout">
+                <button type="button" class="menu__trigger header_toggle_btn" id="closeAbout">
                     <i class="ri-close-line"></i>
-                </div>
+                </button>
                 <div class="header_title">
                     <h1>About Us</h1>
                 </div>

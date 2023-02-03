@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name=“ theme-color” content=“#151515>
     <title>Hubble Bubble</title>
 
@@ -28,7 +28,7 @@
     <script src="{{ asset('/js/TweenMax/TweenMax.min.js') }}"></script>
     <script src="{{ asset('/js/mobile-nav/mobile-nav.js') }}"></script>
     <script src="{{ asset('/js/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('/js/video-js/video.min.js') }}"></script>
+    <!-- <script src="{{ asset('/js/video-js/video.min.js') }}"></script> -->
     <script src="{{ asset('/js/modal/modal.js') }}"></script>
     <script src="{{ asset('/js/select2/select2.min.js') }}"></script>
     <script src="{{ asset('/js/smartwizard/jquery.smartWizard.min.js') }}"></script>

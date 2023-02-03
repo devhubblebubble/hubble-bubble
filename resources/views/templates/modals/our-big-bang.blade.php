@@ -13,7 +13,7 @@
         </div>
         <div class="dialog_body scroll">
             <div class="spacing">
-                <p><strong><i>In the beginning there was a big explosion. An explosion of innocent students sent to study abroad deceptively by their own people, feeding them unrealistic dreams and selling them a future without foundation.  </i></strong></p>
+                <p><strong><i>In the beginning there was a big explosion. An explosion of innocent students sent to study abroad deceptively by their own people, feeding them unrealistic dreams and selling them a future without foundation.</i></strong></p>
                 <h3 class="about_sub_heading">Okay let's get serious.</h3>
                 <p>
                     When our founder Jevin applied to study in the UK, there were only 1 other applicant from the agency he applied through, from his hometown in Kerala. There was very little help or guidance available at that time. Fast forward 5 years and just one agent from his hometown had managed to send over 100 students in a single intake to study in the UK.
@@ -40,7 +40,7 @@
                     As the number of enquiries grew, mainly from his hometown, he quickly realised there was a gap in knowledge and very little genuine guidance available. So, he organised weekly webinars for students where he addressed their concerns and gave a full account of his successful study abroad journey, which concluded with his first dream job, and how they can achieve the same or better!
                 </p>
                 <p>
-                    Following the success of the webinars, he started YouHaveJZ <a href="https://youhavejz.com/" target="_blank">(www.youhavejz.com)</a>. Initially to continue guiding students but then further developing to provide a dedicated end-to-end mentoring service for students looking to study abroad. He made it clear to the students that it wasn’t just about studying abroad, and it’s first necessary to discover what their passion in life was, and he then provided guidance to achieve that dream. YouHaveJZ successfully placed the students on the path to their dream career via world’s best universities abroad, while also providing an alternative career path to their dream job for students whom study abroad didn’t seem to be their best choice. 
+                    Following the success of the webinars, he started YouHaveJZ <a href="https://youhavejz.com/" target="_blank">(www.youhavejz.com)</a>. Initially to continue guiding students but then further developing to provide a dedicated end-to-end mentoring service for students looking to study abroad. He made it clear to the students that it wasn’t just about studying abroad, and it’s first necessary to discover what their passion in life was, and he then provided guidance to achieve that dream. YouHaveJZ successfully placed the students on the path to their dream career via world’s best universities abroad, while also providing an alternative career path to their dream job for students whom study abroad didn't seem to be their best choice.
                 </p>
                 <p><strong>This was his key difference. This was our Big Bang Moment!</strong></p>
                 <p>
