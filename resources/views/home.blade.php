@@ -111,11 +111,11 @@
         <!--/. Our Team -->
         
         <!-- Our Big Bang -->
-        <!-- @include('templates.modals.our-big-bang') -->
+        @include('templates.modals.our-big-bang')
         <!--/. Our Big Bang -->
 
         <!-- Find Us -->
-        <!-- @include('templates.modals.find-us') -->
+        @include('templates.modals.find-us')
         <!--/. Find Us -->
         
         <!-- Student Volunteers -->
@@ -123,7 +123,7 @@
         <!--/. Student Volunteers -->
         
         <!-- Story of Jevin Zac -->
-        <!-- @include('templates.modals.story-jevin-zac') -->
+        @include('templates.modals.story-jevin-zac')
         <!--/. Story of Jevin Zac -->
 
         <!-- Contact Us -->
@@ -131,7 +131,7 @@
         <!--/. Contact Us -->
         
         <!-- Confirmation -->
-        <!-- @include('templates.modals.confirmation') -->
+        @include('templates.modals.confirmation')
         <!--/. Confirmation -->
 
         <!-- Success -->
@@ -139,25 +139,14 @@
         <!--/. Success -->
 
          <!-- Dont proceed -->
-         <!-- @include('templates.modals.dont-proceed') -->
+         @include('templates.modals.dont-proceed')
         <!--/. Dont proceed -->
     </div>
 
     <!--//. Mobile Version -->
 @push('script')
     <script>
-$(function () {
-  if (!(/iPad|iPhone|iPod/.test(navigator.userAgent))) return
-  $(document.head).append(
-    '<style>*{cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0)}</style>'
-  )
-  $(window).on('gesturestart touchmove', function (evt) {
-    if (evt.originalEvent.scale !== 1) {
-      evt.originalEvent.preventDefault()
-      document.body.style.transform = 'scale(1)'
-    }
-  })
-})
+
     </script>
 @endpush
 @stop
