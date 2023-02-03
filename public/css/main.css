@@ -696,7 +696,8 @@ li {
     left: 0;
 }
 
-.dialog {
+
+/* .dialog {
     position: fixed;
     display: -webkit-flex;
     display: flex;
@@ -706,10 +707,9 @@ li {
     justify-content: center;
     pointer-events: none;
     z-index: 99;
-}
+} */
 
-
-/* .dialog__overlay {
+.dialog__overlay {
     position: absolute;
     z-index: 1;
     background: rgba(8, 8, 8, 0.9);
@@ -740,7 +740,7 @@ li {
 
 .dialog--open .dialog__content {
     pointer-events: auto;
-} 
+}
 
 .dialog__overlay {
     -webkit-transition-duration: 0.3s;
@@ -753,7 +753,7 @@ li {
     animation-duration: 0.3s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-} 
+}
 
 .dialog.dialog--open .dialog__content {
     -webkit-animation-name: anim-open;
@@ -769,7 +769,7 @@ li {
 .dialog.dialog--open button {
     -webkit-animation: anim-elem 0.3s both;
     animation: anim-elem 0.3s both;
-} 
+}
 
 .dialog.dialog--open h2 {
     -webkit-animation-delay: 0.05s;
@@ -779,7 +779,7 @@ li {
 .dialog.dialog--open button {
     -webkit-animation-delay: 0.1s;
     animation-delay: 0.1s;
-} */
+}
 
 @-webkit-keyframes anim-open {
     0% {
