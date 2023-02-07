@@ -18,6 +18,16 @@
     <link href="{{ asset('/css/dropzone/dropzone.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
     <!-- Main -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWESGFC05R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EWESGFC05R');
+    </script>
 </head>
 
 <body>
