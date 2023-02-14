@@ -95,7 +95,8 @@ li {
     line-height: 1.5;
 }
 
-#web_layout {
+
+/* #web_layout {
     text-align: center;
     position: relative;
     width: 100%;
@@ -106,11 +107,13 @@ li {
     text-align: center;
     z-index: 99;
     flex-direction: column;
-}
+} */
 
+
+/* 
 #web_layout h3 {
     margin-bottom: 1.5rem;
-}
+} */
 
 #mobile_layout {
     overflow: hidden;
@@ -166,7 +169,7 @@ li {
     width: 100%;
     height: 100%;
     display: flex;
-    z-index: 1;
+    z-index: 99;
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
@@ -702,7 +705,7 @@ li {
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    /* z-index: 99; */
+    z-index: 99;
 }
 
 .dialog__overlay {
@@ -1920,7 +1923,7 @@ label.error,
 
 .whatsapp_chat {
     position: absolute;
-    bottom: 5.3rem;
+    bottom: 1.3rem;
     right: 1rem;
     width: 3.5rem;
     height: 3.5rem;
@@ -1941,6 +1944,124 @@ button.header_toggle_btn {
     background-color: transparent;
 }
 
+.homeSwiper .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.homeSwiper .swiper-slide img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.homeSwiper {
+    position: relative;
+}
+
+.homeSwiper::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 19, 19, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.app_header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    z-index: 99;
+}
+
+.app_header .menu__trigger {
+    background-color: #29292B;
+}
+
+.home_web_content {
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(19, 19, 19, 0.92);
+    z-index: 9;
+    overflow: hidden;
+}
+
+.home_web_content::after {
+    content: '';
+    background-image: url('../img/main/dots.svg');
+    background-size: 100%;
+    width: 39vw;
+    height: 12vw;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+    z-index: -1;
+}
+
+.page_tags {
+    font-size: 7vw;
+    color: #737377;
+    opacity: 0.20;
+    white-space: nowrap;
+    font-weight: 700;
+    z-index: 99;
+    transform: rotate(-90deg);
+    position: relative;
+    left: -40%;
+    user-select: none;
+}
+
+.page_tags span {
+    position: absolute;
+    top: 41%;
+    left: -48%;
+}
+
+.home_web_message {
+    width: 30vw;
+    left: 20vw;
+    position: absolute;
+    bottom: 4vw;
+}
+
+.home_web_message h1 {
+    font-size: 2.9vw;
+    font-weight: 700;
+}
+
+.home_web_message h1::after {
+    content: '';
+    width: 5vw;
+    height: 0.16vw;
+    background-color: var(--primary-color);
+    display: block;
+    margin: 1.5vw 0;
+}
+
+.home_web_message h6 {
+    font-size: 0.95vw;
+    font-weight: 500;
+    margin-bottom: 2vw;
+}
+
+.web_message_btns {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.web_message_btns .btn {
+    font-size: 0.95vw;
+    padding: 1.1vw 1.5vw;
+    min-height: auto;
+}
+
 
 /****************************************/
 
@@ -1956,5 +2077,8 @@ button.header_toggle_btn {
         visibility: visible;
         opacity: 1;
         z-index: 99;
+    }
+    .whatsapp_chat {
+        bottom: 5.3rem;
     }
 }
