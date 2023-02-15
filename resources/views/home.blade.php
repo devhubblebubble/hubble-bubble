@@ -35,10 +35,10 @@
                         <img src="img/banner/home_banner_slide_01.png" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/banner/home_banner_slide_01.png" />
+                        <img src="img/banner/home_banner_slide_02.png" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="img/banner/home_banner_slide_01.png" />
+                        <img src="img/banner/home_banner_slide_03.png" />
                     </div>
                 </div>
             </div>
@@ -198,12 +198,12 @@
 
 @push('script')
     <script>
-    var swiper = new Swiper(".homeSwiper", {
-        loop: true,
-        autoplay: {
-            delay: 3000,
-        },
-    });
+        var swiper = new Swiper(".homeSwiper", {
+            loop: true,
+            autoplay: true,
+            effect: 'fade',
+            speed: 1000,
+        });
     </script>
 @endpush
 @stop
