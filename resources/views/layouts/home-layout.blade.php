@@ -28,9 +28,11 @@
 
         gtag('config', 'G-EWESGFC05R');
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 </head>
 
-<body>
+<body class="loading">
     @yield('content')
     <!-- Core JS Files -->
     <!-- jQuery -->

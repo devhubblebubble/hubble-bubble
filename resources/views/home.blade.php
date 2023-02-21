@@ -2,6 +2,7 @@
 @section('content')
     <!-- Web Version -->
     <div id="web_layout">
+
         <header class="app_header">
             <div class="header_flex">
                 <div class="menu__trigger js-menu-trigger header_toggle_btn">
@@ -27,37 +28,138 @@
             </div>
         </header>
 
-        <!-- Home -->
-        <section class="web_home">
-            <div class="swiper homeSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="img/banner/home_banner_slide_01.png" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/banner/home_banner_slide_02.png" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/banner/home_banner_slide_03.png" />
-                    </div>
+        <div class="swiper webBannerSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_01.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_02.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_03.png" />
                 </div>
             </div>
-            <div class="home_web_content">
-                <div class="page_tags">
-                    <span>The right University at your Dream destination is not a dream anymore!​</span>
-                </div>
-                <div class="home_web_message">
-                    <h1>
-                        The right University at your Dream destination is not a dream anymore!​
-                    </h1>
-                    <h6>Let me help you make it a reality</h6>
-                    <div class="web_message_btns">
-                        <button class="btn app_btn btn_primary">Take the eligibility test​</button>
-                        <button class="btn app_btn btn_secondary">Take the eligibility test​</button>
-                    </div>
-                </div>
+        </div>
+
+        <main class="page_scroll" data-scroll-container="">
+            <div class="gallery">
+                <figure class="gallery__item">
+                    <!-- Home -->
+                    <section class="full_section web_home">
+                        <div class="web_content">
+                            <div class="tags_wrap" data-scroll="" data-scroll-speed="1">
+                                <div class="page_tags">
+                                    <span>The right University</span>
+                                </div>
+                            </div>
+                            <div class="home_web_message">
+                                <h1>
+                                    The right University at your Dream destination is not a dream anymore!​
+                                </h1>
+                                <h6>Let me help you make it a reality</h6>
+                                <div class="web_message_btns">
+                                    <button class="btn app_btn btn_primary">Take the eligibility test​</button>
+                                    <button class="btn app_btn btn_secondary">Take the eligibility test​</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// Home -->
+                </figure>
+
+                <figure class="gallery__item fill">
+                    <!-- Your Journey -->
+                    <section class="full_section web_your_journey">
+                        <div class="web_content">
+                            <div class="tags_wrap" data-scroll="" data-scroll-speed="2">
+                                <div class="page_tags">
+                                    <span>Your Journey</span>
+                                </div>
+                            </div>
+                            <div class="page_wrapper">
+                                <div class="web_journey">
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_01.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 1</label>
+                                                <h3>Your journey starts with YOU</h3>
+                                                <p>Finding the right university and course for you starts with understanding your passion, personal profile and requirements. We achieve this with a dedicated 1-2-1 mentoring session with you.​</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1.2">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_02.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 2</label>
+                                                <h3>The right course is YOUR right path.</h3>
+                                                <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that matches your profile, based on
+                                                    our 1-2-1 session.​</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_03.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 3</label>
+                                                <h3>The right University is your vehicle forward.​</h3>
+                                                <p>
+                                                    Even if the subject stays the same, it is the right university that defines the whole course of your journey.​ Based on various ranking metrics, we help you shortlist and enrol at top universities that allow you to propel towards your dream career.
+                                                    <br>And yes, the University matters – No matter what anyone says!​
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1.2">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_04.png">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 4</label>
+                                                <h3>Documentation is Boring – Not for Hubble Bubble​</h3>
+                                                <p>
+                                                    Don't worry about your application process as we provide you with end-to-end support. Leave that part to us.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_05.png">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 5</label>
+                                                <h3>Look where you are standing now!</h3>
+                                                <p>
+                                                    You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br> Don’t forget! We are there when you need
+                                                    us.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--// Your Journey  -->
+                </figure>
             </div>
-        </section>
+        </main>
+
+        <svg class="cursor" width="20" height="20" viewBox="0 0 20 20">
+            <circle class="cursor__inner" cx="10" cy="10" r="5"></circle>
+        </svg>
         
     </div>
     <!--/. Web Version -->
@@ -190,15 +292,16 @@
 
     <!-- Whatsapp -->
     <div class="whatsapp_chat">
-            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
+        <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
             <img src="img/main/whatsapp_icon.png">
         </a>
     </div>
     <!--//. Whatsapp -->
 
 @push('script')
+    <script src="js/scroll-effects/scroll-effects.js"></script>
     <script>
-        var swiper = new Swiper(".homeSwiper", {
+        var swiper = new Swiper(".webBannerSwiper", {
             loop: true,
             autoplay: true,
             effect: 'fade',
