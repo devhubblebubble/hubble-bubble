@@ -711,7 +711,7 @@ li {
 .dialog__overlay {
     position: absolute;
     z-index: 1;
-    background: rgba(8, 8, 8, 0.9);
+    background: rgba(8, 8, 8, 0.95);
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
@@ -2640,6 +2640,29 @@ html.has-scroll-dragging {
     width: auto;
     max-width: unset;
     height: 75vh;
+}
+
+@media screen and (min-width: 767px) {
+    .dialog .dialog__content {
+        max-width: 720px;
+        /* left: calc(50% - 360px); */
+        max-height: 90vh;
+        height: auto;
+    }
+    .dialog__overlay {
+        position: fixed !important;
+    }
+    .spacing {
+        padding-bottom: 2rem;
+    }
+    .slide_header .header_flex {
+        flex-direction: row-reverse;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .slide_header {
+        padding: 0 1rem;
+    }
 }
 
 
