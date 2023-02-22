@@ -2624,8 +2624,6 @@ html.has-scroll-dragging {
 }
 
 .swiper.webStoriesSwiper .swiper-pagination {
-    /* position: absolute; */
-    /* bottom: 1.8vw !important; */
     display: flex;
     justify-content: flex-end;
 }
