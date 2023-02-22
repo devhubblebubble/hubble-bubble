@@ -2465,12 +2465,12 @@ html.has-scroll-dragging {
 }
 
 .web_steps:first-child::after {
-    top: -6.4rem;
+    top: -6.3vw;
 }
 
 .web_steps:first-child::before {
     height: 50%;
-    top: -6.3rem;
+    top: -6.3vw;
 }
 
 .web_steps:last-child::before {
