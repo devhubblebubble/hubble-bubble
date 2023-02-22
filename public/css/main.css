@@ -2417,7 +2417,7 @@ html.has-scroll-dragging {
 }
 
 .web_journey .web_steps:nth-child(odd) {
-    margin-top: 7vw;
+    padding-top: 7vw;
 }
 
 .home_web_message {
@@ -2432,7 +2432,7 @@ html.has-scroll-dragging {
     content: '';
     width: calc(100% + 2.15rem);
     position: absolute;
-    top: -6rem;
+    top: 0;
     display: block;
     border: 1px dashed var(--primary-color);
     left: 50%;
@@ -2440,22 +2440,21 @@ html.has-scroll-dragging {
 
 .web_journey .web_steps::before {
     content: '';
-    height: calc(100% + 7.5vw);
+    height: calc(100% + 4vw);
     position: absolute;
-    top: -6rem;
+    top: 00;
     display: block;
     border: 1px dashed var(--primary-color);
     left: 50%;
 }
 
 .web_journey .web_steps:nth-child(even)::before {
-    top: auto;
-    bottom: -5.6vw;
-    height: calc(100% + 8vw);
+    top: -4vw;
+    height: calc(100% + 12vw);
 }
 
 .web_journey .web_steps:nth-child(even)::after {
-    bottom: -5.8vw;
+    bottom: -8vw;
     top: auto;
 }
 
@@ -2465,17 +2464,18 @@ html.has-scroll-dragging {
 }
 
 .web_steps:first-child::after {
-    top: -6.3vw;
+    top: 0;
 }
 
 .web_steps:first-child::before {
     height: 50%;
-    top: -6.3vw;
+    top: 0;
 }
 
 .web_steps:last-child::before {
-    height: calc(100% + 2vw);
-    top: 0;
+    height: calc(100% + -10vw);
+    top: auto;
+    bottom: -4.5vw;
 }
 
 .web_steps:last-child::after {
@@ -2493,6 +2493,16 @@ html.has-scroll-dragging {
     height: 100%;
     content: '';
     background-color: #fff;
+}
+
+.web_journey .web_steps:nth-child(2)::before {
+    top: -3.5vw;
+    height: calc(100% + 11.5vw);
+}
+
+.web_journey .web_steps:nth-child(4)::before {
+    top: -3.5vw;
+    height: calc(100% + 11.5vw);
 }
 
 
