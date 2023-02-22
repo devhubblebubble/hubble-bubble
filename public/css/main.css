@@ -2598,7 +2598,7 @@ html.has-scroll-dragging {
 }
 
 .web_testimonials .text_story_content h3 {
-    font-size: 1.6vw;
+    font-size: 1.2vw;
     line-height: 1.4;
 }
 
@@ -2630,6 +2630,16 @@ html.has-scroll-dragging {
 
 .web_stories_section .page_tags {
     left: 8vw;
+}
+
+.StoriesMedia {
+    height: 100%;
+}
+
+.StoriesMedia .img_slide_block img {
+    width: auto;
+    max-width: unset;
+    height: 75vh;
 }
 
 

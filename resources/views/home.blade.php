@@ -336,7 +336,7 @@
                                                 <div class="swiper-slide">
                                                     <div class="web_testimonials">
                                                         <div class="text_story_content">
-                                                            <h3 style="font-size: 1rem;">
+                                                            <h3>
                                                                 Thank you Jevin for helping me achieve my dream. The entire process till the visa approval was seamless and was offered excellent consultation. Every time I had a doubt, I was able to connect with the team immediately. I would like to thank Freddy, who
                                                                 did an excellent job throughout the process and a special thanks to you Jevin for all the help you had done even though we had a different time zone. Whenever I had a doubt about anything, he would call
                                                                 me and explain to me in detail and motivated me to choose the right path. Moreover this team will make us feel like a family!
@@ -357,7 +357,75 @@
                                             <div class="swiper-pagination"></div>
                                         </div>
                                     </div>
-                                    <div class="video_stories">1111</div>
+                                    <div class="video_stories">
+                                        <div class="swiper StoriesMedia">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color1">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_01.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color2">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_02.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color3">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_03.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color4">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_04.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color1">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_05.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color2">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_06.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color3">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_07.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color4">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_08.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -522,12 +590,25 @@
             effect: 'fade',
         });
         var swiper = new Swiper(".webStoriesSwiper", {
-            // speed:1000,
+            loop: true,
+            autoplay: 
+            {
+                delay: 4000,
+            },
 		    direction: 'horizontal',
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
+        });
+        var swiper = new Swiper(".StoriesMedia", {
+            speed:1000,
+            autoplay: 
+            {
+                delay: 5000,
+            },
+            loop: true,
+            effect: 'fade',
         });
     </script>
 @endpush
