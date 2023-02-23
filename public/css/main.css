@@ -2648,6 +2648,7 @@ html.has-scroll-dragging {
         /* left: calc(50% - 360px); */
         max-height: 90vh;
         height: auto;
+        border-radius: 0.4rem;
     }
     .dialog__overlay {
         position: fixed !important;
@@ -2662,6 +2663,52 @@ html.has-scroll-dragging {
     }
     .slide_header {
         padding: 0 1rem;
+    }
+    #smartwizard .tab-content {
+        max-height: calc(80vh - 240px) !important;
+        height: auto !important;
+    }
+    .toolbar-bottom {
+        position: relative;
+        height: 5rem;
+    }
+    .confirmation_box h1 {
+        font-size: 1.7vw;
+    }
+    .confirmation_box h4 {
+        font-size: 0.9vw;
+        max-width: 80%;
+    }
+    .app_btn {
+        padding: 0.2rem 1.4rem;
+        font-size: 0.95vw;
+        padding: 0.3vw 2.4vw;
+    }
+    #eligibilityDialog .dialog__content {
+        max-width: 560px;
+    }
+    #confirmationDialog .dialog__content {
+        max-width: 560px;
+    }
+    #dontProceedDialog .dialog__content {
+        max-width: 560px;
+    }
+    #confirmationDialogClose,
+    #dontProceedDialogClose {
+        margin-bottom: 1rem;
+    }
+    .confirmation_icon {
+        margin-top: 1rem;
+    }
+    .contact_form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+    .flex_info_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
     }
 }
 
