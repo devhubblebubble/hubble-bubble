@@ -2644,7 +2644,7 @@ html.has-scroll-dragging {
 
 @media screen and (max-width: 1200px) {
     .web_services {
-        min-width: 38vw;
+        min-width: 32vw;
     }
     .web_service_section .page_space {
         gap: 1rem;
