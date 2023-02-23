@@ -2651,6 +2651,10 @@ html.has-scroll-dragging {
     z-index: 99;
 }
 
+.hide_scroll {
+    overflow: hidden;
+}
+
 @media screen and (max-width: 1200px) {
     .web_services {
         min-width: 32vw;
