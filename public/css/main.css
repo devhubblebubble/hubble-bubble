@@ -2751,10 +2751,10 @@ html.has-scroll-dragging {
     .menu__inner {
         position: fixed;
     }
-    /* html,
+    html,
     body {
         overscroll-behavior-y: none;
-    } */
+    }
 }
 
 
