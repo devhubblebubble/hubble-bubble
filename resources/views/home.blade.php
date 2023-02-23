@@ -68,6 +68,9 @@
                                     <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Take the eligibility test​</a>
                                 </div>
                             </div>
+                            <button class="right_animated" type="button">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </button>
                         </div>
                     </section>
                 </figure>
