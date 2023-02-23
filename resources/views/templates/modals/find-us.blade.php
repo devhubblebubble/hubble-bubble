@@ -41,7 +41,7 @@
                                 <i class="ri-phone-line"></i>
                             </div>
                             <div class="find_us_body">
-                                <a href="tel:+919995950969">+91 999 595 0969</a>
+                                <a href="tel:+919995650969">+91 999 565 0969</a>
                             </div>
                         </div>
                         <div class="find_us_media">

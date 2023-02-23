@@ -2647,6 +2647,10 @@ html.has-scroll-dragging {
     z-index: 9;
 }
 
+.dialog__content {
+    z-index: 99;
+}
+
 @media screen and (max-width: 1200px) {
     .web_services {
         min-width: 32vw;
