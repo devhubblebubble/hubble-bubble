@@ -729,7 +729,7 @@ li {
     width: 100%;
     max-width: 100%;
     min-width: 300px;
-    position: relative;
+    position: absolute;
     z-index: 5;
     opacity: 0;
     height: 100%;
