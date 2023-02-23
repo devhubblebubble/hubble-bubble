@@ -2713,6 +2713,19 @@ html.has-scroll-dragging {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
     }
+    .page_scroll {
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        height: 100%;
+        overflow: hidden;
+    }
+    .app_header {
+        position: fixed;
+    }
+    .menu__inner {
+        position: fixed;
+    }
 }
 
 
