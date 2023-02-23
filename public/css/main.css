@@ -2642,7 +2642,7 @@ html.has-scroll-dragging {
     height: 75vh;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 921px) {
     .dialog .dialog__content {
         max-width: 720px;
         /* left: calc(50% - 360px); */
@@ -2693,6 +2693,9 @@ html.has-scroll-dragging {
     #dontProceedDialog .dialog__content {
         max-width: 560px;
     }
+    #successDialog .dialog__content {
+        max-width: 560px;
+    }
     #confirmationDialogClose,
     #dontProceedDialogClose {
         margin-bottom: 1rem;
@@ -2715,7 +2718,7 @@ html.has-scroll-dragging {
 
 /****************************************/
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 921px) {
     #web_layout {
         display: none;
         visibility: hidden;
