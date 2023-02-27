@@ -65,7 +65,7 @@
                                 <h6>Let me help you make it a reality</h6>
                                 <div class="web_message_btns">
                                     <button class="btn app_btn btn_primary" onclick="openEligibility()">Take the eligibility test​</button>
-                                    <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Take the eligibility test​</a>
+                                    <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
                                 </div>
                             </div>
                             <button class="right_animated" type="button">

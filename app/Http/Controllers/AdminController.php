@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
 
     public function studentListing(){
-        $students = StudentPersonalInfo::all();
+        $students = StudentPersonalInfo::orderBy('created_at', 'desc')->get();
         return view('admin.student-listing', compact('students'));
     }
     

@@ -78,7 +78,7 @@
         <script>
             $(document).ready( function () {
                 $('#table_id').DataTable(
-                    @if(Request::is('admin/contact-support/listing'))
+                    @if(Request::is('admin/contact-support/listing') || Request::is('admin/students/listing'))
                         { "aaSorting": [] }
                     @endif
                 );
