@@ -27,28 +27,31 @@
                             </p>
                         </div>
                     </div>
-                    <div class="find_us_media">
-                        <div class="find_us_icon">
-                            <i class="ri-mail-line"></i>
+                    <div class="flex_info_grid">
+                        <div class="find_us_media">
+                            <div class="find_us_icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <div class="find_us_body">
+                                <a href="mailto:contact@hubblebubble.london">contact@hubblebubble.london</a>
+                            </div>
                         </div>
-                        <div class="find_us_body">
-                            <a href="mailto:contact@hubblebubble.london">contact@hubblebubble.london</a>
+                        <div class="find_us_media">
+                            <div class="find_us_icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <div class="find_us_body">
+                                <a href="tel:+919995650969">+91 999 565 0969</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="find_us_media">
-                        <div class="find_us_icon">
-                            <i class="ri-phone-line"></i>
-                        </div>
-                        <div class="find_us_body">
-                            <a href="tel:+919995650969">+91 999 565 0969</a>
-                        </div>
-                    </div>
-                    <div class="find_us_media">
-                        <div class="find_us_icon">
-                            <i class="ri-whatsapp-line"></i>
-                        </div>
-                        <div class="find_us_body">
-                            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&amp;text&amp;app_absent=0" target="_blank">+44 (0) 7904800485</a>
+                        <div class="find_us_media">
+                            <div class="find_us_icon">
+                                <i class="ri-whatsapp-line"></i>
+                            </div>
+                            <div class="find_us_body">
+                                <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&amp;text&amp;app_absent=0" target="_blank">+44 (0) 7904800485</a>
+                            </div>
+
                         </div>
                     </div>
                     <div class="frame_location">

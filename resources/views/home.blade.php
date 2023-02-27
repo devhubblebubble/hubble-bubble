@@ -2,21 +2,452 @@
 @section('content')
     <!-- Web Version -->
     <div id="web_layout">
-        <h3>
-            Our web version is coming soon. <br>
-            Please use the mobile version to know more details.
-        </h3>
-        <h3>
-            To use the existing web version please visit <a href="https://youhavejz.com/" target="_blank">www.youhavejz.com</a>
-        </h3>
+
+        <!-- Web Header -->
+        <header class="app_header">
+            <div class="header_flex">
+                <div class="menu__trigger js-menu-trigger header_toggle_btn">
+                    <i class="ri-menu-2-line"></i>
+                </div>
+                <div class="brand_icon">
+                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.89 23.18">
+                        <path fill="#f05525" d="M7.46,8.83A3.73,3.73,0,0,0,3.73,5.1a3.77,3.77,0,0,0-1.58.35.45.45,0,0,1-.64-.4V.75A.76.76,0,0,0,0,.75V12.58a.76.76,0,1,0,1.51,0V8.83h0A2.22,2.22,0,0,1,6,8.83H6v3a.76.76,0,0,0,1.51,0v-3h0v0" />
+                        <path fill="#f05525" d="M10.91,15.91a3.77,3.77,0,0,0-3.44.53,0,0,0,0,1,0,0V11.35a.3.3,0,0,0-.3-.3h-.9a.3.3,0,0,0-.31.3v8.09a3.74,3.74,0,1,0,7.26-1.24,3.55,3.55,0,0,0-2.3-2.29m-1,5.75a2.23,2.23,0,1,1,2-2,2.23,2.23,0,0,1-2,2" />
+                        <path fill="#f05525" d="M19.65,15.51a.84.84,0,0,1,.61.24.89.89,0,0,1,.23.61v3.56a3.28,3.28,0,0,1-.82,2.36,3.16,3.16,0,0,1-2.39.87,3.12,3.12,0,0,1-2.38-.87,3.32,3.32,0,0,1-.82-2.36V16.36a.85.85,0,0,1,.24-.61.88.88,0,0,1,1.21,0,.85.85,0,0,1,.24.61v3.56a1.77,1.77,0,0,0,.38,1.27,1.44,1.44,0,0,0,1.13.42,1.46,1.46,0,0,0,1.15-.42,1.82,1.82,0,0,0,.38-1.27V16.36a.85.85,0,0,1,.24-.61.81.81,0,0,1,.6-.24" />
+                        <path fill="#f05525" d="M39.07,22.16a.86.86,0,0,1-.25.61.84.84,0,0,1-.61.24.81.81,0,0,1-.59-.24.85.85,0,0,1-.24-.61V14.65a.79.79,0,0,1,.25-.61.81.81,0,0,1,.61-.25.75.75,0,0,1,.59.25.82.82,0,0,1,.24.61Z" />
+                        <path fill="#f05525" d="M43.63,23.15a4,4,0,0,1-2.07-.5,3.37,3.37,0,0,1-1.35-1.35,4,4,0,0,1-.47-1.94,4.25,4.25,0,0,1,.51-2.15,3.67,3.67,0,0,1,1.34-1.37,3.53,3.53,0,0,1,1.75-.47,3.17,3.17,0,0,1,1.36.29,3.91,3.91,0,0,1,1.13.81,4.18,4.18,0,0,1,.78,1.18,3.65,3.65,0,0,1,.28,1.43.71.71,0,0,1-.26.55.91.91,0,0,1-.59.21H40.68l-.42-1.4h5.15l-.31.28v-.38a1.33,1.33,0,0,0-.29-.73,1.88,1.88,0,0,0-.64-.51,1.84,1.84,0,0,0-.83-.19,2.77,2.77,0,0,0-.78.11,1.57,1.57,0,0,0-.63.38,1.81,1.81,0,0,0-.42.72,3.26,3.26,0,0,0-.16,1.13,2.49,2.49,0,0,0,.32,1.29,2.19,2.19,0,0,0,1.87,1.07,3.08,3.08,0,0,0,.83-.09,1.8,1.8,0,0,0,.5-.2l.34-.2a1,1,0,0,1,.48-.13.69.69,0,0,1,.51.21.71.71,0,0,1,.2.49.89.89,0,0,1-.39.69,3,3,0,0,1-1,.54,4.22,4.22,0,0,1-1.36.23" />
+                        <path fill="#ffffff" d="M9.7,17.69h0a.36.36,0,0,0,0,.71h0a1,1,0,0,1,1,1h0a.36.36,0,1,0,.71,0A1.75,1.75,0,0,0,9.7,17.69" />
+                        <path fill="#f05525" d="M28.48,18.09a3.59,3.59,0,0,0-2.31-2.29,3.75,3.75,0,0,0-3.43.53h0V14.54a.75.75,0,0,0-1.5,0v4.79a3.74,3.74,0,1,0,7.26-1.24m-1.32,1.47a2.25,2.25,0,0,1-2,2,2.23,2.23,0,1,1,2-2" />
+                        <path fill="#f05525" d="M36.56,18.09a3.59,3.59,0,0,0-2.31-2.29,3.75,3.75,0,0,0-3.43.53h0V14.54a.75.75,0,0,0-1.5,0v4.79a3.74,3.74,0,1,0,7.26-1.24m-1.32,1.47a2.22,2.22,0,1,1-2.44-2.44,2.24,2.24,0,0,1,2.44,2.44" />
+                        <path fill="#ffffff" d="M13.7,5.78a.81.81,0,0,1,.6.24.85.85,0,0,1,.24.61V10.2a3.27,3.27,0,0,1-.83,2.35,3.12,3.12,0,0,1-2.38.87A3.12,3.12,0,0,1,9,12.55a3.27,3.27,0,0,1-.82-2.35V6.63A.85.85,0,0,1,8.37,6,.81.81,0,0,1,9,5.78a.8.8,0,0,1,.6.24.85.85,0,0,1,.24.61V10.2a1.81,1.81,0,0,0,.38,1.26,1.45,1.45,0,0,0,1.14.42,1.47,1.47,0,0,0,1.15-.42,1.81,1.81,0,0,0,.38-1.26V6.63A.85.85,0,0,1,13.1,6a.8.8,0,0,1,.6-.24" />
+                        <path fill="#ffffff" d="M33.11,12.43a.82.82,0,0,1-.85.85.79.79,0,0,1-.59-.24.85.85,0,0,1-.24-.61V4.92a.84.84,0,0,1,.86-.86.75.75,0,0,1,.59.25.81.81,0,0,1,.23.61Z" />
+                        <path fill="#ffffff" d="M37.67,13.42a4.07,4.07,0,0,1-2.07-.5,3.41,3.41,0,0,1-1.34-1.35,3.9,3.9,0,0,1-.47-1.94,4.28,4.28,0,0,1,.51-2.15,3.67,3.67,0,0,1,1.34-1.37,3.51,3.51,0,0,1,1.75-.47,3.09,3.09,0,0,1,1.35.29,3.66,3.66,0,0,1,1.13.81,3.79,3.79,0,0,1,.78,1.18,3.65,3.65,0,0,1,.29,1.43.72.72,0,0,1-.27.55.87.87,0,0,1-.59.21H34.73l-.43-1.4h5.15L39.14,9V8.61a1.25,1.25,0,0,0-.28-.73,2,2,0,0,0-.65-.51,1.8,1.8,0,0,0-.82-.19,2.77,2.77,0,0,0-.78.11,1.54,1.54,0,0,0-.64.38,2.07,2.07,0,0,0-.42.72,3.59,3.59,0,0,0-.15,1.13,2.49,2.49,0,0,0,.31,1.29,2.32,2.32,0,0,0,.82.8,2.17,2.17,0,0,0,1.06.27,3.13,3.13,0,0,0,.83-.09,1.61,1.61,0,0,0,.49-.2,3.35,3.35,0,0,1,.35-.2,1,1,0,0,1,.47-.13.7.7,0,0,1,.52.21.71.71,0,0,1,.2.49.88.88,0,0,1-.39.69,3.19,3.19,0,0,1-1,.54,4.18,4.18,0,0,1-1.36.23" />
+                        <path fill="#ffffff" d="M22.52,8.36a3.57,3.57,0,0,0-2.3-2.29,3.77,3.77,0,0,0-3.44.53h0V4.81a.76.76,0,0,0-1.51,0v4.8a3.74,3.74,0,1,0,7.26-1.25M21.2,9.83a2.22,2.22,0,1,1-2.43-2.44A2.23,2.23,0,0,1,21.2,9.83" />
+                        <path fill="#ffffff" d="M30.6,8.36a3.57,3.57,0,0,0-2.3-2.29,3.77,3.77,0,0,0-3.44.53h0V4.81a.76.76,0,0,0-1.51,0v4.8A3.74,3.74,0,1,0,30.6,8.36M29.28,9.83a2.22,2.22,0,1,1-2.43-2.44,2.23,2.23,0,0,1,2.43,2.44" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+        <!--//. Web Header -->
+
+        <!-- Body Slider -->
+        <div class="swiper webBannerSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_01.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_02.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/banner/home_banner_slide_03.png" />
+                </div>
+            </div>
+        </div>
+        <!--//. Body Slider -->
+
+        <main class="page_scroll" data-scroll-container="">
+            <div class="gallery">
+
+                <!-- Home -->
+                <figure class="gallery__item">
+                    <section class="full_section web_home">
+                        <div class="web_content">
+                            <div class="tags_wrap" data-scroll="" data-scroll-speed="1">
+                                <div class="page_tags">
+                                    <span>The right University</span>
+                                </div>
+                            </div>
+                            <div class="home_web_message">
+                                <h1>
+                                    The right University at your Dream destination is not a dream anymore!​
+                                </h1>
+                                <h6>Let me help you make it a reality</h6>
+                                <div class="web_message_btns">
+                                    <button class="btn app_btn btn_primary" onclick="openEligibility()">Take the eligibility test​</button>
+                                    <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Take the eligibility test​</a>
+                                </div>
+                            </div>
+                            <button class="right_animated" type="button">
+                                <i class="ri-arrow-right-s-line"></i>
+                            </button>
+                        </div>
+                    </section>
+                </figure>
+                <!--//. Home -->
+
+                <!-- Your Journey -->
+                <figure class="gallery__item fill">
+                    <section class="full_section web_your_journey">
+                        <div class="web_content">
+                            <div class="tags_wrap" data-scroll="" data-scroll-speed="2">
+                                <div class="page_tags">
+                                    <span>Your Journey</span>
+                                </div>
+                            </div>
+                            <div class="page_wrapper">
+                                <div class="page_space">
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_01.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 1</label>
+                                                <h3>Your journey starts with YOU</h3>
+                                                <p>Finding the right university and course for you starts with understanding your passion, personal profile and requirements. We achieve this with a dedicated 1-2-1 mentoring session with you.​</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1.2">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_02.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 2</label>
+                                                <h3>The right course is YOUR right path.</h3>
+                                                <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that matches your profile, based on
+                                                    our 1-2-1 session.​</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_03.jpg">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 3</label>
+                                                <h3>The right University is your vehicle forward.​</h3>
+                                                <p>
+                                                    Even if the subject stays the same, it is the right university that defines the whole course of your journey.​ Based on various ranking metrics, we help you shortlist and enrol at top universities that allow you to propel towards your dream career.
+                                                    <br>And yes, the University matters – No matter what anyone says!​
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1.2">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_04.png">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 4</label>
+                                                <h3>Documentation is Boring – Not for Hubble Bubble​</h3>
+                                                <p>
+                                                    Don't worry about your application process as we provide you with end-to-end support. Leave that part to us.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_steps">
+                                        <div class="journey_box" data-scroll="" data-scroll-speed="1">
+                                            <div class="journey_icon">
+                                                <img src="img/journey/journey_05.png">
+                                            </div>
+                                            <div class="journey_body">
+                                                <label class="journey_label">Step 5</label>
+                                                <h3>Look where you are standing now!</h3>
+                                                <p>
+                                                    You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br> Don’t forget! We are there when you need
+                                                    us.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </figure>
+                <!--//. Your Journey  -->
+
+                <!-- Our Services -->
+                <figure class="gallery__item fill">
+                    <section class="full_section web_service_section">
+                        <div class="web_content">
+                            <div class="tags_wrap" data-scroll="" data-scroll-speed="2">
+                                <div class="page_tags">
+                                    <span>Our Services</span>
+                                </div>
+                            </div>
+                            <div class="page_wrapper">
+                                <div class="page_space">
+                                    <div class="web_services">
+                                        <div class="service_item" data-scroll="" data-scroll-speed="1">
+                                            <div class="service_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="31" fill="none" viewBox="0 0 26 31">
+                                                    <path fill="#EBA66F" d="M6.017.844c-1.745.474-3.107 1.923-3.55 3.766a6.02 6.02 0 0 0 0 2.577c.449 1.854 1.816 3.298 3.571 3.772.285.075.679.138.87.138h.35l.01 1.958.017 1.964L9.5 13.055l2.215-1.958h2.57l2.215 1.958 2.215 1.964.016-1.964.011-1.958h.35c.192 0 .585-.063.87-.138 1.755-.474 3.122-1.918 3.571-3.772a6.02 6.02 0 0 0 0-2.577c-.449-1.86-1.81-3.298-3.571-3.772L19.437.7h-6.459L6.52.705l-.503.139Zm13.682 1.773a3.51 3.51 0 0 1 2.188 2.444c.104.439.104 1.236 0 1.675a3.659 3.659 0 0 1-1.411 2.05c-.186.128-.536.301-.777.382-.388.133-.557.156-1.515.179l-1.082.035-.011.912-.017.907-1.039-.918-1.039-.919h-3.992l-1.039.919-1.04.918-.015-.907-.011-.912-1.083-.03c-1.012-.028-1.105-.04-1.548-.201a3.113 3.113 0 0 1-1.405-.977c-.57-.652-.832-1.38-.832-2.31 0-.89.268-1.606.859-2.276.53-.607 1.247-1 1.985-1.098.197-.023 3.063-.04 6.371-.034l6.016.005.437.156Z"/>
+                                                    <path fill="#EBA66F" d="M8.898 5.898v.867h1.641V5.032H8.9v.866ZM12.18 5.898v.867h1.64V5.032h-1.64v.866ZM15.46 5.898v.867h1.641V5.032h-1.64v.866ZM5.535 16.521c-1.126.347-2.001 1.294-2.291 2.473-.05.196-.088.589-.088.884 0 .993.307 1.779.952 2.46.416.44 1.06.832 1.52.924.159.035-.306.064-1.46.081l-1.695.03-.383.196c-.503.26-.935.716-1.181 1.247l-.186.405-.017 2.524-.016 2.53H12.185l-.016-2.53-.017-2.524-.185-.405a2.706 2.706 0 0 0-1.182-1.247l-.383-.197-1.695-.029c-1.126-.017-1.619-.046-1.466-.075a3.7 3.7 0 0 0 .679-.277c.825-.422 1.476-1.277 1.711-2.23.115-.45.115-1.317 0-1.767-.295-1.202-1.22-2.178-2.357-2.49-.448-.121-1.312-.116-1.739.017Zm1.471 1.774c.301.11.722.52.88.86.083.174.11.353.11.723 0 .571-.093.82-.437 1.184-.345.364-.58.462-1.121.462-.542 0-.777-.098-1.122-.462-.3-.312-.426-.618-.453-1.08-.05-.803.322-1.398 1.055-1.705.24-.098.788-.086 1.088.018Zm3.085 6.926c.098.063.235.208.3.317.115.191.12.284.137 1.6l.022 1.404H2.325l.022-1.404c.016-1.322.022-1.409.137-1.6a.803.803 0 0 1 .536-.41c.093-.023 1.679-.04 3.527-.034 3.26.011 3.369.017 3.544.127ZM18.66 16.521c-1.126.347-2.001 1.294-2.291 2.473-.05.196-.088.589-.088.884 0 .993.307 1.779.952 2.46.415.44 1.06.832 1.52.924.159.035-.306.064-1.46.081l-1.695.03-.383.196c-.503.26-.935.716-1.181 1.247l-.186.405-.017 2.524-.016 2.53H25.31l-.016-2.53-.017-2.524-.186-.405a2.706 2.706 0 0 0-1.18-1.247l-.384-.197-1.695-.029c-1.126-.017-1.619-.046-1.466-.075a3.7 3.7 0 0 0 .679-.277c.825-.422 1.476-1.277 1.711-2.23.115-.45.115-1.317 0-1.767-.295-1.202-1.22-2.178-2.357-2.49-.448-.121-1.312-.116-1.739.017Zm1.471 1.774c.301.11.722.52.88.86.083.174.11.353.11.723 0 .571-.093.82-.437 1.184-.345.364-.58.462-1.121.462-.542 0-.777-.098-1.121-.462-.301-.312-.427-.618-.454-1.08-.05-.803.322-1.398 1.055-1.705.24-.098.788-.086 1.088.018Zm3.085 6.926c.098.063.235.208.3.317.115.191.12.284.137 1.6l.022 1.404H15.45l.022-1.404c.016-1.322.022-1.409.137-1.6a.803.803 0 0 1 .536-.41c.093-.023 1.678-.04 3.527-.034 3.26.011 3.369.017 3.544.127Z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="service_details">
+                                                <h3>Mentor Guidance​</h3>
+                                                <p>
+                                                    Through individual 1-2-1 mentoring we help you pick the right course based on your dreams and aspirations.​
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_services">
+                                        <div class="service_item" data-scroll="" data-scroll-speed="1">
+                                            <div class="service_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                                                    <path fill="#86BED6" d="M12.954.986c-.799.538-1.473.996-1.496 1.013-.04.046.884 1.456.958 1.456.022 0 .294-.164.6-.368l.55-.368.016 3.693c.006 2.033 0 3.732-.017 3.766-.01.04-.101.074-.204.074-.294 0-1.296.22-1.897.425-.906.3-1.897.832-2.787 1.5l-.187.137-1.665-1.666-1.67-1.67V5.89l.594.396.595.397.493-.742c.305-.46.47-.754.43-.776L5.727 4.14l-1.479-.985-1.53 1.014C1.88 4.724 1.19 5.205 1.19 5.228c0 .034.833 1.314.94 1.444.006.012.284-.158.612-.38l.6-.401v3.823L5.28 11.65c1.931 1.931 1.931 1.937 1.835 2.067-.974 1.337-1.535 2.532-1.858 3.994-.113.487-.124.719-.124 1.886 0 1.16.017 1.404.124 1.892.844 3.777 3.574 6.508 7.352 7.351.487.108.73.125 1.892.125 1.167 0 1.399-.011 1.886-.125 3.784-.844 6.514-3.574 7.358-7.352.107-.492.124-.724.124-1.891s-.017-1.4-.124-1.892c-.329-1.467-.878-2.657-1.824-3.931l-.136-.187 1.937-1.937 1.937-1.937V5.89l.6.402c.33.22.607.39.612.38.108-.131.94-1.411.94-1.445 0-.023-.69-.504-1.529-1.06l-1.529-1.013-1.478.985-1.541 1.026c-.04.022.125.317.43.776l.493.742.595-.397.595-.396V8.978l-1.671 1.67-1.665 1.666-.187-.136c-1.314-.986-2.759-1.626-4.152-1.841-.34-.057-.657-.108-.691-.119-.057-.017-.074-.816-.074-3.761 0-2.98.017-3.738.074-3.704l.56.374c.273.18.516.328.544.328.091 0 .997-1.416.94-1.467C17.367 1.841 14.546 0 14.49.006c-.04 0-.731.441-1.535.98Zm3.28 11.158c1.517.38 2.667 1.036 3.749 2.152 1.02 1.054 1.608 2.124 1.982 3.602.136.544.153.692.153 1.7s-.017 1.155-.153 1.699c-.38 1.512-1.025 2.656-2.078 3.704-1.473 1.467-3.337 2.243-5.387 2.243-2.486 0-4.763-1.178-6.236-3.223-.584-.815-.957-1.648-1.23-2.724-.135-.544-.152-.691-.152-1.7 0-1.008.017-1.155.153-1.699.39-1.557 1.042-2.696 2.163-3.783 1.15-1.116 2.487-1.796 4.084-2.079.725-.13 2.226-.073 2.951.108Z"/>
+                                                    <path fill="#86BED6" d="M13.826 14.534a2.612 2.612 0 0 0-1.875 2.062c-.107.583-.028 1.014.317 1.79.017.034-.152.198-.379.362-.702.521-1.257 1.337-1.53 2.237-.101.34-.124.584-.147 1.654l-.028 1.263h8.632l-.028-1.257c-.023-1.076-.046-1.32-.148-1.66-.305-1.014-.838-1.738-1.784-2.435l-.153-.114.148-.322a2.596 2.596 0 0 0-1.7-3.586 2.76 2.76 0 0 0-1.325.006Zm1.122 1.824c.65.487.345 1.484-.46 1.484-.549 0-.957-.567-.753-1.06.051-.113.13-.26.187-.322.244-.272.731-.323 1.026-.102Zm.589 3.506c.798.38 1.342 1.127 1.484 2.039l.04.244H11.94l.04-.244c.158-1.03.793-1.807 1.755-2.152.216-.074.414-.097.85-.08.498.012.612.034.952.193Z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="service_details">
+                                                <h3>Complete guidance on admission​</h3>
+                                                <p>
+                                                    Breeze through the admissions process and build a solid personal Statement of Purpose (SOP).
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_services">
+                                        <div class="service_item" data-scroll="" data-scroll-speed="1">
+                                            <div class="service_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
+                                                    <path fill="#98C29D" d="M6.366 1.717c-2.078.4-3.757 1.788-4.452 3.697-.29.782-.35 1.143-.35 2.106 0 .765.022.951.142 1.454.274 1.088.607 1.794 1.439 3.04.322.477.585.881.59.898.011.032-1.454 1.81-2.882 3.494-.47.553-.847 1.04-.842 1.078.011.032.76.754 1.668 1.602 1.154 1.072 1.668 1.58 1.69 1.684.323 1.46.93 2.565 1.958 3.593.951.946 2.11 1.57 3.478 1.865.65.142 2.138.142 2.789.006a6.864 6.864 0 0 0 3.533-1.92c.568-.563 1.055-1.241 1.35-1.87l.159-.328.388.065c1.433.252 3.156.099 4.6-.399a9.595 9.595 0 0 0 4.659-3.489c.415-.585 1.044-1.827 1.269-2.516.35-1.071.42-1.57.42-2.98 0-1.132-.016-1.356-.125-1.86-.886-4.057-3.998-6.967-8.077-7.552-.575-.082-2.051-.065-2.68.033a9.502 9.502 0 0 0-3.79 1.46c-.279.186-.514.323-.525.312-.005-.011-.126-.23-.257-.481-.75-1.428-2.105-2.472-3.757-2.915-.541-.142-1.832-.186-2.395-.077ZM8.006 3.5c.542.273.963.968.963 1.58 0 .329-.153.87-.377 1.34-.197.427-1.012 1.696-1.165 1.827-.06.05-.164-.066-.503-.552-.493-.711-.925-1.56-1.05-2.062-.11-.443-.082-.913.087-1.302.148-.344.602-.782.94-.908a1.523 1.523 0 0 1 1.105.077ZM4.233 6.163c.224.859.848 1.974 1.821 3.26.148.191.224.339.202.382a85.253 85.253 0 0 1-1.34 1.701c-.054.06-.749-.99-1.039-1.57-.853-1.69-.847-3.368.017-4.686l.18-.279.039.427c.016.235.07.58.12.765Zm6.841-.52c.312.602.432 1.122.427 1.85 0 .852-.186 1.59-.629 2.477-.361.721-1.832 2.789-3.84 5.37-1.022 1.323-2.537 3.243-2.766 3.505l-.142.164-.875-.809c-.476-.443-.87-.842-.865-.88.006-.039.63-.82 1.395-1.734 3.566-4.271 5.813-7.24 6.36-8.39.34-.705.525-1.405.525-2v-.247l.115.164c.06.088.197.328.295.53Zm8.034-.612a7.663 7.663 0 0 1 3.035.875c2.062 1.089 3.533 3.046 4.036 5.376.077.35.099.7.099 1.57-.006 1.028-.017 1.17-.148 1.695-.377 1.493-1.056 2.707-2.095 3.746-1.17 1.165-2.52 1.881-4.156 2.198-.727.143-2.116.126-2.855-.027-1.236-.268-2.515-.87-3.423-1.613l-.148-.126.64-.596c.355-.328.656-.618.662-.64.01-.027-.159-.262-.383-.525a457.086 457.086 0 0 1-1.821-2.171 411.689 411.689 0 0 0-1.482-1.777c-.06-.072.016-.214.503-.93 1.11-1.646 1.553-2.833 1.64-4.402l.039-.64.487-.372c1.241-.963 2.641-1.515 4.172-1.64.268-.023.503-.045.52-.045.016-.005.317.017.678.044Zm-7.974 10.746 1.226 1.471c.07.093.06.115-.115.274-.11.093-.52.47-.908.837l-.711.672-1.006-1.268c-.553-.695-1.04-1.313-1.078-1.368-.065-.087.011-.202.657-1.055.399-.525.743-.952.76-.94.022.005.547.628 1.175 1.377Zm-2.313 3.708c.777.968 1.46 1.821 1.52 1.892l.11.132.147-.132c.077-.07.47-.432.87-.804l.722-.672.481.377c.607.47 1.105.782 1.777 1.105l.525.251-.147.274a5.473 5.473 0 0 1-1.635 1.82c-.476.324-1.16.64-1.68.783-.65.175-1.946.175-2.591 0-1.636-.443-3.03-1.674-3.615-3.188-.296-.766-.378-.564.908-2.177.629-.782 1.154-1.422 1.17-1.422.016 0 .662.793 1.438 1.761Z"/>
+                                                    <path fill="#98C29D" d="M17.883 7.864V8.4l-.34.164c-1.087.514-1.623 1.892-1.186 3.057.295.788.946 1.263 2.477 1.805.624.219.88.388.974.623.082.219.065.574-.038.777-.285.563-.82.81-1.504.7-.416-.066-.755-.23-1.149-.563l-.3-.247-.586.586c-.328.322-.59.601-.59.623 0 .022.18.191.399.372.443.366 1.126.733 1.558.837l.285.065v1.121H19.578v-1.197l.35-.17c.438-.208.913-.634 1.192-1.06.57-.887.59-2.106.055-2.894-.377-.541-.826-.847-1.7-1.16-1.133-.404-1.44-.579-1.543-.885-.186-.569.383-1.072 1.066-.94.323.06.504.158.88.464.209.164.329.23.373.197.038-.027.322-.252.64-.503.317-.252.585-.465.596-.476.038-.027-.328-.394-.656-.645-.323-.252-.854-.542-1.1-.602l-.153-.038V7.328H17.883v.536Z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="service_details">
+                                                <h3>Scholarship and Funding​</h3>
+                                                <p>
+                                                    You do not need an A+ to get a scholarship. All you need is the drive to succeed! HB can help you secure a scholarship.​
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_services">
+                                        <div class="service_item" data-scroll="" data-scroll-speed="1">
+                                            <div class="service_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none" viewBox="0 0 29 29">
+                                                <g fill="#C9B097" clip-path="url(#a)">
+                                                    <path d="M6.57 7.55v7.556l-.47.068c-.634.085-1.484.357-2.107.668a6.998 6.998 0 0 0-3.478 4.016 7.142 7.142 0 0 0 0 4.407 6.973 6.973 0 0 0 5.37 4.65c.413.074 1.66.085 10.121.085h9.652V14.953h3.172v-1.065c0-1.246-.068-1.642-.38-2.237-.458-.872-1.297-1.478-2.3-1.67l-.492-.092V0H6.57v7.55Zm17.332-1.744v4.106h-8.128l-.56-.934-.561-.935h-3.268v4.446l1.234 1.23 1.23 1.234 1.574.011 1.575.017-1.388 1.615c-.765.889-1.393 1.631-1.393 1.654 0 .028 1.376.045 3.058.045h3.059l1.784-1.19 1.784-1.189v11.328H11.826l.3-.323c1.003-1.098 1.638-2.362 1.87-3.75.09-.515.085-1.755 0-2.27a6.997 6.997 0 0 0-5.132-5.58l-.51-.13-.017-6.746-.01-6.746h15.575v4.107Zm-9.702 4.91.56.924 5.602.028 5.608.028.306.17c.447.25.798.793.798 1.24 0 .08-.629.091-6.242.091h-6.247l-.72-.72-.725-.724V9.799h.499l.56.917Zm6.757 5.03-1.195.799-.872-.017-.867-.017.657-.776.663-.776h1.404l1.405-.006-1.195.793Zm-12.8 1.218a5.847 5.847 0 0 1 1.653.651c.476.29 1.207.969 1.552 1.456a5.165 5.165 0 0 1 .476 5.154c-.595 1.263-1.71 2.283-3.002 2.742-.606.215-1.054.289-1.762.289-2.356-.006-4.378-1.61-5.018-3.977-.142-.526-.142-1.914.006-2.464.119-.464.51-1.32.77-1.699a5.836 5.836 0 0 1 1.382-1.36c.929-.616 1.761-.871 2.849-.877.402 0 .855.034 1.093.085Z"/>
+                                                    <path d="M12.46 4.22v.878h3.23V3.342H12.46v.878ZM17.389 4.22v.878h1.756V3.342h-1.756v.878ZM16.143 21.042v.878h5.664v-1.756h-5.664v.878ZM16.143 24.44v.878h5.664v-1.756h-5.664v.878ZM6.684 18.969v.39l-.295.069c-.68.158-1.19.56-1.388 1.093-.096.26-.09.804.017 1.048.108.266.386.555.669.702.124.062.566.198.985.306.833.215.974.272.974.39 0 .358-1.15.33-1.942-.056-.165-.074-.306-.119-.329-.096-.102.13-.515 1.15-.487 1.223.057.153 1.178.487 1.631.487h.165v.737h1.013l.017-.374.017-.374.312-.096c.402-.125.527-.198.804-.448.29-.26.448-.577.482-.968.04-.425-.063-.76-.3-1.025-.272-.3-.658-.47-1.467-.652-.725-.158-.952-.26-.924-.413.051-.267.856-.306 1.49-.074.187.074.38.142.43.159.063.017.148-.125.335-.584.237-.583.243-.606.136-.685-.136-.096-.708-.278-1.06-.329l-.266-.04v-.78h-1.02v.39Z"/>
+                                                </g>
+                                                <defs><clipPath id="a"><path fill="#fff" d="M0 0h29v29H0z"/></clipPath></defs>
+                                                </svg>
+                                            </div>
+                                            <div class="service_details">
+                                                <h3>Visa and On Arrival Support</h3>
+                                                <p>
+                                                    Feel yourself at home at your dream destination by finding yourself a cozy apartment for your budget.<br> Airport Pickup/Grocery shopping/ Banking/ SIM Card? Don’t worry, we have got you covered.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web_services">
+                                        <div class="service_item" data-scroll="" data-scroll-speed="1">
+                                            <div class="service_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="none" viewBox="0 0 29 29">
+                                                <g fill="#A5A5D5" clip-path="url(#a)">
+                                                    <path d="M9.232.034C8.27.21 7.24.521 6.474.884l-.527.243v2.271H0v15.293h8.156c4.486 0 8.156.017 8.156.034s-.062.136-.135.267c-.244.419-.533 1.24-.652 1.835-.164.793-.164 1.96 0 2.752a6.787 6.787 0 0 0 5.483 5.336c.617.108 1.784.108 2.419 0 2.77-.487 5-2.719 5.488-5.488.125-.737.113-1.892-.034-2.6a6.8 6.8 0 0 0-5.494-5.342c-.634-.107-2.147-.079-2.668.052l-.328.079V3.398h-5.948V1.127l-.52-.243A11.475 11.475 0 0 0 11.81.159c-.391-.091-.737-.125-1.473-.136-.527-.006-1.025 0-1.105.011Zm2.028 1.812c.238.046.674.165.963.261l.521.176V3.398H7.646V2.277l.556-.176c.3-.102.713-.215.917-.26.51-.108 1.603-.108 2.141.005Zm7.431 5.002v1.75l-.266.057c-.153.034-2.062.38-4.242.776l-3.976.719-4.095-.742C3.857 9 1.942 8.649 1.858 8.632l-.159-.034v-3.5h16.992v1.75ZM5.313 11.045c1.892.345 3.574.651 3.738.685l.295.057v1.806H11.045v-.905c0-.499.006-.907.017-.907.006 0 1.694-.306 3.75-.68 2.056-.373 3.766-.68 3.806-.68.056 0 .073.624.073 2.975 0 1.636-.017 2.973-.045 2.973-.023 0-.227.142-.453.312l-.414.311H1.7v-3.285c0-2.923.012-3.285.085-3.285.051 0 1.637.283 3.529.623Zm17.785 6.18c.918.141 1.954.69 2.668 1.404.98.98 1.478 2.186 1.478 3.574 0 1.037-.26 1.915-.804 2.747a5.026 5.026 0 0 1-4.237 2.3c-1.37 0-2.6-.51-3.568-1.479-.975-.974-1.473-2.18-1.473-3.568 0-1.405.504-2.611 1.507-3.597 1.178-1.166 2.73-1.648 4.429-1.382Z"/>
+                                                    <path d="M21.354 20.929v2.124h4.248v-1.7h-2.549v-2.548h-1.7v2.124Z"/>
+                                                </g>
+                                                <defs><clipPath id="a"><path fill="#fff" d="M0 0h29v29H0z"/></clipPath></defs>
+                                                </svg>
+                                            </div>
+                                            <div class="service_details">
+                                                <h3>Part-time/Full-time Job</h3>
+                                                <p>
+                                                    Build an attractive CV with guidance on finding a part-time job while you are studying, as well as finding a full-time job post studies thereby building a pathway to PR.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </figure>
+                <!--//. Our Services -->
+
+                 <!-- Student Stories -->
+                <figure class="gallery__item fill">
+                    <section class="full_section web_stories_section">
+                        <div class="web_content">
+                            <div class="tags_wrap">
+                                <div class="page_tags">
+                                    <span>Student Stories</span>
+                                </div>
+                            </div>
+                            <div class="page_wrapper">
+                                <div class="page_space">
+                                    <div class="text_stories">
+                                        <div class="swiper webStoriesSwiper" data-scroll="" data-scroll-speed="1">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="web_testimonials">
+                                                        <div class="text_story_content">
+                                                            <h3>
+                                                                I’m still feeling ecstatic when I think about getting the job opportunity to be where I’m now. I’m so thankful to Jevin fro that and he helped me all the way to make this whole process smooth. I’m thrilled to be here in the UK.
+                                                            </h3>
+                                                        </div>
+                                                        <div class="story_avatar">
+                                                            <div class="user_icon">
+                                                                <img src="img/users/mayukhi.jpg">
+                                                            </div>
+                                                            <div class="user_body">
+                                                                <h4>Mayukhi</h4>
+                                                                <p>Senior Carer</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="web_testimonials">
+                                                        <div class="text_story_content">
+                                                            <h3>
+                                                                Your one call had motivated us to travel this far, this is not something I’m just saying, it is something from my heart. This means a lot. You are doing something amazing, maybe you are not knowing it, but you are helping a lot of people through this.
+                                                                I feel so so thankful!
+                                                            </h3>
+                                                        </div>
+                                                        <div class="story_avatar">
+                                                            <div class="user_icon">
+                                                                <img src="img/users/user_placeholder.png">
+                                                            </div>
+                                                            <div class="user_body">
+                                                                <h4>Sona J</h4>
+                                                                <p>Student</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="web_testimonials">
+                                                        <div class="text_story_content">
+                                                            <h3>
+                                                                Thanks for being there for me my brother and for helping me choose the right course based on my profile and skills. Without your motivation, I might not have the courage to apply to the UK.
+                                                            </h3>
+                                                        </div>
+                                                        <div class="story_avatar">
+                                                            <div class="user_icon">
+                                                                <img src="img/users/user_placeholder.png">
+                                                            </div>
+                                                            <div class="user_body">
+                                                                <h4>Fredy Thomas </h4>
+                                                                <p>Student</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="web_testimonials">
+                                                        <div class="text_story_content">
+                                                            <h3>
+                                                                Thank you Jevin for helping me achieve my dream. The entire process till the visa approval was seamless and was offered excellent consultation. Every time I had a doubt, I was able to connect with the team immediately. I would like to thank Freddy, who
+                                                                did an excellent job throughout the process and a special thanks to you Jevin for all the help you had done even though we had a different time zone. Whenever I had a doubt about anything, he would call
+                                                                me and explain to me in detail and motivated me to choose the right path. Moreover this team will make us feel like a family!
+                                                            </h3>
+                                                        </div>
+                                                        <div class="story_avatar">
+                                                            <div class="user_icon">
+                                                                <img src="img/users/krishnaprasad.jpg">
+                                                            </div>
+                                                            <div class="user_body">
+                                                                <h4>Krishna Prasad A</h4>
+                                                                <p>Student</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-pagination"></div>
+                                        </div>
+                                    </div>
+                                    <div class="video_stories">
+                                        <div class="swiper StoriesMedia">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color1">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_01.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color2">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_02.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color3">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_03.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color4">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_04.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color1">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_05.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color2">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_06.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color3">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_07.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="swiper-slide">
+                                                    <div class="text_story color4">
+                                                        <div class="text_story_content img_slide_block">
+                                                            <img src="img/testimonials/testimonials_08.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </figure>
+                <!--//. Student Stories -->
+
+            </div>
+        </main>
+
+        <svg class="cursor" width="20" height="20" viewBox="0 0 20 20">
+            <circle class="cursor__inner" cx="10" cy="10" r="5"></circle>
+        </svg>
+        
     </div>
     <!--/. Web Version -->
 
     <!-- Mobile Version -->
     <div id="mobile_layout">
-        <!--Menu-->
-        @include('templates.side-menu')
-        <!--/Menu-->
 
         <!-- Content -->
         <div id="app_swiper" class="swiper-container">
@@ -90,63 +521,98 @@
         </div>
         <!--/. Content -->
 
-        <!-- Whatsapp -->
-        <div class="whatsapp_chat">
-            <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
-                <img src="img/main/whatsapp_icon.png">
-            </a>
-        </div>
-        <!--//. Whatsapp -->
-
-        <!-- Check Eligibility -->
-        @include('templates.modals.check-eligibility')
-        <!--/. Check Eligibility -->
-
-        <!-- About Us -->
-        @include('templates.modals.about-us')
-        <!--/. About Us -->
-
-        <!-- Our Team -->
-        @include('templates.modals.our-team')
-        <!--/. Our Team -->
-        
-        <!-- Our Big Bang -->
-        @include('templates.modals.our-big-bang')
-        <!--/. Our Big Bang -->
-
-        <!-- Find Us -->
-        @include('templates.modals.find-us')
-        <!--/. Find Us -->
-        
-        <!-- Student Volunteers -->
-        @include('templates.modals.student-volunteers')
-        <!--/. Student Volunteers -->
-        
-        <!-- Story of Jevin Zac -->
-        @include('templates.modals.story-jevin-zac')
-        <!--/. Story of Jevin Zac -->
-
-        <!-- Contact Us -->
-        @include('templates.modals.contact-us')
-        <!--/. Contact Us -->
-        
-        <!-- Confirmation -->
-        @include('templates.modals.confirmation')
-        <!--/. Confirmation -->
-
-        <!-- Success -->
-        @include('templates.modals.success')
-        <!--/. Success -->
-
-         <!-- Dont proceed -->
-         @include('templates.modals.dont-proceed')
-        <!--/. Dont proceed -->
     </div>
-
     <!--//. Mobile Version -->
-@push('script')
-    <script>
 
+    <!--Menu-->
+    @include('templates.side-menu')
+    <!--/Menu-->
+
+    <!-- Check Eligibility -->
+    @include('templates.modals.check-eligibility')
+    <!--/. Check Eligibility -->
+
+    <!-- About Us -->
+    @include('templates.modals.about-us')
+    <!--/. About Us -->
+
+    <!-- Our Team -->
+    @include('templates.modals.our-team')
+    <!--/. Our Team -->
+    
+    <!-- Our Big Bang -->
+    @include('templates.modals.our-big-bang')
+    <!--/. Our Big Bang -->
+
+    <!-- Find Us -->
+    @include('templates.modals.find-us')
+    <!--/. Find Us -->
+    
+    <!-- Student Volunteers -->
+    @include('templates.modals.student-volunteers')
+    <!--/. Student Volunteers -->
+    
+    <!-- Story of Jevin Zac -->
+    @include('templates.modals.story-jevin-zac')
+    <!--/. Story of Jevin Zac -->
+
+    <!-- Contact Us -->
+    @include('templates.modals.contact-us')
+    <!--/. Contact Us -->
+    
+    <!-- Confirmation -->
+    @include('templates.modals.confirmation')
+    <!--/. Confirmation -->
+
+    <!-- Success -->
+    @include('templates.modals.success')
+    <!--/. Success -->
+
+    <!-- Dont proceed -->
+    @include('templates.modals.dont-proceed')
+    <!--/. Dont proceed -->
+
+    <!-- Whatsapp -->
+    <div class="whatsapp_chat">
+        <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
+            <img src="img/main/whatsapp_icon.png">
+        </a>
+    </div>
+    <!--//. Whatsapp -->
+
+@push('script')
+    <script src="js/scroll-effects/scroll-effects.js"></script>
+    <script>
+        var swiper = new Swiper(".webBannerSwiper", {
+            speed:1000,
+            autoplay: 
+            {
+                delay: 2000,
+            },
+            loop: true,
+            effect: 'fade',
+        });
+        var swiper = new Swiper(".webStoriesSwiper", {
+            loop: true,
+            autoplay: 
+            {
+                delay: 4000,
+            },
+		    direction: 'horizontal',
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+        var swiper = new Swiper(".StoriesMedia", {
+            speed:1000,
+            autoplay: 
+            {
+                delay: 5000,
+            },
+            loop: true,
+            effect: 'fade',
+        });
     </script>
 @endpush
 @stop

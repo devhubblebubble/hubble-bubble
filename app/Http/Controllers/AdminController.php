@@ -23,7 +23,7 @@ class AdminController extends Controller
     }
 
     public function contactSupportListing(){
-        $students = ContactSupport::all();
+        $students = ContactSupport::orderBy('created_at', 'desc')->get();
         return view('admin.contact-support-listing', compact('students'));
     }
 
