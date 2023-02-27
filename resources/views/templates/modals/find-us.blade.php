@@ -51,6 +51,7 @@
                             <div class="find_us_body">
                                 <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&amp;text&amp;app_absent=0" target="_blank">+44 (0) 7904800485</a>
                             </div>
+
                         </div>
                     </div>
                     <div class="frame_location">
