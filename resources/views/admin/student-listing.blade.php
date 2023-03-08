@@ -23,6 +23,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Qualification</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Contact</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                             <th class="text-secondary opacity-7"></th>
                         </tr>
                     </thead>
@@ -40,6 +41,9 @@
                                 </td>
                                 <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">{{@$student->contact_number}}</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse(@$student->date)->format('d M Y') }}</p>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{url('/admin/students/detail/'.@$student->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View user">
