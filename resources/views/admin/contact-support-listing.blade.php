@@ -39,7 +39,7 @@
                                     <span class="text-secondary text-xs font-weight-bold">{{@$student->phone_number}}</span>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse(@$student->date)->format('d M Y') }}</p>
+                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse(@$student->created_at)->format('d M Y') }}</p>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{url('/admin/contact-support/detail/'.@$student->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View user">
