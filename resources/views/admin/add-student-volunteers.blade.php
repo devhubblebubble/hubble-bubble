@@ -59,13 +59,24 @@
         <div class="row">
           <div class="row">
             <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Fill Information</h6>
+                <div id="student-volunteer-message" class="alert alert-success alert-dismissible text-white" role="alert" style="display: none;" >
+                    <span class="text-sm">Student volunteer
+                    @if(Request::is('admin/student-volunteers/add'))
+                        added
+                    @else
+                        updated
+                    @endif successfully</span>
+                    <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="card card-plain h-100">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="col-md-8 d-flex align-items-center">
+                            <h6 class="mb-0">Fill Information</h6>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="card-body p-3">
                     @if(@$student->image_url) <a class="add_volunteer" href="{{ $student->image_url }}" target="_blank" >View Previously Uploaded Image</a> @endif
@@ -164,7 +175,11 @@
                         $("#volunteerForm")[0].reset();
                         dropzoneReset('uploader');
                         let id = response.data.id;
-                        location.href = "{{ url('/admin/student-volunteers/detail') }}"+"/"+id;
+                        // location.href = "{{ url('/admin/student-volunteers/detail') }}"+"/"+id;
+                        $("#student-volunteer-message").show();
+                        setTimeout(() => {
+                            $("#student-volunteer-message").hide();
+                        }, 4000);
                     }
                 }, error: function(res)
                 {
