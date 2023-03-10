@@ -559,6 +559,14 @@
     <!-- Contact Us -->
     @include('templates.modals.contact-us')
     <!--/. Contact Us -->
+
+    <!-- Career -->
+    @include('templates.modals.career')
+    <!--/. Career -->
+
+    <!-- Career Details -->
+    @include('templates.modals.career-details')
+    <!--/. Career Details -->
     
     <!-- Confirmation -->
     @include('templates.modals.confirmation')

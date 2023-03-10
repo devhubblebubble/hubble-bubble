@@ -50,6 +50,32 @@ $('#closeFindUs').click(function() {
     }, 200);
 });
 
+$('#openCareer').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#careerDialog').addClass('dialog--open');
+});
+
+$('#closeCareer').click(function() {
+    $('#careerDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#careerDialog').removeClass('dialog--open');
+        $('#careerDialog').removeClass('dialog--close');
+    }, 200);
+});
+
+$('#openCareerDetails').click(function() {
+    $('.menu__trigger--close').trigger('click');
+    $('#careerDetailsDialog').addClass('dialog--open');
+});
+
+$('#closeCareerDetails').click(function() {
+    $('#careerDetailsDialog').addClass('dialog--close');
+    setTimeout(function() {
+        $('#careerDetailsDialog').removeClass('dialog--open');
+        $('#careerDetailsDialog').removeClass('dialog--close');
+    }, 200);
+});
+
 $('#openStudentVolunteers').click(function() {
     $('.menu__trigger--close').trigger('click');
     $('#studentVolunteersDialog').addClass('dialog--open');
