@@ -12,6 +12,7 @@
         #start,#end{
             width: 100%;
             text-align: center;
+            cursor: pointer;
         }
         .error{
             color:red;
