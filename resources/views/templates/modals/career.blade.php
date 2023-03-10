@@ -14,22 +14,43 @@
         <div class="dialog_body scroll">
             <div class="spacing">
                 <div class="career_listing">
-                    <div class="career_item" id="openCareerDetails">
-                        <div class="career_body">
-                            <h2>Business Analytics</h2>
-                            <h3>Experience : 3+ Years Experience</h3>
-                            <h4>Location : Trivandrum, Kerala, India</h4>
+                    @foreach($careers as $career)
+                        <div class="career_item" onclick="openCareerDetails('{{ @$career->id }}')">
+                            <div class="career_body">
+                                <h2>{{ @$career->name }}</h2>
+                                <h3>Experience : {{ @$career->experience }}</h3>
+                                <h4>Location : {{ @$career->location }}</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="career_item">
-                        <div class="career_body">
-                            <h2>Business Development Executive</h2>
-                            <h3>Experience : 1+ Years Experience</h3>
-                            <h4>Location : Trivandrum, Kerala, India</h4>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </div>
+@push('script')
+<script>
+    function openCareerDetails(id){
+        let ajaxURL = "{{ url('/fetch-career-template') }}";
+        $.ajax({
+                type: "post",
+                url: ajaxURL,
+                data: {
+                    _token: '{{csrf_token()}}',
+                    id
+                },
+                success: function(res)
+                {
+                    let response = JSON.parse(res);
+                    if (response.status == "success") {
+                        $('#career_detail_template').html(response.data.template);
+                        $('.menu__trigger--close').trigger('click');
+                        $('#careerDetailsDialog').addClass('dialog--open');
+                    }
+                }, error: function(res)
+                {
+                },
+            });
+    }
+</script>
+@endpush

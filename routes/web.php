@@ -24,6 +24,7 @@ Route::post('/save-step-four',  [HomeController::class, 'saveStepFour']);
 Route::post('/save-step-five',  [HomeController::class, 'saveStepFive']);
 Route::post('/save-documents/{documentType}',  [HomeController::class, 'saveDocuments']);
 Route::post('/save-contact-support',  [HomeController::class, 'saveContactSupport']);
+Route::post('/fetch-career-template',  [HomeController::class, 'fetchCareerTemplate']);
 
 /* Admin Routes */
 Route::get('/admin/login',  [LoginController::class, 'adminLogin']);

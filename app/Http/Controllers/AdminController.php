@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\StudentPersonalInfo;
 use App\Models\ContactSupport;
 use App\Models\StudentVolunteers;
+use App\Models\Careers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
 use App\Exports\StudentsExport;
@@ -136,6 +137,63 @@ class AdminController extends Controller
             ->orderBy('created_at', 'desc')->get();
 
         return Excel::download(new StudentsExport($students), 'students.xlsx');
+    }
+
+    public function careersListing(){
+        $careers = Careers::where('delete_status', false)->get();
+        return view('admin.career-listing', compact('careers'));
+    }
+
+    public function CareerDetail($id){
+        $career = Careers::find($id);
+        return view('admin.career-detail', compact('career'));
+    }
+
+    public function  editCareerDetail($id){
+        $career = Careers::find($id);
+        return view('admin.add-career', compact('career'));
+    }
+
+    public function showAddCareerPage() {
+        return view('admin.add-career');
+    }
+
+    public function addCareer(Request $req) {
+        
+        $id = $req->input('id');
+        if($id){
+            $career = Careers::find($id);
+        } else {
+            $career = new Careers();
+        }
+        $career->name = $req->input('name');
+        $career->experience = $req->input('experience');
+        $career->no_of_vacancy = $req->input('no_of_vacancy');
+        $career->job_description = $req->input('job_description');
+        $career->location = $req->input('location');
+        $career->save();
+
+        $response = ["status" => "success", "data" => ["id" => $career->id], 
+            "message" => "Successfully saved career"];
+
+        return json_encode($response);
+    }
+
+    public function deleteCareer(Request $req) {
+        
+        $id = $req->input('id');
+        
+        $career = Careers::find($id);
+        $career->delete_status = true;
+        $career->save();
+
+        $response = [
+            "status" => "success",
+            "data" => ["studentId" => $career->id], 
+            "message" => "Successfully deleted career"
+        ];
+
+        return json_encode($response);
     }
            
 }
