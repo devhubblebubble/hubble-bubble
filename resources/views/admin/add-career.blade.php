@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3" style="width: max-content;" >
                         <form role="form" class="text-start" id="careerForm" name="careerForm" enctype="multipart/form-data" >
                             <input type="hidden" id="id" name="id" value="{{@$career->id}}" />
                             <div class="input-group input-group-outline my-3 {{@$career->name?'is-filled':''}} ">

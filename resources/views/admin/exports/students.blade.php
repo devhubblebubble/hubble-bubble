@@ -24,12 +24,12 @@
                         {{ @$student->contact_number ?: "--" }}
                     </td>
                     <td>
-                        {{ @$session->age?:'--' }}</td>
+                        {{ @$student->age?:'--' }}</td>
                     <td>
-                        {{ @$student->preffered_country ?: "--" }}
+                        {{ @$student->prefferedCountry ? implode(", ",json_decode(@$student->prefferedCountry)) : "--" }}
                     </td>
                     <td>
-                        {{ @$student->university ?: "--" }}
+                        {{ @$student->university ? implode(", ",json_decode(@$student->university)) : "--"  }}
                     </td>
                     <td>
                         {{ \Carbon\Carbon::parse(@$student->created_at)->format('d M Y') }}
