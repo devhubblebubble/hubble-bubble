@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3" style="width: max-content;" >
+                    <div class="card-body p-3" style="width: 300%;" >
                         <form role="form" class="text-start" id="careerForm" name="careerForm" enctype="multipart/form-data" >
                             <input type="hidden" id="id" name="id" value="{{@$career->id}}" />
                             <div class="input-group input-group-outline my-3 {{@$career->name?'is-filled':''}} ">
@@ -115,6 +115,15 @@
 
     $(document).ready(function(){
         $('#job_description').trumbowyg({
+            btns: [
+                ['viewHTML'],
+                ['undo', 'redo'],
+                ['strong'],
+                ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                ['unorderedList', 'orderedList'],
+                ['removeformat'],
+                ['fullscreen']
+            ],
             svgPath: "{{asset('img/icons/icons.svg')}}",
             svgAbsoluteUsePath: true,
             semantic:{ div: 'div'}

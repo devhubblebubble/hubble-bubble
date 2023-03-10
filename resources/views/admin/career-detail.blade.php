@@ -56,7 +56,7 @@
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Experience:</strong> &nbsp; {{ $career->experience }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; {{ @$career->location ? : "--"}}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">No of vacancy:</strong> &nbsp; {{ @$career->no_of_vacancy ? : "--"}}</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job description:</strong> &nbsp; {{ @$career->job_description ? : "--"}}</li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Job description:</strong> &nbsp;  {!! @$career->job_description !!}</li>
                   </ul>
                 </div>
               </div>
