@@ -8,6 +8,8 @@ use App\Models\ContactSupport;
 use App\Models\StudentVolunteers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -122,4 +124,18 @@ class AdminController extends Controller
         return $file_url;
     }
 
+    public function exportStudentDetails(Request $req) 
+    {
+        $start_date = $req->from;
+        $end_date = $req->to;
+        /* add 1 day to end date and substract 1 day from start date */ 
+        $start_date = date('Y-m-d', strtotime('-1 day', strtotime($start_date)));
+        $end_date = date('Y-m-d', strtotime('+1 day', strtotime($end_date)));
+        /* Fetch students between the start date and end date */
+        $students = StudentPersonalInfo::whereBetween('created_at', [$start_date, $end_date])
+            ->orderBy('created_at', 'desc')->get();
+
+        return Excel::download(new StudentsExport($students), 'students.xlsx');
+    }
+           
 }
