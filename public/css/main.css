@@ -2659,6 +2659,52 @@ html.has-scroll-dragging {
     display: none;
 }
 
+.career_item {
+    background-color: #222325;
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.career_item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.career_item h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.7rem;
+}
+
+.career_item h4 {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    margin: 0;
+}
+
+.career_body {
+    flex: 1;
+}
+
+.career_item::after {
+    content: "\EA6E";
+    color: var(--primary-color);
+    font-family: remixicon !important;
+}
+
+.career_item.details::after {
+    display: none;
+}
+
+.career_dynamic {
+    margin-top: 2rem;
+}
+
 @media only screen and (min-device-width: 921px) and (max-device-width: 1080px) {
     @-webkit-keyframes bounceRight {
         0%,
