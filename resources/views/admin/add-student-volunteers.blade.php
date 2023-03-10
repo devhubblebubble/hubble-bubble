@@ -30,6 +30,10 @@
     .add_volunteer:hover {
         color: var(--bs-link-color);
     }
+
+    .error{
+        color: red;
+    }
 </style>
 @include('admin.includes.side-menu')  
 <div class="main-content position-relative max-height-vh-100 h-100">

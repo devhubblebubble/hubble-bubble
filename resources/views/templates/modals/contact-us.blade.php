@@ -14,9 +14,20 @@
         <div class="dialog_body scroll">
             <div class="page_seperation">
                 <div class="spacing">
-                    <h5 class="stepper_title">
-                        Fill out the form below <br>so we can reach you ASAP.
-                    </h5>
+                    <div class="d-flex contact_head">
+                        <h5 class="stepper_title">
+                            Fill out the form below <br>so we can reach you ASAP.
+                        </h5>
+                        <div class="find_us_media">
+                            <div class="find_us_icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <div class="find_us_body">
+                                <a href="tel:+919995650969">+91 999 565 0969</a>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <form id="contactSupportForm" name="contactSupportForm" >
                         <div class="contact_form">
                             <div class="form_group">

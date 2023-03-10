@@ -16,7 +16,7 @@
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
     <link href="{{ asset('/css/select2/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/dropzone/dropzone.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/main.css?v2') }}" rel="stylesheet">
     <!-- Main -->
 
     <!-- Google tag (gtag.js) -->

@@ -46,6 +46,12 @@
                         </a>
                     </li>
                     <li class="js-menu-item">
+                        <a id="openCareer">
+                            <i class="ri-briefcase-4-fill"></i>
+                            <span>Career</span>
+                        </a>
+                    </li>
+                    <li class="js-menu-item">
                         <a id="openFindUs">
                             <i class="ri-map-pin-fill"></i>
                             <span>Find Us</span>

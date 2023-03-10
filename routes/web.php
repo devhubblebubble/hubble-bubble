@@ -24,6 +24,7 @@ Route::post('/save-step-four',  [HomeController::class, 'saveStepFour']);
 Route::post('/save-step-five',  [HomeController::class, 'saveStepFive']);
 Route::post('/save-documents/{documentType}',  [HomeController::class, 'saveDocuments']);
 Route::post('/save-contact-support',  [HomeController::class, 'saveContactSupport']);
+Route::post('/fetch-career-template',  [HomeController::class, 'fetchCareerTemplate']);
 
 /* Admin Routes */
 Route::get('/admin/login',  [LoginController::class, 'adminLogin']);
@@ -31,10 +32,15 @@ Route::post('/admin/login-check',  [LoginController::class, 'login']);
 Route::post('/admin/logout', [LoginController::class, 'logOut']);
 
 Route::prefix('admin')->middleware('loginVerification')->group(function() {
+    /* Students */
     Route::get('/students/listing',  [AdminController::class, 'studentListing']);
     Route::get('/students/detail/{id}',  [AdminController::class, 'studentDetail']);
+    Route::get('/export/students',  [AdminController::class, 'exportStudentDetails']);
+    
+    /* contact support */
     Route::get('/contact-support/listing',  [AdminController::class, 'contactSupportListing']);
     Route::get('/contact-support/detail/{id}',  [AdminController::class, 'contactSupportDetail']);
+    /* Student volunteers */
     Route::get('/student-volunteers/listing',  [AdminController::class, 'studentVolunteersListing']);
     Route::get('/student-volunteers/add',  [AdminController::class, 'showAddStudentVolunteerPage']);
     Route::post('/student-volunteers/add',  [AdminController::class, 'addStudentVolunteer']);
@@ -42,4 +48,13 @@ Route::prefix('admin')->middleware('loginVerification')->group(function() {
     Route::get('/student-volunteers/detail/{id}',  [AdminController::class, 'studentVolunteerDetail']);
     Route::get('/student-volunteers/edit/{id}',  [AdminController::class, 'editStudentVolunteerDetail']);
     Route::post('/student-volunteers/delete',  [AdminController::class, 'deleteStudentVolunteer']);
+    /* Careers */
+    Route::get('/career/listing',  [AdminController::class, 'careersListing']);
+    Route::get('/career/add',  [AdminController::class, 'showAddCareerPage']);
+    Route::post('/career/add',  [AdminController::class, 'addCareer']);
+    Route::post('/career/image',  [AdminController::class, 'uploadCareerImage']);
+    Route::get('/career/detail/{id}',  [AdminController::class, 'CareerDetail']);
+    Route::get('/career/edit/{id}',  [AdminController::class, 'editCareerDetail']);
+    Route::post('/career/delete',  [AdminController::class, 'deleteCareer']);
+
 });
