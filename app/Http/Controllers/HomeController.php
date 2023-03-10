@@ -8,15 +8,17 @@ use App\Models\ContactSupport;
 use App\Models\StudentVolunteers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
+use App\Models\Careers;
 
 class HomeController extends Controller
 {
     
     public function homePage(){
         $studentVolunteers = StudentVolunteers::where('delete_status', false)->get();
+        $careers = Careers::where('delete_status', false)->get();
         $calendly_link = Config::get('calendly.link');
        
-        return view('home', compact('calendly_link', 'studentVolunteers'));
+        return view('home', compact('calendly_link', 'studentVolunteers', 'careers'));
     }
 
     /* Save step one of eligibility test */
@@ -156,6 +158,17 @@ class HomeController extends Controller
 
         $response = ["status" => "success", "data" => null, 
         "message" => "Successfully saved contact support"];
+
+        return json_encode($response);
+    }
+
+
+    public function fetchCareerTemplate(Request $req){
+        $id = $req->id;
+        $career = Careers::find($id);
+        $template = (string) view('templates.career-template', compact('career'));
+        $response = ["status" => "success", "data" => ["template" => $template], 
+            "message" => "Successfully Fetched career detail"];
 
         return json_encode($response);
     }
