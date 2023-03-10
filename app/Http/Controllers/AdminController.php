@@ -8,6 +8,8 @@ use App\Models\ContactSupport;
 use App\Models\StudentVolunteers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Config;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -122,4 +124,11 @@ class AdminController extends Controller
         return $file_url;
     }
 
+    public function exportStudentDetails() 
+    {
+        $students = StudentPersonalInfo::orderBy('created_at', 'desc')->get();
+
+        return Excel::download(new StudentsExport($students), 'students.xlsx');
+    }
+           
 }
