@@ -50,7 +50,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-body p-3">
+                <div class="card-body p-3"  style="width: 300%;">
                   <ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name:</strong> &nbsp; {{ ucwords($career->name) }}</li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Experience:</strong> &nbsp; {{ $career->experience }}</li>
