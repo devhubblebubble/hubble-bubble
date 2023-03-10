@@ -124,9 +124,16 @@ class AdminController extends Controller
         return $file_url;
     }
 
-    public function exportStudentDetails() 
+    public function exportStudentDetails(Request $req) 
     {
-        $students = StudentPersonalInfo::orderBy('created_at', 'desc')->get();
+        $start_date = $req->from;
+        $end_date = $req->to;
+        /* add 1 day to end date and substract 1 day from start date */ 
+        $start_date = date('Y-m-d', strtotime('-1 day', strtotime($start_date)));
+        $end_date = date('Y-m-d', strtotime('+1 day', strtotime($end_date)));
+        /* Fetch students between the start date and end date */
+        $students = StudentPersonalInfo::whereBetween('created_at', [$start_date, $end_date])
+            ->orderBy('created_at', 'desc')->get();
 
         return Excel::download(new StudentsExport($students), 'students.xlsx');
     }

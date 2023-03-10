@@ -8,6 +8,14 @@
             margin-top: -40px !important;
             margin-right: 35px;
         }
+
+        #start,#end{
+            width: 100%;
+            text-align: center;
+        }
+        .error{
+            color:red;
+        }
         
     </style>
     @include('admin.includes.side-menu')  
@@ -80,14 +88,29 @@
                     <h5 class="modal-title" >Date Filter</h5>
                 </div>
                 <div class="modal-body">
-                    From:
-                    <input type="date" id="start" >
-                    To:
-                    <input type="date" id="end" >
+                    <div class="row">
+                        <div>
+                            From:
+                            <input type="date" id="start" onchange="hideError('start-error')" />
+                        </div>
+                        <div>
+                            <label id="date-diff-error" class="error" style="display:none;" >From date should be lesser than to date</label>
+                            <label for="start" id="start-error" class="error" style="display:none;" >Please select a start date</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            To:
+                            <input type="date" id="end"  onchange="hideError('end-error')" />
+                        </div>
+                        <div>
+                            <label for="end" id="end-error" class="error" style="display:none;" >Please select a end date</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDateFilterModal()" >Close</button>
-                    <button type="button" onclick="exportFilterData()" class="btn btn-primary">Download</button>
+                    <button type="button" onclick="exportFilterData()" class="btn btn-primary">Apply & Download</button>
                 </div>
             </div>
         </div>
@@ -104,10 +127,35 @@
             $('#dateFilterModal').modal('show')
         }
 
+        function hideError(id){
+            $('#' + id).hide();
+            $("#date-diff-error").hide();
+        }
+
         function exportFilterData(){
-            let exportURL = "{{ url('admin/export/students') }}";
+            let valid = true;
+            let startDate = $('#start').val();
+            let endDate = $('#end').val();
+            if(!startDate){
+                $('#start-error').show();
+                valid = false;
+            }
+            if(!endDate){
+                $('#end-error').show();
+                valid = false;
+            }
+            if(startDate && endDate && startDate > endDate){
+                $("#date-diff-error").show();
+                valid = false;
+            }
+            if(!valid){
+                return false;
+            }
+            let exportURL = "{{ url('admin/export/students') }}"+'/'+`?from=${startDate}&to=${endDate}`;
             window.open(exportURL, '_blank');
-            $('#dateFilterModal').modal('hide')
+            $('#dateFilterModal').modal('hide');
+            $("#start").val("");
+            $("#end").val("");
         }
     </script>
 @endpush

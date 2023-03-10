@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        @if (@$students)
+        @if (count(@$students) > 0)
             @foreach (@$students as $student)
                 <tr>
                     <td style="width: 40px">
@@ -36,6 +36,12 @@
                     </td>
                 </tr>
             @endforeach
+        @else
+            <tr>
+                <td style="text-align: center" colspan="7">
+                    No data available on these dates !
+                </td>
+            </tr>  
         @endif
     </tbody>
 </table>
