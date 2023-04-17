@@ -486,10 +486,10 @@
                         <div class="home_content spacing">
                             <div class="banner_title">
                                 <h1>
-                                    The right University at your Dream destination is not a dream anymore!​
+                                    The right university at your dream destination is not a dream anymore!​
                                 </h1>
 
-                                <h4>Let me help you make it a reality</h4>
+                                <h4>Let us help you make it a reality</h4>
                             </div>
                             <div class="home_btn_block">
                                 <button type="button" class="btn app_btn btn_primary" id="openEligibility" onclick="openEligibility()">Take the eligibility test​</button>
