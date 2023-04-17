@@ -55,14 +55,14 @@
                         <div class="web_content">
                             <div class="tags_wrap" data-scroll="" data-scroll-speed="1">
                                 <div class="page_tags">
-                                    <span>The right University</span>
+                                    <span>The right university</span>
                                 </div>
                             </div>
                             <div class="home_web_message">
                                 <h1>
-                                    The right University at your Dream destination is not a dream anymore!​
+                                    The right university at your dream destination is not a dream anymore!​
                                 </h1>
-                                <h6>Let me help you make it a reality</h6>
+                                <h6>Let us help you make it a reality</h6>
                                 <div class="web_message_btns">
                                     <button class="btn app_btn btn_primary" onclick="openEligibility()">Take the eligibility test​</button>
                                     <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
@@ -107,7 +107,7 @@
                                             <div class="journey_body">
                                                 <label class="journey_label">Step 2</label>
                                                 <h3>The right course is YOUR right path.</h3>
-                                                <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that matches your profile, based on
+                                                <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that match your profile, based on
                                                     our 1-2-1 session.​</p>
                                             </div>
                                         </div>
@@ -150,8 +150,7 @@
                                                 <label class="journey_label">Step 5</label>
                                                 <h3>Look where you are standing now!</h3>
                                                 <p>
-                                                    You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br> Don’t forget! We are there when you need
-                                                    us.
+                                                    You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br>
                                                 </p>
                                             </div>
                                         </div>
@@ -185,7 +184,7 @@
                                             <div class="service_details">
                                                 <h3>Mentor Guidance​</h3>
                                                 <p>
-                                                    Through individual 1-2-1 mentoring we help you pick the right course based on your dreams and aspirations.​
+                                                    Through individual 1-2-1 mentoring, we help you pick the right course based on your dreams and aspirations.​
                                                 </p>
                                             </div>
                                         </div>
@@ -217,7 +216,7 @@
                                             <div class="service_details">
                                                 <h3>Scholarship and Funding​</h3>
                                                 <p>
-                                                    You do not need an A+ to get a scholarship. All you need is the drive to succeed! HB can help you secure a scholarship.​
+                                                    You do not need an A+ to get a scholarship. All you need is the drive to succeed! We can help you secure a scholarship.​
                                                 </p>
                                             </div>
                                         </div>

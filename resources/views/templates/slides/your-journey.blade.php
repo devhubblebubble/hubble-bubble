@@ -30,7 +30,7 @@
                         <div class="journey_body">
                             <label class="journey_label">Step 2</label>
                             <h3>The right course is YOUR right path.</h3>
-                            <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that matches your profile, based on
+                            <p>The right course that matches your skillset and passion is crucial as it complements your existing CV/profile. From a plethora of courses out there, we shortlist the ones that match your profile, based on
                                 our 1-2-1 session.​</p>
                         </div>
                     </div>
@@ -67,8 +67,7 @@
                             <label class="journey_label">Step 5</label>
                             <h3>Look where you are standing now!​​</h3>
                             <p>
-                                You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br> Don’t forget! We are there when you need
-                                us. ​
+                                You've arrived at your dream destination. Now with our guidance, we are going to leave you to do what you do best. ​ Don’t forget! We are there when you need us.<br>
                             </p>
                         </div>
                     </div>
