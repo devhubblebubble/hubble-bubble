@@ -23,7 +23,7 @@
                     <div class="service_details">
                         <h3>Mentor Guidance​</h3>
                         <p>
-                            Through individual 1-2-1 mentoring we help you pick the right course based on your dreams and aspirations.​
+                            Through individual 1-2-1 mentoring, we help you pick the right course based on your dreams and aspirations.​
                         </p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     <div class="service_details">
                         <h3>Scholarship and Funding​</h3>
                         <p>
-                            You do not need an A+ to get a scholarship. All you need is the drive to succeed! HB can help you secure a scholarship.​
+                            You do not need an A+ to get a scholarship. All you need is the drive to succeed! We can help you secure a scholarship.​
                         </p>
                     </div>
                 </div>

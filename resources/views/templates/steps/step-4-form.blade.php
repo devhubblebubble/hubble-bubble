@@ -9,7 +9,7 @@
         <label for="opt6" class="radio">
             <input type="radio" name="step_4_rdo" id="opt6" value="2" class="hidden">
             <span class="label"></span>
-            <span class="label_name">I will upload my documents to docs@hubblebubble.london</span>
+            <span class="label_name">I will upload my documents to hello@hubblebubble.london</span>
         </label>
         <div class="or">
             <span>Still have questions?</span>

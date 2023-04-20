@@ -16,11 +16,11 @@
                 <h1 class="about_heading">Hubble Bubble​</h1>
                 <h5 class="about_label">DISCOVER YOUR DREAM​</h5>
                 <p>
-                    We are an ethically minded student mentoring service, individually guiding students and matching them to the right course to studying abroad.​ ​
+                    We are an ethically minded student mentoring service, individually guiding students and matching them to the right course to study abroad.​ ​
                 </p>
                 <h3 class="about_sub_heading">Why Hubble Bubble?​</h3>
                 <p>
-                    Our uncompromising ethos is the mentoring of students with their best interests at heart, guiding and helping them to realise their dream career by placing them on the right path to their dream destination.
+                    Our uncompromising ethos is the mentoring of students with their best interests at heart, guiding and helping them to realise their dream careers by placing them on the right path to their dream destination.
                 </p>
                 <p><strong><i>It is this unwavering and dedicated focus towards the interest of the students that sets us apart.</i></strong></p>
             </div>

@@ -441,7 +441,7 @@
 
         let step4Options = {
             1: "I will upload my documents now",
-            2: "I will upload my documents to docs@hubblebubble.london",
+            2: "I will upload my documents to hello@hubblebubble.london",
             3: "book a call with a Hubble Bubble Mentor"
         }
 
@@ -476,7 +476,7 @@
                         else if(step4Value == "2"){
                             // $('#eligibilityDialog').removeClass('dialog--open');
                             // formsReset();
-                            window.open('mailto:docs@hubblebubble.london');
+                            window.open('mailto:hello@hubblebubble.london');
                         }
                         else {
                             showConfirm(); 
