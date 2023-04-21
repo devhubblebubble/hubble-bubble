@@ -2736,8 +2736,8 @@ html.has-scroll-dragging {
 }
 
 .animated_ico {
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
     background-color: var(--primary-color);
     border-radius: 50%;
     display: flex;
@@ -2752,7 +2752,20 @@ html.has-scroll-dragging {
     -webkit-animation: bounceRight 2s infinite;
     animation: bounceRight 2s infinite;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+.right_animated{
+    transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+}
+.right_animated.hide{
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -9;
 }
 @keyframes pulse {
     0% {

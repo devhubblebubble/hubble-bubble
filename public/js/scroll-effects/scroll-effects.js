@@ -9375,50 +9375,89 @@ parcelRequire = (function(modules, cache, entry, globalName) {
         var _default2 = Smooth;
         exports.default = _default2;
     }, {}],
-    "C3Xv": [function(require, module, exports) {
+    C3Xv:[function(t, e, i) {
         "use strict";
+        var n = t("../utils"),
+            r = s(t("../cursor"));
 
-        var _utils = require("../utils");
+        function s(t) {
+            return t && t.__esModule ? t : {
+                default: t
+            }
+        }
 
-        var _cursor = _interopRequireDefault(require("../cursor"));
+        function o(t) {
+            return function(t) {
+                if (Array.isArray(t)) return a(t)
+            }(t) || function(t) {
+                if ("undefined" != typeof Symbol && Symbol.iterator in Object(t)) return Array.from(t)
+            }(t) || function(t, e) {
+                if (!t) return;
+                if ("string" == typeof t) return a(t, e);
+                var i = Object.prototype.toString.call(t).slice(8, -1);
+                "Object" === i && t.constructor && (i = t.constructor.name);
+                if ("Map" === i || "Set" === i) return Array.from(t);
+                if ("Arguments" === i || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i)) return a(t, e)
+            }(t) || function() {
+                throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+            }()
+        }
 
-        var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
-
-        function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-        function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-        function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-        function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-        function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-        function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-        function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-        // Initialize Locomotive Scroll (horizontal direction)
-        var lscroll = new _locomotiveScroll.default({
-            el: document.querySelector('[data-scroll-container]'),
-            smooth: true,
-            direction: 'horizontal'
-        }); // Preload images and fonts
-
-        Promise.all([(0, _utils.preloadImages)('.gallery__item-imginner'), (0, _utils.preloadFonts)('vxy2fer')]).then(function() {
-            // Remove loader (loading class)
-            document.body.classList.remove('loading'); // Initialize custom cursor
-
-            var cursor = new _cursor.default(document.querySelector('.cursor')); // Mouse effects on all links and others
-
-            _toConsumableArray(document.querySelectorAll('a')).forEach(function(link) {
-                link.addEventListener('mouseenter', function() {
-                    return cursor.enter();
-                });
-                link.addEventListener('mouseleave', function() {
-                    return cursor.leave();
-                });
-            });
+        function a(t, e) {
+            (null == e || e > t.length) && (e = t.length);
+            for (var i = 0, n = new Array(e); i < e; i++) n[i] = t[i];
+            return n
+        }
+        var l = new(s(t("locomotive-scroll")).default)({
+            el: document.querySelector("[data-scroll-container]"),
+            smooth: !0,
+            lerp: .05,
+            direction: "horizontal"
         });
-    }, { "../utils": "MgTz", "../cursor": "LMRJ", "locomotive-scroll": "ez7q" }]
+
+        
+        Promise.all([(0, n.preloadImages)(".gallery__item-imginner"), (0, n.preloadFonts)("vxy2fer")]).then((function() {
+            document.body.classList.remove("loading");
+            var t = new r.default(document.querySelector(".cursor"));
+            o(document.querySelectorAll("a, .video-popup")).forEach((function(e) {
+                e.addEventListener("mouseenter", (function() {
+                    return t.enter()
+                })), e.addEventListener("mouseleave", (function() {
+                    return t.leave()
+                }))
+            }))
+        })), l.on("scroll", (t => {
+            const {
+                scroll: {
+                    x: e
+                }
+            } = t, i = document.getElementsByClassName("line"), n = document.getElementsByClassName("audento"), r = document.getElementsByTagName("main")[0], s = (document.getElementsByTagName("main")[0].clientWidth, r.scrollWidth - window.innerWidth), {
+                x: o
+            } = t.scroll, a = e / s * 100, l = e / s * 70, c = document.getElementsByClassName("click_page")[0];
+            i[0].style.height = a + "%", n[0].style.right = l + "%", 0 === Math.trunc(o) ? c && (c.classList.remove("hide"), c.classList.add("show")) : c && (c.classList.remove("show"), c.classList.add("hide"))
+        })), $(".disrtoy_body").on("click", (function() {
+            l.stop(), l.start(), setTimeout((function() {
+                l.update()
+            }), 300)
+        })), setTimeout((function() {
+            0 != $(".service_page ").length && (l.stop(), l.start(), setTimeout((function() {
+                l.update()
+            }), 600))
+        }), 500), [...document.querySelectorAll(".click_page")].map((t => {
+            
+            t.addEventListener("click", (t => {
+                // alert('clicked');
+                const {
+                    dataset: {
+                        target: e
+                    }
+                } = t.target;
+                l.scrollTo(`#web_Journey`)
+            }))
+        }))
+    }, {
+        "../utils": "MgTz",
+        "../cursor": "LMRJ",
+        "locomotive-scroll": "ez7q"
+    }]
 }, {}, ["C3Xv"], null)

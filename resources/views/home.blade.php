@@ -29,6 +29,7 @@
             </div>
         </header>
         <!--//. Web Header -->
+        <div class="line"></div>
 
         <!-- Body Slider -->
         <div class="swiper webBannerSwiper">
@@ -68,7 +69,7 @@
                                     <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
                                 </div>
                             </div>
-                            <a class="right_animated click_page" data-target="web_Journey" href="#">
+                            <a class="right_animated click_page" id="myBtn" data-target="web_Journey" href="#"  data-scroll="">
                                 <span class="animated_ico">
                                     <i class="ri-arrow-right-line"></i>
                                 </span>
@@ -165,6 +166,9 @@
                 </figure>
                 <!--//. Your Journey  -->
 
+                <div class="audento">
+                    <span class="" data-scroll="" data-scroll-speed="1"></span>
+                </div>
                 <!-- Our Services -->
                 <figure class="gallery__item fill">
                     <section class="full_section web_service_section">
@@ -582,6 +586,10 @@
     @include('templates.modals.dont-proceed')
     <!--/. Dont proceed -->
 
+    <!-- Dont proceed -->
+    @include('templates.modals.mail-instructions')
+    <!--/. Dont proceed -->
+
     <!-- Whatsapp -->
     <div class="whatsapp_chat">
         <a href="https://api.whatsapp.com/send/?phone=%2B447904800485&text&app_absent=0" target="_blank">
@@ -636,6 +644,19 @@
                 $('.right_animated').fadeIn();
             }
         });
+
+        $( document ).ready(function() {
+            console.log( "ready!" );
+            $('.click_page').click(function(){
+                // alert('clicked');
+                // $('html, body').animate({
+                //     scrollLeft: $("#web_Journey").offset().left
+                // }, 1000);
+                $('body').css("transform", "translateY (50px)");
+                console.log('click fn called');
+            });
+        });
+        
 
     </script>
 @endpush

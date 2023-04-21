@@ -476,7 +476,8 @@
                         else if(step4Value == "2"){
                             // $('#eligibilityDialog').removeClass('dialog--open');
                             // formsReset();
-                            window.open('mailto:hello@hubblebubble.london');
+                            // window.open('mailto:hello@hubblebubble.london');
+                            $('#mailInstructions').addClass('dialog--open');
                         }
                         else {
                             showConfirm(); 
@@ -988,6 +989,9 @@
         $('#default_modal_close2').click(function() {
             $('#dontProceedDialog').removeClass('dialog--open');
         });
+        $('#default_modal_close3').click(function() {
+            $('#mailInstructions').removeClass('dialog--open');
+        });
         // $('#confirmationDialogClose').click(function() {
         //     $('#confirmationDialog').removeClass('dialog--open');
         // });
@@ -996,6 +1000,12 @@
             $('#successDialog').removeClass('dialog--open');
         });
 
+        $('#mailInstructionsClose').click(function() {
+            $('#mailInstructions').removeClass('dialog--open');
+            $('#eligibilityDialog').removeClass('dialog--open');
+            formsReset();
+        });
+        
         $('#dontProceedDialogClose').click(function() {
             $('#dontProceedDialog').removeClass('dialog--open');
         });
