@@ -68,16 +68,19 @@
                                     <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
                                 </div>
                             </div>
-                            <button class="right_animated" type="button">
-                                <i class="ri-arrow-right-s-line"></i>
-                            </button>
+                            <a class="right_animated click_page" data-target="web_Journey" href="#">
+                                <span class="animated_ico">
+                                    <i class="ri-arrow-right-line"></i>
+                                </span>
+                                <span>Scroll</span>
+                            </a>
                         </div>
                     </section>
                 </figure>
                 <!--//. Home -->
 
                 <!-- Your Journey -->
-                <figure class="gallery__item fill">
+                <figure class="gallery__item fill" id="web_Journey">
                     <section class="full_section web_your_journey">
                         <div class="web_content">
                             <div class="tags_wrap" data-scroll="" data-scroll-speed="2">
@@ -620,6 +623,20 @@
             loop: true,
             effect: 'fade',
         });
+    </script>
+    <script>
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop()>0)
+            {
+                $('.right_animated').fadeOut();
+            }
+            else
+            {
+                $('.right_animated').fadeIn();
+            }
+        });
+
     </script>
 @endpush
 @stop
