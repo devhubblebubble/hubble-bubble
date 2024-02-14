@@ -63,6 +63,12 @@
                             <span>Contact Us</span>
                         </a>
                     </li>
+                    <li class="js-menu-item">
+                        <a href="https://researchindreamsltd-my.sharepoint.com/personal/fayzul_hubblebubble_uk_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Ffayzul%5Fhubblebubble%5Fuk%5Fcom%2FDocuments%2FRID%20Business%20Admin%2FData%20Control%2FHubble%20Bubble%20Privacy%20Policy%2Epdf&parent=%2Fpersonal%2Ffayzul%5Fhubblebubble%5Fuk%5Fcom%2FDocuments%2FRID%20Business%20Admin%2FData%20Control&ga=1" target="_blank">
+                            <i class="ri-file-text-fill"></i>
+                            <span>Privacy Policy</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <!-- <ul class="menu__items-list js-menu-items-list">
