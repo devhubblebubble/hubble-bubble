@@ -1,8 +1,16 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '../styles/globals.scss';
+import { Inter, Poppins } from 'next/font/google';
+import '../style/globals.scss';
+import StarBackground from '@/components/Background/StarBackground';
+import ShootingStars from '@/components/Background/ShootingStars';
+import GlowEllipse from '@/components/Effects/GlowEllipse';
 
 const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: 'Hubble Works',
@@ -17,6 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <StarBackground />
+          {/* <GlowEllipse
+        variant="hero"
+        position={{ 
+          top: '-761px', 
+          left: '797px' 
+        }}
+        size="large"
+        zIndex={5}
+      /> */}
+        <ShootingStars />
         {children}
       </body>
     </html>

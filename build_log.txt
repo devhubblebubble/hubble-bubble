@@ -1,0 +1,219 @@
+
+> hubble-website0.1@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/sanju/websites/hubble works/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/sanju/websites/hubble works/hubble-website0.1/package-lock.json
+
+▲ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+Turbopack build encountered 8 warnings:
+./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 19, column 6 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:19:6:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.has-key instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+19 |   @if map-has-key($breakpoints, $breakpoint) {
+
+
+src/style/_mixins.scss 20:7                                      max()
+src/components/Effects/GlowEllipse/GlowEllipse.module.scss 74:1  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.module.scss
+    ./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.tsx
+    ./hubble-website0.1/src/app/layout.tsx
+
+
+./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 20, column 12 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:20:12:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.get instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+20 |     $value: map-get($breakpoints, $breakpoint);
+
+
+src/style/_mixins.scss 21:13                                     max()
+src/components/Effects/GlowEllipse/GlowEllipse.module.scss 74:1  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.module.scss
+    ./hubble-website0.1/src/components/Effects/GlowEllipse/GlowEllipse.tsx
+    ./hubble-website0.1/src/app/layout.tsx
+
+
+./hubble-website0.1/src/components/Header/Header.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 19, column 6 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:19:6:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.has-key instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+19 |   @if map-has-key($breakpoints, $breakpoint) {
+
+
+src/style/_mixins.scss 20:7                    max()
+src/components/Header/Header.module.scss 36:3  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/Header/Header.module.scss
+    ./hubble-website0.1/src/components/Header/Header.tsx
+    ./hubble-website0.1/src/app/page.tsx
+
+
+./hubble-website0.1/src/components/Header/Header.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 20, column 12 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:20:12:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.get instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+20 |     $value: map-get($breakpoints, $breakpoint);
+
+
+src/style/_mixins.scss 21:13                   max()
+src/components/Header/Header.module.scss 36:3  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/Header/Header.module.scss
+    ./hubble-website0.1/src/components/Header/Header.tsx
+    ./hubble-website0.1/src/app/page.tsx
+
+
+./hubble-website0.1/src/components/HeroSection/HeroSection.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 10, column 12 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:10:12:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.get instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+10 |     $value: map-get($breakpoints, $breakpoint);
+
+
+src/style/_mixins.scss 11:13                             min()
+src/components/HeroSection/HeroSection.module.scss 21:3  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/HeroSection/HeroSection.module.scss
+    ./hubble-website0.1/src/components/HeroSection/HeroSection.tsx
+    ./hubble-website0.1/src/app/page.tsx
+
+
+./hubble-website0.1/src/components/HeroSection/HeroSection.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 9, column 6 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:9:6:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.has-key instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 |   @if map-has-key($breakpoints, $breakpoint) {
+
+
+src/style/_mixins.scss 10:7                              min()
+src/components/HeroSection/HeroSection.module.scss 21:3  root stylesheet
+
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/HeroSection/HeroSection.module.scss
+    ./hubble-website0.1/src/components/HeroSection/HeroSection.tsx
+    ./hubble-website0.1/src/app/page.tsx
+
+
+./hubble-website0.1/src/style/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 19, column 6 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:19:6:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.has-key instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+19 |   @if map-has-key($breakpoints, $breakpoint) {
+
+
+src/style/_mixins.scss 20:7      max()
+src/style/_typography.scss 17:5  @use
+src/style/globals.scss 3:1       root stylesheet
+
+
+
+./hubble-website0.1/src/style/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 20, column 12 of file:///Users/sanju/websites/hubble%20works/hubble-website0.1/src/style/_mixins.scss:20:12:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use map.get instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+20 |     $value: map-get($breakpoints, $breakpoint);
+
+
+src/style/_mixins.scss 21:13     max()
+src/style/_typography.scss 17:5  @use
+src/style/globals.scss 3:1       root stylesheet
+
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./hubble-website0.1/src/components/Header/Header.module.scss
+Error evaluating Node.js code
+Error: Undefined mixin.
+   ╷
+64 │ ┌   @include tablet {
+65 │ │     gap: 2rem; // 32px
+66 │ └   }
+   ╵
+  src/components/Header/Header.module.scss 64:3  root stylesheet
+Caused by: Error: Undefined mixin.
+   ╷
+64 │ ┌   @include tablet {
+65 │ │     gap: 2rem; // 32px
+66 │ └   }
+   ╵
+  src/components/Header/Header.module.scss 64:3  root stylesheet
+    [at Object.wrapException (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:2337:47)]
+    [at /Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:89531:25]
+    [at _wrapJsFunctionForAsync_closure.$protected (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5005:15)]
+    [at _wrapJsFunctionForAsync_closure.call$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38505:12)]
+    [at Object._asyncStartSync (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:4969:20)]
+    [at _EvaluateVisitor2._applyMixin$body$_EvaluateVisitor0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:89589:16)]
+    [at _EvaluateVisitor2._async_evaluate0$_applyMixin$5 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:89517:19)]
+    [at /Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:89609:48]
+    [at _wrapJsFunctionForAsync_closure.$protected (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5005:15)]
+    [at _wrapJsFunctionForAsync_closure.call$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38505:12)]
+
+Import trace:
+  Server Component:
+    ./hubble-website0.1/src/components/Header/Header.module.scss
+    ./hubble-website0.1/src/components/Header/Header.tsx
+    ./hubble-website0.1/src/app/page.tsx
+
+
+    at ignore-listed frames

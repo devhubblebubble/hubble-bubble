@@ -1,0 +1,83 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables' as *;
+
+// ============================================
+// 1. RESPONSIVE MANAGER
+// ============================================
+
+// Mobile-first approach (Standard)
+@mixin min($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (min-width: #{$value}) { @content; }
+  } @else {
+    @media (min-width: #{$breakpoint}px) { @content; }
+  }
+}
+
+// Desktop-first / Mobile-only overrides
+@mixin max($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+    @media (max-width: #{$value - 1px}) { @content; }
+  } @else {
+    @media (max-width: #{$breakpoint}px) { @content; }
+  }
+}
+
+// Specific range targeting
+@mixin min-max($min, $max) {
+  @media (min-width: #{$min}px) and (max-width: #{$max}px) { @content; }
+}
+
+// ============================================
+// 2. HELPER FUNCTIONS
+// ============================================
+
+// Convert pixels to rem
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Alias for size (optional, simply returns value or processes it)
+@function size($px) {
+  @return rem($px);
+}
+
+// ============================================
+// 3. LAYOUT UTILITIES
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $page-max-width;
+  margin: 0 auto;
+  
+  // Dynamic padding using clamp
+  padding-left: clamp(1.25rem, 8.1vw, $page-padding-side);
+  padding-right: clamp(1.25rem, 8.1vw, $page-padding-side);
+}
+
+
+@mixin section-spacing {
+  padding-top: clamp(3.75rem, 8vw, $page-padding-side);
+  padding-bottom: clamp(3.75rem, 8vw, $page-padding-side);
+}
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

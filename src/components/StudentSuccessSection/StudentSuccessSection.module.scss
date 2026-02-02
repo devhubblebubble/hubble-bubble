@@ -1,0 +1,254 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.section {
+  width: 100%;
+  min-height: 80vh;
+  // background-color: #0a0a0a;
+  @include section-spacing;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.innerContainer {
+  @include container;
+}
+
+.header {
+  margin-bottom: size(48);
+  
+  @include min(tablet) {
+    margin-bottom: size(64);
+  }
+}
+
+.title {
+  color: $text-color;
+  font-weight: 600;
+  font-size: size(30);
+  margin-bottom: size(8);
+  font-family: $font-secondary;
+
+  @include min(mobile) {
+    font-size: size(36);
+  }
+
+  @include min(tablet) {
+    font-size: size(32);
+  }
+}
+
+.subtitle {
+  color: $text-color;
+  font-weight: 300;
+  font-size: size(18);
+  font-family: $font-secondary;
+
+  @include min(mobile) {
+    font-size: size(20);
+  }
+
+  @include min(tablet) {
+    font-size: size(22);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: size(48);
+  align-items: center;
+  margin-bottom: size(48);
+
+  @include min(tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: size(64);
+    margin-bottom: size(64);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: size(32);
+
+  @include min(tablet) {
+    gap: size(40);
+  }
+}
+
+.quoteIcon {
+  width: size(80);
+  height: size(64);
+  flex-shrink: 0;
+
+  @include min(mobile) {
+    width: size(96);
+    height: size(80);
+  }
+
+  path {
+    fill: #FF4F00;
+    fill-opacity: 0.4;
+  }
+}
+
+.testimonialContent {
+  display: flex;
+  flex-direction: column;
+  gap: size(32);
+
+  @include min(tablet) {
+    gap: size(36);
+  }
+}
+
+.quoteText {
+  color: $text-color;
+  font-weight: 300;
+  font-size: size(20);
+  line-height: 1.6;
+  font-family: $font-secondary;
+  max-width: size(640);
+
+  @include min(mobile) {
+    font-size: size(24);
+  }
+
+  @include min(tablet) {
+    font-size: size(26);
+  }
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: size(6);
+}
+
+.authorName {
+  color: $text-color;
+  font-weight: 600;
+  font-size: size(24);
+  font-family: $font-secondary;
+
+  @include min(mobile) {
+    font-size: size(30);
+  }
+
+  @include min(tablet) {
+    font-size: size(32);
+  }
+}
+
+.authorDetails {
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  gap: size(2);
+}
+
+.authorDegree {
+  font-weight: 400;
+  font-size: size(18);
+  font-family: $font-secondary;
+
+  @include min(mobile) {
+    font-size: size(20);
+  }
+}
+
+.authorUniversity {
+  font-weight: 300;
+  font-size: size(16);
+  font-family: $font-secondary;
+  font-style: italic;
+
+  @include min(mobile) {
+    font-size: size(18);
+  }
+}
+
+/* Stacked Cards Section */
+.cardsWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @include min(tablet) {
+    justify-content: flex-end;
+  }
+}
+
+.cardsContainer {
+  position: relative;
+  width: 100%;
+  max-width: size(280);
+  height: size(380);
+
+  @include min(mobile) {
+    max-width: size(320);
+    height: size(420);
+  }
+
+  @include min(tablet) {
+    max-width: size(380);
+    height: size(500);
+  }
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+  overflow: visible !important; // Important for EffectCards to show stacked slides
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: size(18);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  background-color: #222; // Placeholder color
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Manual card styles removed as Swiper handles them
+
+/* Pagination Dots */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: size(10);
+  justify-content: center;
+
+  @include min(tablet) {
+    justify-content: flex-start;
+  }
+}
+
+.dot {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  width: size(10);
+  height: size(10);
+  border-radius: 50%;
+  background-color: #D9D9D9;
+
+  &.active {
+    width: size(64);
+    height: size(10);
+    border-radius: size(100);
+    background-color: #78E1C5;
+  }
+}

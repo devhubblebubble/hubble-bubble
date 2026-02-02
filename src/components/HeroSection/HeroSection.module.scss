@@ -1,0 +1,230 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.hero {
+  position: relative;
+  z-index: 10;
+  // @include section-spacing;
+  // @include section-spacing;
+  // Standard spacing, no offset needed for static header
+  padding-top: clamp(1.25rem, 5vw, #{$page-padding-top});
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+  
+  @include min(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+// ============================================
+// LEFT COLUMN - CONTENT
+// ============================================
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+// Heading Section
+.headingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heading {
+  font-size: 2.25rem; // 36px
+  font-weight: 400;
+  line-height: 115%;
+  color: white;
+  
+  @include min(mobile) {
+    font-size: 3rem; // 48px
+  }
+  
+  @include min(tablet) {
+    font-size: 3.5rem; // 56px
+  }
+  
+  .bold {
+    font-weight: 700;
+  }
+}
+
+.subheading {
+  font-size: 1.25rem; // 20px
+  font-weight: 500;
+  line-height: 115%;
+  color: white;
+  
+  @include min(mobile) {
+    font-size: 1.5rem; // 24px
+  }
+}
+
+// Accreditation Section
+.accreditation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.accreditationLabel {
+  font-size: 1.125rem; // 18px
+  font-weight: 300;
+  color: white;
+  
+  @include min(mobile) {
+    font-size: 1.25rem; // 20px
+  }
+}
+
+.logoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.logoCard {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+  
+  &:nth-child(1) {
+    width: 75px;
+    height: 72px;
+  }
+  
+  &:nth-child(2) {
+    width: 104px;
+    height: 68px;
+  }
+  
+  &:nth-child(3) {
+    width: 173px;
+    height: 68px;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+// CTA Buttons
+.ctaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  white-space: nowrap;
+  
+  @include min(mobile) {
+    font-size: 1.5rem;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.buttonOutline {
+  background: black;
+  border: 1px solid white;
+  color: white;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  &:active {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.buttonPrimary {
+  background: #FF6B35; // Replace with your exact orange color
+  color: black;
+  
+  &:hover {
+    background: rgba(255, 107, 53, 0.9);
+  }
+  
+  &:active {
+    background: rgba(255, 107, 53, 0.8);
+  }
+}
+
+// ============================================
+// RIGHT COLUMN - IMAGE
+// ============================================
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 862px;
+  height: auto;
+  position: relative;
+  z-index: 10;
+  
+  // Optional: Add subtle animation
+  animation: float 6s ease-in-out infinite;
+}
+
+// Optional: Floating animation for astronaut
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

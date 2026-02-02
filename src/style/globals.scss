@@ -1,7 +1,9 @@
-@use './tokens' as *;
-@use './mixins' as *;
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'typography';
+@use 'custom-utilities';
 
-// Global Reset
+
 * {
   margin: 0;
   padding: 0;
@@ -14,27 +16,27 @@ html {
 }
 
 body {
-  font-family: $font-family;
-  background: $color-bg;
-  color: $color-text;
+  font-family: $font-primary;
+  background: $bg-color;
+  color: $text-color;
   line-height: 1.5;
   @include font-smoothing;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-}
-
+// Links
 a {
   text-decoration: none;
   color: inherit;
+  transition: $transition-base;
 }
 
+// Lists
 ul {
   list-style: none;
 }
 
+// Buttons
 button {
   cursor: pointer;
   border: none;
