@@ -5,6 +5,8 @@ import StatsSection from "@/components/StatsSection/Statssection";
 import TestimonialSection from "@/components/TestimonialSection";
 import StudentSuccessSection from "@/components/StudentSuccessSection";
 import AppleWatchMenu from "@/components/AppleWatchMenu";
+import JourneySection from "@/components/JourneySection";
+import AdvancedCapabilitiesCard from "@/components/AdvancedCapabilitiesCard";
 
 export default function Home() {
   return (
@@ -15,8 +17,9 @@ export default function Home() {
       <StatsSection />
       <TestimonialSection />
       <StudentSuccessSection />
+      <JourneySection />
+      {/* <AdvancedCapabilitiesCard /> */}
       <AppleWatchMenu />
-      {/* Home page sections will be added here block by block */}
     </main>
   );
 }

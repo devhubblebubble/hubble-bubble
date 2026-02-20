@@ -12,6 +12,7 @@ export default function ImpactSection() {
         <p className={styles.subtitle}>
           Our platform has guided 1000+ students to secure admits in top-ranking universities known for global impact.
         </p>
+        
       </div>
 
       {/* Main Card */}

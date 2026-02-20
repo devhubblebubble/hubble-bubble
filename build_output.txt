@@ -1,0 +1,76 @@
+
+> hubble-website0.1@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/sanju/websites/hubble works/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/sanju/websites/hubble works/hubble-website0.1/package-lock.json
+
+▲ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./hubble-website0.1/src/components/JourneySection/JourneySection.module.scss
+Error evaluating Node.js code
+Error: -8.75rem and 20px have incompatible units.
+    ╷
+176 │   right: -$page-padding-side + 20px;
+    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+  src/components/JourneySection/JourneySection.module.scss 176:10  root stylesheet
+Caused by: Error: -8.75rem and 20px have incompatible units.
+    ╷
+176 │   right: -$page-padding-side + 20px;
+    │          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+  src/components/JourneySection/JourneySection.module.scss 176:10  root stylesheet
+    [at Object.throwExpression (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:2356:64)]
+    [at SassNumber__coerceOrConvertValue_closure4.call$0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115506:16)]
+    [at Object.removeFirstWhere0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:32453:14)]
+    [at SingleUnitSassNumber0._number1$_coerceOrConvertValue$6$coerceUnitless$name$other$otherName (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115058:11)]
+    [at SingleUnitSassNumber0.coerceValueToMatch$3 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115036:19)]
+    [at SingleUnitSassNumber0.coerceValueToMatch$3 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:120953:32)]
+    [at SingleUnitSassNumber0.coerceValueToMatch$1 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:120956:19)]
+    [at SingleUnitSassNumber0._number1$_coerceUnits$1$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115153:16)]
+    [at SingleUnitSassNumber0._number1$_coerceUnits$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115160:19)]
+    [at SingleUnitSassNumber0.plus$1 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:115112:40)]
+    [at /Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:96079:33]
+    [at _wrapJsFunctionForAsync_closure.$protected (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5005:15)]
+    [at _wrapJsFunctionForAsync_closure.call$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38505:12)]
+    [at _awaitOnObject_closure.call$1 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38493:32)]
+    [at Object._rootRunUnary (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5423:18)]
+    [at StaticClosure.<anonymous> (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:128564:16)]
+    [at _CustomZone.runUnary$2$2 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:39936:39)]
+    [at _Future__propagateToListeners_handleValueCallback.call$0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38994:51)]
+    [at Object._Future__propagateToListeners (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5215:93)]
+    [at _Future._completeWithValue$1 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38857:9)]
+    [at _Future__asyncCompleteWithValue_closure.call$0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38922:18)]
+    [at Object._rootRun (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5413:16)]
+    [at StaticClosure.<anonymous> (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:128560:16)]
+    [at _CustomZone.run$1$1 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:39931:39)]
+    [at _CustomZone_bindCallback_closure.call$0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:40028:25)]
+    [at Object._microtaskLoop (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5273:24)]
+    [at StaticClosure._startMicrotaskLoop (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:5279:11)]
+    [at _AsyncRun__scheduleImmediateJsOverride_internalCallback.call$0 (/Users/sanju/websites/hubble works/hubble-website0.1/node_modules/sass/sass.dart.js:38406:21)]
+    [at process.processImmediate (node:internal/timers:483:21)]
+
+Import traces:
+  Client Component Browser:
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.module.scss [Client Component Browser]
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.tsx [Client Component Browser]
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.tsx [Server Component]
+    ./hubble-website0.1/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.module.scss [Client Component SSR]
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.tsx [Client Component SSR]
+    ./hubble-website0.1/src/components/JourneySection/JourneySection.tsx [Server Component]
+    ./hubble-website0.1/src/app/page.tsx [Server Component]
+
+
+    at ignore-listed frames

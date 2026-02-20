@@ -1,0 +1,311 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.warmGlow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 100% 0%,
+    rgba(140, 30, 10, 0.12) 0%,
+    rgba(80, 15, 5, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+.layout {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 rem(24);
+
+  @include min(tablet) {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.globeWrapper {
+  position: relative;
+  width: 100%;
+  max-width: rem(320);
+  height: rem(300);
+  margin-top: rem(-32);
+  margin-bottom: rem(16);
+  z-index: 1;
+  pointer-events: none;
+
+  @include min(tablet) {
+    position: absolute;
+    top: 50%;
+    left: -45%;
+    width: 135%;
+    height: 120%;
+    max-width: none;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.globe {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.contentWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+
+  @include min(tablet) {
+    margin-left: auto;
+    width: 40%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-content: center;
+    gap: rem(24);
+    padding-right: clamp(rem(40), 4vw, rem(80));
+  }
+}
+
+.slideContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 rem(16);
+  width: 100%;
+
+  @include min(tablet) {
+    align-items: flex-end;
+    text-align: right;
+    padding: 0;
+  }
+}
+
+.stepNumber {
+  font-family: $font-primary;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.08);
+  letter-spacing: -0.02em;
+  margin-bottom: rem(-10);
+  user-select: none;
+  pointer-events: none;
+
+  @include min(tablet) {
+    font-size: clamp(6rem, 10vw, 10rem);
+    margin-bottom: rem(-20);
+  }
+}
+
+.stepTitle {
+  font-family: $font-primary;
+  font-weight: 700;
+  @include fluid-size(42, 26);
+  line-height: 1.25;
+  color: $text-color;
+  margin: 0 0 rem(16) 0;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  max-width: rem(400);
+  min-height: 3.75em; /* Reserve 3 lines to prevent layout shift */
+}
+
+.titleHighlight {
+  color: #FF5A1F;
+  text-shadow: 0 0 rem(30) rgba(255, 90, 31, 0.3);
+}
+
+.description {
+  font-family: $font-primary;
+  @include fluid-size(16, 13);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: rem(320);
+  margin-bottom: rem(24);
+  min-height: 11.9em; /* Reserve ~7 lines to prevent layout shift */
+}
+
+.keyOutputsLabel {
+  font-family: $font-primary;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $text-color;
+  margin-bottom: rem(12);
+  display: block;
+
+  @include min(tablet) {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    margin-bottom: rem(24);
+  }
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(8);
+  max-width: rem(500);
+
+  @include min(tablet) {
+    justify-content: flex-end;
+    gap: rem(12);
+  }
+}
+
+.tagButton {
+  padding: rem(8) rem(16);
+  border: 1.5px solid rgba(0, 255, 204, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: #00FFCC;
+  border-radius: rem(999);
+  font-family: $font-primary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @include min(tablet) {
+    padding: rem(10) rem(24);
+    font-size: 1rem;
+  }
+
+  &:hover {
+    transform: translateY(rem(-2));
+  }
+}
+
+.progressWrapper {
+  display: none;
+
+  @include min(tablet) {
+    display: flex;
+    position: relative;
+    width: rem(48);
+    height: 100%;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+}
+
+.progressBar {
+  position: relative;
+  width: rem(3);
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: rem(2);
+  margin: 0 auto;
+}
+
+.progressLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FF5A1F;
+  border-radius: rem(2);
+  transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rocketContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 11;
+}
+
+.rocketIcon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    filter: drop-shadow(0 0 rem(10) rgba(255, 90, 31, 0.6));
+  }
+}
+
+.rocketFlame {
+  width: rem(10);
+  height: rem(24);
+  margin-top: rem(-4);
+  background: linear-gradient(to bottom, #FF6600, transparent);
+  filter: blur(3px);
+  border-radius: 50%;
+  animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.paginationDots {
+  position: absolute;
+  bottom: rem(32);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: rem(12);
+  z-index: 10;
+
+  @include min(tablet) {
+    bottom: rem(48);
+  }
+}
+
+.dot {
+  width: rem(8);
+  height: rem(8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.dotActive {
+  width: rem(10);
+  height: rem(10);
+  background: #FF5A1F;
+  box-shadow: 0 0 rem(10) rgba(255, 90, 31, 0.4);
+}

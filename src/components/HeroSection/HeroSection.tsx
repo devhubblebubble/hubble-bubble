@@ -70,7 +70,7 @@ export default function HeroSection() {
           {/* Right Column - Astronaut Image */}
           <div className={styles.imageWrapper}>
             <Image
-              src="/images/herosection/astronaut.png"
+              src="/images/herosection/astronaut.webp"
               alt="Astronaut floating in space"
               width={862}
               height={862}

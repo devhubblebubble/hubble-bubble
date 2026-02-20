@@ -1,16 +1,15 @@
 @use '../../style/variables' as *;
 @use '../../style/mixins' as *;
 
-// Header wrapper - Standard Layout
+
 .headerWrapper {
   width: auto;
   position: relative;
   z-index: 1000;
-  
-  // Responsive spacing from edges
-  margin-top: clamp(1.25rem, 5vw, $page-padding-top); 
-  margin-left: clamp(1.25rem, 8.1vw, $page-padding-side);
-  margin-right: clamp(1.25rem, 8.1vw, $page-padding-side);
+
+  margin-top: clamp(1.25rem, 4.63vw, $page-padding-top); 
+  margin-left: clamp($page-padding-min, 8.1vw, $page-padding-side);
+  margin-right: clamp($page-padding-min, 8.1vw, $page-padding-side);
   
   // Glassmorphism effect
   background-color: rgba(17, 17, 17, 0.6);
@@ -20,15 +19,12 @@
   border-radius: $border-radius;
 }
 
-// Header content container
+
 .headerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  // Fixed responsive height range
-  height: clamp(5rem, 7vw, 8.4375rem); // 80px to 135px
-  
+  height: clamp(5rem, 7.81vw, 8.4375rem); // Perfect 135px at 1728px width
   padding-left: $space-md;
   padding-right: $space-md;
   padding-top: $space-sm;    
@@ -44,22 +40,19 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  
-  // FIX: Ensure the link container takes full height of headerContent
   height: 100%; 
-  
-  max-width: 10.9375rem; // 175px
+  max-width: 10.9375rem; 
   
   @include max(desktop) {
-    max-width: 9.375rem;  // 150px
+    max-width: 9.375rem; 
   }
 
   @include max(tablet) {
-    max-width: 8.75rem;   // 140px
+    max-width: 8.75rem;   
   }
 
   @include max(mobile) {
-    max-width: 7.5rem;    // 120px
+    max-width: 7.5rem;    
   }
 }
 
@@ -67,8 +60,6 @@
   display: block;
   width: 100%;
   height: auto;
-  
-  // FIX: Ensure the image never overflows the height of logoLink
   max-height: 100%; 
   
   aspect-ratio: 175 / 94;
@@ -98,7 +89,7 @@
 .navLink {
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-poppins), sans-serif;
-  font-size: 1.25rem;
+  @include fluid-size(20, 16);
   font-weight: 400;
   line-height: 100%;
   transition: color 0.3s ease;
@@ -112,7 +103,7 @@
 .ctaButton {
   color: #ffffff;
   font-family: var(--font-poppins), sans-serif;
-  font-size: 1rem;
+  @include fluid-size(16, 14);
   font-weight: 400;
   padding: 0.625rem 1.5rem;
   background: transparent;

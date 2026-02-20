@@ -7,12 +7,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:4rem 1rem;
+    @include section-spacing;
+    @include container;
 }
 
 .container{
     width:100%;
-    max-width:90.5rem;
+    // max-width is handled by the container mixin on the section
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,36 +30,20 @@
 }
 
 .title {
-  font-size: 2rem; // 32px
+  @include fluid-size(32, 24);
   font-weight: 600;
   color: #FFF;
   text-align: center;
   line-height: normal;
-  
-  @include min(tablet) {
-    font-size: 2.25rem; // 36px (md:text-4xl)
-  }
-  
-  @include min(desktop) {
-    font-size: 2rem; // 32px (lg:text-[32px])
-  }
 }
 
 .subtitle {
-  font-size: 1.25rem; // 20px
+  @include fluid-size(20, 16);
   font-weight: 300;
   color: #C1C1C1;
   text-align: center;
   line-height: normal;
   margin-top: 0.5rem;
-  
-  @include min(tablet) {
-    font-size: 1.25rem; // 20px (md:text-xl)
-  }
-  
-  @include min(desktop) {
-    font-size: 1.25rem; // 20px (lg:text-[20px])
-  }
 }
 
 .statsGrid {

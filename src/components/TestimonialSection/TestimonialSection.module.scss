@@ -31,11 +31,11 @@
   @include min(tablet) {
     flex-direction: row;
     align-items: center;
-    gap: size(64);
+    gap: size(48);
   }
 
   @include min(desktop) {
-    gap: size(112);
+    gap: size(64);
   }
 }
 
@@ -44,7 +44,7 @@
   flex-shrink: 0;
 
   @include min(tablet) {
-    width: 45%;
+    width: 35%;
   }
 }
 
@@ -55,7 +55,7 @@
   aspect-ratio: 3/4;
 
   @include min(tablet) {
-    aspect-ratio: 717/1076;
+    aspect-ratio: 380/480;
   }
 
   img {
@@ -72,7 +72,7 @@
   gap: size(24);
 
   @include min(tablet) {
-    width: 55%;
+    width: 60%;
   }
 }
 
@@ -84,18 +84,11 @@
 
 .title {
   font-family: $font-secondary;
-  font-size: size(30);
+  @include fluid-size(40, 28);
   font-weight: 500;
   color: $text-color;
   line-height: 1.2;
-
-  @include min(mobile) {
-    font-size: size(36);
-  }
-
-  @include min(tablet) {
-    font-size: size(40);
-  }
+  min-height: 2.4em; /* Enforce 2 lines of space */
 }
 
 .titleUnderline {
@@ -107,19 +100,12 @@
 
 .description {
   font-family: $font-secondary;
-  font-size: size(18);
+  @include fluid-size(24, 18);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   padding: 0 size(12);
-
-  @include min(mobile) {
-    font-size: size(20);
-  }
-
-  @include min(tablet) {
-    font-size: size(24);
-  }
+  min-height: 6.4em; /* Enforce 4 lines of space */
 }
 
 .link {

@@ -1,29 +1,24 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-// ============================================
-// AUTOMATED TYPOGRAPHY SYSTEM
-// ============================================
+
 
 // Generate Heading Classes (.ttl-1, .ttl-2, etc.)
 @each $level, $size in $ttl-font-sizes {
   .ttl-#{$level} {
     font-family: $font-primary;
-    font-size: $size;
+    // Fluidly scale between the max size and a proportional minimum
+    @include fluid-size($size * 16, ($size * 16) * 0.75); 
     line-height: 1.2;
     font-weight: 700; // Default weight for titles
-    
-    // Responsive scaling (example: scale down on mobile)
-    @include max(mobile) {
-      font-size: $size * 0.8;
-    }
   }
 }
 
 // Generate Body Text Classes (.fs-16, .fs-14, etc.)
 @each $key, $size in $fs-font-sizes {
   .fs-#{$key} {
-    font-size: $size;
+    // Proportional scaling for body size
+    @include fluid-size($key, $key * 0.85);
     
     // Optional: Add line-height logic if needed
     @if $key > 16 {

@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Pagination } from 'swiper/modules';
 
@@ -127,9 +128,12 @@ export default function StudentSuccessSection() {
               >
                 {testimonials.map((testimonial) => (
                   <SwiperSlide key={testimonial.id} className={styles.card}>
-                    <img
-                      src={testimonial.imageUrl}
+                    <Image
+                      src={testimonial.imageUrl.replace('.png', '.webp')}
                       alt={testimonial.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className={styles.cardImage}
                     />
                   </SwiperSlide>
                 ))}
