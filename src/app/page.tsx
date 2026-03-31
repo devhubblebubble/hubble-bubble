@@ -6,6 +6,8 @@ import TestimonialSection from "@/components/TestimonialSection";
 import StudentSuccessSection from "@/components/StudentSuccessSection";
 import AppleWatchMenu from "@/components/AppleWatchMenu";
 import JourneySection from "@/components/JourneySection";
+import HowItAllBeganSection from "@/components/HowItAllBeganSection";
+import FooterSection from "@/components/FooterSection";
 import AdvancedCapabilitiesCard from "@/components/AdvancedCapabilitiesCard";
 
 export default function Home() {
@@ -18,8 +20,11 @@ export default function Home() {
       <TestimonialSection />
       <StudentSuccessSection />
       <JourneySection />
+     
       {/* <AdvancedCapabilitiesCard /> */}
       <AppleWatchMenu />
+      <HowItAllBeganSection />
+      <FooterSection />
     </main>
   );
 }

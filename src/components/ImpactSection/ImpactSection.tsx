@@ -22,7 +22,7 @@ export default function ImpactSection() {
             {/* United Kingdom Section */}
             <div className={styles.ukSection}>
               <Image
-                src="/images/impact/united-kingdom.png"
+                src="/images/impact/uk.png"
                 alt="United Kingdom"
                 width={132}
                 height={221}

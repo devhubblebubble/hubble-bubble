@@ -5,10 +5,19 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 
 import styles from './JourneySection.module.scss';
-const Globe = dynamic(() => import("./Globe/Globe"), { 
+const CountryHighlightGlobe = dynamic(() => import("./JourneySectionCountryGlobe"), { 
   ssr: false,
   loading: () => <div style={{ width: '100%', height: '100%', background: 'transparent' }} />
 });
+
+const TEAM_PRESENCE_HIGHLIGHTS = [
+  { countryName: "India", value: 42 },
+  { countryName: "United States of America", value: 24 },
+  { countryName: "United Kingdom", value: 12 },
+  { countryName: "Canada", value: 8 },
+  { countryName: "Australia", value: 6 },
+  { countryName: "United Arab Emirates", value: 5 },
+];
 
 
 interface Step {
@@ -91,10 +100,10 @@ export default function JourneySection() {
 
         <div className={styles.layout}>
           <div className={styles.globeWrapper}>
-            <Globe
+            <CountryHighlightGlobe
+              onlyGlobe
+              data={TEAM_PRESENCE_HIGHLIGHTS}
               rotation={progress}
-              showOrbits={true}
-              autoRotate={true}
               className={styles.globe}
             />
           </div>

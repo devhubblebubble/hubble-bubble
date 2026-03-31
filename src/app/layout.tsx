@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import '../style/globals.scss';
-import StarBackground from '@/components/Background/StarBackground';
+import ParallaxStars from '@/components/Background/ParallaxStars';
 import ShootingStars from '@/components/Background/ShootingStars';
 import GlowEllipse from '@/components/Effects/GlowEllipse';
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StarBackground />
+        <ParallaxStars />
           {/* <GlowEllipse
         variant="hero"
         position={{ 
