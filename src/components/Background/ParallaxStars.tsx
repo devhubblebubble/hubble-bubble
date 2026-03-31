@@ -35,7 +35,7 @@ const ParallaxStars: React.FC<ParallaxStarsProps> = ({
   const [stars, setStars] = useState<StarLayer[]>([]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
 
   const generateStars = useCallback(
     (width: number, height: number): StarLayer[] => {
