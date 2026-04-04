@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
-RUN cp .env.example .env && php artisan key:generate
+RUN php artisan key:generate --ansi
 
 EXPOSE 8080
 CMD php artisan serve --host=0.0.0.0 --port=8080
