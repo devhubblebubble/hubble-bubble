@@ -12,7 +12,17 @@ WORKDIR /app
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
-RUN echo "APP_KEY=" > .env && php artisan key:generate --ansi
 
 EXPOSE 8080
-CMD php artisan serve --host=0.0.0.0 --port=8080
+CMD echo "APP_KEY=$APP_KEY" > .env && \
+    echo "APP_ENV=$APP_ENV" >> .env && \
+    echo "APP_DEBUG=$APP_DEBUG" >> .env && \
+    echo "APP_URL=$APP_URL" >> .env && \
+    echo "DB_CONNECTION=$DB_CONNECTION" >> .env && \
+    echo "DB_HOST=$DB_HOST" >> .env && \
+    echo "DB_PORT=$DB_PORT" >> .env && \
+    echo "DB_DATABASE=$DB_DATABASE" >> .env && \
+    echo "DB_USERNAME=$DB_USERNAME" >> .env && \
+    echo "DB_PASSWORD=$DB_PASSWORD" >> .env && \
+    php artisan config:clear && \
+    php artisan serve --host=0.0.0.0 --port=8080
