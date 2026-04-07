@@ -27,5 +27,5 @@ CMD echo "APP_KEY=$APP_KEY" > .env && \
     php artisan config:clear && \
     php artisan cache:clear && \
     php artisan view:clear && \
-    php artisan storage:link && \
-    php artisan serve --host=0.0.0.0 --port=8080
+    php artisan storage:link || true && \
+    php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
