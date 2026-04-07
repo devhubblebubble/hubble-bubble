@@ -1,10 +1,13 @@
+The assets are already pre-compiled and committed to the repo — there's `css`, `js`, `img` folders already in `public`. So we **don't need** `npm run build` at all! That's likely what's causing the 502 — the npm build is failing and crashing the container.
+
+Go back to the Dockerfile in GitHub, click the pencil to edit, and **remove** the npm line. Replace the whole file with this simpler version:
+
+```dockerfile
 FROM php:8.1-fpm
 
 RUN apt-get update && apt-get install -y \
     nginx curl zip unzip git \
     libpng-dev libonig-dev libxml2-dev libfreetype6-dev libjpeg62-turbo-dev libzip-dev \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring xml gd zip bcmath
 
@@ -14,7 +17,6 @@ WORKDIR /app
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
-RUN npm install && npm run build
 
 EXPOSE 8080
 CMD echo "APP_KEY=$APP_KEY" > .env && \
@@ -32,3 +34,6 @@ CMD echo "APP_KEY=$APP_KEY" > .env && \
     php artisan view:clear && \
     php artisan storage:link && \
     php artisan serve --host=0.0.0.0 --port=8080
+```
+
+Commit directly to main and let Railway redeploy!
