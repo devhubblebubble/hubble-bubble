@@ -1,5 +1,27 @@
-import FigmaHome from "@/components/FigmaHome";
+import NavBar from "@/components/NavBar/NavBar";
+import HeroSection from "@/components/HeroSection/HeroSection";
+import WorldMapSection from "@/components/WorldMapSection/WorldMapSection";
+import PartnerCardsSection from "@/components/PartnerCardsSection/PartnerCardsSection";
+import StoriesSection from "@/components/StoriesSection/StoriesSection";
+import JourneySection from "@/components/JourneySection/JourneySection";
+import TestimonialsSection from "@/components/TestimonialsSection/TestimonialsSection";
+import OriginSection from "@/components/OriginSection/OriginSection";
+import CtaSection from "@/components/CtaSection/CtaSection";
+import FooterSection from "@/components/FooterSection/FooterSection";
 
 export default function Home() {
-  return <FigmaHome />;
+  return (
+    <main>
+      <NavBar />
+      <HeroSection />
+      <WorldMapSection />
+      <PartnerCardsSection />
+      <StoriesSection />
+      <JourneySection />
+      <TestimonialsSection />
+      <OriginSection />
+      <CtaSection />
+      <FooterSection />
+    </main>
+  );
 }

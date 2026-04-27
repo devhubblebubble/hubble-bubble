@@ -1,218 +1,296 @@
-@use '../../style/variables' as *;
-@use '../../style/mixins' as *;
-
 .hero {
   position: relative;
-  z-index: 10;
-  // @include section-spacing;
-  // @include section-spacing;
-  // Standard spacing, no offset needed for static header
-  padding-top: clamp(1.25rem, 5vw, #{$page-padding-top});
-}
+  padding: 168px var(--pad-x) 96px;
+  overflow: hidden;
+  isolation: isolate;
 
-.container {
-  @include container;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 30% 50%, rgba(0, 0, 0, 0.55) 0%, transparent 75%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
   display: grid;
-  gap: 3rem;
-  align-items: center;
-  
-  @include min(tablet) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 9vw, 156px);
+  align-items: start;
 }
 
-// ============================================
-// LEFT COLUMN - CONTENT
-// ============================================
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-// Heading Section
-.headingWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.heading {
-  @include fluid-size(56, 36);
+.headline {
+  font-size: var(--fs-h1);
   font-weight: 400;
-  line-height: 115%;
-  color: white;
-  
-  .bold {
-    font-weight: 700;
-  }
+  line-height: 1.1;
+  margin-bottom: 24px;
 }
 
-.subheading {
-  @include fluid-size(24, 20);
-  font-weight: 500;
-  line-height: 115%;
-  color: white;
+.rule {
+  width: clamp(160px, 22vw, 380px);
+  height: 6px;
+  background: var(--mint);
+  margin-bottom: 24px;
+  border-radius: 3px;
 }
 
-// Accreditation Section
-.accreditation {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.sub {
+  font-size: var(--fs-h3);
+  color: var(--muted);
+  line-height: 1.2;
+  margin-bottom: 40px;
+  max-width: 626px;
 }
 
-.accreditationLabel {
-  font-size: 1.125rem; // 18px
-  font-weight: 300;
-  color: white;
-  
-  @include min(mobile) {
-    font-size: 1.25rem; // 20px
-  }
-}
-
-.logoGrid {
+.ctas {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+  gap: 24px;
+  margin-bottom: 56px;
 }
 
-.logoCard {
-  background: white;
-  border-radius: 0.5rem;
-  padding: 0.625rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-  }
-  
-  &:nth-child(1) {
-    width: 75px;
-    height: 72px;
-  }
-  
-  &:nth-child(2) {
-    width: 104px;
-    height: 68px;
-  }
-  
-  &:nth-child(3) {
-    width: 173px;
-    height: 68px;
-  }
-}
-
-.logo {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-// CTA Buttons
-.ctaGroup {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-}
-
-.button {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: 0.75rem;
-  font-size: 1.25rem;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: var(--fs-body);
   font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  line-height: 1;
   border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
   white-space: nowrap;
-  
-  @include min(mobile) {
-    font-size: 1.5rem;
-  }
-  
-  &:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 2px;
-  }
-  
-  &:disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-}
 
-.buttonOutline {
-  background: black;
-  border: 1px solid white;
-  color: white;
-  
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  &:active {
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
   }
 }
 
-.buttonPrimary {
-  background: #FF6B35; // Replace with your exact orange color
-  color: black;
-  
+.btnPrimary {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 8px 24px rgba(255, 79, 0, 0.25);
+
   &:hover {
-    background: rgba(255, 107, 53, 0.9);
-  }
-  
-  &:active {
-    background: rgba(255, 107, 53, 0.8);
+    box-shadow: 0 14px 32px rgba(255, 79, 0, 0.4);
   }
 }
 
-// ============================================
-// RIGHT COLUMN - IMAGE
-// ============================================
+.btnGhost {
+  background: rgb(75, 75, 76);
+  color: var(--white);
+  backdrop-filter: blur(12px);
+  font-weight: 300;
 
-.imageWrapper {
+  &:hover {
+    background: rgb(95, 95, 96);
+  }
+}
+
+.accred {
+  max-width: 500px;
+}
+
+.accredLabel {
+  font-size: var(--fs-sm);
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.accredRow {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.accredWordmark {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.icefLogo {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
+// ── Student carousel ──────────────────────────────────────────────────────────
+.right {
   position: relative;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.card {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.photoWrap {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.photo {
+  width: clamp(140px, 13.3vw, 230px);
+  height: clamp(140px, 13.3vw, 230px);
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.flag {
+  width: clamp(70px, 6.5vw, 112px);
+  height: clamp(70px, 6.5vw, 112px);
+  border-radius: 50%;
+  margin-left: -32px;
+  margin-top: 8px;
+  border: 4px solid rgba(8, 8, 8, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 38px;
+  background: rgba(20, 20, 40, 0.8);
 }
 
-.heroImage {
-  width: 100%;
-  @include fluid-prop(max-width, 862, 600);
-  height: auto;
-  position: relative;
-  z-index: 10;
-  
-  // Optional: Add subtle animation
-  animation: float 6s ease-in-out infinite;
+.name {
+  font-size: clamp(1.4rem, 1.85vw, 2rem);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-// Optional: Floating animation for astronaut
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+.linkedinPill {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgb(0, 118, 178);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.course {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--white);
+}
+
+.admitsLabel {
+  font-size: var(--fs-sm);
+  margin-top: 8px;
+  color: var(--white);
+}
+
+.admits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.admitImg {
+  height: clamp(36px, 4.6vw, 60px) !important;
+  width: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.admitWordmark {
+  height: clamp(36px, 4.6vw, 60px);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: clamp(10px, 1.1vw, 16px);
+  color: var(--white);
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
   }
-  50% {
-    transform: translateY(-20px);
+
+  .right {
+    order: -1;
+  }
+
+  .carousel {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 132px;
+  }
+
+  .headline {
+    font-size: 2.25rem;
+  }
+
+  .sub {
+    font-size: 1.1rem;
+  }
+
+  .photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .flag {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .accredRow {
+    gap: 16px;
   }
 }

@@ -1,0 +1,150 @@
+.section {
+  padding: 64px var(--pad-x);
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: var(--fs-h2);
+    margin-bottom: 16px;
+  }
+}
+
+.lead {
+  font-size: var(--fs-h3);
+  color: var(--white);
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto 64px;
+}
+
+.trackWrap {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 0;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  align-items: center;
+}
+
+.testimonial {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.photos {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 580 / 630;
+}
+
+.photoBack,
+.photoFront {
+  position: absolute;
+  width: 76%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: #222;
+}
+
+.photoBack {
+  left: 24%;
+  top: 0;
+  transform: rotate(9deg);
+}
+
+.photoFront {
+  left: 0;
+  top: 4%;
+}
+
+.quote {
+  text-align: left;
+  position: relative;
+  padding-top: 80px;
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    left: 0;
+    top: -20px;
+    font-family: Georgia, serif;
+    font-size: 200px;
+    line-height: 1;
+    color: rgba(255, 79, 0, 0.35);
+    font-weight: 700;
+  }
+}
+
+.quoteText {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.quoteLarge {
+  font-size: var(--fs-h2) !important;
+  line-height: 1.15 !important;
+}
+
+.name {
+  font-size: clamp(1.5rem, 1.85vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.course {
+  font-size: var(--fs-sm);
+  color: var(--white);
+}
+
+.uni {
+  font-size: var(--fs-sm);
+  color: var(--white);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 1100px) {
+  .testimonial {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .quote {
+    text-align: center;
+
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .quote::before {
+    font-size: 130px;
+    top: -10px;
+  }
+
+  .photoBack {
+    left: 16%;
+  }
+}

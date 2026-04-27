@@ -1,152 +1,152 @@
-@use "../../style/variables" as *;
-@use "../../style/mixins" as *;
-
 .footer {
-  background: #040404;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: rem(28);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 72px var(--pad-x);
 }
 
-.inner {
-  @include container;
+.grid {
   display: grid;
-  gap: rem(28);
-  padding-top: rem(34);
-  padding-bottom: rem(24);
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 56px;
+  align-items: end;
+  max-width: 1600px;
+  margin: 0 auto;
+}
 
-  @include min(tablet) {
-    grid-template-columns: 1.25fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: rem(34);
+.brand {
+  img {
+    height: clamp(64px, 5.5vw, 94px);
+    width: auto !important;
+    margin-bottom: 40px;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: var(--fs-body);
+    line-height: 1.4;
   }
 }
 
-.brandCol {
-  display: grid;
-  gap: rem(16);
-}
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--fs-body);
+  font-weight: 400;
 
-.logo {
-  width: rem(164);
-  height: auto;
-}
+  a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
 
-.address {
-  margin: 0;
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: rem(16);
-  line-height: 1.35;
-}
-
-.linksCol {
-  display: grid;
-  gap: rem(8);
-}
-
-.link {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: rem(16);
-  line-height: 1.2;
-  text-decoration: none;
-
-  &:hover {
-    color: #ff6a14;
+    &:hover {
+      color: var(--mint);
+    }
   }
 }
 
-.contactCol {
-  display: grid;
-  gap: rem(12);
-}
+.contact {
+  p {
+    font-weight: 300;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+  }
 
-.contactLink {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  font-size: rem(16);
-  line-height: 1.2;
-}
+  a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
 
-.storeCol {
-  justify-self: start;
-  display: grid;
-  gap: rem(10);
-
-  @include min(tablet) {
-    justify-self: end;
+    &:hover {
+      color: var(--mint);
+    }
   }
 }
 
-.hubbleXLogo {
-  width: rem(126);
-  height: auto;
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
 }
 
-.storeBadge {
-  min-width: rem(166);
+.twitterLockup {
   display: flex;
   align-items: center;
-  gap: rem(10);
-  background: #111;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: rem(10);
-  padding: rem(7) rem(10);
-  text-decoration: none;
-  color: #fff;
+  gap: 12px;
+
+  img {
+    height: 36px;
+    width: auto !important;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--orange);
+    line-height: 1;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+
+  a {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: var(--mint);
+      color: var(--mint);
+    }
+  }
+}
+
+.appBadge {
+  display: grid;
+  gap: 8px;
+  text-align: right;
+
+  span {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white);
+  }
 
   small {
-    display: block;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: rem(9);
-    line-height: 1.15;
-  }
-
-  strong {
-    display: block;
-    font-size: rem(16);
-    line-height: 1.1;
-    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    border: 1px solid rgba(166, 166, 166, 0.6);
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: #000;
+    font-size: 14px;
+    color: var(--muted);
   }
 }
 
-.playIcon {
-  width: rem(18);
-  height: rem(18);
-  display: inline-block;
-  background: linear-gradient(145deg, #2ed666 0%, #1ec0ff 45%, #fbc822 100%);
-  clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
-}
-
-.appleIcon {
-  width: rem(18);
-  height: rem(18);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-style: normal;
-  font-size: rem(18);
-}
-
-@include max(tablet) {
-  .address,
-  .link,
-  .contactLink {
-    font-size: rem(16);
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
 
-  .hubbleXLogo {
-    width: rem(108);
+  .app {
+    align-items: flex-start;
   }
+}
 
-  .storeBadge {
-    min-width: rem(170);
-
-    small {
-      font-size: rem(10);
-    }
-
-    strong {
-      font-size: rem(16);
-    }
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

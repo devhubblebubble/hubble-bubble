@@ -1,0 +1,174 @@
+.section {
+  padding: 32px var(--pad-x) 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  border-radius: 54px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  padding: clamp(32px, 4.6vw, 80px);
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(40px);
+    pointer-events: none;
+  }
+}
+
+.cardEdge {
+  &::before {
+    background: rgba(224, 3, 105, 0.15);
+    left: -42%;
+    top: -52%;
+  }
+  &::after {
+    background: rgba(217, 120, 232, 0.12);
+    right: -42%;
+    bottom: -52%;
+  }
+}
+
+.cardBos {
+  &::before {
+    background: rgba(0, 138, 101, 0.14);
+    left: -25%;
+    top: -52%;
+  }
+  &::after {
+    background: rgba(0, 0, 177, 0.16);
+    right: -42%;
+    bottom: -32%;
+  }
+}
+
+.cardCollab {
+  &::before {
+    background: rgba(108, 36, 119, 0.16);
+    right: -42%;
+    bottom: -32%;
+  }
+  &::after {
+    background: rgba(224, 3, 105, 0.12);
+    left: -42%;
+    top: -52%;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(40px, 6.5vw, 110px);
+  align-items: center;
+}
+
+.gridFlip {
+  grid-template-columns: auto 1fr;
+}
+
+.heading {
+  font-size: clamp(2rem, 3.7vw, 4rem);
+  line-height: 1.05;
+  color: var(--mint);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.text {
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.textRight {
+  text-align: right;
+}
+
+.logo {
+  width: clamp(220px, 26vw, 460px);
+  height: auto;
+  object-fit: contain;
+}
+
+.collabInner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+
+  .heading {
+    margin-bottom: 0;
+    max-width: 900px;
+  }
+
+  .text {
+    max-width: 1100px;
+    text-align: center;
+  }
+}
+
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.collabLogo {
+  height: clamp(36px, 4vw, 60px);
+  flex: 1 1 0;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: clamp(12px, 1.2vw, 20px);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+
+  span {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid,
+  .gridFlip {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .textRight {
+    text-align: center;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 28px;
+  }
+}

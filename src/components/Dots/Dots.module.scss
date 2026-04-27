@@ -1,0 +1,52 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1.5px solid var(--mint);
+  color: var(--mint);
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(120, 225, 197, 0.15);
+  }
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(120, 225, 197, 0.35);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dotActive {
+  width: 84px;
+  border-radius: 60px;
+  background: var(--mint);
+}
+
+@media (max-width: 640px) {
+  .dotActive {
+    width: 56px;
+  }
+}
