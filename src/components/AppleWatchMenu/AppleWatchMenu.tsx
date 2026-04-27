@@ -23,13 +23,13 @@ export function AppleWatchMenu() {
   const isTablet = windowWidth >= 768 && windowWidth < 1024;
 
   const deviceConfig = React.useMemo(() => {
-    if (isMobile) return { width: 350, height: 350 };
+    if (isMobile) return { width: 300, height: 300 };
     if (isTablet) return { width: 500, height: 500 };
     return { width: 700, height: 700 };
   }, [isMobile, isTablet]);
 
   const iconConfig = React.useMemo(() => {
-    if (isMobile) return { size: 80, margin: 20 };
+    if (isMobile) return { size: 64, margin: 16 };
     if (isTablet) return { size: 110, margin: 30 };
     return { size: 140, margin: 40 };
   }, [isMobile, isTablet]);

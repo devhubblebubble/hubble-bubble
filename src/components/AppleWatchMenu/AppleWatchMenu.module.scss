@@ -25,6 +25,10 @@
         opacity: 0.3;
         pointer-events: none;
     }
+
+    @include mix.max(mobile) {
+        padding: 72px 0;
+    }
 }
 
 .container {
@@ -36,6 +40,10 @@
     margin-bottom: 60px;
     z-index: 10;
     position: relative;
+
+    @include mix.max(mobile) {
+        margin-bottom: 32px;
+    }
 }
 
 .title {
@@ -44,6 +52,11 @@
     font-weight: 700;
     color: #fff;
     margin-bottom: 8px;
+
+    @include mix.max(mobile) {
+        font-size: clamp(2rem, 9vw, 2.4rem);
+        line-height: 1.1;
+    }
 }
 
 .subtitle {
@@ -51,6 +64,11 @@
     font-size: 1.25rem;
     color: vars.$text-secondary-color;
     max-width: 600px;
+
+    @include mix.max(mobile) {
+        font-size: 1.1rem;
+        max-width: 320px;
+    }
 }
 
 .deviceWrapper {
@@ -126,4 +144,22 @@
 }
 
 @include mix.max(mobile) {
+    .deviceWrapper {
+        perspective: 1000px;
+    }
+
+    .device {
+        border-width: 1.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
 }

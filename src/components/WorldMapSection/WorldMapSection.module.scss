@@ -1,0 +1,130 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.section {
+  @include section-spacing;
+  @include container;
+  background: $bg-color;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 100%;
+}
+
+.svgWrap {
+  width: 100%;
+  max-width: min(100%, 72rem);
+  margin: 0 auto;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.mapCredit {
+  margin: -0.5rem 0 0;
+  text-align: center;
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: rgba(120, 225, 197, 0.45);
+  max-width: 36rem;
+  padding: 0 $space-xs;
+
+  a {
+    color: rgba(120, 225, 197, 0.65);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: rgba(120, 225, 197, 0.9);
+    }
+  }
+}
+
+// Natural Earth–style SVG (paths ~black on transparent/white) → Figma land #111D1A + coast #78E1C5.
+.mapImage {
+  filter: invert(1) brightness(0.12) sepia(1) saturate(1.65) hue-rotate(118deg) contrast(1.12);
+}
+
+.arcs {
+  pointer-events: none;
+}
+
+.arcBase {
+  stroke: rgba(255, 79, 0, 0.22);
+  stroke-width: 0.85;
+  stroke-linecap: round;
+}
+
+.arcFlow {
+  stroke: #ff4f00;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-dasharray: 12 88;
+  stroke-dashoffset: 0;
+  animation: worldMapDash 4.2s linear infinite;
+}
+
+@keyframes worldMapDash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.nodes {
+  pointer-events: none;
+}
+
+.nodeLabel {
+  fill: #ff4f00;
+  font-family: var(--font-poppins), $font-primary, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  @include min(tablet) {
+    font-size: 12px;
+  }
+}
+
+.nodeDotOuter {
+  fill: rgba(255, 79, 0, 0.35);
+}
+
+.nodeDot {
+  fill: #ff4f00;
+}
+
+.headline {
+  font-family: var(--font-poppins), $font-primary, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: #78e1c5;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.35;
+  @include fluid-size(28, 18);
+  padding: 0 $space-xs;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcFlow {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.55;
+  }
+}
+
+@include max(mobile) {
+  .nodeLabel {
+    font-size: 9px;
+  }
+}

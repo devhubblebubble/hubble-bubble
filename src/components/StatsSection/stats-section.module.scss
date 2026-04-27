@@ -69,6 +69,11 @@
   padding: 2.1875rem 2.125rem; // p-[35px_34px]
   display: flex;
   flex-direction: column;
+
+  @include max(mobile) {
+    border-radius: 1.5rem;
+    padding: 1.5rem 1.25rem;
+  }
 }
 
 .cardHeader {
@@ -83,12 +88,21 @@
   font-weight: 700;
   color: #FFF;
   line-height: 1;
+
+  @include max(mobile) {
+    font-size: clamp(2.75rem, 12vw, 3.75rem);
+  }
 }
 
 .cardIcon {
   width: 4.875rem; // 78px
   height: 6.125rem; // 98px
   flex-shrink: 0;
+
+  @include max(mobile) {
+    width: 3rem;
+    height: 3.75rem;
+  }
 }
 
 .cardBody {
@@ -102,6 +116,11 @@
   color: #FFF;
   line-height: normal;
   margin-bottom: 1rem; // mb-4
+
+  @include max(mobile) {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
 }
 
 .cardDescription {
@@ -109,4 +128,31 @@
   font-weight: 500;
   color: #C1C1C1;
   line-height: normal;
+
+  @include max(mobile) {
+    font-size: clamp(1.125rem, 4.8vw, 1.375rem);
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-bottom: 2rem;
+  }
+
+  .statsGrid {
+    gap: 1rem;
+  }
+
+  .cardHeader {
+    margin-bottom: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 2.25rem;
+  }
+
+  .cardDescription {
+    font-size: 1rem;
+  }
 }
