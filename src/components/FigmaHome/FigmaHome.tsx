@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef, useCallback } from "react";
 import EligibilityModal from "@/components/EligibilityModal";
+import WorldMapSection from "@/components/WorldMapSection/WorldMapSection";
 import styles from "./FigmaHome.module.scss";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -310,20 +311,7 @@ export default function FigmaHome() {
         </section>
 
         {/* ── WORLD MAP ── */}
-        <section className={`${styles.world} ${styles.reveal}`}>
-          <div className={styles.worldGrid}>
-            {mapPins.map((pin) => (
-              <div
-                key={pin.label}
-                className={styles.countryPin}
-                style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
-              >
-                {pin.label}
-              </div>
-            ))}
-          </div>
-          <h2>Whatever your path, we are here for you!</h2>
-        </section>
+        <WorldMapSection />
 
         {/* ── PROOF CARDS ── */}
         <section className={styles.cards} id="about">

@@ -4,7 +4,7 @@
 .section {
   @include section-spacing;
   @include container;
-  background: $bg-color;
+  background: transparent;
 }
 
 .inner {
