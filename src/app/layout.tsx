@@ -24,17 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${poppins.variable}`}>
+      <body className={inter.className}>
         <ParallaxStars />
-          {/* <GlowEllipse
-        variant="hero"
-        position={{ 
-          top: '-761px', 
-          left: '797px' 
-        }}
-        size="large"
-        zIndex={5}
-      /> */}
         <ShootingStars />
         {children}
       </body>

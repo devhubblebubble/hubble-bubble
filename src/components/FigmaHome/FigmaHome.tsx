@@ -215,8 +215,6 @@ export default function FigmaHome() {
 
         {/* ── HERO ── */}
         <section className={styles.hero} id="top">
-          <video className={styles.heroVideoBg} src="/Video/nebula.mp4" autoPlay loop muted playsInline />
-          <div className={styles.heroShade} />
           <div className={styles.heroGrid}>
             <div className={`${styles.heroLeft} ${styles.reveal}`}>
               <h1 className={styles.heroHeadline}>
