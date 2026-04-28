@@ -19,7 +19,8 @@
       "Bash(npm run *)",
       "Bash(echo \"Started PID: $!\")",
       "mcp__Claude_Preview__preview_start",
-      "Bash(xargs kill *)"
+      "Bash(xargs kill *)",
+      "mcp__cc4e2eae-8731-4fbc-bcfe-7fd1ab8d6b0b__use_figma"
     ]
   }
 }

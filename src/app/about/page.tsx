@@ -1,5 +1,19 @@
+import NavBar from "@/components/NavBar/NavBar";
 import AboutUsPage from "@/components/AboutUs/AboutUsPage";
+import FooterSection from "@/components/FooterSection/FooterSection";
+
+export const metadata = {
+  title: "About Us | Hubble Bubble",
+  description:
+    "We didn't start this to send students abroad. Meet the team, read our story, and understand why we exist.",
+};
 
 export default function AboutPageRoute() {
-  return <AboutUsPage />;
+  return (
+    <main>
+      <NavBar />
+      <AboutUsPage />
+      <FooterSection />
+    </main>
+  );
 }

@@ -46,8 +46,8 @@ export default function NavBar() {
           onClick={() => setMobileOpen(false)}
         >
           <Link href="/services">Services</Link>
+          <Link href="/stories">Stories</Link>
           <Link href="/about">About us</Link>
-          <Link href="/blogs">More</Link>
           <Link href="/contact" className={styles.cta}>Contact Us</Link>
         </div>
       </div>

@@ -1,0 +1,150 @@
+// Privacy Policy page
+
+.page {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px var(--pad-x) 0;
+}
+
+// ── Header ───────────────────────────────────────────────────────────────────
+.header {
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.eyebrow {
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--mint);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.updated {
+  font-size: var(--fs-sm);
+  color: var(--dim);
+  margin-bottom: 24px;
+}
+
+.intro {
+  font-size: var(--fs-body);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+// ── Table of Contents ─────────────────────────────────────────────────────────
+.toc {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 64px;
+}
+
+.tocLabel {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.tocList {
+  list-style: decimal;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tocLink {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  transition: color 0.2s;
+
+  &:hover { color: var(--orange); }
+}
+
+// ── Sections ──────────────────────────────────────────────────────────────────
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.section {
+  scroll-margin-top: 100px;
+}
+
+.sectionTitle {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  p {
+    font-size: var(--fs-body);
+    color: var(--muted);
+    line-height: 1.75;
+
+    // Render bullet points properly
+    &:has(•) {
+      padding-left: 0;
+    }
+  }
+}
+
+// ── Footer note ───────────────────────────────────────────────────────────────
+.footNote {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+
+  p {
+    font-size: var(--fs-body);
+    color: var(--muted);
+  }
+}
+
+.footLink {
+  color: var(--orange);
+  text-decoration: underline;
+  font-weight: 600;
+
+  &:hover { opacity: 0.8; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .page { padding-top: 80px; }
+
+  .inner { padding: 40px var(--pad-x) 0; }
+
+  .toc { padding: 20px; }
+}

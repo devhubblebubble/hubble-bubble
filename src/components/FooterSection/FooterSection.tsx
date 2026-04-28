@@ -13,10 +13,10 @@ export default function FooterSection() {
 
         <nav className={styles.links} aria-label="Footer navigation">
           <Link href="/services">Services</Link>
-          <Link href="/contact">Contact Us</Link>
-          <Link href="/blogs">Blogs</Link>
+          <Link href="/stories">Stories</Link>
           <Link href="/about">About Us</Link>
-          <Link href="/careers">Careers</Link>
+          <Link href="/contact">Contact Us</Link>
+          <Link href="/privacy">Privacy Policy</Link>
           <Link href="/collaborate">Collaborate</Link>
         </nav>
 
