@@ -20,7 +20,9 @@
       "Bash(echo \"Started PID: $!\")",
       "mcp__Claude_Preview__preview_start",
       "Bash(xargs kill *)",
-      "mcp__cc4e2eae-8731-4fbc-bcfe-7fd1ab8d6b0b__use_figma"
+      "mcp__cc4e2eae-8731-4fbc-bcfe-7fd1ab8d6b0b__use_figma",
+      "Bash(cp \"/Users/sanju/Downloads/0a974116430c7cff74a601d6bb5aafc0dafdcca8.png\" \"/Users/sanju/websites/hubble works/hubble-website0.1/public/images/Teams/jevin.png\")",
+      "Bash(cp \"/Users/sanju/Downloads/e95b8fc133ac713725f4758c14f34d4977403165.png\" \"/Users/sanju/websites/hubble works/hubble-website0.1/public/images/Teams/fayzul.png\")"
     ]
   }
 }

@@ -1,68 +1,76 @@
+// Footer — matches Figma design
+
 .footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 72px var(--pad-x);
+  padding: 0 var(--pad-x) 64px;
+}
+
+.divider {
+  width: 100%;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto 64px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  gap: 56px;
-  align-items: end;
-  max-width: 1600px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
 }
 
+// ── Brand ─────────────────────────────────────────────────────────────────────
 .brand {
-  img {
-    height: clamp(64px, 5.5vw, 94px);
-    width: auto !important;
-    margin-bottom: 40px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-  p {
+  address {
+    font-style: normal;
     font-weight: 300;
     font-size: var(--fs-body);
-    line-height: 1.4;
+    line-height: 1.6;
+    color: var(--white);
   }
 }
 
+// ── Links ─────────────────────────────────────────────────────────────────────
 .links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   font-size: var(--fs-body);
   font-weight: 400;
 
   a {
     color: var(--white);
-    text-decoration: none;
     transition: color 0.2s;
 
-    &:hover {
-      color: var(--mint);
-    }
+    &:hover { color: var(--orange); }
   }
 }
 
+// ── Contact ───────────────────────────────────────────────────────────────────
 .contact {
-  p {
-    font-weight: 300;
-    font-size: var(--fs-body);
-    line-height: 1.6;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   a {
     color: var(--white);
+    font-size: var(--fs-body);
+    font-weight: 300;
     text-decoration: none;
     display: block;
     transition: color 0.2s;
 
-    &:hover {
-      color: var(--mint);
-    }
+    &:hover { color: var(--orange); }
   }
 }
 
+// ── App column ────────────────────────────────────────────────────────────────
 .app {
   display: flex;
   flex-direction: column;
@@ -70,83 +78,66 @@
   align-items: flex-end;
 }
 
-.twitterLockup {
+.badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 8px 16px;
+  min-width: 148px;
+  text-decoration: none;
+  color: var(--white);
+  transition: border-color 0.2s, background 0.2s;
 
-  img {
-    height: 36px;
-    width: auto !important;
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: #111;
   }
 
-  span {
-    font-weight: 700;
-    font-size: 36px;
-    color: var(--orange);
-    line-height: 1;
-  }
+  svg { flex-shrink: 0; }
 }
 
-.socials {
+.badgeText {
   display: flex;
-  gap: 16px;
-
-  a {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-decoration: none;
-    transition: all 0.2s;
-
-    &:hover {
-      border-color: var(--mint);
-      color: var(--mint);
-    }
-  }
+  flex-direction: column;
+  line-height: 1.1;
 }
 
-.appBadge {
-  display: grid;
-  gap: 8px;
-  text-align: right;
-
-  span {
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--white);
-  }
-
-  small {
-    display: inline-flex;
-    justify-content: center;
-    border: 1px solid rgba(166, 166, 166, 0.6);
-    border-radius: 8px;
-    padding: 10px 16px;
-    background: #000;
-    font-size: 14px;
-    color: var(--muted);
-  }
+.badgeSmall {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
+.badgeLarge {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 
-  .app {
-    align-items: flex-start;
-  }
+  .app { align-items: flex-start; }
 }
 
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  .grid { grid-template-columns: 1fr; }
+
+  .divider { margin-bottom: 40px; }
 }

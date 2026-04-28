@@ -44,54 +44,60 @@ export const servicesPageCopy = {
 
 export const hubbleServiceCards: ServiceCard[] = [
   {
-    id: "master-uk",
-    title: "Master UK University Like a Pro",
+    id: "study-abroad",
+    title: "Study Abroad Planning",
     description:
-      "From Confused International Student to Top Graduate in Just 9 Months of Focused Hustle",
+      "Make your study abroad journey more than just a relocation — it makes it a launchpad.",
   },
   {
-    id: "networking",
-    title: "Networking for Success",
+    id: "pre-departure",
+    title: "Pre-departure Preparation",
     description:
-      "Building connections with peers and professors that can last a lifetime, fueling your career.",
+      "From what to carry to what to expect, this prepares students mentally and practically.",
   },
   {
-    id: "cultural",
-    title: "Cultural Immersion Strategies",
+    id: "cultural-immersion",
+    title: "Cultural Immersion Workshops",
     description:
-      "Engage with the local culture through events, communities, and activities to enrich your experience.",
+      "Designed to connect students with the local culture.",
   },
   {
-    id: "job-hunt",
-    title: "Job Hunt Essentials",
+    id: "language-support",
+    title: "Language Support Programs",
     description:
-      "Master the art of CV writing and interview preparation to land your dream job after graduation.",
+      "Enhance your language skills with tailored programs that boost confidence and fluency.",
+  },
+  {
+    id: "post-arrival",
+    title: "Post-arrival Support",
+    description:
+      "Ongoing assistance to help you navigate your new environment and settle in.",
   },
 ];
 
 export const addOnServiceCards: ServiceCard[] = [
   {
-    id: "addon-mentoring",
-    title: "Premium mentoring blocks",
+    id: "addon-master-uk",
+    title: "Master UK University Like a Pro",
     description:
-      "Extra one-to-one sessions when you need a deeper dive on applications, visas, or career pivots.",
+      "From Confused International Student to Top Graduate in Just 9 Months of Focused Hustle.",
   },
   {
-    id: "addon-application",
-    title: "Application polish",
+    id: "addon-networking",
+    title: "Networking for Success",
     description:
-      "Dedicated review of your personal statement, CV, and portfolio before submission deadlines.",
+      "Building connections with peers and professors that can last a lifetime, fueling your career.",
   },
   {
-    id: "addon-visa",
-    title: "Visa & arrival support",
+    id: "addon-cultural",
+    title: "Cultural Immersion Strategies",
     description:
-      "Checklists and guidance for documentation, housing, and your first weeks in the UK.",
+      "Engage with the local culture through events, communities, and activities to enrich your experience.",
   },
   {
-    id: "addon-career",
-    title: "Career accelerator",
+    id: "addon-job-hunt",
+    title: "Job Hunt Essentials",
     description:
-      "Short sprints focused on internships, LinkedIn, and interview practice with industry mentors.",
+      "Master the art of CV writing and interview preparation to land your dream job after graduation.",
   },
 ];

@@ -5,58 +5,80 @@ import styles from "./FooterSection.module.scss";
 export default function FooterSection() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.divider} />
       <div className={styles.grid}>
+
+        {/* Brand + address */}
         <div className={styles.brand}>
-          <Image src="/images/logos/logo.svg" alt="Hubble Bubble" width={158} height={94} />
-          <p>9 Sighthill Ct,<br />Edinburgh<br />EH11 4BN, United Kingdom</p>
+          <Image
+            src="/images/logos/footer-hubblebubble.png"
+            alt="Hubble Bubble"
+            width={158}
+            height={94}
+            style={{ objectFit: "contain", objectPosition: "left" }}
+          />
+          <address>
+            <p>9 Sighthill Ct,</p>
+            <p>Edinburgh</p>
+            <p>EH11 4BN, United Kingdom</p>
+          </address>
         </div>
 
+        {/* Nav links */}
         <nav className={styles.links} aria-label="Footer navigation">
           <Link href="/services">Services</Link>
+          <Link href="/contact">Contact Us</Link>
           <Link href="/stories">Stories</Link>
           <Link href="/about">About Us</Link>
-          <Link href="/contact">Contact Us</Link>
-          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/careers">Careers</Link>
           <Link href="/collaborate">Collaborate</Link>
         </nav>
 
+        {/* Contact */}
         <div className={styles.contact}>
-          <p><a href="tel:+444342343242">+44 43423 43242</a></p>
-          <p><a href="mailto:contact@hubblebubble.uk">contact@hubblebubble.uk</a></p>
+          <a href="tel:+444342343242">+44 43423 43242</a>
+          <a href="mailto:contact@hubblebubble.uk">contact@hubblebubble.uk</a>
         </div>
 
+        {/* HubbleX + app badges */}
         <div className={styles.app}>
-          <div className={styles.twitterLockup}>
-            <Image src="/images/logos/logo.svg" alt="" width={36} height={22} />
-            <span>X</span>
-          </div>
-          <div className={styles.socials}>
-            <a href="#" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="2" y="2" width="20" height="20" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          <Image
+            src="/images/logos/footer-hubblex.png"
+            alt="HubbleX"
+            width={130}
+            height={40}
+            style={{ objectFit: "contain", objectPosition: "right" }}
+          />
+          <div className={styles.badges}>
+            {/* Google Play badge */}
+            <a
+              href="#"
+              className={styles.badge}
+              aria-label="Get it on Google Play"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.18 23.76c.38.22.82.27 1.24.14l11.9-6.87-2.62-2.62-10.52 9.35zM.5 2.1A1.74 1.74 0 0 0 0 3.37v17.26c0 .48.18.92.5 1.27l.07.06 9.67-9.67v-.23L.57 2.04.5 2.1zM20.3 10.5l-2.6-1.5-2.91 2.92 2.91 2.9 2.62-1.51a1.74 1.74 0 0 0 0-2.81zM4.42.1L16.33 7l-2.62 2.62L3.18.27A1.62 1.62 0 0 1 4.42.1z"/>
               </svg>
+              <div className={styles.badgeText}>
+                <span className={styles.badgeSmall}>GET IT ON</span>
+                <span className={styles.badgeLarge}>Google Play</span>
+              </div>
             </a>
-            <a href="#" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+
+            {/* App Store badge */}
+            <a
+              href="#"
+              className={styles.badge}
+              aria-label="Download on the App Store"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
               </svg>
+              <div className={styles.badgeText}>
+                <span className={styles.badgeSmall}>Download on the</span>
+                <span className={styles.badgeLarge}>App Store</span>
+              </div>
             </a>
-            <a href="#" aria-label="Facebook">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z" />
-              </svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.5 6.5a3 3 0 0 0-2.1-2.13C19.5 4 12 4 12 4s-7.5 0-9.4.37A3 3 0 0 0 .5 6.5C.13 8.4.13 12 .13 12s0 3.6.37 5.5a3 3 0 0 0 2.1 2.13C4.5 20 12 20 12 20s7.5 0 9.4-.37a3 3 0 0 0 2.1-2.13c.37-1.9.37-5.5.37-5.5s0-3.6-.37-5.5zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
-              </svg>
-            </a>
-          </div>
-          <div className={styles.appBadge}>
-            <span>HubbleX</span>
-            <small>Coming soon on mobile</small>
           </div>
         </div>
       </div>

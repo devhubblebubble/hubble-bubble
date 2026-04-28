@@ -28,14 +28,14 @@ export const teamMembers: TeamMember[] = [
     name: "Jevin Zac",
     title: "Chief Pathfinder",
     aka: "Founder",
-    image: "/images/Teams/jevin.webp",
+    image: "/images/Teams/jevin.png",
   },
   {
     id: "fayzul-choudhury",
     name: "Fayzul Choudhury",
     title: "Mission Engineer",
     aka: "CFO",
-    image: "/images/Teams/fayzul.webp",
+    image: "/images/Teams/fayzul.png",
   },
 ];
 
