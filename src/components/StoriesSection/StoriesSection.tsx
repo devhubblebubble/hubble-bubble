@@ -1,30 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import Dots from "@/components/Dots/Dots";
+import StoryRow from "@/components/StoryRow/StoryRow";
 import { useCarousel } from "@/hooks/useCarousel";
+import Dots from "@/components/Dots/Dots";
 import styles from "./StoriesSection.module.scss";
 
 const storyCards = [
   {
-    image: "/images/testimonial/student1.webp",
+    img: "/images/testimonial/student1.webp",
     headline: "Leaving Law Behind to Tell Stories That Matter and Impact.",
     body: "Nihal thought law school was his only option. But his essays revealed something else — a writer's voice. Now he's studying literature and published in two journals.",
-    link: "Read Nihal's story and journey →",
+    linkLabel: "Read Nihal's story and journey →",
+    href: "/stories",
   },
   {
-    image: "/images/testimonial/student2.webp",
+    img: "/images/testimonial/student2.webp",
     headline: "Building a Mission-Driven Career from the Ground Up.",
     body: "Serah came in considering an MBA. After career mapping sessions, she launched a social innovation project — and is now studying social entrepreneurship with a scholarship at University of St. Andrews.",
-    link: "Read Serah's story and journey →",
+    linkLabel: "Read Serah's story and journey →",
+    href: "/stories",
   },
 ];
 
 export default function StoriesSection() {
-  const { idx, go, setPaused } = useCarousel(storyCards.length, 7000);
+  const { idx, go, setPaused } = useCarousel(storyCards.length, 8000);
 
   return (
     <section className={styles.section} id="stories">
+      <div className={styles.header}>
+        <div className="reveal">
+          <h2>Student Stories</h2>
+        </div>
+        <Link href="/stories" className={styles.viewAll}>
+          View all stories
+        </Link>
+      </div>
+
+      {/* Carousel wrapper */}
       <div
         className={styles.trackWrap}
         onMouseEnter={() => setPaused(true)}
@@ -35,25 +48,15 @@ export default function StoriesSection() {
           style={{ transform: `translateX(-${idx * 100}%)` }}
         >
           {storyCards.map((s) => (
-            <article className={`${styles.story} reveal`} key={s.headline}>
-              <div
-                className={styles.image}
-                style={{ backgroundImage: `url('${s.image}')` }}
-              />
-              <div>
-                <h3 className={styles.headline}>{s.headline}</h3>
-                <div className={styles.rule} />
-                <p className={styles.body}>{s.body}</p>
-                <Link href="/stories" className={styles.link}>
-                  {s.link}
-                </Link>
-              </div>
-            </article>
+            <div className={styles.slide} key={s.headline}>
+              <StoryRow {...s} />
+            </div>
           ))}
         </div>
       </div>
 
-      <div className={styles.footer}>
+      {/* Dots */}
+      <div className={styles.dotsWrap}>
         <Dots
           count={storyCards.length}
           idx={idx}
@@ -62,9 +65,6 @@ export default function StoriesSection() {
           onDot={go}
           noMargin
         />
-        <Link href="/stories" className={styles.viewAll}>
-          View all stories
-        </Link>
       </div>
     </section>
   );

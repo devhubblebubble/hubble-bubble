@@ -1,0 +1,153 @@
+// StoryRow — exact Figma values from node 2063-1200
+// Image: 732px w / 630px h, border-radius 32px 0 0 32px
+// Content: 600px w, headline 48px/400, rule 240x6, body 24px/180%
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;   // Figma: align-items: flex-end
+  gap: 64px;               // Figma: gap: 64px
+  width: 100%;
+  min-height: 630px;
+}
+
+// ── Photo container ───────────────────────────────────────────────────────────
+.photoWrap {
+  position: relative;
+  flex: 0 0 52.4%;         // 732 / 1396 ≈ 52.4%
+  height: 630px;
+  border-radius: 32px 0 0 32px;   // Figma: border-radius: 32px 0px 0px 32px
+  overflow: hidden;
+  background: #111;
+  flex-shrink: 0;
+}
+
+// The Next/Image fill — mimics the absolute overflow effect in Figma
+// (image is bigger than container, clipped by overflow: hidden)
+.photoWrap :global(img) {
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.08);   // slight zoom = oversized image effect from Figma
+  transform-origin: center top;
+}
+
+// Edge fade — right side blends image into dark bg
+.fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(8, 8, 8, 0.35) 75%,
+    rgba(8, 8, 8, 0.75) 100%
+  );
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;               // Figma: gap: 24px (between heading block and body block)
+  max-width: 600px;        // Figma: width 600px
+  padding-bottom: 8px;     // small offset so text baseline aligns to bottom
+}
+
+// Heading block (title + rule)
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5.55px;             // Figma: gap: 5.55px
+  width: 100%;
+}
+
+.headline {
+  font-size: 48px;          // Figma: 48px
+  font-weight: 400;         // Figma: 400
+  line-height: 1.4;         // Figma: 140%
+  color: #ffffff;
+  margin: 0;
+}
+
+// Mint underline — Figma: 240px × 6px
+.rule {
+  width: 240px;
+  height: 6px;
+  background: #78e1c5;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+// Body block (text + link)
+.bodyBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22.2px;             // Figma: gap: 22.2px
+  width: 100%;
+}
+
+.body {
+  font-size: 24px;          // Figma: 24px
+  font-weight: 400;
+  line-height: 1.8;         // Figma: 180%
+  color: #ffffff;
+  margin: 0;
+}
+
+.link {
+  font-size: 24px;          // Figma: 24px
+  font-weight: 500;
+  line-height: 1.8;
+  text-decoration: underline;
+  color: #ff4f00;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.72; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 1100px) {
+  .headline { font-size: clamp(1.75rem, 3.5vw, 3rem); }
+  .body,
+  .link     { font-size: clamp(1rem, 2vw, 1.5rem); }
+  .rule     { width: clamp(120px, 16vw, 240px); }
+}
+
+@media (max-width: 900px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    min-height: unset;
+  }
+
+  .photoWrap {
+    flex: none;
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;   // all corners on mobile
+
+    :global(img) { transform: none; }
+  }
+
+  .fade {
+    background: linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(8, 8, 8, 0.6) 80%,
+      rgba(8, 8, 8, 0.9) 100%
+    );
+  }
+
+  .content { max-width: 100%; padding-bottom: 0; }
+
+  .headline { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+  .body,
+  .link     { font-size: clamp(0.95rem, 2.5vw, 1.25rem); }
+  .rule     { width: 120px; height: 4px; }
+}

@@ -1,111 +1,159 @@
-// About Us page — matches Figma design bEEtOealc6OJ7q5z84PRCV
-// Background is transparent — global stars background shows through
+// About Us — pixel-matched to Figma screenshots
 
 .page {
   width: 100%;
-  padding-top: 120px; // offset for fixed NavBar
+  padding-top: 100px;
+  padding-bottom: 120px;
 }
 
-// ── Shared accent colours ────────────────────────────────────────────────────
-.orange { color: var(--orange); font-style: normal; }
+// ── Colour helpers ─────────────────────────────────────────────────────────────
 .mint   { color: var(--mint);   font-style: normal; }
+.orange { color: var(--orange); font-style: normal; }
 
-// ── Intro Section ───────────────────────────────────────────────────────────
+// ── Breadcrumb ─────────────────────────────────────────────────────────────────
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  padding: 0 var(--pad-x);
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto 48px;
+}
+
+.breadLink {
+  color: var(--muted);
+  transition: color 0.2s;
+  &:hover { color: var(--white); }
+}
+
+.breadSep { color: var(--dim); font-size: 1rem; }
+
+.breadCurrent {
+  color: var(--white);
+  font-weight: 700;
+}
+
+// ── Intro sections ─────────────────────────────────────────────────────────────
 .introSection {
-  padding: 80px var(--pad-x) 96px;
+  padding: 40px var(--pad-x) 48px;
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
   text-align: center;
 }
 
-.introBlock {
-  max-width: 1040px;
-  margin: 0 auto;
+// "We didn't start this..."
+.introH1 {
+  font-size: clamp(1.75rem, 3vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 20px;
 }
 
-.introHeading {
-  font-size: clamp(2rem, 3.5vw, 4rem);
+// "We started it so they land..."
+.introH2 {
+  font-size: clamp(1.75rem, 3vw, 3.5rem);
   font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 24px;
-
-  em {
-    font-style: italic;
-    color: var(--white);
-  }
-}
-
-.introHeading2 {
-  font-size: clamp(2rem, 3.5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 24px;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 20px;
 }
 
 .introBod {
   font-size: var(--fs-body);
   color: var(--muted);
-  max-width: 700px;
+  max-width: 640px;
   margin: 0 auto;
   line-height: 1.7;
+
+  strong {
+    color: var(--white);
+    font-weight: 600;
+  }
 }
 
-// ── Team Section ─────────────────────────────────────────────────────────────
+// ── Team ───────────────────────────────────────────────────────────────────────
 .teamSection {
-  padding: 80px var(--pad-x) 96px;
+  padding: 72px var(--pad-x) 80px;
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
   text-align: center;
 }
 
-.sectionLabel {
-  font-size: var(--fs-h2);
+.teamHeading {
+  font-size: clamp(1.75rem, 2.8vw, 3rem);
   font-weight: 400;
-  margin-bottom: 56px;
   color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.teamSub {
+  font-size: var(--fs-body);
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 auto 56px;
+  line-height: 1.7;
+
+  strong {
+    color: var(--white);
+    font-weight: 600;
+  }
 }
 
 .teamGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  max-width: 1474px;
+  gap: 32px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+// Card — photo fills card, name/role overlaid at bottom
 .teamCard {
-  text-align: left;
+  border-radius: 13px;
+  overflow: hidden;
 }
 
 .cardPhoto {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 2;
-  border-radius: 13px;
-  overflow: hidden;
+  aspect-ratio: 3 / 3.2;
   background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 20px;
+  overflow: hidden;
+}
 
-  // fallback gradient for missing images
-  &:not(:has(img[src])) {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  }
+// Dark gradient over bottom of photo
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(0, 0, 0, 0.55) 70%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 20px 24px;
+  z-index: 1;
 }
 
 .memberName {
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  font-weight: 700;
+  font-size: clamp(1.1rem, 1.6vw, 1.75rem);
+  font-weight: 600;
   color: var(--orange);
-  margin-bottom: 8px;
+  line-height: 1.2;
+  margin-bottom: 4px;
 }
 
 .memberRole {
   font-size: var(--fs-sm);
   color: var(--white);
+  font-weight: 300;
 }
 
 .aka {
@@ -113,38 +161,91 @@
   font-style: italic;
 }
 
-.akaRole {
-  color: var(--muted);
+// Story / Timeline handled by StoryTimeline component
+
+// ── Mission / Vision ───────────────────────────────────────────────────────────
+.missionSection {
+  padding: 72px var(--pad-x);
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-// ── Story / Timeline Section ─────────────────────────────────────────────────
-.storySection {
-  padding: 80px var(--pad-x) 96px;
-  max-width: calc(var(--max) + var(--pad-x) * 2);
+// "why we are here?"
+.missionLabel {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+// "a. k. a the mission"
+.missionAlias {
+  font-size: var(--fs-sm);
+  color: #6a6a6a;
+  margin-bottom: 32px;
+}
+
+// Large body matching screenshot (about 32-48px)
+.missionBody {
+  font-size: clamp(1.4rem, 2.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--white);
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.storyLayout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+// ── CTA sections ───────────────────────────────────────────────────────────────
+.ctaSection {
+  padding: 80px var(--pad-x);
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.storyLeft {
-  position: sticky;
-  top: 120px;
+.collabSection {
+  padding: 80px var(--pad-x) 48px;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.storyHeading {
-  font-size: clamp(2rem, 3.5vw, 4rem);
-  font-weight: 600;
-  line-height: 1.15;
+// "Feels right? Lets Talk!" + "We might just be the crew you need."
+.ctaHeading {
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.3;
   color: var(--white);
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-.storyBtn {
+// "Whether you're still figuring things out..."
+.ctaSub {
+  font-size: var(--fs-body);
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+
+  strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.ctaPrimary {
   display: inline-flex;
   align-items: center;
   padding: 12px 28px;
@@ -158,213 +259,42 @@
   &:hover { opacity: 0.85; }
 }
 
-// Timeline
-.timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    transform: translateX(-50%);
-    background: rgba(120, 225, 197, 0.35);
-  }
-}
-
-.timelineItem {
-  display: grid;
-  grid-template-columns: 1fr 66px 1fr;
-  align-items: center;
-  gap: 0;
-}
-
-.timelineCenter {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.timelineDot {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 2px solid var(--mint);
-  background: var(--bg);
-  box-shadow: 0 0 12px rgba(120, 225, 197, 0.4);
-}
-
-.timelineLeft {
-  padding-right: 32px;
-  text-align: right;
-}
-
-.timelineRight {
-  padding-left: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.timelineYear {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 14px;
-  border-radius: 20px;
-  background: var(--mint);
-  color: #000;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  width: fit-content;
-}
-
-.timelineContent {
-  h4 { color: var(--mint); }
-}
-
-.timelineTitle {
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
-  font-weight: 600;
-  color: var(--mint);
-  margin-bottom: 6px;
-}
-
-.timelineDesc {
-  font-size: var(--fs-sm);
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-// ── Mission / Vision Sections ─────────────────────────────────────────────────
-.textSection {
-  padding: 64px var(--pad-x);
-  max-width: calc(var(--max) + var(--pad-x) * 2);
-  margin: 0 auto;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.textLabel {
-  font-size: var(--fs-h3);
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.textAlias {
-  font-size: var(--fs-sm);
-  color: #6a6a6a;
-  margin-bottom: 32px;
-  font-style: italic;
-}
-
-.textBody {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
-  line-height: 1.3;
-  color: var(--white);
-  max-width: 960px;
-  margin: 0 auto;
-  font-weight: 400;
-}
-
-// ── CTA Sections ─────────────────────────────────────────────────────────────
-.ctaSection,
-.collabSection {
-  padding: 96px var(--pad-x);
-  max-width: calc(var(--max) + var(--pad-x) * 2);
-  margin: 0 auto;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.ctaHeading,
-.collabHeading {
-  font-size: clamp(1.75rem, 3vw, 3rem);
-  font-weight: 400;
-  line-height: 1.25;
-  color: var(--white);
-  margin-bottom: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ctaMuted,
-.collabMuted {
-  font-size: var(--fs-body);
-  color: var(--muted);
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.7;
-}
-
-.ctaRow {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-
-.ctaPrimary {
-  display: inline-flex;
-  align-items: center;
-  padding: 14px 32px;
-  border-radius: 8px;
-  background: var(--orange);
-  color: #000;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  transition: opacity 0.2s;
-
-  &:hover { opacity: 0.85; }
-}
-
 .ctaGhost {
   display: inline-flex;
   align-items: center;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: var(--white);
   font-size: var(--fs-sm);
   font-weight: 400;
-  backdrop-filter: blur(6px);
   transition: border-color 0.2s;
 
-  &:hover { border-color: rgba(255, 255, 255, 0.6); }
+  &:hover { border-color: rgba(255, 255, 255, 0.65); }
 }
 
-.email {
+.ctaEmail {
   font-size: var(--fs-sm);
   color: var(--muted);
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .emailLink {
-  color: var(--orange);
+  color: var(--white);
   text-decoration: underline;
+  transition: color 0.2s;
+
+  &:hover { color: var(--orange); }
 }
 
-// ── Mobile ────────────────────────────────────────────────────────────────────
+// ── Mobile ─────────────────────────────────────────────────────────────────────
 @media (max-width: 1100px) {
   .teamGrid {
-    grid-template-columns: 1fr;
-    max-width: 580px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 720px;
     margin: 0 auto;
-    gap: 48px;
+    gap: 20px;
   }
-
-  .teamCard { text-align: center; }
 
   .storyLayout {
     grid-template-columns: 1fr;
@@ -375,49 +305,21 @@
     position: static;
     text-align: center;
   }
+
+  .storyHeading {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 28px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .page { padding-top: 80px; }
 
-  .introSection { gap: 56px; padding: 48px var(--pad-x) 64px; }
+  .teamGrid { grid-template-columns: 1fr; max-width: 420px; }
 
-  .teamSection,
-  .storySection { padding: 48px var(--pad-x) 64px; }
+  .cardPhoto { aspect-ratio: 3 / 2.5; }
 
-  // Simplify timeline on mobile — vertical single column
-  .timeline::before {
-    left: 11px;
-    transform: none;
-  }
+  .timeline { padding-left: 28px; }
 
-  .timelineItem {
-    grid-template-columns: 22px 1fr;
-    grid-template-rows: auto auto;
-    gap: 8px 16px;
-  }
-
-  .timelineLeft { display: none; }
-
-  .timelineCenter {
-    grid-column: 1;
-    grid-row: 1;
-    justify-content: flex-start;
-  }
-
-  .timelineRight {
-    grid-column: 2;
-    grid-row: 1;
-    padding-left: 0;
-  }
-
-  // even items — same layout on mobile
-  .timelineItem:nth-child(even) {
-    .timelineLeft  { display: none; }
-    .timelineRight { display: flex; }
-  }
-
-  .textBody {
-    font-size: clamp(1.25rem, 4vw, 1.75rem);
-  }
+  .missionBody { font-size: clamp(1.15rem, 4vw, 1.75rem); }
 }

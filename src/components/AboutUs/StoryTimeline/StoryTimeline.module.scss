@@ -1,0 +1,262 @@
+// StoryTimeline — scroll-driven sticky panel + vertical slide + rocket progress
+
+// ── Scroll spacer ─────────────────────────────────────────────────────────────
+// Height set inline (total * 100vh). position:relative lets the sticky child work.
+.section {
+  position: relative;
+  // intentionally no padding / max-width here — that lives in .sticky
+}
+
+// Sticky viewport frame — stays in view while the section scrolls underneath
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+// ── Two-column layout ─────────────────────────────────────────────────────────
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  padding: 0 var(--pad-x);
+  margin: 0 auto;
+}
+
+// ── Left — heading (no extra sticky needed; .sticky handles it) ───────────────
+.left {
+  // no position:sticky — the whole frame is already sticky
+}
+
+.heading {
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 48px;
+}
+
+.mint {
+  color: var(--mint);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--orange);
+  color: #000;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
+}
+
+// ── Right — slide area + rocket track ────────────────────────────────────────
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding-right: 64px; // column for rocket track
+}
+
+// ── Vertical Swipe Slider ─────────────────────────────────────────────────────
+.sliderWrap {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Single visible slide — re-keyed on every navigation to retrigger @keyframes
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+// Scroll forward (later year): enter from below
+.slideFromBottom {
+  animation: slideInBottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+// Scroll backward (earlier year): enter from above
+.slideFromTop {
+  animation: slideInTop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slideInBottom {
+  from { opacity: 0; transform: translateY(64px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideInTop {
+  from { opacity: 0; transform: translateY(-64px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+// Connector lines between pill → node and node → text
+.connector {
+  width: 2px;
+  height: 36px;
+  background: var(--mint);
+  opacity: 0.4;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+// ── Year pill ─────────────────────────────────────────────────────────────────
+.yearPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 24px;
+  border-radius: 24px;
+  background: var(--mint);
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+// ── Crosshair circle node ─────────────────────────────────────────────────────
+.node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--mint);
+  background: #080808;
+  box-shadow: 0 0 18px rgba(120, 225, 197, 0.3);
+  flex-shrink: 0;
+}
+
+// ── Text ──────────────────────────────────────────────────────────────────────
+.title {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 600;
+  color: var(--mint);
+}
+
+.desc {
+  font-size: var(--fs-body);
+  color: var(--white);
+  line-height: 1.75;
+  max-width: 340px;
+}
+
+// ── Rocket Progress Track ─────────────────────────────────────────────────────
+
+// Outer wrapper — absolutely pinned to the right of .right
+.progressWrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+// Full-height dim track + relative anchor for children
+.progressBar {
+  position: relative;
+  width: 2px;
+  height: 100%;
+  background: rgba(120, 225, 197, 0.18);
+  border-radius: 1px;
+}
+
+// Bright fill that grows upward from bottom
+.progressLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--mint);
+  border-radius: 1px;
+  transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(120, 225, 197, 0.55);
+}
+
+// Rocket — climbs using `bottom` percentage
+.rocketContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.rocketIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 8px rgba(255, 79, 0, 0.65));
+}
+
+// Flickering flame beneath the rocket
+.rocketFlame {
+  width: 10px;
+  height: 18px;
+  margin-top: -3px;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 200, 50, 0.95) 0%,
+    rgba(255, 100, 0, 0.8)   50%,
+    rgba(255, 50,  0, 0)     100%
+  );
+  animation: flicker 0.25s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+@keyframes flicker {
+  0%   { transform: scaleX(1)    scaleY(1);    opacity: 0.9;  }
+  33%  { transform: scaleX(0.75) scaleY(1.1);  opacity: 1;    }
+  66%  { transform: scaleX(1.15) scaleY(0.9);  opacity: 0.85; }
+  100% { transform: scaleX(0.85) scaleY(1.05); opacity: 0.95; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .left { text-align: center; }
+
+  .heading { font-size: clamp(2rem, 6vw, 3.5rem); }
+
+  .right { padding-right: 48px; }
+}
+
+@media (max-width: 640px) {
+  .sticky { align-items: flex-start; padding-top: 100px; }
+  .heading { font-size: clamp(1.8rem, 7vw, 3rem); margin-bottom: 28px; }
+  .right { padding-right: 40px; }
+  .desc { font-size: var(--fs-sm); }
+  .sliderWrap { min-height: 320px; }
+}

@@ -68,4 +68,11 @@ export const timelineItems: TimelineItem[] = [
     description:
       "The mentoring project turns into a platform. Honest advice, passion-first alignment, and zero shady commissions.",
   },
+  {
+    id: "hubblex-2025",
+    year: "2025",
+    title: "Hubble Goes Global",
+    description:
+      "HubbleX launches — a full-stack platform for international students. One place for guidance, planning, and community across borders.",
+  },
 ];

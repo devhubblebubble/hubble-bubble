@@ -1,254 +1,105 @@
-// Stories page
+// Stories page — Figma node 2063-1200
 
 .page {
   width: 100%;
-  padding-top: 120px;
-}
-
-.orange { color: var(--orange); font-style: normal; }
-
-// ── Hero ─────────────────────────────────────────────────────────────────────
-.hero {
-  padding: 80px var(--pad-x) 72px;
+  padding-top: 100px;
+  padding-bottom: 120px;
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
-  text-align: center;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
 }
 
-.heroEyebrow {
+// ── Breadcrumb ────────────────────────────────────────────────────────────────
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: var(--fs-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--mint);
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.heroTitle {
-  font-size: var(--fs-display);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 24px;
-
-  em { font-style: normal; }
-}
-
-.heroLead {
-  font-size: var(--fs-body);
   color: var(--muted);
-  max-width: 680px;
-  margin: 0 auto;
-  line-height: 1.7;
+  margin-bottom: 48px;
 }
 
-// ── Stories Grid ─────────────────────────────────────────────────────────────
-.grid {
-  padding: 0 var(--pad-x) 96px;
-  max-width: calc(var(--max) + var(--pad-x) * 2);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-
-  // Featured card spans full row
-  .featured {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 56px;
-    align-items: center;
-    padding: 48px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-
-    .cardPhoto {
-      aspect-ratio: 16 / 9;
-    }
-
-    .cardHeadline {
-      font-size: var(--fs-h2);
-    }
-
-    .cardText {
-      font-size: var(--fs-body);
-    }
-  }
+.breadLink {
+  color: var(--muted);
+  transition: color 0.2s;
+  &:hover { color: var(--white); }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: border-color 0.3s, transform 0.3s;
+.breadSep { color: var(--dim); }
 
-  &:hover {
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
-  }
-}
-
-.cardPhoto {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: #1a1a1a;
-  overflow: hidden;
-}
-
-.tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: var(--mint);
-  color: #000;
-  font-size: 0.75rem;
-  font-weight: 700;
-  z-index: 1;
-}
-
-.cardBody {
-  padding: 28px 24px 32px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.cardHeadline {
-  font-size: var(--fs-h3);
-  font-weight: 600;
+.breadCurrent {
   color: var(--white);
-  line-height: 1.25;
-  margin-bottom: 16px;
+  font-weight: 600;
 }
 
-.cardText {
-  font-size: var(--fs-sm);
-  color: var(--muted);
-  line-height: 1.7;
-  flex: 1;
-  margin-bottom: 24px;
-}
-
-.cardMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.metaName {
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
-  font-weight: 700;
-  color: var(--orange);
-}
-
-.metaCourse {
-  font-size: var(--fs-sm);
-  color: var(--white);
-}
-
-.metaUni {
-  font-size: var(--fs-sm);
-  color: var(--muted);
-  font-style: italic;
-}
-
-// ── CTA ──────────────────────────────────────────────────────────────────────
-.cta {
-  padding: 96px var(--pad-x);
-  max-width: calc(var(--max) + var(--pad-x) * 2);
-  margin: 0 auto;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.ctaTitle {
+// ── Title ─────────────────────────────────────────────────────────────────────
+.title {
   font-size: var(--fs-h1);
-  font-weight: 700;
-  margin-bottom: 20px;
-
-  em { font-style: normal; }
+  font-weight: 400;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 64px;
 }
 
-.ctaLead {
-  font-size: var(--fs-body);
-  color: var(--muted);
-  max-width: 580px;
-  margin: 0 auto 40px;
-  line-height: 1.7;
+// ── Story list — Figma: gap: 100px ────────────────────────────────────────────
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;            // Figma Frame 6093: gap: 100px
 }
 
-.ctaRow {
+// ── Pagination ────────────────────────────────────────────────────────────────
+.pagination {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 80px;
 }
 
-.ctaPrimary {
-  display: inline-flex;
-  align-items: center;
-  padding: 14px 32px;
-  border-radius: 8px;
-  background: var(--orange);
-  color: #000;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  transition: opacity 0.2s;
-
-  &:hover { opacity: 0.85; }
-}
-
-.ctaGhost {
-  display: inline-flex;
-  align-items: center;
-  padding: 14px 32px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.pageArrow,
+.pageBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
   color: var(--white);
-  font-size: var(--fs-sm);
-  font-weight: 400;
-  transition: border-color 0.2s;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
 
-  &:hover { border-color: rgba(255, 255, 255, 0.6); }
+  &:hover:not(:disabled) {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.pageArrow { font-size: 1.3rem; }
+
+.pageBtnActive {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
 }
 
 // ── Responsive ────────────────────────────────────────────────────────────────
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-
-    .featured {
-      grid-column: 1 / -1;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      padding: 32px;
-
-      .cardHeadline { font-size: var(--fs-h3); }
-    }
-  }
+@media (max-width: 900px) {
+  .list { gap: 56px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .page { padding-top: 80px; }
-
-  .hero { padding: 48px var(--pad-x) 48px; }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-
-    .featured {
-      padding: 24px;
-
-      .cardPhoto { aspect-ratio: 4 / 3; }
-    }
-  }
+  .title { font-size: var(--fs-h2); margin-bottom: 40px; }
+  .list { gap: 40px; }
 }
