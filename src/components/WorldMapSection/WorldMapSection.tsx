@@ -137,17 +137,6 @@ export default function WorldMapSection() {
           </svg>
         </div>
 
-        <p className={styles.mapCredit}>
-          Country boundaries: Natural Earth–style map (CC BY 4.0,{" "}
-          <a
-            href="https://github.com/VictorCazanave/svg-maps/tree/master/packages/world"
-            rel="noopener noreferrer"
-          >
-            svg-maps/world
-          </a>
-          ).
-        </p>
-
         <h2 id="world-map-heading" className={styles.headline}>
           Whatever your path, we are here for you!
         </h2>

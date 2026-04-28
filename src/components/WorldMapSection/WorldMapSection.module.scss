@@ -5,6 +5,11 @@
   @include section-spacing;
   @include container;
   background: transparent;
+
+  // Trim the global container side padding so the map can grow wider on
+  // larger screens while still keeping a comfortable mobile floor.
+  padding-left: clamp(0.75rem, 2vw, 2rem);
+  padding-right: clamp(0.75rem, 2vw, 2rem);
 }
 
 .inner {
@@ -17,7 +22,7 @@
 
 .svgWrap {
   width: 100%;
-  max-width: min(100%, 72rem);
+  max-width: min(100%, 108rem);
   margin: 0 auto;
 }
 
@@ -26,26 +31,6 @@
   height: auto;
   display: block;
   overflow: visible;
-}
-
-.mapCredit {
-  margin: -0.5rem 0 0;
-  text-align: center;
-  font-size: 0.65rem;
-  line-height: 1.4;
-  color: rgba(120, 225, 197, 0.45);
-  max-width: 36rem;
-  padding: 0 $space-xs;
-
-  a {
-    color: rgba(120, 225, 197, 0.65);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-
-    &:hover {
-      color: rgba(120, 225, 197, 0.9);
-    }
-  }
 }
 
 // Natural Earth–style SVG (paths ~black on transparent/white) → Figma land #111D1A + coast #78E1C5.

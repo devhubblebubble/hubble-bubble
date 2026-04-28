@@ -63,8 +63,11 @@ export default function JourneySection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const lastProgressRef = useRef(0);
 
-  const handleScroll = useCallback(() => {
+  const computeAndApplyProgress = useCallback(() => {
+    rafRef.current = null;
     if (!sectionRef.current) return;
     const rect = sectionRef.current.getBoundingClientRect();
     const sectionHeight = sectionRef.current.offsetHeight;
@@ -73,20 +76,40 @@ export default function JourneySection() {
     if (totalScroll <= 0) return;
 
     const rawProgress = Math.max(0, Math.min(1, scrolled / totalScroll));
+
+    // Skip near-identical updates so we don't churn React/three.js on every
+    // sub-pixel scroll event. Always honor the 0/1 endpoints.
+    const isEndpoint = rawProgress === 0 || rawProgress === 1;
+    if (!isEndpoint && Math.abs(rawProgress - lastProgressRef.current) < 0.001) {
+      return;
+    }
+    lastProgressRef.current = rawProgress;
     setProgress(rawProgress);
 
     const index = Math.min(
       Math.floor(rawProgress * steps.length * 0.999),
       steps.length - 1,
     );
-    setActiveIndex(index);
+    setActiveIndex((prev) => (prev !== index ? index : prev));
   }, []);
+
+  const handleScroll = useCallback(() => {
+    // Coalesce rapid scroll events into a single update per animation frame.
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(computeAndApplyProgress);
+  }, [computeAndApplyProgress]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    computeAndApplyProgress();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, [handleScroll, computeAndApplyProgress]);
 
   const currentStep = steps[activeIndex];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./JourneySectionCountryGlobe.module.scss";
 
 type TeamPresenceItem = {
@@ -46,6 +46,7 @@ type GlobeInstance = {
   controls: () =>
     | { autoRotate?: boolean; autoRotateSpeed?: number }
     | undefined;
+  renderer?: () => { setPixelRatio?: (n: number) => void } | undefined;
   enablePointerInteraction: (value: boolean) => GlobeInstance;
   _destructor?: () => void;
 };
@@ -79,7 +80,7 @@ interface JourneySectionCountryGlobeProps {
   rotation?: number;
 }
 
-export default function JourneySectionCountryGlobe({
+function JourneySectionCountryGlobe({
   data = DEFAULT_TEAM_DATA,
   onlyGlobe = false,
   className,
@@ -88,6 +89,7 @@ export default function JourneySectionCountryGlobe({
   const containerRef = useRef<HTMLDivElement>(null);
   const globeRef = useRef<GlobeInstance | null>(null);
   const readyRef = useRef(false);
+  const lastAppliedLngRef = useRef<number | null>(null);
   const [countries, setCountries] = useState<CountryFeature[]>([]);
 
   const normalizedDataMap = useMemo(() => {
@@ -190,14 +192,23 @@ export default function JourneySectionCountryGlobe({
           const value = normalizedDataMap.get(iso3) ?? normalizedDataMap.get(name);
           return value ? 0.001 : 0;
         })
-        .polygonsTransitionDuration(250)
+        .polygonsTransitionDuration(0)
         .enablePointerInteraction(false)
-        .pointOfView(BASE_VIEW);
+        .pointOfView(BASE_VIEW, 0);
+
+      // Cap pixel ratio so retina displays don't render 4-9× the pixels we
+      // actually need — this is the single biggest win for globe perf.
+      const renderer = globe.renderer?.();
+      if (renderer?.setPixelRatio) {
+        const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+        renderer.setPixelRatio(Math.min(dpr, 1.5));
+      }
 
       const controls = globe.controls();
       if (controls) {
-        controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.45;
+        // Rotation is driven by scroll progress; auto-rotate would force a
+        // continuous render loop on top of that and tank performance.
+        controls.autoRotate = false;
       }
       readyRef.current = true;
 
@@ -231,13 +242,26 @@ export default function JourneySectionCountryGlobe({
     const targetLng =
       BASE_VIEW.lng + normalizedRotation * SCROLL_ROTATION_DEGREES;
 
+    // Skip if the camera is already at this longitude (within ~0.1°). This
+    // avoids re-issuing a render for noise-level changes.
+    if (
+      lastAppliedLngRef.current !== null &&
+      Math.abs(lastAppliedLngRef.current - targetLng) < 0.1
+    ) {
+      return;
+    }
+    lastAppliedLngRef.current = targetLng;
+
+    // Snap (0 ms) instead of tweening — repeated scroll updates would
+    // otherwise interrupt and restart a 220 ms tween every frame, which is
+    // what made the globe feel laggy.
     globeRef.current.pointOfView(
       {
         lat: BASE_VIEW.lat,
         lng: targetLng,
         altitude: BASE_VIEW.altitude,
       },
-      220
+      0
     );
   }, [rotation]);
 
@@ -269,3 +293,5 @@ export default function JourneySectionCountryGlobe({
     </section>
   );
 }
+
+export default memo(JourneySectionCountryGlobe);
