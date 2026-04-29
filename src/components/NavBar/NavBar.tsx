@@ -3,11 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./NavBar.module.scss";
 
+const NAV_LINKS = [
+  { href: "/services", label: "Services" },
+  { href: "/stories",  label: "Stories"  },
+  { href: "/about",    label: "About us"  },
+];
+
 export default function NavBar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
+  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -16,9 +24,14 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
+
+        {/* Logo */}
         <Link href="/" aria-label="Hubble Bubble home">
           <Image
             src="/images/logos/logo.svg"
@@ -30,26 +43,47 @@ export default function NavBar() {
           />
         </Link>
 
+        {/* Hamburger / close toggle */}
         <button
           className={styles.toggle}
           onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
-          </svg>
+          {mobileOpen ? (
+            /* ✕ icon */
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6 6 18M6 6l12 12" strokeLinecap="round" />
+            </svg>
+          ) : (
+            /* ☰ icon */
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
+            </svg>
+          )}
         </button>
 
-        <div
-          className={`${styles.links} ${mobileOpen ? styles.linksOpen : ""}`}
-          onClick={() => setMobileOpen(false)}
-        >
-          <Link href="/services">Services</Link>
-          <Link href="/stories">Stories</Link>
-          <Link href="/about">About us</Link>
-          <Link href="/contact" className={styles.cta}>Contact Us</Link>
+        {/* Links */}
+        <div className={`${styles.links} ${mobileOpen ? styles.linksOpen : ""}`}>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={pathname.startsWith(href) ? styles.active : ""}
+              onClick={() => setMobileOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            className={`${styles.cta} ${pathname === "/contact" ? styles.ctaActive : ""}`}
+            onClick={() => setMobileOpen(false)}
+          >
+            Contact Us
+          </Link>
         </div>
+
       </div>
     </nav>
   );

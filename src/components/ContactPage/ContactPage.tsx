@@ -100,7 +100,7 @@ export default function ContactPage() {
               Take our free eligibility check. It takes 3 minutes and gives you
               a clear picture of your options.
             </p>
-            <Link href="/eligibility" className={styles.eligBtn}>
+            <Link href="/contact" className={styles.eligBtn}>
               Take the eligibility Test →
             </Link>
           </div>

@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.line {
+  width: 100%;
+  max-width: 56rem;
+  height: 1px;
+  opacity: 0.8;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #ffffff 50%,
+    transparent 100%
+  );
+}

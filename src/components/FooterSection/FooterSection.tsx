@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import Beam from "@/components/Beam/Beam";
 import styles from "./FooterSection.module.scss";
 
 export default function FooterSection() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.divider} />
+      <Beam className={styles.beamSpacing} />
       <div className={styles.grid}>
 
         {/* Brand + address */}
@@ -27,11 +28,11 @@ export default function FooterSection() {
         {/* Nav links */}
         <nav className={styles.links} aria-label="Footer navigation">
           <Link href="/services">Services</Link>
-          <Link href="/contact">Contact Us</Link>
           <Link href="/stories">Stories</Link>
           <Link href="/about">About Us</Link>
-          <Link href="/careers">Careers</Link>
-          <Link href="/collaborate">Collaborate</Link>
+          <Link href="/contact">Contact Us</Link>
+          <Link href="/contact?type=collab">Collaborate</Link>
+          <Link href="/privacy">Privacy Policy</Link>
         </nav>
 
         {/* Contact */}

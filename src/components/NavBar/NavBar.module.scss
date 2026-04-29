@@ -39,15 +39,39 @@
     color: var(--white);
     text-decoration: none;
     transition: color 0.2s;
+    position: relative;
 
-    &:hover {
-      color: var(--mint);
+    &:hover { color: var(--mint); }
+
+    // Underline dot for active page
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--mint);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
   }
 }
 
+.active {
+  color: var(--mint) !important;
+
+  &::after { opacity: 1 !important; }
+}
+
 .cta {
   color: var(--orange) !important;
+}
+
+.ctaActive {
+  opacity: 0.75;
 }
 
 .toggle {

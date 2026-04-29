@@ -4,12 +4,9 @@
   padding: 0 var(--pad-x) 64px;
 }
 
-.divider {
-  width: 100%;
-  max-width: calc(var(--max) + var(--pad-x) * 2);
-  margin: 0 auto 64px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+// Beam divider spacing
+.beamSpacing {
+  margin-bottom: 64px;
 }
 
 .grid {
@@ -139,5 +136,5 @@
 @media (max-width: 640px) {
   .grid { grid-template-columns: 1fr; }
 
-  .divider { margin-bottom: 40px; }
+  .beamSpacing { margin-bottom: 40px; }
 }

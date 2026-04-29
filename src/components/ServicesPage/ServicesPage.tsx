@@ -86,7 +86,7 @@ export default function ServicesPage() {
           <Link href="/contact" className={styles.ctaPrimary}>
             Book a call
           </Link>
-          <Link href="/eligibility" className={styles.ctaGhost}>
+          <Link href="/contact" className={styles.ctaGhost}>
             Take the eligibility Test
           </Link>
         </div>

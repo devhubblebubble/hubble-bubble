@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./AboutUsPage.module.scss";
 import { teamMembers } from "./aboutUs.data";
+import { TeamCard } from "@/components/MeetTheTeam";
 import StoryTimeline from "./StoryTimeline/StoryTimeline";
 
 export default function AboutUsPage() {
@@ -59,26 +59,21 @@ export default function AboutUsPage() {
 
         <div className={styles.teamGrid}>
           {teamMembers.map((member) => (
-            <article key={member.id} className={`${styles.teamCard} reveal`}>
-              <div className={styles.cardPhoto}>
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  sizes="(max-width: 768px) 90vw, 45vw"
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
-                />
-                {/* Gradient overlay — name/role sit on top of photo */}
-                <div className={styles.cardOverlay}>
-                  <p className={styles.memberName}>{member.name}</p>
-                  <p className={styles.memberRole}>
+            <div key={member.id} className="reveal">
+              <TeamCard
+                topImage={member.image}
+                bottomImage={member.imageAlt ?? member.image}
+                name={member.name}
+                role={
+                  <>
                     {member.title}{" "}
-                    <span className={styles.aka}>a.k.a</span>{" "}
+                    <em>a.k.a</em>{" "}
                     {member.aka}
-                  </p>
-                </div>
-              </div>
-            </article>
+                  </>
+                }
+                aspectRatio="3 / 4"
+              />
+            </div>
           ))}
         </div>
       </section>
@@ -131,7 +126,7 @@ export default function AboutUsPage() {
           <strong>we&apos;re here to guide the next move.</strong>
         </p>
         <div className={styles.ctaRow}>
-          <Link href="/eligibility" className={styles.ctaPrimary}>
+          <Link href="/contact" className={styles.ctaPrimary}>
             Take the eligibility Test
           </Link>
           <Link href="/contact" className={styles.ctaGhost}>

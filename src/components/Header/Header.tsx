@@ -19,7 +19,7 @@ export default function Header() {
             <Link href="/stories" className={styles.navLink}>Stories</Link>
             <Link href="/services" className={styles.navLink}>Services</Link>
             <Link href="/about" className={styles.navLink}>About us</Link>
-            <Link href="/blogs" className={styles.navLink}>Blogs</Link>
+            <Link href="/stories" className={styles.navLink}>Blogs</Link>
           </nav>
           <div className={styles.ctaWrapper}>
             <button className={styles.ctaButton}>Talk to us</button>

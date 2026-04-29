@@ -3,7 +3,10 @@ export type TeamMember = {
   name: string;
   title: string;
   aka: string;
+  /** Default portrait (shown before fluid trail). */
   image: string;
+  /** Portrait revealed by the fluid trail. Falls back to `image` if omitted. */
+  imageAlt?: string;
 };
 
 export type TimelineItem = {
@@ -28,7 +31,8 @@ export const teamMembers: TeamMember[] = [
     name: "Jevin Zac",
     title: "Chief Pathfinder",
     aka: "Founder",
-    image: "/images/Teams/jevin.png",
+    image:    "/images/Teams/jevin.png",
+    imageAlt: "/images/Teams/jevin-alt.png",
   },
   {
     id: "fayzul-choudhury",

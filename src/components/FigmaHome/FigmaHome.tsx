@@ -208,7 +208,7 @@ export default function FigmaHome() {
             >
               <Link href="/services">Services</Link>
               <Link href="/about">About us</Link>
-              <Link href="/blogs">More</Link>
+              <Link href="/stories">More</Link>
               <Link href="/contact" className={styles.navCta}>Contact Us</Link>
             </div>
           </div>
@@ -559,10 +559,10 @@ export default function FigmaHome() {
             <nav className={styles.footerLinks} aria-label="Footer navigation">
               <Link href="/services">Services</Link>
               <Link href="/contact">Contact Us</Link>
-              <Link href="/blogs">Blogs</Link>
+              <Link href="/stories">Blogs</Link>
               <Link href="/about">About Us</Link>
-              <Link href="/careers">Careers</Link>
-              <Link href="/collaborate">Collaborate</Link>
+              <Link href="/contact">Careers</Link>
+              <Link href="/contact?type=collab">Collaborate</Link>
             </nav>
             <div className={styles.footerContact}>
               <p><a href="tel:+444342343242">+44 43423 43242</a></p>

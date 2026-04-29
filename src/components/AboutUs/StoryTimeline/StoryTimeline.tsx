@@ -60,7 +60,7 @@ export default function StoryTimeline() {
               <span className={styles.mint}>The Hubble Bubble</span>{" "}
               Story
             </h2>
-            <Link href="/journey" className={styles.btn}>
+            <Link href="/about" className={styles.btn}>
               Read our Big Bang Theory
             </Link>
           </div>
