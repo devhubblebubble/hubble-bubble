@@ -70,13 +70,17 @@ export default function PartnerCardsSection() {
                 scale: 1,
               });
 
+            } else if (i === totalCards - 1 && activeIndex >= flipCount) {
+              // Last card is now the frontmost — lock it perfectly centred, never flip
+              gsap.set(card, { yPercent: -50, rotationX: 0, scale: 1 });
+
             } else {
-              // Waiting cards (including the permanent last card) — stay centred/stacked
-              const behind = Math.max(0, i - activeIndex);
+              // Waiting cards — drift up and scale in as the card ahead flips
+              const behind = i - activeIndex;
               gsap.set(card, {
-                yPercent:  -50 + (behind - (i === activeIndex ? segProgress : 0)) * cardYOffset,
+                yPercent:  -50 + (behind - segProgress) * cardYOffset,
                 rotationX: 0,
-                scale:     1 - (behind - (i === activeIndex ? segProgress : 0)) * cardScaleStep,
+                scale:     1 - (behind - segProgress) * cardScaleStep,
               });
             }
           });
