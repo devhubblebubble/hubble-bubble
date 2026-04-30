@@ -13,8 +13,7 @@
   top: 0;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
-  padding-top: 100px;
+  align-items: stretch;
   overflow: hidden;
 }
 
@@ -26,13 +25,15 @@
   align-items: center;
   width: 100%;
   max-width: calc(var(--max) + var(--pad-x) * 2);
-  padding: 0 var(--pad-x);
+  padding: 100px var(--pad-x) 48px;
   margin: 0 auto;
 }
 
 // ── Left — heading (no extra sticky needed; .sticky handles it) ───────────────
 .left {
-  // no position:sticky — the whole frame is already sticky
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .heading {
@@ -67,8 +68,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 40px;
   padding-right: 64px; // column for rocket track
+  height: 100%;
 }
 
 // ── Vertical Swipe Slider ─────────────────────────────────────────────────────
@@ -255,7 +258,7 @@
 }
 
 @media (max-width: 640px) {
-  .sticky { align-items: flex-start; padding-top: 100px; }
+  .layout { padding: 80px var(--pad-x) 32px; gap: 32px; }
   .heading { font-size: clamp(1.8rem, 7vw, 3rem); margin-bottom: 28px; }
   .right { padding-right: 40px; }
   .desc { font-size: var(--fs-sm); }
