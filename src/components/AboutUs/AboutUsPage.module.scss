@@ -75,7 +75,7 @@
 
 // ── Team ───────────────────────────────────────────────────────────────────────
 .teamSection {
-  padding: 80px var(--pad-x) 120px;
+  padding: 80px var(--pad-x) 56px;
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
   text-align: center;
@@ -266,7 +266,7 @@
 
   .introSection { padding: 40px var(--pad-x) 48px; }
 
-  .teamSection { padding: 56px var(--pad-x) 80px; }
+  .teamSection { padding: 56px var(--pad-x) 40px; }
 
   .teamGrid { grid-template-columns: minmax(0, 420px); }
 
