@@ -8,7 +8,18 @@ import styles from "./PartnerCardsSection.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const collabs = [
+type CollabWithImage = {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+};
+
+type CollabNameOnly = { name: string };
+
+type Collab = CollabWithImage | CollabNameOnly;
+
+const collabs: Collab[] = [
   { name: "amber", src: "/images/partner-cards/amber.png", width: 267, height: 111 },
   { name: "Revolut", src: "/images/partner-cards/revolut.png", width: 270, height: 74 },
   {

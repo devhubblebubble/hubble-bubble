@@ -368,7 +368,7 @@ export const registry: Category[] = [
                   background: "#0a0a0f",
                 }}
               >
-                <ParallaxStars parallaxIntensity={60} starDensity={0.0004} />
+                <ParallaxStars starDensity={0.0004} sparkleProbability={0.18} />
               </div>
             ),
             minHeight: 500,
@@ -386,7 +386,13 @@ export const registry: Category[] = [
                   background: "#0a0a0f",
                 }}
               >
-                <ParallaxStars parallaxIntensity={15} smoothness={0.03} />
+                <ParallaxStars
+                  starDensity={0.00008}
+                  sparkleProbability={0.05}
+                  twinkleProbability={0.45}
+                  minTwinkleSpeed={0.8}
+                  maxTwinkleSpeed={1.4}
+                />
               </div>
             ),
             minHeight: 500,
