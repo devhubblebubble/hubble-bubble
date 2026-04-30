@@ -4,6 +4,7 @@ import '../style/globals.scss';
 import ParallaxStars from '@/components/Background/ParallaxStars';
 import ShootingStars from '@/components/Background/ShootingStars';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import TransitionProvider from '@/providers/TransitionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 const poppins = Poppins({ 
@@ -28,7 +29,7 @@ export default function RootLayout({
         <ParallaxStars />
         <ShootingStars />
         <ScrollReveal />
-        {children}
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );

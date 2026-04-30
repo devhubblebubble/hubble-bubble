@@ -82,3 +82,17 @@ button {
     transition: none;
   }
 }
+
+.transition-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.transition-block {
+  position: absolute;
+  background: var(--orange);
+  opacity: 0;
+  will-change: opacity;
+}
