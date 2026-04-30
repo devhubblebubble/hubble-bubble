@@ -6,6 +6,7 @@ import { useState } from "react";
 import EligibilityModal from "@/components/EligibilityModal";
 import { useCarousel } from "@/hooks/useCarousel";
 import styles from "./HeroSection.module.scss";
+import MilkyWay from "../Background/Milkyway";
 
 const students = [
   {
@@ -53,6 +54,7 @@ export default function HeroSection() {
   return (
     <>
       <section className={`${styles.hero} reveal`} id="top">
+      <MilkyWay />
         <div className={styles.grid}>
           <div className="reveal">
             <h1 className={styles.headline}>
