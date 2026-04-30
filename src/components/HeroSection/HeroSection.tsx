@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import EligibilityModal from "@/components/EligibilityModal";
-import Dots from "@/components/Dots/Dots";
 import { useCarousel } from "@/hooks/useCarousel";
 import styles from "./HeroSection.module.scss";
 
@@ -49,7 +48,7 @@ const students = [
 
 export default function HeroSection() {
   const [eligibilityOpen, setEligibilityOpen] = useState(false);
-  const { idx, go, setPaused } = useCarousel(students.length, 6500);
+  const { idx, setPaused } = useCarousel(students.length, 6500);
 
   return (
     <>
@@ -61,7 +60,7 @@ export default function HeroSection() {
             </h1>
             <div className={styles.rule} />
             <p className={styles.sub}>
-              So stop guessing. Let's find the degree<br />that fits your personality and passion!
+              So stop guessing. Let&apos;s find the degree<br />that fits your personality and passion!
             </p>
             <div className={styles.ctas}>
               <button
@@ -77,14 +76,26 @@ export default function HeroSection() {
             <div className={styles.accred}>
               <div className={styles.accredLabel}>Accredited by:</div>
               <div className={styles.accredRow}>
-                <span className={styles.accredWordmark}>UCAS</span>
-                <span className={styles.accredWordmark}>BAC</span>
+                <Image
+                  src="/images/herosection/accreditations/ucas.png"
+                  alt="UCAS"
+                  width={115}
+                  height={34}
+                  className={styles.accredLogo}
+                />
+                <Image
+                  src="/images/herosection/accreditations/british-council.png"
+                  alt="British Council"
+                  width={118}
+                  height={34}
+                  className={styles.accredLogo}
+                />
                 <Image
                   src="/images/herosection/accreditations/icef.png"
-                  alt="ICEF"
+                  alt="ICEF Accredited Agency"
                   width={99}
                   height={34}
-                  className={styles.icefLogo}
+                  className={styles.accredLogo}
                 />
               </div>
             </div>
@@ -136,13 +147,6 @@ export default function HeroSection() {
                   </article>
                 ))}
               </div>
-              <Dots
-                count={students.length}
-                idx={idx}
-                onPrev={() => go(idx - 1)}
-                onNext={() => go(idx + 1)}
-                onDot={go}
-              />
             </div>
           </div>
         </div>

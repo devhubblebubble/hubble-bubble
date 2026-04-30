@@ -13,7 +13,7 @@
   top: 0;
   height: 100vh;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -25,15 +25,13 @@
   align-items: center;
   width: 100%;
   max-width: calc(var(--max) + var(--pad-x) * 2);
-  padding: 100px var(--pad-x) 48px;
+  padding: 0 var(--pad-x);
   margin: 0 auto;
 }
 
 // ── Left — heading (no extra sticky needed; .sticky handles it) ───────────────
 .left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // no position:sticky — the whole frame is already sticky
 }
 
 .heading {

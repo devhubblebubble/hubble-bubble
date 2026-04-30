@@ -1,210 +1,270 @@
 // PartnerCardsSection — GSAP sticky flip-card stack
 
-// ── Section ───────────────────────────────────────────────────────────────────
-// Height is 100svh; ScrollTrigger pins it and adds scroll space via pinSpacing
 .section {
   position: relative;
   width: 100%;
   height: 100svh;
   overflow: hidden;
-  perspective: 1200px;   // enables the 3D rotationX flip
+  perspective: 1200px;
 }
 
-// ── Card base ─────────────────────────────────────────────────────────────────
-// Absolute-positioned, centred via GSAP xPercent/yPercent -50
 .card {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 70%;
-  height: 62%;
+  width: min(calc(100% - 24px), 1280px);
+  min-height: clamp(250px, 34vw, 420px);
   display: flex;
-  align-items: stretch;
-  gap: 0;
-  border-radius: 28px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: clamp(22px, 3vw, 54px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
   overflow: hidden;
   isolation: isolate;
   transform-origin: center bottom;
   will-change: transform;
+  backface-visibility: hidden;
 
-  // Glow blobs
   &::before,
   &::after {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     border-radius: 50%;
     z-index: -1;
-    filter: blur(60px);
+    filter: blur(42px);
     pointer-events: none;
   }
 }
 
-// ── Card colour themes ────────────────────────────────────────────────────────
 .cardEdge {
-  background: #0e0819;
+  background:
+    radial-gradient(circle at 12% 15%, #4a1730 0%, #35212d 42%, transparent 62%),
+    radial-gradient(circle at 82% 88%, #403147 0%, #322b3b 48%, transparent 68%),
+    linear-gradient(115deg, #31212c 0%, #202024 52%, #322b3b 100%);
   z-index: 3;
 
   &::before {
-    background: rgba(224, 3, 105, 0.22);
-    left: -30%;
-    top: -40%;
+    background: rgba(224, 3, 105, 0.15);
+    left: -42%;
+    top: -52%;
   }
+
   &::after {
-    background: rgba(180, 80, 230, 0.16);
-    right: -30%;
-    bottom: -40%;
+    background: rgba(217, 120, 232, 0.12);
+    right: -42%;
+    bottom: -52%;
   }
 }
 
 .cardBos {
-  background: #080f0c;
+  background:
+    radial-gradient(circle at 12% 10%, #17352f 0%, #182321 42%, transparent 62%),
+    radial-gradient(circle at 84% 92%, #20204b 0%, #202036 48%, transparent 68%),
+    linear-gradient(115deg, #182321 0%, #202020 52%, #202036 100%);
   z-index: 2;
 
   &::before {
-    background: rgba(0, 180, 120, 0.18);
+    background: rgba(0, 138, 101, 0.14);
     left: -25%;
-    top: -40%;
+    top: -52%;
   }
+
   &::after {
-    background: rgba(0, 60, 200, 0.14);
-    right: -30%;
-    bottom: -35%;
+    background: rgba(0, 0, 177, 0.16);
+    right: -42%;
+    bottom: -32%;
   }
 }
 
 .cardCollab {
-  background: #0e0b1a;
+  background:
+    radial-gradient(circle at 16% 8%, #3e1d2d 0%, #272124 42%, transparent 62%),
+    radial-gradient(circle at 84% 88%, #392442 0%, #2a2230 48%, transparent 68%),
+    linear-gradient(115deg, #202020 0%, #242023 54%, #2a2230 100%);
   z-index: 1;
 
   &::before {
-    background: rgba(108, 36, 160, 0.2);
-    right: -30%;
-    bottom: -35%;
+    background: rgba(108, 36, 119, 0.16);
+    right: -42%;
+    bottom: -32%;
   }
+
   &::after {
-    background: rgba(224, 3, 105, 0.14);
-    left: -30%;
-    top: -40%;
+    background: rgba(224, 3, 105, 0.12);
+    left: -42%;
+    top: -52%;
   }
 }
 
-// ── Two-column card layout ────────────────────────────────────────────────────
-.col {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(28px, 3.5vw, 56px);
+.cardGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(36px, 6.5vw, 110px);
+  align-items: center;
+  padding: clamp(32px, 4.6vw, 80px);
 }
 
-// Right column: justify text to centre vertically
-.colRight {
-  justify-content: center;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
+.flip {
+  grid-template-columns: auto minmax(0, 1fr);
 }
 
-// ── Typography ────────────────────────────────────────────────────────────────
-.label {
-  font-size: clamp(0.7rem, 0.9vw, 0.95rem);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mint);
-  margin-bottom: 10px;
-  opacity: 0.8;
+.partnerBlock {
+  min-width: clamp(250px, 30vw, 460px);
 }
 
 .heading {
-  font-size: clamp(2rem, 3.5vw, 4rem);
+  font-size: clamp(2rem, 3.7vw, 4rem);
   line-height: 1.05;
-  color: var(--white);
-  font-weight: 700;
-  margin-bottom: 0;
+  color: var(--mint);
+  font-weight: 500;
+  margin-bottom: 24px;
+  text-wrap: balance;
 }
 
 .text {
-  font-size: clamp(0.9rem, 1.15vw, 1.15rem);
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.72);
-  max-width: 42ch;
+  font-size: clamp(1rem, 1.75vw, 1.75rem);
+  line-height: 1.25;
+  color: var(--white);
+  max-width: 40ch;
 }
 
-// ── Logo ──────────────────────────────────────────────────────────────────────
-.logo {
-  width: clamp(160px, 20vw, 280px);
+.textRight {
+  margin-left: auto;
+  text-align: right;
+}
+
+.partnerLogo {
+  display: block;
+  width: clamp(260px, 31vw, 460px);
+  max-width: 100%;
   height: auto;
   object-fit: contain;
-  opacity: 0.85;
 }
 
-// ── Card 3 — centred collab layout ───────────────────────────────────────────
 .collabInner {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 32px;
   align-items: center;
   text-align: center;
-  padding: clamp(28px, 3.5vw, 56px);
+  padding: clamp(32px, 4.6vw, 80px);
 
-  .heading { font-size: clamp(1.6rem, 2.8vw, 3rem); }
-  .text     { max-width: 64ch; text-align: center; }
+  .heading {
+    max-width: 900px;
+    margin-bottom: 0;
+  }
+
+  .text {
+    max-width: 1100px;
+    text-align: center;
+  }
 }
 
-// ── Collab logo strip ─────────────────────────────────────────────────────────
 .strip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(16px, 2.5vw, 40px);
+  justify-content: space-between;
+  gap: clamp(28px, 4vw, 64px);
   width: 100%;
-  flex-wrap: wrap;
+  margin-top: 16px;
+  flex-wrap: nowrap;
 }
 
 .collabLogo {
+  height: clamp(36px, 4vw, 60px);
+  flex: 1 1 0;
+  min-width: clamp(100px, 11vw, 150px);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  font-weight: 600;
-  font-size: clamp(11px, 1vw, 16px);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0.7;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.55vw, 1.9rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+  opacity: 0.95;
   white-space: nowrap;
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
 
-  &:hover { opacity: 1; border-color: var(--mint); }
+  span {
+    text-align: center;
+  }
 }
 
-// ── Responsive ────────────────────────────────────────────────────────────────
+.collabLogoImage {
+  display: block;
+  width: auto;
+  max-width: min(100%, 150px);
+  max-height: clamp(34px, 4vw, 60px);
+  height: auto;
+  object-fit: contain;
+}
+
 @media (max-width: 1100px) {
   .card {
-    width: calc(100% - 48px);
-    height: 72%;
-    flex-direction: column;
+    width: calc(100% - 20px);
+    min-height: clamp(250px, 42vw, 390px);
   }
 
-  .col { flex: none; height: auto; }
+  .cardGrid,
+  .flip {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  }
 
-  .colRight {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  .partnerBlock {
+    min-width: 0;
+  }
+
+  .strip {
+    overflow: hidden;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 640px) {
   .card {
-    width: calc(100% - 24px);
-    height: 78%;
-    border-radius: 18px;
+    width: calc(100% - 8px);
+    min-height: 70svh;
+    border-radius: 24px;
   }
 
-  .collabLogo { font-size: 10px; padding: 5px 10px; }
+  .cardGrid,
+  .flip {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 24px;
+  }
+
+  .flip .partnerBlock {
+    order: -1;
+  }
+
+  .text,
+  .textRight {
+    max-width: none;
+    text-align: left;
+  }
+
+  .collabInner {
+    padding: 30px 24px;
+    justify-content: center;
+  }
+
+  .strip {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px 28px;
+  }
+
+  .collabLogo {
+    flex: 0 1 auto;
+    font-size: 1rem;
+  }
+
+  .collabLogoImage {
+    max-width: 126px;
+  }
 }
