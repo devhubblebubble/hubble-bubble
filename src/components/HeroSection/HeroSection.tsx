@@ -54,7 +54,7 @@ export default function HeroSection() {
   return (
     <>
       <section className={`${styles.hero} reveal`} id="top">
-      <MilkyWay />
+      {/* <MilkyWay /> */}
         <div className={styles.grid}>
           <div className="reveal">
             <h1 className={styles.headline}>

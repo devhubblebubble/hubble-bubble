@@ -26,8 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${poppins.variable}`}>
-        <ParallaxStars />
-        <ShootingStars />
+         <ParallaxStars />
+        {/* <ShootingStars />  */}
         <ScrollReveal />
         <TransitionProvider>{children}</TransitionProvider>
       </body>

@@ -14,7 +14,7 @@ const MilkyWay: React.FC = () => {
 
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
 
-    const mwStarCount = 150000; // Reduced slightly for web performance from 100k
+    const mwStarCount = 10000; // Reduced slightly for web performance from 100k
     const mwRandomStarProp = 0.2;
     const mwClusterCount = 500;
     const mwClusterStarCount = 2000;
