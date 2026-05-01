@@ -1,79 +1,23 @@
 @use "../../style/variables" as *;
 @use "../../style/mixins" as *;
 
-// Accent colour (matches the original --accent: #ff7a45)
 $accent: #ff7a45;
 $ink:    #e7ecf3;
 $inkDim: #8893a3;
-$bg0:    #07090f;
-$bg1:    #0c1018;
 
 .section {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   width: 100%;
   min-height: rem(760);
-  background: radial-gradient(
-      ellipse at 50% 0%,
-      #131a28 0%,
-      $bg0 55%,
-      #04060b 100%
-    );
   border-radius: rem(18);
   overflow: hidden;
-  color: $ink;
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
-
-// ── top bar ───────────────────────────────────────────────────────────────
-.topBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: rem(18) rem(24);
-  z-index: 5;
-  flex-wrap: wrap;
-  gap: rem(8);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: rem(10);
-  font-size: rem(12);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: $ink;
-}
-
-.brandDot {
-  width: rem(8);
-  height: rem(8);
-  border-radius: 50%;
-  background: $accent;
-  box-shadow: 0 0 14px $accent;
-  flex: 0 0 auto;
-}
-
-.meta {
-  display: flex;
-  gap: rem(20);
-  font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: rem(11);
-  color: $inkDim;
-  letter-spacing: 0.06em;
-  flex-wrap: wrap;
-
-  b {
-    color: $ink;
-    font-weight: 500;
-  }
+  background: #07090f;
 }
 
 // ── canvas area ───────────────────────────────────────────────────────────
 .canvasWrap {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: rem(760);
 }
 
 .canvas {
@@ -93,8 +37,8 @@ $bg1:    #0c1018;
 
 .marker {
   position: absolute;
-  will-change: transform, opacity;
   pointer-events: auto;
+  will-change: transform, opacity;
   transition: opacity 150ms ease;
 }
 
@@ -139,11 +83,8 @@ $bg1:    #0c1018;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: rem(999);
   margin-bottom: rem(38);
-  cursor: pointer;
-  transition:
-    transform 200ms ease,
-    background 200ms ease,
-    border-color 200ms ease;
+  cursor: default;
+  transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
 
   &:hover {
     transform: translateY(rem(-2));
@@ -183,23 +124,18 @@ $bg1:    #0c1018;
   }
 }
 
-// ── side panel ────────────────────────────────────────────────────────────
+// ── active locations panel (count only, no list) ──────────────────────────
 .sidePanel {
   position: absolute;
   top: rem(14);
   right: rem(14);
-  width: rem(248);
   z-index: 4;
   background: rgba(12, 16, 24, 0.6);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: rem(14);
-  padding: rem(16) rem(16) rem(12);
-
-  @include max(mobile) {
-    display: none;
-  }
+  padding: rem(14) rem(16) rem(12);
 }
 
 .sidePanelTitle {
@@ -215,8 +151,8 @@ $bg1:    #0c1018;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: rem(30);
   letter-spacing: -0.02em;
-  margin-bottom: rem(12);
   color: $ink;
+  line-height: 1;
 
   span {
     color: $inkDim;
@@ -225,56 +161,30 @@ $bg1:    #0c1018;
   }
 }
 
-.locationList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  max-height: rem(260);
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-}
-
-.locationItem {
-  display: flex;
-  align-items: center;
-  gap: rem(10);
-  padding: rem(7) rem(6);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: rem(12);
-  cursor: pointer;
-  transition: background 120ms ease;
-
-  &:first-child {
-    border-top: 0;
-  }
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.03);
-  }
-}
-
-.locationDot {
-  width: rem(6);
-  height: rem(6);
-  border-radius: 50%;
-  background: $accent;
-  flex: 0 0 auto;
-  box-shadow: 0 0 8px rgba(255, 122, 69, 0.7);
-}
-
-.locationName {
-  flex: 1;
-  color: $ink;
-}
-
-.locationCode {
+// ── fps badge ─────────────────────────────────────────────────────────────
+.fpsBadge {
+  position: absolute;
+  bottom: rem(14);
+  right: rem(14);
+  z-index: 4;
   font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: rem(11);
+  letter-spacing: 0.08em;
   color: $inkDim;
-  font-size: rem(10);
+  background: rgba(12, 16, 24, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: rem(8);
+  padding: rem(5) rem(10);
+
+  b {
+    color: $ink;
+    font-weight: 500;
+  }
 }
 
-// ── loading ───────────────────────────────────────────────────────────────
+// ── loading overlay ───────────────────────────────────────────────────────
 .loading {
   position: absolute;
   inset: 0;
@@ -301,54 +211,4 @@ $bg1:    #0c1018;
 @keyframes pulse {
   0%, 100% { opacity: 0.3; transform: scale(0.8); }
   50%       { opacity: 1;   transform: scale(1.2); }
-}
-
-// ── bottom bar ────────────────────────────────────────────────────────────
-.bottomBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: rem(14) rem(24) rem(18);
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: rem(11);
-  color: $inkDim;
-  letter-spacing: 0.08em;
-  z-index: 5;
-  gap: rem(10);
-  flex-wrap: wrap;
-}
-
-.hint {
-  opacity: 0.6;
-}
-
-.controls {
-  display: flex;
-  gap: rem(6);
-  flex-wrap: wrap;
-}
-
-.btn {
-  appearance: none;
-  background: rgba(255, 255, 255, 0.04);
-  color: $ink;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: rem(6) rem(11);
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: rem(11);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-radius: rem(6);
-  cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-}
-
-.btnActive {
-  border-color: $accent;
-  color: $accent;
 }
