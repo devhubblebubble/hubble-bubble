@@ -14,6 +14,7 @@ import JourneySectionCountryGlobe from "@/components/JourneySection/JourneySecti
 import JourneySectionLiveVisitorGlobe from "@/components/JourneySection/JourneySectionLiveVisitorGlobe";
 import JourneySectionMainGlobeCountryHighlight from "@/components/JourneySection/JourneySectionMainGlobeCountryHighlight";
 import JourneySectionStripeInspiredGlobe from "@/components/JourneySection/JourneySectionStripeInspiredGlobe";
+import AtlasGlobe from "@/components/JourneySection/AtlasGlobe";
 import AdvancedCapabilitiesCard from "@/components/AdvancedCapabilitiesCard";
 import GlowEllipse from "@/components/Effects/GlowEllipse";
 import StarBackground from "@/components/Background/StarBackground";
@@ -175,6 +176,12 @@ export const registry: Category[] = [
             id: "stripe-inspired-globe",
             label: "Stripe-Inspired Globe",
             render: () => <JourneySectionStripeInspiredGlobe />,
+            minHeight: 760,
+          },
+          {
+            id: "atlas-globe",
+            label: "Atlas Globe (Three.js)",
+            render: () => <AtlasGlobe />,
             minHeight: 760,
           },
         ],
