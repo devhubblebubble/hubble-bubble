@@ -124,32 +124,6 @@ export default function AtlasGlobe() {
       })
     ));
 
-    // atmosphere
-    scene.add(new THREE.Mesh(
-      new THREE.SphereGeometry(RADIUS * 1.14, 64, 32),
-      new THREE.ShaderMaterial({
-        uniforms: {
-          uColor:     { value: new THREE.Color(0x4da6ff) },
-          uIntensity: { value: 0.9 },
-          uPower:     { value: 2.6 },
-        },
-        vertexShader: `
-          varying vec3 vN; varying vec3 vP;
-          void main(){
-            vN = normalize(normalMatrix * normal);
-            vP = (modelViewMatrix * vec4(position,1.0)).xyz;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-          }`,
-        fragmentShader: `
-          uniform vec3 uColor; uniform float uIntensity; uniform float uPower;
-          varying vec3 vN; varying vec3 vP;
-          void main(){
-            float f = pow(1.0 - abs(dot(vN, normalize(-vP))), uPower);
-            gl_FragColor = vec4(uColor, f * uIntensity);
-          }`,
-        side: THREE.BackSide, transparent: true, depthWrite: false,
-      })
-    ));
 
     // marker anchors
     const anchors: THREE.Object3D[] = COUNTRIES.map((c) => {
