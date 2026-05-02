@@ -19,7 +19,7 @@ type CollabNameOnly = { name: string };
 
 type Collab = CollabWithImage | CollabNameOnly;
 
-const collabs: Collab[] = [
+const COLLABS_DATA: Collab[] = [
   { name: "amber", src: "/images/partner-cards/amber.png", width: 267, height: 111 },
   { name: "Revolut", src: "/images/partner-cards/revolut.png", width: 270, height: 74 },
   {
@@ -35,10 +35,17 @@ const collabs: Collab[] = [
   { name: "UNiDAYS" },
 ];
 
+const collabs = [...COLLABS_DATA].sort((a, b) =>
+  a.name.localeCompare(b.name, undefined, { sensitivity: "base" }),
+);
+
 export default function PartnerCardsSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const scrollVhPerFlip = 1.12; // viewport heights of scroll per flip (was 2.5 — felt endless)
+    const scrollVhTail   = 0.28; // short pause on last card before unpin (was 0.75)
+
     const ctx = gsap.context(() => {
       const cards      = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
       const totalCards = cards.length;           // 3
@@ -59,15 +66,18 @@ export default function PartnerCardsSection() {
       // The last card stays centred — it's the resting state when the section unpins.
       const flipCount = totalCards - 1; // 2 for 3 cards
 
+      const pinScrollPx = () =>
+        window.innerHeight * (flipCount * scrollVhPerFlip + scrollVhTail);
+
       /* ── ScrollTrigger — pin section, scrub animation ── */
       ScrollTrigger.create({
         trigger:    sectionRef.current,
         start:      "top top",
-        // scroll distance = one segment per flip + half a segment so the last card sits a beat
-        end:        `+=${window.innerHeight * (flipCount * 2.5 + 0.75)}px`,
+        // Function + refresh on resize keeps pin length in sync with the viewport
+        end:        () => `+=${pinScrollPx()}px`,
         pin:        true,
         pinSpacing: true,
-        scrub:      1,
+        scrub:      0.45,
 
         onUpdate: (self) => {
           const progress    = self.progress;
@@ -110,7 +120,15 @@ export default function PartnerCardsSection() {
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    const onResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", onResize, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -174,9 +192,9 @@ export default function PartnerCardsSection() {
       <article className={`${styles.card} ${styles.cardCollab}`}>
         <div className={styles.collabInner}>
           <h3 className={styles.heading}>
-            and key collaborations
+            And key collaborations
             <br />
-            with a lot more!
+            With a lot more!
           </h3>
           <p className={styles.text}>
             From top UK universities to global scholarship bodies, trusted
