@@ -27,8 +27,10 @@ export default function NavBar() {
   // Close mobile menu on route change
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
+  const isInnerPage = pathname !== "/";
+
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+    <nav className={`${styles.nav} ${(scrolled || isInnerPage) ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
 
         {/* Logo */}
