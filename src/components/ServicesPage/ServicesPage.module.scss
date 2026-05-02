@@ -12,6 +12,9 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+  // Keep the decorative glow from widening scrollWidth (matches HeroSection.hero)
+  overflow: hidden;
+  isolation: isolate;
 
   // Subtle radial glow behind hero text
   &::before {
