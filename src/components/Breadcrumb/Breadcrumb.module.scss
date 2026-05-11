@@ -1,0 +1,45 @@
+.root {
+  width: 100%;
+  max-width: calc(var(--max) + var(--pad-x) * 2);
+  margin: 0 auto 48px;
+  padding: 0 var(--pad-x);
+}
+
+.rootInset {
+  max-width: none;
+  margin: 0 0 48px;
+  padding: 0;
+}
+
+.rootFlush {
+  margin-bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.breadLink {
+  color: var(--muted);
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--white);
+  }
+}
+
+.breadSep {
+  color: var(--dim);
+  font-size: 1rem;
+}
+
+.breadCurrent {
+  color: var(--white);
+  font-weight: 600;
+}

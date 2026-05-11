@@ -35,6 +35,7 @@ interface UploadCategory {
 
 interface FormState {
   name: string;
+  email: string;
   age: string;
   qualification: string;
   contactNumber: string;
@@ -79,9 +80,16 @@ const UPLOAD_CATEGORIES: UploadCategory[] = [
   },
 ];
 
+function isValidEmail(value: string): boolean {
+  const trimmed = value.trim();
+  if (trimmed.length < 5) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
+}
+
 function getInitialFormState(): FormState {
   return {
     name: "",
+    email: "",
     age: "",
     qualification: "",
     contactNumber: "",
@@ -147,6 +155,7 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     if (step === "basic") {
       return (
         form.name.trim().length > 1 &&
+        isValidEmail(form.email) &&
         form.age.trim().length > 0 &&
         form.qualification.trim().length > 1 &&
         form.contactNumber.trim().length > 4
@@ -315,7 +324,9 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
             <p className={styles.sectionLabel}>Basic Details</p>
             <div className={styles.formGrid}>
               <label className={styles.fieldLabel}>
-                Name<span className={styles.required}>*</span>
+                <span className={styles.fieldLabelRow}>
+                  Name<span className={styles.required}>*</span>
+                </span>
                 <input
                   className={styles.input}
                   value={form.name}
@@ -323,7 +334,24 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                 />
               </label>
               <label className={styles.fieldLabel}>
-                Age<span className={styles.required}>*</span>
+                <span className={styles.fieldLabelRow}>
+                  Email<span className={styles.required}>*</span>
+                </span>
+                <input
+                  type="email"
+                  className={styles.input}
+                  autoComplete="email"
+                  inputMode="email"
+                  value={form.email}
+                  onChange={(event) =>
+                    setForm((prev) => ({ ...prev, email: event.target.value }))
+                  }
+                />
+              </label>
+              <label className={styles.fieldLabel}>
+                <span className={styles.fieldLabelRow}>
+                  Age<span className={styles.required}>*</span>
+                </span>
                 <input
                   className={styles.input}
                   value={form.age}
@@ -331,7 +359,9 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                 />
               </label>
               <label className={styles.fieldLabel}>
-                Current qualification<span className={styles.required}>*</span>
+                <span className={styles.fieldLabelRow}>
+                  Current qualification<span className={styles.required}>*</span>
+                </span>
                 <input
                   className={styles.input}
                   value={form.qualification}
@@ -341,7 +371,9 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                 />
               </label>
               <label className={styles.fieldLabel}>
-                Contact Number<span className={styles.required}>*</span>
+                <span className={styles.fieldLabelRow}>
+                  Contact Number<span className={styles.required}>*</span>
+                </span>
                 <input
                   className={styles.input}
                   value={form.contactNumber}

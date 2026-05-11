@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import StoryRow from "@/components/StoryRow/StoryRow";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./StoriesPage.module.scss";
 
 const ALL_STORIES = [
@@ -71,12 +71,7 @@ export default function StoriesPage() {
   return (
     <div className={styles.page}>
 
-      {/* Breadcrumb */}
-      <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-        <Link href="/" className={styles.breadLink}>Menu</Link>
-        <span className={styles.breadSep}>›</span>
-        <span className={styles.breadCurrent}>Stories</span>
-      </nav>
+      <Breadcrumb current="Stories" inset />
 
       {/* Title */}
       <h1 className={styles.title}>Stories</h1>

@@ -101,18 +101,20 @@
 .cardGrid {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(36px, 6.5vw, 110px);
+  /* Cap the logo / heading column so body copy always gets a real column width */
+  grid-template-columns: minmax(0, 1fr) minmax(200px, min(40vw, 420px));
+  gap: clamp(28px, 5vw, 88px);
   align-items: center;
   padding: clamp(32px, 4.6vw, 80px);
 }
 
 .flip {
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(200px, min(40vw, 420px)) minmax(0, 1fr);
 }
 
 .partnerBlock {
-  min-width: clamp(250px, 30vw, 460px);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .heading {
@@ -126,14 +128,18 @@
 
 .text {
   font-size: clamp(1rem, 1.75vw, 1.75rem);
-  line-height: 1.32;
+  line-height: 1.38;
   color: var(--white);
-  max-width: 40ch;
+  min-width: 0;
+  width: 100%;
+  /* Use the grid column; only cap measure on very wide cells */
+  max-width: min(72ch, 100%);
 }
 
 .textRight {
-  margin-left: auto;
-  text-align: right;
+  margin-left: 0;
+  justify-self: stretch;
+  text-align: left;
 }
 
 .partnerLogo {
@@ -144,11 +150,26 @@
   object-fit: contain;
 }
 
+.partnerLogoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.partnerLogoDual {
+  display: block;
+  width: auto;
+  height: clamp(28px, 3.8vw, 42px);
+  object-fit: contain;
+}
+
 .collabInner {
   width: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: clamp(14px, 2.5vw, 28px);
   align-items: center;
   text-align: center;
   padding: clamp(32px, 4.6vw, 80px);
@@ -156,27 +177,72 @@
   .heading {
     max-width: 900px;
     margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .text {
     max-width: 1100px;
     text-align: center;
+    flex-shrink: 0;
+  }
+
+  .strip {
+    flex-shrink: 0;
+    align-self: stretch;
   }
 }
 
 .strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(28px, 4vw, 64px);
+  /* Autoscroll carousel viewport — single row; never stack logos vertically */
   width: 100%;
+  max-width: 100%;
   margin-top: 16px;
+  overflow: hidden;
+  min-height: clamp(40px, 10vw, 56px);
+
+  /* Soft edge fade */
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+.stripTrack {
+  --strip-gap: clamp(28px, 4vw, 64px);
+  --strip-speed: 52s;
+
+  display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--strip-gap);
+  width: max-content;
+  will-change: transform;
+  animation: strip-scroll var(--strip-speed) linear infinite;
+}
+
+/* Pause on intent */
+.strip:hover .stripTrack,
+.strip:focus-within .stripTrack {
+  animation-play-state: paused;
+}
+
+@keyframes strip-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .collabLogo {
   height: clamp(36px, 4vw, 60px);
-  flex: 1 1 0;
+  flex: 0 0 auto;
   min-width: clamp(100px, 11vw, 150px);
   display: flex;
   align-items: center;
@@ -209,18 +275,17 @@
     min-height: clamp(250px, 42vw, 390px);
   }
 
-  .cardGrid,
-  .flip {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  /* Body column slightly wider than the partner strip on both cards */
+  .cardGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(160px, 0.85fr);
   }
 
-  .partnerBlock {
-    min-width: 0;
+  .flip {
+    grid-template-columns: minmax(160px, 0.85fr) minmax(0, 1.15fr);
   }
 
   .strip {
     overflow: hidden;
-    justify-content: flex-start;
   }
 }
 
@@ -263,40 +328,75 @@
   }
 
   .collabInner {
-    padding: 22px 18px;
-    gap: 18px;
-    justify-content: center;
+    padding: 16px 14px;
+    gap: 12px;
+    justify-content: flex-start;
+    max-height: 100%;
+    overflow-y: auto;
 
     .heading {
-      font-size: clamp(1.1rem, 4.2vw + 0.3rem, 1.45rem);
+      font-size: clamp(1.05rem, 4vw + 0.28rem, 1.4rem);
       margin-bottom: 0;
     }
 
     .text {
       text-align: center;
-      font-size: clamp(0.8125rem, 2.6vw + 0.42rem, 0.9rem);
-      line-height: 1.5;
+      font-size: clamp(0.78rem, 2.5vw + 0.38rem, 0.88rem);
+      line-height: 1.45;
     }
   }
 
+  /* Same horizontal CSS marquee as desktop (wrapping was ~900px+ tall on narrow viewports) */
   .strip {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px 16px;
     margin-top: 8px;
+    min-height: 44px;
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+
+  .stripTrack {
+    --strip-speed: 34s;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: strip-scroll var(--strip-speed) linear infinite;
   }
 
   .collabLogo {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     min-width: 0;
-    font-size: clamp(0.75rem, 2.2vw + 0.35rem, 0.875rem);
-    white-space: normal;
-    line-height: 1.15;
+    font-size: clamp(0.68rem, 2.2vw + 0.32rem, 0.8rem);
+    white-space: nowrap;
+    line-height: 1.1;
     letter-spacing: 0.01em;
   }
 
   .collabLogoImage {
-    max-width: min(112px, 28vw);
-    max-height: 40px;
+    max-width: min(100px, 26vw);
+    max-height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    overflow-x: auto;
+    scrollbar-width: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stripTrack {
+    animation: none;
+    width: max-content;
+    padding-inline: 8px;
   }
 }

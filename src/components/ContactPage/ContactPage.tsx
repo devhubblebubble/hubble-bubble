@@ -1,13 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./ContactPage.module.scss";
 
 type FormType = "student" | "collab" | "general";
 
+const VALID_TYPES: FormType[] = ["student", "collab", "general"];
+
 export default function ContactPage() {
-  const [formType, setFormType] = useState<FormType>("student");
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get("type") as FormType | null;
+  const initialType: FormType =
+    typeParam && VALID_TYPES.includes(typeParam) ? typeParam : "student";
+
+  const [formType, setFormType] = useState<FormType>(initialType);
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -18,6 +27,7 @@ export default function ContactPage() {
 
   return (
     <div className={styles.page}>
+      <Breadcrumb current="Contact" />
 
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className={styles.hero}>

@@ -124,7 +124,6 @@ export default function HeroSection() {
                     </div>
                     <div className={styles.name}>
                       {s.name}
-                      {s.linkedin && <span className={styles.linkedinPill}>in</span>}
                     </div>
                     <div className={styles.course}>{s.course}</div>
                     <div className={styles.admitsLabel}>Admits:</div>

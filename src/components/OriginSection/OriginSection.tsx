@@ -15,9 +15,14 @@ export default function OriginSection() {
         />
       </div>
       <div className={styles.content}>
-        <h2>How It All Began</h2>
+        <h2 className={styles.title}>
+          <span className={styles.titleLead}>How It All </span>
+          <span className={styles.titleAccent}>Began</span>
+        </h2>
         <p className={styles.lead}>
-          From one spark came a constellation - our very own<br />Big Bang Theory
+          From one spark came a constellation - our very own
+          <br />
+          <span className={styles.leadAccent}>Big Bang Theory</span>
         </p>
         <Link href="/about" className={styles.readNow}>
           Read now!

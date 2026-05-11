@@ -1,8 +1,22 @@
-.container {
+.shell {
   display: flex;
+  flex-direction: column;
   height: 100dvh;
   max-height: 100dvh;
+  overflow: hidden;
   background: rgba(10, 10, 15, 0.85);
+}
+
+.siteBreadcrumbRow {
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 14, 0.95);
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 

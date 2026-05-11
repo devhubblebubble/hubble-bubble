@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./AboutUsPage.module.scss";
 import { teamMembers } from "./aboutUs.data";
 import { TeamCard } from "@/components/MeetTheTeam";
@@ -10,23 +11,22 @@ export default function AboutUsPage() {
   return (
     <div className={styles.page}>
 
-      {/* ── Breadcrumb ──────────────────────────────────────────────────── */}
-      <nav className={styles.breadcrumb}>
-        <Link href="/" className={styles.breadLink}>Menu</Link>
-        <span className={styles.breadSep}>›</span>
-        <span className={styles.breadCurrent}>About Us</span>
-      </nav>
+      <Breadcrumb current="About Us" />
 
       {/* ── Intro block 1 ───────────────────────────────────────────────── */}
       <section className={`${styles.introSection} reveal`}>
         <h1 className={styles.introH1}>
           We didn&apos;t{" "}
           <span className={styles.mint}>start</span>{" "}
-          this to send students abroad.
+          this
+          <br />
+          to send students abroad.
         </h1>
         <p className={styles.introBod}>
-          Too many students pick study destinations like they pick socks in the dark.{" "}
-          <strong>We&apos;re here to fix that.</strong>{" "}
+          Too many students pick study destinations like they pick socks in the dark.
+          <br />
+          <strong>We&apos;re here to fix that.</strong>
+          <br />
           With clarity and maybe a dash of cosmic stardust.
         </p>
       </section>
@@ -34,8 +34,9 @@ export default function AboutUsPage() {
       {/* ── Intro block 2 ───────────────────────────────────────────────── */}
       <section className={`${styles.introSection} reveal`}>
         <h2 className={styles.introH2}>
-          We started it so they land in the right{" "}
-          <span className={styles.mint}>galaxy.</span>
+          We started it so they
+          <br />
+          land in the right <span className={styles.mint}>galaxy.</span>
         </h2>
         <p className={styles.introBod}>
           Because education isn&apos;t just a destination.{" "}
@@ -48,7 +49,7 @@ export default function AboutUsPage() {
         <div className="reveal">
           <h2 className={styles.teamHeading}>
             Meet the{" "}
-            <span className={styles.orange}>Team on Deck</span>
+            <span className={styles.mint}>Team on Deck</span>
           </h2>
           <p className={styles.teamSub}>
             We&apos;re mentors, misfits, and former international students
@@ -82,7 +83,7 @@ export default function AboutUsPage() {
       <StoryTimeline />
 
       {/* ── Mission ─────────────────────────────────────────────────────── */}
-      <section className={`${styles.missionSection} reveal`}>
+      <section className={`${styles.missionSection} ${styles.missionAfterTimeline} reveal`}>
         <h2 className={styles.missionLabel}>
           why <span className={styles.mint}>we</span> are here?
         </h2>
@@ -98,26 +99,25 @@ export default function AboutUsPage() {
       {/* ── Vision ──────────────────────────────────────────────────────── */}
       <section className={`${styles.missionSection} reveal`}>
         <h2 className={styles.missionLabel}>
-          and where we are{" "}
-          <span className={styles.mint}>headed</span>?
+          and where we are <span className={styles.mint}>headed?</span>
         </h2>
         <p className={styles.missionAlias}>a. k. a the vision</p>
         <p className={styles.missionBody}>
           A future where every student gets real guidance, not a sales pitch.
-          One where{" "}
-          <span className={styles.orange}>purpose</span>{" "}
-          leads the way, and{" "}
-          <span className={styles.orange}>passion</span>{" "}
-          powers the journey.
+          <br />
+          One where <span className={styles.orange}>purpose</span> leads the
+          way, and <span className={styles.orange}>passion</span> powers the
+          journey.
         </p>
       </section>
 
       {/* ── Student CTA ─────────────────────────────────────────────────── */}
       <section className={`${styles.ctaSection} reveal`}>
-        <h2 className={styles.ctaHeading}>
+        <p className={styles.ctaEyebrow}>
           Feels right?{" "}
-          <span className={styles.mint}>Lets Talk!</span>
-          <br />
+          <span className={styles.mint}>Let&apos;s Talk!</span>
+        </p>
+        <h2 className={styles.ctaTitle}>
           We might just be the crew you need.
         </h2>
         <p className={styles.ctaSub}>

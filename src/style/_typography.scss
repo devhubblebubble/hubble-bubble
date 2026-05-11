@@ -1,26 +1,31 @@
+@use 'sass:map';
 @use 'variables' as *;
 @use 'mixins' as *;
 
+// Figma spec weights per heading level
+$ttl-weights: (
+  1: 500,  // H1  64px  — Medium
+  2: 400,  // H2  48px  — Regular
+  3: 600,  // H3  32px  — Semibold
+  4: 500,  // H4  20px  — Medium
+  5: 500,  // H5  18px  — Medium
+);
 
-
-// Generate Heading Classes (.ttl-1, .ttl-2, etc.)
+// Generate heading utility classes (.ttl-1 … .ttl-5)
 @each $level, $size in $ttl-font-sizes {
   .ttl-#{$level} {
     font-family: $font-primary;
-    // Fluidly scale between the max size and a proportional minimum
-    @include fluid-size($size * 16, ($size * 16) * 0.75); 
+    @include fluid-size($size * 16, ($size * 16) * 0.65);
     line-height: 1.2;
-    font-weight: 700; // Default weight for titles
+    font-weight: map.get($ttl-weights, $level);
   }
 }
 
-// Generate Body Text Classes (.fs-16, .fs-14, etc.)
+// Generate body-text utility classes (.fs-16, .fs-14 …)
 @each $key, $size in $fs-font-sizes {
   .fs-#{$key} {
-    // Proportional scaling for body size
     @include fluid-size($key, $key * 0.85);
-    
-    // Optional: Add line-height logic if needed
+
     @if $key > 16 {
       line-height: 1.4;
     } @else {
@@ -29,7 +34,7 @@
   }
 }
 
-// Global Headers
+// Map HTML heading elements to utility classes
 h1 { @extend .ttl-1; }
 h2 { @extend .ttl-2; }
 h3 { @extend .ttl-3; }

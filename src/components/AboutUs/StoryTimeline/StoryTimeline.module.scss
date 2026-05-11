@@ -4,6 +4,7 @@
 // Height set inline (total * 100vh). position:relative lets the sticky child work.
 .section {
   position: relative;
+  margin-bottom: 0;
   // intentionally no padding / max-width here — that lives in .sticky
 }
 
@@ -95,21 +96,21 @@
 
 // Scroll forward (later year): enter from below
 .slideFromBottom {
-  animation: slideInBottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: slideInBottom 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 // Scroll backward (earlier year): enter from above
 .slideFromTop {
-  animation: slideInTop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: slideInTop 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slideInBottom {
-  from { opacity: 0; transform: translateY(64px); }
+  from { opacity: 0; transform: translateY(48px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
 
 @keyframes slideInTop {
-  from { opacity: 0; transform: translateY(-64px); }
+  from { opacity: 0; transform: translateY(-48px); }
   to   { opacity: 1; transform: translateY(0);     }
 }
 
@@ -195,7 +196,7 @@
   width: 100%;
   background: var(--mint);
   border-radius: 1px;
-  transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  /* No transition — height tracks scroll every frame; easing was fighting scroll */
   box-shadow: 0 0 8px rgba(120, 225, 197, 0.55);
 }
 
@@ -204,7 +205,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  transition: bottom 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  /* No transition — stays in sync with continuous scroll progress */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,6 +217,12 @@
   flex-direction: column;
   align-items: center;
   filter: drop-shadow(0 0 8px rgba(255, 79, 0, 0.65));
+}
+
+.rocketImg {
+  width: 36px;
+  height: 48px;
+  object-fit: contain;
 }
 
 // Flickering flame beneath the rocket

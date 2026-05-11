@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./PrivacyPage.module.scss";
 
 const sections = [
@@ -65,6 +66,7 @@ export default function PrivacyPage() {
   return (
     <div className={styles.page}>
       <div className={styles.inner}>
+        <Breadcrumb current="Privacy Policy" inset />
 
         {/* ── Header ─────────────────────────────────────────────────── */}
         <header className={`${styles.header} reveal`}>

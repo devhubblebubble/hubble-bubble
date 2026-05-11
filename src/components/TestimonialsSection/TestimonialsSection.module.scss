@@ -1,62 +1,73 @@
 .section {
-  padding: 64px var(--pad-x);
+  /* Rough budget: nav + headline + lead + footer + gaps — keep card+quote inside viewport */
+  --testi-photo-cap: min(52dvh, 500px);
+  --testi-photo-width: min(440px, 48vw, calc(var(--testi-photo-cap) * 0.8));
+
+  padding: clamp(28px, 4.5dvh, 56px) var(--pad-x);
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
   text-align: center;
 
   h2 {
-    font-size: var(--fs-h2);
-    margin-bottom: 16px;
+    font-size: clamp(1.5rem, 0.95rem + 2.4vw, var(--fs-h2));
+    line-height: 1.12;
+    margin-bottom: clamp(10px, 1.8dvh, 20px);
   }
 }
 
 .lead {
-  font-size: var(--fs-h3);
+  font-size: clamp(1.05rem, 0.9rem + 1vw, var(--fs-h3));
+  line-height: 1.38;
   color: var(--white);
   font-weight: 500;
-  max-width: 700px;
-  margin: 0 auto 64px;
+  max-width: min(760px, 62ch);
+  margin: 0 auto clamp(20px, 3.2dvh, 36px);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(24px, 3.5vw, 48px);
   align-items: center;
-  margin-bottom: 48px;
+  width: 100%;
+  max-width: min(1240px, 100%);
+  margin-inline: auto;
+  margin-bottom: clamp(20px, 2.8dvh, 32px);
 }
 
 .quote {
   text-align: left;
   position: relative;
-  padding-top: 80px;
+  padding-top: clamp(36px, 7dvh, 76px);
+  min-width: 0;
 
   &::before {
     content: "\201C";
     position: absolute;
     left: 0;
-    top: -20px;
+    top: clamp(-20px, -1.5dvh, -8px);
     font-family: Georgia, serif;
-    font-size: 200px;
+    font-size: clamp(96px, 14dvh, 190px);
     line-height: 1;
     color: rgba(255, 79, 0, 0.35);
     font-weight: 700;
+    pointer-events: none;
   }
 }
 
 .quoteText {
-  font-size: var(--fs-body);
-  line-height: 1.7;
-  margin-bottom: 32px;
+  font-size: clamp(1rem, 0.88rem + 0.55vw, var(--fs-body));
+  line-height: 1.62;
+  margin-bottom: clamp(18px, 2.2dvh, 28px);
 }
 
 .quoteLarge {
-  font-size: var(--fs-h2) !important;
-  line-height: 1.15 !important;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, var(--fs-h2)) !important;
+  line-height: 1.22 !important;
 }
 
 .name {
-  font-size: clamp(1.5rem, 1.85vw, 2rem);
+  font-size: clamp(1.25rem, 1vw + 1rem, 2rem);
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -83,8 +94,10 @@
 .cardsContainer {
   position: relative;
   width: 100%;
-  max-width: 460px;
+  max-width: var(--testi-photo-width);
+  margin-inline: auto;
   aspect-ratio: 4 / 5;
+  max-height: var(--testi-photo-cap);
 }
 
 .swiper {
@@ -112,13 +125,18 @@
 .footer {
   display: flex;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: clamp(16px, 2.2dvh, 28px);
 }
 
 @media (max-width: 1100px) {
+  .section {
+    --testi-photo-cap: min(46dvh, 440px);
+    --testi-photo-width: min(400px, 76vw, calc(var(--testi-photo-cap) * 0.8));
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: clamp(22px, 3.5dvh, 36px);
   }
 
   .quote {
@@ -129,24 +147,69 @@
       transform: translateX(-50%);
     }
   }
-
-  .cardsContainer {
-    max-width: 360px;
-  }
 }
 
 @media (max-width: 640px) {
   .section {
+    --testi-photo-cap: min(40dvh, 360px);
+    --testi-photo-width: min(300px, 82vw);
     padding-left: 20px;
     padding-right: 20px;
   }
 
   .quote::before {
-    font-size: 130px;
-    top: -10px;
+    font-size: clamp(72px, 16dvh, 120px);
+    top: -8px;
+  }
+}
+
+/* Short viewports only — avoid over-shrinking common laptop browser heights */
+@media (max-height: 720px) and (min-width: 641px) {
+  .section {
+    --testi-photo-cap: min(44dvh, 400px);
+    --testi-photo-width: min(360px, 42vw, calc(var(--testi-photo-cap) * 0.8));
+    padding-top: clamp(18px, 3dvh, 36px);
+    padding-bottom: clamp(18px, 3dvh, 36px);
   }
 
-  .cardsContainer {
-    max-width: 280px;
+  .lead {
+    margin-bottom: clamp(12px, 2dvh, 22px);
+  }
+
+  .quote {
+    padding-top: clamp(24px, 5dvh, 52px);
+  }
+
+  .quote::before {
+    font-size: clamp(80px, 12dvh, 140px);
+  }
+}
+
+@media (max-height: 620px) {
+  .section {
+    --testi-photo-cap: min(36dvh, 300px);
+    --testi-photo-width: min(280px, 70vw, calc(var(--testi-photo-cap) * 0.8));
+  }
+
+  .section h2 {
+    font-size: clamp(1.2rem, 4dvh, 1.85rem);
+  }
+
+  .lead {
+    font-size: clamp(0.88rem, 2.6dvh, 1.15rem);
+    margin-bottom: 10px;
+  }
+
+  .quote::before {
+    font-size: clamp(56px, 10dvh, 100px);
+  }
+
+  .quoteText {
+    font-size: clamp(0.88rem, 2.4dvh, 1.05rem);
+    margin-bottom: 12px;
+  }
+
+  .quoteLarge {
+    font-size: clamp(1rem, 3dvh, 1.45rem) !important;
   }
 }

@@ -8,16 +8,17 @@ $card-bg-color: #1A1A1A;
 
 
 // 2. TYPOGRAPHY
-$font-primary: 'Inter', sans-serif;
-$font-secondary: var(--font-poppins), sans-serif;
+$font-primary: var(--font-poppins), "Poppins", sans-serif;
+$font-secondary: "Inter", sans-serif;
 
 // Typography Maps
+// Sizes aligned with --fs-h1/h2/h3 tokens in globals.scss
 $ttl-font-sizes: (
-  1: 3.5rem,  // h1
-  2: 2rem,    // h2
-  3: 1.5rem,  // h3
-  4: 1.25rem, // h4
-  5: 1.125rem // h5
+  1: 4rem,     // H1 → 64px  — Poppins Medium
+  2: 3rem,     // H2 → 48px  — Poppins Regular
+  3: 2rem,     // H3 → 32px  — Poppins Semibold
+  4: 1.25rem,  // H4 → 20px
+  5: 1.125rem  // H5 → 18px
 );
 
 $fs-font-sizes: (

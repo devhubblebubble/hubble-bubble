@@ -9,13 +9,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .modal {
-  width: min(560px, 100%);
-  max-height: min(88vh, 900px);
-  overflow: auto;
+  box-sizing: border-box;
+  width: min(560px, calc(100vw - 32px));
+  max-width: 100%;
+  max-height: min(88dvh, 900px);
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: #252526;
   border-radius: 28px;
   padding: 32px 36px 28px;
@@ -85,9 +93,20 @@
   font-family: $font-primary;
   font-size: 14px;
   font-weight: 500;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 6px;
   color: #fff;
+  min-width: 0;
+}
+
+.fieldLabelRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1.35;
 }
 
 .required {

@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import '../style/globals.scss';
 import ParallaxStars from '@/components/Background/ParallaxStars';
 import ShootingStars from '@/components/Background/ShootingStars';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import TransitionProvider from '@/providers/TransitionProvider';
 
-const inter = Inter({ subsets: ['latin'] });
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-poppins',
 });
 
@@ -25,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${poppins.variable}`}>
+      <body className={`${poppins.className} ${poppins.variable}`}>
          <ParallaxStars />
         {/* <ShootingStars />  */}
         <ScrollReveal />

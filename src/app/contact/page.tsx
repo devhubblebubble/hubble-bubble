@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import NavBar from "@/components/NavBar/NavBar";
 import ContactPage from "@/components/ContactPage/ContactPage";
 import FooterSection from "@/components/FooterSection/FooterSection";
@@ -12,7 +13,9 @@ export default function ContactPageRoute() {
   return (
     <main>
       <NavBar />
-      <ContactPage />
+      <Suspense fallback={null}>
+        <ContactPage />
+      </Suspense>
       <FooterSection />
     </main>
   );

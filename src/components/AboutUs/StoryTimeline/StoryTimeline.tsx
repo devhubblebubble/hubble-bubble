@@ -11,24 +11,31 @@ export default function StoryTimeline() {
   const prevIdx = useRef(0);
 
   const [idx, setIdx] = useState(0);
+  const [scrollPct, setScrollPct] = useState(0);
   const [direction, setDirection] = useState<"up" | "down">("up");
   const [animKey, setAnimKey] = useState(0);
+  const rafRef = useRef<number | null>(null);
 
   const total = timelineItems.length;
   const item = timelineItems[idx];
-  const progress = total > 1 ? idx / (total - 1) : 0;
+  /* Rocket / fill follow scroll continuously so motion doesn’t “step” at each year */
+  const progressVisual = scrollPct;
 
-  /* ── Scroll → item index ── */
+  /* ── Scroll → progress + discrete item index ── */
   useEffect(() => {
-    const onScroll = () => {
+    const tick = () => {
+      rafRef.current = null;
       const el = sectionRef.current;
       if (!el) return;
 
       const rect = el.getBoundingClientRect();
-      const scrolled = -rect.top;                          // px scrolled into section
-      const scrollable = rect.height - window.innerHeight; // total scrollable distance
+      const scrolled = -rect.top;
+      const scrollable = Math.max(1, rect.height - window.innerHeight);
       const pct = Math.max(0, Math.min(1, scrolled / scrollable));
-      const next = Math.min(total - 1, Math.round(pct * (total - 1)));
+      setScrollPct(pct);
+
+      const next =
+        total <= 1 ? 0 : Math.min(total - 1, Math.round(pct * (total - 1)));
 
       if (next !== prevIdx.current) {
         setDirection(next > prevIdx.current ? "up" : "down");
@@ -38,12 +45,23 @@ export default function StoryTimeline() {
       }
     };
 
+    const onScroll = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = window.requestAnimationFrame(tick);
+    };
+
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafRef.current != null) window.cancelAnimationFrame(rafRef.current);
+    };
   }, [total]);
 
   return (
-    /* Section height = total items × 100vh — gives each item its own scroll "page" */
+    /* Scroll length per step — lower multiplier = less empty scroll after the block */
     <section
       ref={sectionRef}
       className={styles.section}
@@ -109,13 +127,13 @@ export default function StoryTimeline() {
                 {/* Bright fill — grows upward from bottom */}
                 <div
                   className={styles.progressLine}
-                  style={{ height: `${progress * 100}%` }}
+                  style={{ height: `${progressVisual * 100}%` }}
                 />
 
                 {/* Rocket — climbs from bottom (0%) to top (100%) */}
                 <div
                   className={styles.rocketContainer}
-                  style={{ bottom: `calc(${progress * 100}% - 24px)` }}
+                  style={{ bottom: `calc(${progressVisual * 100}% - 24px)` }}
                 >
                   <div className={styles.rocketIcon}>
                     <Image
@@ -123,6 +141,7 @@ export default function StoryTimeline() {
                       alt="Rocket"
                       width={36}
                       height={48}
+                      className={styles.rocketImg}
                       priority
                     />
                     <div className={styles.rocketFlame} />

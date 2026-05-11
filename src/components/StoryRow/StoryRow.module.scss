@@ -16,7 +16,7 @@
   position: relative;
   flex: 0 0 52.4%;         // 732 / 1396 ≈ 52.4%
   height: 630px;
-  border-radius: 32px 0 0 32px;   // Figma: border-radius: 32px 0px 0px 32px
+  border-radius: 32px; // round all corners
   overflow: hidden;
   background: #111;
   flex-shrink: 0;

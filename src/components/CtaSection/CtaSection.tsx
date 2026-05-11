@@ -14,10 +14,16 @@ export default function CtaSection() {
         <div className={styles.grid}>
           <div className={`${styles.figure} reveal`} />
           <div className={`${styles.text} reveal`}>
-            <h2>
-              Still not sure<br />where to start?<br />That's why we're here!
+            <h2 className={styles.title}>
+              <span className={styles.titleLead}>
+                Still not sure
+                <br />
+                where to start?
+                <br />
+              </span>
+              <span className={styles.titleAccent}>That&apos;s why we&apos;re here!</span>
             </h2>
-            <p>Our experts have guided hundreds of students from uncertainty to success. Now it's your turn.</p>
+            <p>Our experts have guided hundreds of students from uncertainty to success. Now it&apos;s your turn.</p>
             <div className={styles.buttons}>
               <button
                 className={`${styles.btn} ${styles.btnPrimary}`}

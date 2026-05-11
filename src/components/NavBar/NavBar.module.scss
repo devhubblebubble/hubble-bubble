@@ -1,10 +1,9 @@
 .nav {
   position: fixed;
   top: 24px;
-  left: 0;
-  right: 0;
+  left: min(15%, 240px);
+  right: min(15%, 240px);
   z-index: 100;
-  padding: 0 var(--pad-x);
   transition: all 0.3s ease;
 }
 
@@ -14,6 +13,7 @@
   justify-content: space-between;
   padding: 18px 28px;
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -92,6 +92,11 @@
 }
 
 @media (max-width: 900px) {
+  .nav {
+    left: 12px;
+    right: 12px;
+  }
+
   .links {
     position: fixed;
     inset: 88px 16px auto 16px;

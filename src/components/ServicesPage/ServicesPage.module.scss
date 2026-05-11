@@ -2,7 +2,7 @@
 
 .page {
   width: 100%;
-  padding-top: 120px;
+  padding-top: 160px;
 }
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
@@ -237,7 +237,7 @@
 
 // ── Responsive ────────────────────────────────────────────────────────────────
 @media (max-width: 768px) {
-  .page { padding-top: 110px; }
+  .page { padding-top: 120px; }
 
   .hero { padding: 48px var(--pad-x) 40px; }
 

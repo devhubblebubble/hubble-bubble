@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
                     src={tm.img}
                     alt={tm.name}
                     fill
-                    sizes="(max-width: 1100px) 80vw, 500px"
+                    sizes="(max-width: 640px) 82vw, (max-width: 1100px) 76vw, min(440px, 48vw)"
                     style={{ objectFit: "cover" }}
                   />
                 </SwiperSlide>

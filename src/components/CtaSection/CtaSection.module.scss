@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 64px var(--pad-x) 96px;
+  padding: 48px var(--pad-x) 64px;
   overflow: hidden;
 }
 
@@ -21,15 +21,24 @@
 }
 
 .text {
-  h2 {
+  .title {
     font-size: var(--fs-h1);
     line-height: 1.1;
     margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .titleLead {
+    color: var(--white);
+  }
+
+  .titleAccent {
+    color: #78e1c5;
   }
 
   p {
     font-size: var(--fs-h3);
-    color: var(--muted);
+    color: var(--white);
     line-height: 1.2;
     margin-bottom: 40px;
     max-width: 660px;

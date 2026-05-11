@@ -2,7 +2,7 @@
 
 .page {
   width: 100%;
-  padding-top: 120px;
+  padding-top: 160px;
   padding-bottom: 120px;
 }
 
@@ -142,7 +142,7 @@
 
 // ── Responsive ────────────────────────────────────────────────────────────────
 @media (max-width: 768px) {
-  .page { padding-top: 80px; }
+  .page { padding-top: 120px; }
 
   .inner { padding: 40px var(--pad-x) 0; }
 

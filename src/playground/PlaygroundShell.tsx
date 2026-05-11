@@ -9,6 +9,7 @@ import {
   Category,
   ComponentEntry,
 } from "./registry";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./playground.module.scss";
 
 function ChevronIcon({ className }: { className?: string }) {
@@ -149,7 +150,11 @@ function PlaygroundContent() {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.shell}>
+      <div className={styles.siteBreadcrumbRow}>
+        <Breadcrumb current="Playground" flush />
+      </div>
+      <div className={styles.container}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
           <h1>Component Playground</h1>
@@ -203,6 +208,7 @@ function PlaygroundContent() {
           )}
         </div>
       </main>
+      </div>
     </div>
   );
 }
@@ -299,18 +305,23 @@ export default function PlaygroundShell() {
   return (
     <Suspense
       fallback={
-        <div className={styles.container}>
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarHeader}>
-              <h1>Component Playground</h1>
-              <p>Loading...</p>
-            </div>
-          </aside>
-          <main className={styles.main}>
-            <div className={styles.emptyState}>
-              <p>Loading components...</p>
-            </div>
-          </main>
+        <div className={styles.shell}>
+          <div className={styles.siteBreadcrumbRow}>
+            <Breadcrumb current="Playground" flush />
+          </div>
+          <div className={styles.container}>
+            <aside className={styles.sidebar}>
+              <div className={styles.sidebarHeader}>
+                <h1>Component Playground</h1>
+                <p>Loading...</p>
+              </div>
+            </aside>
+            <main className={styles.main}>
+              <div className={styles.emptyState}>
+                <p>Loading components...</p>
+              </div>
+            </main>
+          </div>
         </div>
       }
     >

@@ -2,35 +2,13 @@
 
 .page {
   width: 100%;
-  padding-top: 100px;
+  // Leave enough space for the fixed NavBar (top offset + bar height) + breathing room
+  padding-top: 160px;
   padding-bottom: 120px;
   max-width: calc(var(--max) + var(--pad-x) * 2);
   margin: 0 auto;
   padding-left: var(--pad-x);
   padding-right: var(--pad-x);
-}
-
-// ── Breadcrumb ────────────────────────────────────────────────────────────────
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: var(--fs-sm);
-  color: var(--muted);
-  margin-bottom: 48px;
-}
-
-.breadLink {
-  color: var(--muted);
-  transition: color 0.2s;
-  &:hover { color: var(--white); }
-}
-
-.breadSep { color: var(--dim); }
-
-.breadCurrent {
-  color: var(--white);
-  font-weight: 600;
 }
 
 // ── Title ─────────────────────────────────────────────────────────────────────
@@ -99,7 +77,7 @@
 }
 
 @media (max-width: 480px) {
-  .page { padding-top: 80px; }
+  .page { padding-top: 120px; }
   .title { font-size: var(--fs-h2); margin-bottom: 40px; }
   .list { gap: 40px; }
 }

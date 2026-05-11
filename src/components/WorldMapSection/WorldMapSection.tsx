@@ -138,7 +138,7 @@ export default function WorldMapSection() {
         </div>
 
         <h2 id="world-map-heading" className={styles.headline}>
-          Whatever your path, we are here for you!
+          Wherever you are, whatever your path!
         </h2>
       </div>
     </section>

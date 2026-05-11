@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import styles from "./ServicesPage.module.scss";
 import {
   addOnServiceCards,
@@ -17,6 +18,8 @@ export default function ServicesPage() {
 
   return (
     <div className={styles.page}>
+      <Breadcrumb current="Services" />
+
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className={styles.hero}>
         <div className="reveal">
