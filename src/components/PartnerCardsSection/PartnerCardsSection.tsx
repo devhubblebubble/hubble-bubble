@@ -46,9 +46,6 @@ export default function PartnerCardsSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const scrollVhPerFlip = 1.12; // viewport heights of scroll per flip (was 2.5 — felt endless)
-    const scrollVhTail   = 0.28; // short pause on last card before unpin (was 0.75)
-
     const ctx = gsap.context(() => {
       const cards      = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
       const totalCards = cards.length;           // 3
@@ -69,8 +66,14 @@ export default function PartnerCardsSection() {
       // The last card stays centred — it's the resting state when the section unpins.
       const flipCount = totalCards - 1; // 2 for 3 cards
 
-      const pinScrollPx = () =>
-        window.innerHeight * (flipCount * scrollVhPerFlip + scrollVhTail);
+      const pinScrollPx = () => {
+        const h = window.innerHeight;
+        const narrow = window.innerWidth <= 768;
+        /* Shorter pin on small screens = less empty pin-spacer below #about */
+        const scrollVhPerFlip = narrow ? 0.62 : 1.12;
+        const scrollVhTail = narrow ? 0.14 : 0.28;
+        return h * (flipCount * scrollVhPerFlip + scrollVhTail);
+      };
 
       /* ── ScrollTrigger — pin section, scrub animation ── */
       ScrollTrigger.create({

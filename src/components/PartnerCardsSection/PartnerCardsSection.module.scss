@@ -6,6 +6,20 @@
   height: 100svh;
   overflow: hidden;
   perspective: 1200px;
+  box-sizing: border-box;
+}
+
+/* Shorter stage + higher card anchor — less empty space under world-map headline */
+@media (max-width: 768px) {
+  .section {
+    height: min(72dvh, 82svh, 520px);
+    min-height: min(72dvh, 82svh, 520px);
+    margin-top: clamp(-20px, -3vw, -6px);
+  }
+
+  .card {
+    top: 32%;
+  }
 }
 
 .card {
@@ -292,7 +306,8 @@
 @media (max-width: 640px) {
   .card {
     width: calc(100% - 8px);
-    min-height: min(62svh, 520px);
+    /* Tighter than 62svh cap — keeps the stack closer to the stage height */
+    min-height: clamp(280px, 50svh, 440px);
     border-radius: 20px;
   }
 

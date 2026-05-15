@@ -122,4 +122,18 @@
   .nodeLabel {
     font-size: 9px;
   }
+
+  /* Pull headline closer to #about — avoids a tall dead band under the line */
+  .section {
+    padding-top: clamp(0.75rem, 2vw, 1.5rem);
+    padding-bottom: clamp(0.35rem, 1.2vw, 0.65rem);
+  }
+
+  .inner {
+    gap: clamp(0.2rem, 1vw, 0.45rem);
+  }
+
+  .headline {
+    margin-bottom: 0;
+  }
 }
