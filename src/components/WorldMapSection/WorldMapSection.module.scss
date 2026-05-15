@@ -1,139 +1,58 @@
-@use '../../style/variables' as *;
-@use '../../style/mixins' as *;
+@use "../../style/variables" as *;
+@use "../../style/mixins" as *;
+
+// Figma: map canvas 1282×846 inside 1728px frame
+// Width ratio:  1282/1728 = 74.2vw  → clamp(280px, 74.2vw, 1282px)
+// Height ratio: 846/1728  = 49vw    → clamp(240px, 49vw,   846px)
 
 .section {
-  @include section-spacing;
-  @include container;
-  background: transparent;
-
-  padding-left: clamp(0.75rem, 2vw, 2rem);
-  padding-right: clamp(0.75rem, 2vw, 2rem);
-  // Compact vertical padding so map + text both fit in one viewport
-  padding-top: clamp(1.5rem, 3vw, 3rem);
-  padding-bottom: clamp(1.5rem, 3vw, 3rem);
-}
-
-.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.5rem, 1.5vw, 1.25rem);
-  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  background: $bg-color;
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
-.svgWrap {
+.mapStage {
+  width: clamp(280px, 74.2vw, 1282px);
+  height: clamp(240px, 49vw, 846px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.network {
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
-  max-width: min(100%, 108rem);
-  margin: 0 auto;
-}
-
-.svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-
-  // On tablet+ constrain by height so the text below stays in the same viewport
-  @include min(tablet) {
-    width: auto;
-    height: min(65vh, 600px);
-    max-width: 100%;
-  }
-}
-
-// Natural Earth–style SVG (paths ~black on transparent/white) → Figma land #111D1A + coast #78E1C5.
-.mapImage {
-  filter: invert(1) brightness(0.12) sepia(1) saturate(1.65) hue-rotate(118deg) contrast(1.12);
-}
-
-.arcs {
-  pointer-events: none;
-}
-
-.arcBase {
-  stroke: rgba(255, 79, 0, 0.22);
-  stroke-width: 0.85;
-  stroke-linecap: round;
-}
-
-.arcFlow {
-  stroke: #ff4f00;
-  stroke-width: 1.15;
-  stroke-linecap: round;
-  stroke-dasharray: 12 88;
-  stroke-dashoffset: 0;
-  animation: worldMapDash 4.2s linear infinite;
-}
-
-@keyframes worldMapDash {
-  to {
-    stroke-dashoffset: -100;
-  }
-}
-
-.nodes {
-  pointer-events: none;
-}
-
-.nodeLabel {
-  fill: #ff4f00;
-  font-family: var(--font-poppins), $font-primary, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-
-  @include min(tablet) {
-    font-size: 12px;
-  }
-}
-
-.nodeDotOuter {
-  fill: rgba(255, 79, 0, 0.35);
-}
-
-.nodeDot {
-  fill: #ff4f00;
 }
 
 .headline {
-  font-family: var(--font-poppins), $font-primary, sans-serif;
+  flex: 0 0 auto;
+  font-family: $font-primary;
   font-weight: 600;
   text-align: center;
-  color: #78e1c5;
-  max-width: 42rem;
-  margin: 0 auto;
-  line-height: 1.35;
-  @include fluid-size(28, 18);
-  padding: 0 $space-xs;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .arcFlow {
-    animation: none;
-    stroke-dasharray: none;
-    stroke-dashoffset: 0;
-    stroke-opacity: 0.55;
-  }
+  color: var(--mint);
+  line-height: 1.28;
+  margin: 0;
+  padding-inline: var(--pad-x);
+  max-width: 52rem;
+  margin-inline: auto;
+  text-wrap: balance;
+  @include fluid-size(44, 22);
 }
 
 @include max(mobile) {
-  .nodeLabel {
-    font-size: 9px;
-  }
-
-  /* Pull headline closer to #about — avoids a tall dead band under the line */
   .section {
-    padding-top: clamp(0.75rem, 2vw, 1.5rem);
-    padding-bottom: clamp(0.35rem, 1.2vw, 0.65rem);
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    padding-block: clamp(1rem, 3vw, 2rem);
   }
 
-  .inner {
-    gap: clamp(0.2rem, 1vw, 0.45rem);
-  }
-
-  .headline {
-    margin-bottom: 0;
+  .mapStage {
+    width: clamp(280px, 92vw, 640px);
+    height: clamp(180px, 60vw, 420px);
   }
 }

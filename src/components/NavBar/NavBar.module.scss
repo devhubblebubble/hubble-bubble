@@ -1,10 +1,18 @@
 .nav {
   position: fixed;
   top: 24px;
-  left: min(15%, 240px);
-  right: min(15%, 240px);
+  left: var(--pad-x);
+  right: var(--pad-x);
   z-index: 100;
-  transition: all 0.3s ease;
+  transform: translateY(0);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+.hidden {
+  transform: translateY(-150%);
 }
 
 .inner {

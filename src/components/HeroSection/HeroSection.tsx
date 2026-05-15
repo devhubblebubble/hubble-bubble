@@ -58,23 +58,16 @@ export default function HeroSection() {
         <div className={styles.grid}>
           <div className="reveal">
             <h1 className={styles.headline}>
-              We are the<br />Anti-Agent Agents!<br />We Actually Care<br />Where You End Up.
+              We are the<br /><span className={styles.accent}>Anti-Agent Agents!</span><br />We Actually Care<br />Where You End Up.
             </h1>
             <div className={styles.rule} />
             <p className={styles.sub}>
-              So stop guessing. Let&apos;s find the degree<br />that fits your personality and passion!
+              <span className={styles.subMuted}>So stop guessing. </span>
+              <span className={styles.subHighlight}>Let&apos;s find the degree</span>
+              <br />
+              <span className={styles.subMuted}>that fits your personality and passion!</span>
             </p>
-            <div className={styles.ctas}>
-              <button
-                className={`${styles.btn} ${styles.btnPrimary}`}
-                onClick={() => setEligibilityOpen(true)}
-              >
-                Take the eligibility Test
-              </button>
-              <Link href="/contact" className={`${styles.btn} ${styles.btnGhost}`}>
-                Book a call
-              </Link>
-            </div>
+           
             <div className={styles.accred}>
               <div className={styles.accredLabel}>Accredited by:</div>
               <div className={styles.accredRow}>
@@ -100,6 +93,17 @@ export default function HeroSection() {
                   className={styles.accredLogo}
                 />
               </div>
+            </div>
+            <div className={styles.ctas}>
+              <button
+                className={`${styles.btn} ${styles.btnPrimary}`}
+                onClick={() => setEligibilityOpen(true)}
+              >
+                Take the eligibility Test
+              </button>
+              <Link href="/contact" className={`${styles.btn} ${styles.btnGhost}`}>
+                Book a call
+              </Link>
             </div>
           </div>
 

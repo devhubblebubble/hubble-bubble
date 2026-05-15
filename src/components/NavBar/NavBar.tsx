@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./NavBar.module.scss";
 
@@ -13,12 +13,29 @@ const NAV_LINKS = [
 ];
 
 export default function NavBar() {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const [scrolled,   setScrolled]   = useState(false);
+  const [hidden,     setHidden]     = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const prevY = useRef(0);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+
+      if (y < 80) {
+        setHidden(false);
+      } else if (y > prevY.current + 6) {
+        setHidden(true);
+        setMobileOpen(false);
+      } else if (y < prevY.current - 6) {
+        setHidden(false);
+      }
+
+      prevY.current = y;
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -30,7 +47,7 @@ export default function NavBar() {
   const isInnerPage = pathname !== "/";
 
   return (
-    <nav className={`${styles.nav} ${(scrolled || isInnerPage) ? styles.scrolled : ""}`}>
+    <nav className={`${styles.nav} ${(scrolled || isInnerPage) ? styles.scrolled : ""} ${hidden ? styles.hidden : ""}`}>
       <div className={styles.inner}>
 
         {/* Logo */}

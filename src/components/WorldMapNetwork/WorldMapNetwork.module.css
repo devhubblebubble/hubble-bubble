@@ -1,0 +1,113 @@
+.map {
+  --page-bg: #000000;
+  --land: #071f1a;
+  --coast: #48d6c3;
+  --border: rgba(72, 214, 195, 0.42);
+  --route: #f05a00;
+  --route-soft: rgba(240, 90, 0, 0.18);
+  --headline: #83f0d7;
+
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background: var(--page-bg);
+  color: var(--headline);
+  overflow: visible;
+}
+
+/** Fills parent flex slot; D3 reads clientWidth × clientHeight from this box. */
+.mapEmbedded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: 0;
+  align-self: stretch;
+}
+
+/* Intrinsic width/height come from D3; avoid width:100% + height:auto or the SVG outgrows this section and clips. */
+.svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.countries path {
+  fill: var(--land);
+  stroke: rgba(72, 214, 195, 0.8);
+  stroke-width: 0.58;
+  vector-effect: non-scaling-stroke;
+}
+
+.borders path {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.42;
+  vector-effect: non-scaling-stroke;
+}
+
+.routes path {
+  fill: none;
+  stroke: var(--route);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.16;
+}
+
+.routeFlows path {
+  fill: none;
+  stroke: var(--route);
+  stroke-width: 1.08;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(240, 90, 0, 0.62));
+}
+
+.points {
+  pointer-events: none;
+}
+
+.markerHalo {
+  fill: var(--route-soft);
+  stroke: rgba(240, 90, 0, 0.4);
+  stroke-width: 0.6;
+}
+
+.markerRing {
+  fill: rgba(240, 90, 0, 0.22);
+  stroke: var(--route);
+  stroke-width: 1;
+}
+
+.markerDot {
+  fill: var(--route);
+  stroke: #ffb17a;
+  stroke-width: 0.45;
+}
+
+.label {
+  fill: var(--route);
+  font-size: clamp(7px, 0.58vw, 9px);
+  font-weight: 600;
+  letter-spacing: 0;
+  paint-order: stroke;
+  stroke: var(--page-bg);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.headline {
+  fill: var(--headline);
+  font-size: clamp(28px, 4vw, 58px);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-anchor: middle;
+}
