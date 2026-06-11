@@ -15,6 +15,6 @@ return [
     |
     */
 
-    'link' => env('CALENDLY_LINK'),
+    'link' => env('CALENDLY_LINK') ?: 'https://calendly.com/jevinzac/intro-call',
 
 ];

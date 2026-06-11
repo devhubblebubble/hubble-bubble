@@ -66,7 +66,7 @@
                                 <h6>Let us help you make it a reality</h6>
                                 <div class="web_message_btns">
                                     <button class="btn app_btn btn_primary" onclick="openEligibility()">Take the eligibility test​</button>
-                                    <a href="https://calendly.com/jevinzac/intro-call" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
+                                    <a href="{{ $calendly_link }}" class="btn app_btn btn_secondary" target="_blank">Book a quick call</a>
                                 </div>
                             </div>
                             <a class="right_animated click_page" id="myBtn" data-target="web_Journey" href="#"  data-scroll="">
@@ -500,7 +500,7 @@
                             </div>
                             <div class="home_btn_block">
                                 <button type="button" class="btn app_btn btn_primary" id="openEligibility" onclick="openEligibility()">Take the eligibility test​</button>
-                                <a href="{{ @$calendly_link }}" target="_blank" class="btn app_btn btn_secondary">Book a quick call​</a>
+                                <a href="{{ $calendly_link }}" target="_blank" class="btn app_btn btn_secondary">Book a quick call​</a>
                             </div>
                         </div>
                     </div>
