@@ -17,6 +17,10 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/',  [HomeController::class, 'homePage']);
+Route::get('/recruitment', function () {
+    return response(file_get_contents(resource_path('recruitment/recruitment.html')), 200)
+        ->header('Content-Type', 'text/html; charset=UTF-8');
+});
 Route::post('/save-step-one',  [HomeController::class, 'saveStepOne']);
 Route::post('/save-step-two',  [HomeController::class, 'saveStepTwo']);
 Route::post('/save-step-three',  [HomeController::class, 'saveStepThree']);
