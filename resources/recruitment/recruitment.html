@@ -18,7 +18,7 @@
 <script>
 /* ---------- 1. SETTINGS ---------- */
 const CONFIG = {
-  contactEmail: "info@hubblebubble.co.uk",  // Where "Apply by email" and "Email us" go. Replace with your address.
+  contactEmail: "info@hubblebubble.club",   // Where "Apply by email" and "Email us" go.
   whatsapp: "",                              // Optional. Country code and number, digits only, e.g. "447700900123". Leave "" to hide the WhatsApp button.
   sheetCsvUrl: "",                           // Optional. Link to a CSV of roles (e.g. a Google Sheet published as CSV). When set, roles load from there instead of the JOBS list.
   hideExpired: true,                         // Hide a role automatically once its closing date has passed.
@@ -38,305 +38,356 @@ const CONFIG = {
    processingTime     free text, e.g. "8 to 12 weeks"
    posted, closing    dates as "YYYY-MM-DD". Leave closing as "" if there is no deadline.
    summary            one or two sentences shown on the card
+   details            list of short paragraphs shown first in the job description, e.g. level, career path. Leave [] to hide.
    responsibilities   list: ["item one", "item two"]. Leave [] to hide the section.
-   requirements       list, same format
+   requirements       list, same format (essential criteria)
+   desirable          list, same format (nice to have)
    benefits           list, same format
    applyUrl           optional link to an application form. Leave "" to use the apply email.
    status             "open" shows the role. "closed" hides it without deleting it.
 */
 const JOBS = [
   {
-    id: "HB-UK-001",
-    title: "Registered Nurse (Adult)",
-    employer: "NHS partner trust",
-    country: "United Kingdom",
-    city: "Manchester",
-    sector: "Healthcare",
-    type: "Full-time",
-    salary: "£31,000 to £37,000 per year",
-    visaSponsorship: true,
-    processingTime: "4 to 6 months",
-    posted: "2026-10-15",
-    closing: "2026-11-28",
-    summary: "Band 5 nursing posts on medical and surgical wards, with a structured induction for nurses joining from overseas.",
-    responsibilities: [
-      "Assess, plan and deliver nursing care for a ward of adult patients",
-      "Administer medication and keep accurate patient records",
-      "Work with doctors, physiotherapists and families on discharge planning",
-      "Supervise healthcare assistants and student nurses on shift"
-    ],
-    requirements: [
-      "Nursing degree and current registration in your home country",
-      "At least 12 months of post-registration experience",
-      "NMC registration in progress, or ready to start the CBT and OSCE",
-      "English at the NMC required level (IELTS 7.0 or OET B)"
-    ],
-    benefits: [
-      "Health and Care Worker visa sponsorship",
-      "OSCE training and exam fees covered by the employer",
-      "NHS pension scheme and 27 days holiday plus bank holidays"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-UK-002",
-    title: "Secondary Maths Teacher",
-    employer: "Academy trust",
-    country: "United Kingdom",
-    city: "Birmingham",
-    sector: "Education",
-    type: "Full-time",
-    salary: "£32,000 to £45,000 per year",
-    visaSponsorship: true,
-    processingTime: "10 to 14 weeks",
-    posted: "2026-10-16",
-    closing: "2026-11-06",
-    summary: "Teach maths to students aged 11 to 16 in a well-supported department, starting January 2027.",
-    responsibilities: [
-      "Plan and teach maths lessons across Key Stages 3 and 4",
-      "Mark work and track progress against exam targets",
-      "Support students preparing for GCSE exams",
-      "Take part in department meetings and parents' evenings"
-    ],
-    requirements: [
-      "Degree in maths or a related subject",
-      "Teaching qualification and at least 2 years of classroom experience",
-      "Qualified Teacher Status, or eligibility to apply for it",
-      "Clear police check from every country lived in for the past 10 years"
-    ],
-    benefits: [
-      "Skilled Worker visa sponsorship",
-      "Teachers' Pension Scheme",
-      "Relocation support on arrival"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-DE-003",
-    title: "DevOps Engineer",
-    employer: "Software company",
-    country: "Germany",
-    city: "Berlin",
-    sector: "IT and software",
-    type: "Full-time",
-    salary: "€65,000 to €80,000 per year",
-    visaSponsorship: true,
-    processingTime: "3 to 4 months",
-    posted: "2026-10-09",
-    closing: "",
-    summary: "Run cloud infrastructure for a growing product team. English-speaking workplace, German not needed to start.",
-    responsibilities: [
-      "Build and maintain CI/CD pipelines and cloud infrastructure on AWS",
-      "Monitor systems and respond to incidents on a shared rota",
-      "Automate deployments with Terraform and Kubernetes",
-      "Work with developers to improve reliability and release speed"
-    ],
-    requirements: [
-      "Degree in computer science, or 3 or more years of relevant experience",
-      "Hands-on experience with AWS, Docker and Kubernetes",
-      "Confident with Linux and scripting in Python or Bash",
-      "English at B2 level or above"
-    ],
-    benefits: [
-      "EU Blue Card sponsorship",
-      "30 days holiday",
-      "Hybrid working after onboarding"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-AU-004",
+    id: "HB-IE-001",
     title: "Civil Engineer",
-    employer: "Infrastructure consultancy",
-    country: "Australia",
-    city: "Perth",
+    employer: "",
+    country: "Ireland",
+    city: "",
     sector: "Engineering",
     type: "Full-time",
-    salary: "AUD 95,000 to 115,000 per year",
+    salary: "Competitive, based on qualifications and experience",
     visaSponsorship: true,
-    processingTime: "3 to 5 months",
-    posted: "2026-10-07",
-    closing: "2026-12-05",
-    summary: "Design and site work on road and water projects across Western Australia.",
+    processingTime: "",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Design, construction and commissioning of major water infrastructure: water supply, wastewater, drainage, pipelines and pumping stations. Based in Ireland, with openings in other European countries.",
+    details: [
+      "Level: Civil / Project Engineer, with career progression. Reports to a Senior or Lead Engineer or Engineering Manager.",
+      "Career path: Civil Engineer, then Senior Civil Engineer, Lead Engineer, Engineering Manager and Engineering Director. Development includes digital technologies, sustainability, leadership training and support towards chartership.",
+      "Selection includes technical interviews, practical engineering assessments and professional references. Direct water infrastructure experience is desirable but not essential where sound fundamentals and transferable experience are shown."
+    ],
     responsibilities: [
-      "Produce designs, drawings and calculations for civil projects",
-      "Carry out site inspections and report on progress",
-      "Coordinate with contractors, surveyors and local authorities",
-      "Prepare cost estimates and tender documents"
+      "Support engineering design, calculations, technical drawings, site investigations and construction delivery",
+      "Contribute to water supply, wastewater, drainage, pipeline and pumping station projects",
+      "Investigate engineering problems, assess alternatives, manage risks and verify solutions",
+      "Work with civil, hydraulic, mechanical, electrical and environmental engineers",
+      "Support inspections, quality assurance, testing, commissioning and project handover",
+      "Apply CAD, BIM and digital engineering tools, and build skills in GIS, digital twins and AI-assisted engineering",
+      "Support project planning, contractor coordination, cost control and technical reporting"
     ],
     requirements: [
-      "Bachelor's degree in civil engineering",
-      "At least 3 years of design or site experience",
-      "Positive skills assessment from Engineers Australia, or eligibility to apply",
-      "English at IELTS 6.0 in each skill, or equivalent"
+      "Bachelor's degree in civil engineering or a closely related engineering discipline",
+      "Relevant civil engineering, construction or infrastructure experience",
+      "Sound knowledge of engineering mathematics, technical drawings, construction materials and engineering principles",
+      "Able to analyse problems, weigh evidence and recommend practical solutions",
+      "Competent in relevant engineering software",
+      "Strong communication and teamwork, and a commitment to professional development",
+      "International qualifications and transferable experience are welcome, subject to verification"
     ],
-    benefits: [
-      "Employer-sponsored skilled visa",
-      "Relocation allowance",
-      "Professional development budget"
+    desirable: [
+      "Experience in water, utilities, energy, transport or major infrastructure projects",
+      "Postgraduate engineering or construction management qualification",
+      "AutoCAD, Civil 3D, Revit, BIM, GIS or hydraulic modelling",
+      "Familiarity with sustainability, digital construction or infrastructure commissioning",
+      "Progress towards professional registration or chartership"
     ],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
+  },
+  {
+    id: "HB-IE-002",
+    title: "Electrical Engineer",
+    employer: "",
+    country: "Ireland",
+    city: "",
+    sector: "Engineering",
+    type: "Full-time",
+    salary: "Competitive, based on qualifications and experience",
+    visaSponsorship: true,
+    processingTime: "",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Design, installation and commissioning of electrical systems for water and wastewater facilities, energy systems and major construction. Based in Ireland, with openings in other European countries.",
+    details: [
+      "Level: Electrical / Project Engineer, with career progression. Reports to a Senior or Lead Electrical Engineer or Engineering Manager.",
+      "Career path: Electrical Engineer, then Senior Electrical Engineer, Lead Electrical Engineer, Engineering Manager and Engineering Director.",
+      "Selection includes technical interviews, practical engineering assessments and professional references. Direct water infrastructure experience is desirable but not essential where strong electrical fundamentals and transferable experience are shown."
+    ],
+    responsibilities: [
+      "Design and support LV/MV electrical distribution, substations, transformers, switchgear and associated infrastructure",
+      "Carry out load-flow analysis, electrical calculations, equipment selection and technical verification",
+      "Support electrical systems for pumping stations, water treatment facilities and critical infrastructure",
+      "Take part in inspections, fault investigations, testing, commissioning and handover",
+      "Work with motors, variable-speed drives, instrumentation, automation and SCADA systems",
+      "Promote energy efficiency, renewable integration and resilient power systems",
+      "Support project planning, contractor coordination, technical reporting and cost control"
+    ],
+    requirements: [
+      "Bachelor's degree in electrical engineering, electrical and electronic engineering or a closely related discipline",
+      "Relevant experience in electrical design, installation, maintenance, commissioning or infrastructure engineering",
+      "Sound understanding of electrical principles, calculations, distribution systems and safety",
+      "Able to read single-line diagrams, specifications and technical drawings",
+      "Competent in relevant engineering software",
+      "Strong analytical, communication and problem-solving skills",
+      "International qualifications and transferable experience are welcome, subject to verification"
+    ],
+    desirable: [
+      "Experience with 11kV/33kV networks, substations, transformers, switchgear, RMUs or pumping installations",
+      "Experience in water, utilities, energy, industrial facilities, data centres or major construction",
+      "Knowledge of PLCs, SCADA, instrumentation, automation and variable-speed drives",
+      "AutoCAD, ETAP, PowerFactory, BIM, AI or data analytics",
+      "Postgraduate qualification, or progress towards professional registration or chartership"
+    ],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
+  },
+  {
+    id: "HB-IE-003",
+    title: "Civil BIM / Digital Engineer",
+    employer: "",
+    country: "Ireland",
+    city: "",
+    sector: "Engineering",
+    type: "Full-time",
+    salary: "Competitive, based on qualifications and experience",
+    visaSponsorship: true,
+    processingTime: "",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "BIM modelling and coordination for major water infrastructure projects, using Revit, Civil 3D and Navisworks. Based in Ireland, with potential UK and Northern European opportunities.",
+    details: [
+      "Level: Civil BIM / Digital Engineer, with career progression. Reports to a Senior Civil Engineer or Digital Engineering Lead.",
+      "Career path: Civil BIM / Digital Engineer, then Senior Digital Engineer, Digital Engineering Lead, Digital Engineering Manager and Engineering Director.",
+      "Selection includes technical interviews, practical BIM and engineering assessments and professional references."
+    ],
+    responsibilities: [
+      "Develop and coordinate civil engineering models, drawings and technical documentation",
+      "Support water, wastewater, drainage, pipeline and pumping station infrastructure",
+      "Carry out BIM coordination, clash detection, constructability reviews and technical verification",
+      "Make sure digital models reflect approved designs and site requirements",
+      "Apply Revit, Civil 3D, Navisworks, AutoCAD, GIS and related tools",
+      "Support ISO 19650 information management, open BIM and common data environments",
+      "Support project coordination, technical reporting, quality assurance and programme delivery"
+    ],
+    requirements: [
+      "Bachelor's degree in civil engineering or a closely related discipline, with demonstrated civil engineering competence",
+      "Relevant BIM, digital engineering, civil construction or infrastructure experience",
+      "Sound understanding of civil engineering principles, technical drawings and construction methods",
+      "Competent in BIM/CAD software and digital project documentation",
+      "Strong analytical, problem-solving, communication and teamwork skills",
+      "International qualifications and transferable experience are welcome, subject to verification"
+    ],
+    desirable: [
+      "Postgraduate qualification in civil engineering, BIM, digital construction or sustainable engineering",
+      "Experience in water, utilities, transport, energy or major infrastructure",
+      "Revit, Civil 3D, Navisworks, Solibri, Autodesk Construction Cloud, GIS or Dynamo",
+      "Familiarity with ISO 19650, IFC/open BIM, digital twins, AI or lifecycle assessment",
+      "Progress towards professional registration or chartership"
+    ],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
+  },
+  {
+    id: "HB-IE-004",
+    title: "Senior Construction / Project Manager",
+    employer: "",
+    country: "Ireland",
+    city: "",
+    sector: "Construction management",
+    type: "Full-time",
+    salary: "Competitive senior management package, based on experience and responsibility",
+    visaSponsorship: true,
+    processingTime: "",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Lead the planning, construction and commissioning of major water and civil infrastructure projects, with progression towards Project Director and Programme Director. Based in Ireland, with openings in other European countries.",
+    details: [
+      "Level: Senior Construction / Project Manager. Reports to the Programme Director or Engineering Director.",
+      "Career path: Senior Construction / Project Manager, then Project Director, Programme Director, Construction Director and executive leadership.",
+      "Selection includes technical and commercial interviews, review of major project achievements, leadership assessment and professional references."
+    ],
+    responsibilities: [
+      "Lead complex infrastructure projects from mobilisation through commissioning and handover",
+      "Manage multidisciplinary engineers, contractors, consultants and subcontractors",
+      "Oversee programmes, budgets, resources, construction methods and quality",
+      "Manage procurement, contracts, forecasts, variations and claims, applying NEC/FIDIC principles where relevant",
+      "Maintain project governance, risk management, reporting and accountability",
+      "Manage client relationships, public authorities and senior stakeholders",
+      "Ensure compliance with health, safety, environmental and regulatory requirements",
+      "Apply BIM, digital project controls and data analytics, and promote sustainable construction"
+    ],
+    requirements: [
+      "Bachelor's degree in civil engineering, construction management, engineering or a closely related discipline",
+      "Substantial senior-level experience delivering major construction or infrastructure projects",
+      "Proven responsibility for project budgets, programmes, contracts and multidisciplinary teams",
+      "Strong construction, commercial, contractual and risk management expertise",
+      "Demonstrated leadership, problem-solving, negotiation and communication skills",
+      "Commitment to safety, quality, professional ethics and regulatory compliance",
+      "International qualifications and transferable experience are welcome, subject to verification"
+    ],
+    desirable: [
+      "Master's degree in construction project management, engineering management or a relevant discipline",
+      "PMP, PRINCE2, Chartered Engineer, Chartered Construction Manager or equivalent",
+      "Experience in water, utilities, energy, data centres or major civil infrastructure",
+      "Knowledge of NEC/FIDIC contracts, Primavera P6, BIM and digital project controls",
+      "International experience across Ireland, the UK, Europe or other major construction markets"
+    ],
+    benefits: [],
     applyUrl: "",
     status: "open"
   },
   {
     id: "HB-IE-005",
-    title: "Software Developer (Java)",
-    employer: "Financial services company",
+    title: "Lead / Principal Software Engineer (AI and Robotics)",
+    employer: "",
     country: "Ireland",
-    city: "Dublin",
-    sector: "IT and software",
+    city: "",
+    sector: "Software and AI",
     type: "Full-time",
-    salary: "€55,000 to €70,000 per year",
+    salary: "Competitive senior engineering package, based on qualifications and experience",
     visaSponsorship: true,
-    processingTime: "6 to 10 weeks",
-    posted: "2026-10-05",
-    closing: "2026-11-14",
-    summary: "Backend development on payment systems in a team of twelve. Hybrid working in Dublin city centre.",
-    responsibilities: [
-      "Build and maintain Java services using Spring Boot",
-      "Write unit and integration tests for every change",
-      "Take part in code reviews and sprint planning",
-      "Support production releases on a rota"
-    ],
-    requirements: [
-      "Degree in computer science or a related subject",
-      "At least 2 years of Java development experience",
-      "Familiar with SQL databases and REST APIs",
-      "Good spoken and written English"
-    ],
-    benefits: [
-      "Critical Skills Employment Permit sponsorship",
-      "Private health insurance",
-      "Pension contribution and annual bonus"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-AE-006",
-    title: "Front Office Supervisor",
-    employer: "Hotel group",
-    country: "United Arab Emirates",
-    city: "Dubai",
-    sector: "Hospitality",
-    type: "Full-time",
-    salary: "AED 5,000 to 6,500 per month plus accommodation",
-    visaSponsorship: true,
-    processingTime: "3 to 6 weeks",
-    posted: "2026-10-02",
-    closing: "2026-10-24",
-    summary: "Lead the reception team at a four-star hotel, with shared accommodation and flights provided.",
-    responsibilities: [
-      "Supervise check-in, check-out and guest requests across shifts",
-      "Handle complaints and escalate where needed",
-      "Train new front office staff",
-      "Prepare shift reports for the front office manager"
-    ],
-    requirements: [
-      "At least 2 years of hotel front office experience",
-      "Confident with a property management system such as Opera",
-      "Fluent English; Arabic or Hindi is a plus",
-      "Willing to work shifts, including weekends"
-    ],
-    benefits: [
-      "Employment visa and medical insurance",
-      "Shared accommodation and transport",
-      "Annual flight home"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-CA-007",
-    title: "Early Childhood Educator",
-    employer: "Childcare centre group",
-    country: "Canada",
-    city: "Toronto",
-    sector: "Education",
-    type: "Full-time",
-    salary: "CAD 42,000 to 50,000 per year",
-    visaSponsorship: true,
-    processingTime: "4 to 8 months",
-    posted: "2026-09-28",
-    closing: "2026-11-30",
-    summary: "Plan and lead activities for children aged 2 to 5 in a licensed centre in Toronto.",
-    responsibilities: [
-      "Plan play-based learning activities",
-      "Keep children safe and record observations",
-      "Communicate daily with parents",
-      "Follow licensing and health requirements"
-    ],
-    requirements: [
-      "Diploma or degree in early childhood education",
-      "At least 1 year of experience in a nursery or preschool",
-      "Eligible for registration with the College of Early Childhood Educators",
-      "English at CLB 7 or above"
-    ],
-    benefits: [
-      "Employer support with the work permit (LMIA)",
-      "Health benefits after probation",
-      "Paid professional development days"
-    ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    id: "HB-NL-008",
-    title: "Logistics Coordinator",
-    employer: "Freight forwarder",
-    country: "Netherlands",
-    city: "Rotterdam",
-    sector: "Logistics",
-    type: "Full-time",
-    salary: "Competitive, based on experience",
-    visaSponsorship: false,
-    processingTime: "6 to 8 weeks",
-    posted: "2026-09-24",
+    processingTime: "",
+    posted: "2026-10-18",
     closing: "",
-    summary: "Coordinate sea and road shipments for European clients. For candidates who already have the right to work in the EU.",
+    summary: "Lead the design and deployment of software, AI and robotic systems for advanced manufacturing, data centres, construction technology and critical infrastructure. Based in Ireland, with openings in other European countries.",
+    details: [
+      "Level: Lead / Principal Software Engineer. Reports to the Engineering Director or Chief Technology Officer.",
+      "Career path: Lead Software Engineer, then Principal Engineer or Software Architect, Head of Software Engineering, Engineering Director and Chief Technology Officer.",
+      "Selection includes qualification checks, technical interviews, software architecture assessments, practical AI and robotics challenges, leadership evaluation and references. Hands-on robotics expertise is essential for robotics-intensive appointments."
+    ],
     responsibilities: [
-      "Book and track shipments with carriers",
-      "Prepare customs and shipping documents",
-      "Keep clients updated on delivery times",
-      "Resolve delays and invoice queries"
+      "Lead multidisciplinary engineering teams delivering complex, mission-critical software",
+      "Design scalable, secure, high-performance architectures and direct development, testing, deployment and technical governance",
+      "Develop and deploy AI, machine learning, deep learning and computer vision systems",
+      "Lead robotic automation and autonomous systems, integrating AI with sensors, perception, motion planning and control",
+      "Integrate software with IoT, PLCs, SCADA, digital twins and industrial automation",
+      "Improve data centre reliability, cooling efficiency, energy management and operational resilience",
+      "Ensure rigorous AI validation, functional safety, cybersecurity and responsible deployment",
+      "Mentor engineers and take accountability for technical decisions"
     ],
     requirements: [
-      "Right to work in the Netherlands or the EU",
-      "At least 1 year of logistics or freight experience",
-      "Good English; Dutch is a plus",
-      "Comfortable with Excel and freight software"
+      "Bachelor's degree in computer science, software engineering, computer engineering or a closely related discipline",
+      "Substantial software engineering experience, including leadership of highly technical teams",
+      "Advanced programming expertise in Python, C++, Java, C# or equivalent",
+      "Strong knowledge of software architecture, algorithms, distributed systems and cloud computing",
+      "Proven experience developing and deploying AI, machine learning or robotics systems in production",
+      "Excellent mathematical, analytical, problem-solving and technical leadership skills",
+      "International qualifications and equivalent advanced experience are welcome, subject to verification"
     ],
-    benefits: [
-      "Travel allowance",
-      "25 days holiday",
-      "Training on customs procedures"
+    desirable: [
+      "Master's degree or PhD in AI, machine learning, robotics, computer science or computational engineering",
+      "Deep learning, computer vision, reinforcement learning, generative AI or autonomous systems",
+      "ROS 2, SLAM, robotic perception, motion planning or control systems",
+      "PyTorch, TensorFlow, MLOps and AI model validation",
+      "Industrial automation, digital twins, embedded systems or cyber-physical technologies",
+      "Experience in advanced manufacturing, data centres, energy or major construction",
+      "Knowledge of cybersecurity, functional safety and European AI regulations",
+      "Research publications, patents or commercial technology innovations"
     ],
-    applyUrl: "",
-    status: "open"
-  },
-  {
-    /* Example of a role kept on file but hidden from the page (status: "closed") */
-    id: "HB-SG-009",
-    title: "Accounts Executive",
-    employer: "Accounting firm",
-    country: "Singapore",
-    city: "Singapore",
-    sector: "Finance",
-    type: "Full-time",
-    salary: "SGD 3,800 to 4,500 per month",
-    visaSponsorship: true,
-    processingTime: "4 to 6 weeks",
-    posted: "2026-09-10",
-    closing: "",
-    summary: "This role has been filled.",
-    responsibilities: [],
-    requirements: [],
     benefits: [],
     applyUrl: "",
-    status: "closed"
+    status: "open"
+  },
+  {
+    id: "HB-DE-006",
+    title: "Electrician",
+    employer: "",
+    country: "Germany",
+    city: "Berlin, Munich, Frankfurt or Hamburg",
+    sector: "Skilled trades",
+    type: "2 to 3 year contract",
+    salary: "€2,200 to €2,500 per month",
+    visaSponsorship: true,
+    processingTime: "4 to 6 months (estimate)",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Electrician roles on construction, logistics, infrastructure and warehouse sites under the Germany Skilled Worker Visa programme. Contract length depends on experience.",
+    details: [
+      "Contract: 2 to 3 years, depending on experience. Work sites: construction and logistics, infrastructure and warehouses.",
+      "The estimated 4 to 6 months covers interviews, document verification, paperwork and the visa application. This is an indicative timeframe, not a guarantee. The German authorities decide on each visa, and you may be asked for further documents during the process.",
+      "Eligible skilled workers may later apply for family reunification for a spouse and children under 18, subject to German immigration rules. Employers often suggest settling into the job first, typically for around six months."
+    ],
+    responsibilities: [],
+    requirements: [
+      "At least 1 year of paid work experience",
+      "Completed vocational training, a trade diploma, or an ITI or degree in electrical engineering, electrical installation or a related field",
+      "Foreign certificates usually need official recognition in Germany (Anerkennung)",
+      "German language at A1 level",
+      "German translations of your documents"
+    ],
+    desirable: [],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
+  },
+  {
+    id: "HB-DE-007",
+    title: "Physiotherapist",
+    employer: "",
+    country: "Germany",
+    city: "Berlin, Munich, Frankfurt or Hamburg",
+    sector: "Healthcare",
+    type: "2 to 3 year contract",
+    salary: "€3,000 to €3,200 per month",
+    visaSponsorship: true,
+    processingTime: "4 to 6 months (estimate)",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Physiotherapist roles in hospitals and care homes under the Germany Skilled Worker Visa programme. Contract length depends on experience.",
+    details: [
+      "Contract: 2 to 3 years, depending on experience. Work sites: hospitals and care homes.",
+      "The estimated 4 to 6 months covers interviews, document verification, paperwork and the visa application. This is an indicative timeframe, not a guarantee. The German authorities decide on each visa, and you may be asked for further documents during the process.",
+      "Eligible skilled workers may later apply for family reunification for a spouse and children under 18, subject to German immigration rules. Employers often suggest settling into the job first, typically for around six months."
+    ],
+    responsibilities: [],
+    requirements: [
+      "Bachelor's degree or a state-recognised physiotherapy qualification, roughly equivalent to the 4,500 hours of German training",
+      "Your qualification must be assessed and recognised by the regional health authority in Germany (Berufsanerkennung)",
+      "At least 1 year of paid work experience",
+      "German language at B1 level",
+      "Police clearance certificate",
+      "German translations of your documents"
+    ],
+    desirable: [],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
+  },
+  {
+    id: "HB-DE-008",
+    title: "Occupational Therapist",
+    employer: "",
+    country: "Germany",
+    city: "Berlin, Munich, Frankfurt or Hamburg",
+    sector: "Healthcare",
+    type: "2 to 3 year contract",
+    salary: "€3,000 to €3,200 per month",
+    visaSponsorship: true,
+    processingTime: "4 to 6 months (estimate)",
+    posted: "2026-10-18",
+    closing: "",
+    summary: "Occupational therapist roles in hospitals and care homes under the Germany Skilled Worker Visa programme. Contract length depends on experience.",
+    details: [
+      "Contract: 2 to 3 years, depending on experience. Work sites: hospitals and care homes.",
+      "The estimated 4 to 6 months covers interviews, document verification, paperwork and the visa application. This is an indicative timeframe, not a guarantee. The German authorities decide on each visa, and you may be asked for further documents during the process.",
+      "Eligible skilled workers may later apply for family reunification for a spouse and children under 18, subject to German immigration rules. Employers often suggest settling into the job first, typically for around six months."
+    ],
+    responsibilities: [],
+    requirements: [
+      "Bachelor's degree or a state-recognised occupational therapy qualification, roughly equivalent to the 4,500 hours of German training",
+      "Your qualification must be assessed and recognised by the regional health authority in Germany (Berufsanerkennung)",
+      "At least 1 year of paid work experience",
+      "German language at B2 level",
+      "Police clearance certificate",
+      "German translations of your documents"
+    ],
+    desirable: [],
+    benefits: [],
+    applyUrl: "",
+    status: "open"
   }
 ];
 </script>
@@ -776,7 +827,7 @@ c4.6-46.1,41.9-83.5,88-88C1253.3,321.8,1305.3,373.8,1299.1,436.1z"/>
 
   <section class="how wrap" aria-labelledby="how-title">
     <h2 id="how-title">What happens after you apply</h2>
-    <p class="intro">The processing time on each role is the typical time from your application to your first day, including the visa stage. It depends on the country, the employer and how quickly your documents are ready.</p>
+    <p class="intro">The processing time on each role is the typical time from your application to your first day, including the visa stage. It is an estimate, not a guarantee: it depends on the country, the employer, the visa authorities and how quickly your documents are ready.</p>
     <ol class="steps">
       <li><strong>Send your application</strong><p>Use the apply button on the role. Attach your CV and tell us where you are based now.</p></li>
       <li><strong>Eligibility check</strong><p>We go through the employer and visa requirements with you, so there are no surprises later.</p></li>
@@ -844,6 +895,7 @@ c4.6-46.1,41.9-83.5,88-88C1253.3,321.8,1305.3,373.8,1299.1,436.1z"/>
     return String(v || "").split(/\r?\n|;/).map(function (s) { return s.trim(); }).filter(Boolean);
   }
   function toParagraphs(v) {
+    if (Array.isArray(v)) return v.map(function (s) { return String(s).trim(); }).filter(Boolean);
     return String(v || "").split(/\r?\n+/).map(function (s) { return s.trim(); }).filter(Boolean);
   }
   function toBool(v) {
@@ -877,6 +929,7 @@ c4.6-46.1,41.9-83.5,88-88C1253.3,321.8,1305.3,373.8,1299.1,436.1z"/>
       details: toParagraphs(pick(raw, ["details", "description"])),
       responsibilities: toList(pick(raw, ["responsibilities", "duties"])),
       requirements: toList(pick(raw, ["requirements", "skills"])),
+      desirable: toList(pick(raw, ["desirable", "nice_to_have", "preferred"])),
       benefits: toList(pick(raw, ["benefits", "package"])),
       applyUrl: String(pick(raw, ["applyUrl", "apply_url", "link", "url"])).trim(),
       status: String(pick(raw, ["status"]) || "open").trim().toLowerCase()
@@ -973,7 +1026,7 @@ c4.6-46.1,41.9-83.5,88-88C1253.3,321.8,1305.3,373.8,1299.1,436.1z"/>
       return items.length ? "<h4>" + title + "</h4><ul>" + items.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "";
     };
     var details = j.details.length ? "<h4>About the role</h4>" + j.details.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") : "";
-    var jd = details + section("What you will do", j.responsibilities) + section("What you need", j.requirements) + section("What you get", j.benefits);
+    var jd = details + section("What you will do", j.responsibilities) + section("What you need", j.requirements) + section("Good to have", j.desirable) + section("What you get", j.benefits);
     var external = /^https?:/i.test(j.applyUrl);
     var href = applyHref(j);
 
@@ -1016,7 +1069,7 @@ c4.6-46.1,41.9-83.5,88-88C1253.3,321.8,1305.3,373.8,1299.1,436.1z"/>
     if (state.type && j.type !== state.type) return false;
     if (state.visa && !j.visaSponsorship) return false;
     if (state.q) {
-      var hay = [j.title, j.employer, j.country, j.city, j.sector, j.type, j.summary, j.requirements.join(" "), j.responsibilities.join(" ")].join(" ").toLowerCase();
+      var hay = [j.title, j.employer, j.country, j.city, j.sector, j.type, j.summary, j.requirements.join(" "), j.desirable.join(" "), j.responsibilities.join(" ")].join(" ").toLowerCase();
       var words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
       for (var i = 0; i < words.length; i++) { if (hay.indexOf(words[i]) === -1) return false; }
     }
